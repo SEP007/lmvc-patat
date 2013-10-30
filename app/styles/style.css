@@ -176,6 +176,17 @@ header .bar-right {
 footer {
   height: 10%;
   margin-bottom: 25px; }
+  
+.languages ul { 
+	margin: 0;
+	padding: 0;
+	list-style-type: none; }
+
+.languages ul li { 
+	display: inline; }
+	
+.languages ul li a { 
+	text-decoration: none; }
 
 #map {
   height: 400px; }

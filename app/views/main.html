@@ -4,6 +4,7 @@
     use Scandio\lmvc\modules\security\handlers\database\models;
     use Scandio\lmvc\modules\security\Security;
     use Scandio\lmvc\modules\htmltag\Html;
+    use Scandio\lmvc\modules\session\Session;
 ?>
 
 <!doctype html>
@@ -45,9 +46,63 @@
                     Html::img(['src' => Asset::image(['header-ketchup.png'])], null)
                 )
             )
+            .
+            Html::div(['class' => 'languages'],
+            	Html::form(['method' => 'post'], 
+            	 	Html::ul(null,
+            	 		'Choose Language' . 
+      					Html::li(null, [
+      						Html::input(['type' => 'image', 'value' => 'English', 
+      							'alt' => 'English', 'name' => 'english', 
+      							'src' => Asset::image(['flags/en_us.png'])], null),
+      						Html::input(['type' => 'image', 'value' => 'Svenska', 
+      							'alt' => 'Svenska', 'name' => 'svenska', 
+      							'src' => Asset::image(['flags/sv.png'])], null),
+      						Html::input(['type' => 'image', 'value' => 'German', 
+      							'alt' => 'German', 'name' => 'german', 
+      							'src' => Asset::image(['flags/de.png'])], null),
+      						Html::input(['type' => 'image', 'value' => 'Russian', 
+      							'alt' => 'Russian', 'name' => 'russian', 
+      							'src' => Asset::image(['flags/ru.png'])], null),
+      						Html::input(['type' => 'image', 'value' => 'Bulgarian', 
+      							'alt' => 'Bulgarian', 'name' => 'bulgarian', 
+      							'src' => Asset::image(['flags/bl.png'])], null),
+      						Html::input(['type' => 'image', 'value' => 'Greek', 
+      							'alt' => 'Greek', 'name' => 'greek', 
+      							'src' => Asset::image(['flags/el.png'])], null), 
+      					]) 
+      				) 
+   				) 
+            ) 
         );
     ?>
-
+    
+    <?php
+        
+        $language = 'en';
+        
+        if(isset($_POST['german_x'])) {
+        	$language = 'de';
+        }
+        else if(isset($_POST['svenska_x'])) {
+        	$language = 'sv';
+        }
+        else if(isset($_POST['russian_x'])) {
+        	$language = 'ru';
+        }
+        else if(isset($_POST['bulgarian_x'])) {
+        	$language = 'bl';
+        }
+		else if(isset($_POST['greek_x'])) {
+			$language = 'el';
+		}	
+		else if(isset($_POST['english_x'])) {
+			$language = 'en';
+		}
+		
+		Session::set('language', $language, false);  
+    ?>
+    
     <div class="navbar">
         <div class="navbar-inner">
             <div class="container">
@@ -63,7 +118,7 @@
                 <div class="nav-collapse collapse">
                     <nav>
                         <ul class="nav pull-left">
-                            <li class=""><a href="<?= $app->url('Application::index') ?>">Home</a></li>
+                            <li class=""><a href="<?= $app->url('Application::index') ?>"> Home </a></li>
                             <?php if(!Security::get()->isAuthenticated()): ?>
                                 <li><a href="<?= $app->url('Registration::signup') ?>">Sign up</a></li>
                             <?php endif; ?>
