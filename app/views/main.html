@@ -4,7 +4,7 @@
     use Scandio\lmvc\modules\security\handlers\database\models;
     use Scandio\lmvc\modules\security\Security;
     use Scandio\lmvc\modules\htmltag\Html;
-    use Scandio\lmvc\modules\session\Session;
+    use Scandio\lmvc\modules\i18n\controllers\I18n;
 ?>
 
 <!doctype html>
@@ -78,29 +78,24 @@
     ?>
     
     <?php
-        
-        $language = 'en';
-        
         if(isset($_POST['german_x'])) {
-        	$language = 'de';
+        	I18n::setLanguage('de');
         }
         else if(isset($_POST['svenska_x'])) {
-        	$language = 'sv';
+        	I18n::setLanguage('sv');
         }
         else if(isset($_POST['russian_x'])) {
-        	$language = 'ru';
+        	I18n::setLanguage('ru');
         }
         else if(isset($_POST['bulgarian_x'])) {
-        	$language = 'bl';
+        	I18n::setLanguage('bl');
         }
 		else if(isset($_POST['greek_x'])) {
-			$language = 'el';
+			I18n::setLanguage('el');
 		}	
 		else if(isset($_POST['english_x'])) {
-			$language = 'en';
+			I18n::setLanguage('en');
 		}
-		
-		Session::set('language', $language, false);  
     ?>
     
     <div class="navbar">
@@ -118,19 +113,19 @@
                 <div class="nav-collapse collapse">
                     <nav>
                         <ul class="nav pull-left">
-                            <li class=""><a href="<?= $app->url('Application::index') ?>"> Home </a></li>
+                            <li class=""><a href="<?= $app->url('Application::index') ?>"> <?= I18n::translate('home'); ?> </a></li>
                             <?php if(!Security::get()->isAuthenticated()): ?>
-                                <li><a href="<?= $app->url('Registration::signup') ?>">Sign up</a></li>
+                                <li><a href="<?= $app->url('Registration::signup') ?>"> <?= I18n::translate('signUp'); ?> </a></li>
                             <?php endif; ?>
                         </ul>
 
                         <ul class="nav pull-right">
                             <?php if(Security::get()->isAuthenticated()): ?>
-                                <li><a href="<?= $app->url('Registration::edit') ?>">My Restaurant</a></li>
+                                <li><a href="<?= $app->url('Registration::edit') ?>"> <?= I18n::translate('myRestaurant'); ?> </a></li>
                             <?php endif; ?>
-                            <li><a href="<?= $app->url('Menu::index') ?>">Menu</a></li>
+                            <li><a href="<?= $app->url('Menu::index') ?>"> <?= I18n::translate('menu'); ?> </a></li>
                             <?php if(Security::get()->isAuthenticated()): ?>
-                                <li><a href="<?= $app->url('Security::logout') ?>">Logout</a></li>
+                                <li><a href="<?= $app->url('Security::logout') ?>"> <?= I18n::translate('logout'); ?> </a></li>
                             <?php endif; ?>
                         </ul>
                     </nav>

@@ -1,0 +1,85 @@
+#app/views/main.html
+home: 'Home'
+signUp: 'Sign Up'
+myRestaurant: 'My Restaurant'
+menu: 'Menu'
+logout: 'Logout'
+#
+#app/views/application/index.html
+weAreTryingToLocate: 'We are trying to locate you, stay put!'
+youCanAlsoSpecifyYourAddress: 'You can also specify your address'
+findMe: 'Find me'
+find: 'Find'
+#
+#app/views/dishes/index.html
+#
+#app/views/dishes/map.html
+startWalking: 'Start walking: this is where you are heading!'
+showMapIn: 'Show map in'
+orIn: 'or in'
+#
+#app/views/imbiss/index.html
+currentOffers: 'Current offers'
+sorry: 'Sorry'
+weDontHaveOffers: 'we do not have any offers at them moment!'
+moreSnacks: 'More snacks'
+weDontHaveSnacks: 'we do not have any snacks listed!'
+#
+#app/views/menu/edit.html
+uploadImage: 'Upload image!'
+#
+#app/views/menu/index.html
+name: 'Name'
+image: 'Image'
+description: 'Description'
+price: 'Price'
+addNewSnack: 'Add new snack'
+yes: 'Yes'
+#
+#app/views/registration/edit.html
+woops: 'Woops!'
+youAreMissingSomeData: 'You're missing some data, please fillout compulsory fields!'
+veryGood: 'Very good'
+everythingWorkedFine: 'Everything worked just fine, you can sign in now!'
+userInformation: 'User information'
+#
+#app/views/registration/failure.html
+sorryRegistrationFailed: 'Sorry, registration or account editing failed!'
+resolveProblems: 'We're very sorry but you're registration or editing of your account could not be completed due to technical problems. Retrying might solve this issue.'
+#
+#app/views/registration/signup.html
+username: 'Username'
+password: 'Password'
+repeatPassword: 'Repeat Password'
+first: 'First'
+surname: 'Surname'
+email: 'E-Mail'
+phone: 'Phone'
+mobile: 'Mobile'
+yourRestaurant: 'Your restaurant'
+domainForRestaurant: 'Domain for restaurant'
+country: 'Country'
+city: 'City'
+zip: 'Zip'
+street: 'Street'
+houseNumber: 'House number'
+findYourLocation: 'Find your location'
+longitude: 'Longitude'
+latitude: 'Latitude'
+#
+#app/views/registration/success.html
+chipFat: 'All hot as chip fat!'
+singedUp: 'Yay! You're signed up. Sign in and start setting up your restaurant!'
+toLogin: 'To login'
+#
+#app/views/security/forbidden.html
+needToSingIn: 'Yau! You need to sign in to see this information'
+restricedPage: 'This page is restricted to logged in users only, please login or sign up first.'
+#
+#app/views/security/login.html
+ohNo: 'Oh No!'
+loginFailed: 'Login failed. Mistyped something here?'
+logIn: 'Log yerself in!'
+toSignup: 'To signup'
+goBack: 'Go back'
+#

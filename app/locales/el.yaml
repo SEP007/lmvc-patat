@@ -1,0 +1,8 @@
+#app/views/main.html
+home: 'Αρχική Σελίδα'
+signUp: 'Εγγραφή'
+myRestaurant: 'Το Εστιατόριό μου'
+menu: 'Μενού'
+logout: 'Έξοδος'
+#app/views/registration/signup.html
+username: 'Όνομα Χρήστη'
