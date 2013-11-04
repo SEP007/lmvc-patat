@@ -4,6 +4,7 @@ use troba\EQM\EQM;
 use Scandio\lmvc\LVC;
 use Scandio\lmvc\modules\assetpipeline;
 use Scandio\lmvc\modules\upload;
+use Scandio\lmvc\modules\i18n;
 
 class Bootstrap extends \Scandio\lmvc\Bootstrap
 {
@@ -23,5 +24,6 @@ class Bootstrap extends \Scandio\lmvc\Bootstrap
         ]);
 
         assetpipeline\Bootstrap::configure(static::getPath());
+		i18n\Bootstrap::configure(static::getPath());
     }
 }
