@@ -1,0 +1,48 @@
+{
+    "name": "sep007/lmvc-patat",
+    "type": "application",
+    "description": "A small little app suggesting fast food restaurants in walking distance for a hungry person.",
+    "keywords": ["php", "application", "mvc", "scandio", "lmvc", "food", "hungry", "geolocation"],
+    "homepage": "https://github.com/scandio/lmvc-patat",
+    "minimum-stability": "dev",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Scandio GmbH",
+            "homepage": "http://www.scandio.de/"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "scandio/lmvc": "dev-master",
+        "scandio/troba": "dev-master",
+        "scandio/lmvc-modules": "dev-master"
+    },
+    "repositories": [
+       {
+         "type": "git",
+         "url": "https://github.com/SEP007/lmvc.git"
+       },
+       {
+         "type": "git",
+         "url": "https://github.com/SEP007/lmvc-modules.git"
+       },
+       {
+         "type": "git",
+         "url": "https://github.com/SEP007/lmvc-troba.git"
+       }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*",
+        "satooshi/php-coveralls": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "": "app"
+        }
+    },
+    "config" : {
+        "bin-dir": "bin",
+        "vendor-dir" : "composer"
+    }
+}

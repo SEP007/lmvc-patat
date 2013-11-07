@@ -16,7 +16,8 @@
         "php": ">=5.4",
         "scandio/lmvc": "dev-master",
         "scandio/troba": "dev-master",
-        "scandio/lmvc-modules": "dev-master"
+        "scandio/lmvc-modules": "dev-master",
+        "mustangostang/spyc": "0.5.*@dev"
     },
     "repositories": [
        {
