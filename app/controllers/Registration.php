@@ -32,6 +32,25 @@ class Registration extends controllers\Registration
         static::render();
     }
 
+    public static function finish($usernamehash, $email, $randomkey)
+    {
+        $user = \models\Users::getByEmail($email);
+        $username = $user->username;
+        $userkey = $user->randomkey;
+        if ( md5($username) == $usernamehash && $userkey == $randomkey )
+        {
+            $user->verified = 1;
+            $user->save();
+
+            static::render();
+        } else {
+            self::renderHtml(
+                "<h2>Whoopsi! Are you trying to hack us?</h2>"
+            );
+        }
+
+    }
+
     public static function getSuggestHandle($restaurant = null)
     {
         $handle = \util\String::urlSlug($restaurant);
@@ -121,12 +140,15 @@ class Registration extends controllers\Registration
 
                 $customer->user_id      = $parentResponse->id;
 
+                #Generate a random hash for email verification
+                $randomkey = \models\Users::setRandomKey($parentResponse->id);
+
                 $userToGroups->user_id  = $customer->user_id;
                 $userToGroups->group_id = 3;
 
                 $username = $parentResponse->username;
                 $address = $parentResponse->email;
-                Registration::sendEmail($username, $address);
+                Registration::sendEmail($username, $address, $randomkey);
 
                 $customer->insert();
                 $userToGroups->insert();
@@ -252,17 +274,18 @@ class Registration extends controllers\Registration
      * @param $username
      * @param $address email address of a user
      */
-    private static function sendEmail($username, $address)
+    private static function sendEmail($username, $address, $randomkey)
     {
         $messageArgs = array(
             "username" => $username,
             "usernamehash" => md5($username),
-            "email" => $address
+            "email" => $address,
+            "randomkey" => $randomkey
         );
         $subject = Config::get()->emails->subjects->registration;
         $message = Config::get()->emails->messages->registration . Config::get()->emails->links->emailVerification;
         $header = Config::get()->emails->headers->content;
-        mail($address, $subject, Registration::_interpolate($message, $messageArgs), $header);
+        mail($address, $subject, self::_interpolate($message, $messageArgs), $header);
     }
 
     /**
