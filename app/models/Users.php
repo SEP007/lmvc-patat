@@ -33,6 +33,7 @@ class Users
             ->select('*')
             ->where('email= :email', ['email' =>$email])
             ->one();
+
         return $user;
     }
 

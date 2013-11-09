@@ -37,6 +37,7 @@ class Registration extends controllers\Registration
         $user = \models\Users::getByEmail($email);
         $username = $user->username;
         $userkey = $user->randomkey;
+
         if ( md5($username) == $usernamehash && $userkey == $randomkey )
         {
             $user->verified = 1;
@@ -138,20 +139,21 @@ class Registration extends controllers\Registration
                 $customer = new \models\Customers();
                 $userToGroups = new \models\UserToGroups();
 
-                $customer->user_id      = $parentResponse->id;
+                $customer->user_id = $parentResponse->id;
 
                 #Generate a random hash for email verification
-                $randomkey = \models\Users::setRandomKey($parentResponse->id);
+                $randomkey = \models\Users::setRandomKey($customer->user_id);
 
                 $userToGroups->user_id  = $customer->user_id;
                 $userToGroups->group_id = 3;
 
-                $username = $parentResponse->username;
-                $address = $parentResponse->email;
-                Registration::sendEmail($username, $address, $randomkey);
-
                 $customer->insert();
                 $userToGroups->insert();
+
+                $username = $parentResponse->username;
+                $address = $parentResponse->email;
+
+                static::sendEmail($username, $address, $randomkey);
 
                 static::redirect('Menu::index');
 
@@ -285,13 +287,13 @@ class Registration extends controllers\Registration
         $subject = Config::get()->emails->subjects->registration;
         $message = Config::get()->emails->messages->registration . Config::get()->emails->links->emailVerification;
         $header = Config::get()->emails->headers->content;
-        mail($address, $subject, self::_interpolate($message, $messageArgs), $header);
+        mail($address, $subject, static::_interpolate($message, $messageArgs), $header);
     }
 
     /**
      * Interpolates context values into the message placeholders.
      */
-    private function _interpolate($message, array $context = array())
+    private static function _interpolate($message, array $context = array())
     {
         // build a replacement array with braces around the context keys
         $replace = array();
