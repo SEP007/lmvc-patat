@@ -32,26 +32,6 @@ class Registration extends controllers\Registration
         static::render();
     }
 
-    public static function finish($usernamehash, $email, $randomkey)
-    {
-        $user = \models\Users::getByEmail($email);
-        $username = $user->username;
-        $userkey = $user->randomkey;
-
-        if ( md5($username) == $usernamehash && $userkey == $randomkey )
-        {
-            $user->verified = 1;
-            $user->save();
-
-            static::render();
-        } else {
-            self::renderHtml(
-                "<h2>Whoopsi! Are you trying to hack us?</h2>"
-            );
-        }
-
-    }
-
     public static function getSuggestHandle($restaurant = null)
     {
         $handle = \util\String::urlSlug($restaurant);
@@ -268,6 +248,30 @@ class Registration extends controllers\Registration
                 # This does not imply a form-validation error, its the last resort...
                 static::redirect('Registration::failure');
             }
+        }
+    }
+
+    /**
+     * Newly registered user email verification
+     * @param $usernamehash hashed username sent to the user
+     * @param $email user email address
+     * @param $randomkey random hash sent to the user
+     */
+    public static function finish($usernamehash, $email, $randomkey)
+    {
+        $user = \models\Users::getByEmail($email);
+        $username = $user->username;
+        $userkey = $user->randomkey;
+        if ( md5($username) == $usernamehash && $userkey == $randomkey )
+        {
+            $user->verified = 1;
+            $user->save();
+
+            static::render();
+        } else {
+            self::renderHtml(
+                "<h2>Whoopsi! Are you trying to hack us?</h2>"
+            );
         }
     }
 
