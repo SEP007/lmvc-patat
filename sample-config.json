@@ -58,5 +58,22 @@
                 "fallbacks": []
             }
         }
+    },
+
+    "emails": {
+        "sender": "info@patat.com",
+        "subjects": {
+            "registration": "Signup verification"
+        },
+        "messages": {
+            "registration": "<h1>Dear {username},</h1><p> To complete your signup please click this "
+        },
+        "headers": {
+            "content": "Content-type: text/html; charset=windows-1251 \r\n"
+        },
+        "links": {
+            "emailVerification": "<a href=\"http:\/\/sep007.tdeekens.name\/registration\/finish\/{usernamehash}\">link</a> "
+        }
+
     }
 }
