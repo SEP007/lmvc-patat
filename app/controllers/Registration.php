@@ -89,6 +89,12 @@ class Registration extends controllers\Registration
                 $location->insert();
                 $userToGroup->insert();
 
+                #Generate a random hash for email verification and send an email
+                $randomkey = \models\Users::setRandomKey($location->user_id);
+                $username = $parentResponse->username;
+                $address = $parentResponse->email;
+                static::sendEmail($username, $address, $randomkey);
+
                 static::redirect('Menu::index');
 
             } else {
@@ -121,18 +127,16 @@ class Registration extends controllers\Registration
 
                 $customer->user_id = $parentResponse->id;
 
-                #Generate a random hash for email verification
-                $randomkey = \models\Users::setRandomKey($customer->user_id);
-
                 $userToGroups->user_id  = $customer->user_id;
                 $userToGroups->group_id = 3;
 
                 $customer->insert();
                 $userToGroups->insert();
 
+                #Generate a random hash for email verification and send an email
+                $randomkey = \models\Users::setRandomKey($customer->user_id);
                 $username = $parentResponse->username;
                 $address = $parentResponse->email;
-
                 static::sendEmail($username, $address, $randomkey);
 
                 static::redirect('Menu::index');
