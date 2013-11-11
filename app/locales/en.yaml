@@ -83,3 +83,27 @@ logIn: 'Log yerself in!'
 toSignup: 'To signup'
 goBack: 'Go back'
 #
+#app/forms/Signup.php
+nameCompulsory: 'A name for your restaurant is compulsory!'
+typeCity: 'Type a city please!'
+zip: 'The zip code is needed!'
+mandatoryField: 'Mandatory field missing here!'
+thatUsername: 'That username:'
+tooShort: 'is too short!'
+giveUsername: 'Please give us a username!'
+theEmail: 'The E-Mail:'
+notValid: 'is not valid!'
+weakPassword: 'The password is weak'
+passwordMatch: 'The passwords do not match'
+retypePassword: 'Retype the password!'
+pickUrl: 'Please pick a url, its your address!'
+urlTooShort: 'This url is too short!'
+#
+#app/forms/Signup.php
+needName: 'We need your name!'
+yourDescription: 'Your description:'
+shortDescription: 'seems too short!'
+needDescription: 'A description is needed'
+addPrice: 'You might want to add a price!'
+validPrice: 'We figured that this is not a valid price!'
+#

@@ -47,60 +47,22 @@
                     Html::img(['src' => Asset::image(['header-ketchup.png'])], null)
                 )
             )
-            .
-            Html::div(['class' => 'languages'],
-            	Html::form(['method' => 'post'], 
-            	 	Html::ul(null,
-            	 		'Choose Language' . 
-      					Html::li(null, [
-      						Html::input(['type' => 'image', 'value' => 'English', 
-      							'alt' => 'English', 'name' => 'english', 
-      							'src' => Asset::image(['flags/en_us.png'])], null),
-      						Html::input(['type' => 'image', 'value' => 'Svenska', 
-      							'alt' => 'Svenska', 'name' => 'svenska', 
-      							'src' => Asset::image(['flags/sv.png'])], null),
-      						Html::input(['type' => 'image', 'value' => 'German', 
-      							'alt' => 'German', 'name' => 'german', 
-      							'src' => Asset::image(['flags/de.png'])], null),
-      						Html::input(['type' => 'image', 'value' => 'Russian', 
-      							'alt' => 'Russian', 'name' => 'russian', 
-      							'src' => Asset::image(['flags/ru.png'])], null),
-      						Html::input(['type' => 'image', 'value' => 'Bulgarian', 
-      							'alt' => 'Bulgarian', 'name' => 'bulgarian', 
-      							'src' => Asset::image(['flags/bl.png'])], null),
-      						Html::input(['type' => 'image', 'value' => 'Greek', 
-      							'alt' => 'Greek', 'name' => 'greek', 
-      							'src' => Asset::image(['flags/el.png'])], null), 
-      					]) 
-      				) 
-   				) 
-            ) 
-        );
+         );
     ?>
     
-    <?php
-    	var_dump($_POST);
-    
-    	if(isset($_POST['german_x'])) {
-        	I18nWrapper::setLanguage('de');
-        }
-        else if(isset($_POST['svenska_x'])) {
-        	I18nWrapper::setLanguage('sv');
-        }
-        else if(isset($_POST['russian_x'])) {
-        	I18nWrapper::setLanguage('ru');
-        }
-        else if(isset($_POST['bulgarian_x'])) {
-        	I18nWrapper::setLanguage('bl');
-        }
-		else if(isset($_POST['greek_x'])) {
-			I18nWrapper::setLanguage('el');
-		}	
-		else if(isset($_POST['english_x'])) {
-			I18nWrapper::setLanguage('en');
-		}
-		
-    ?>
+    <div class="languages">
+	    <ul>
+	    	<li>
+	    		<a href="<?= $app->url('I18n::language', 'el') ?>"><img src="<?= Asset::image(['flags/el.png']) ?>" /></a>
+	    	</li>
+	    	<li>
+	    		<a href="<?= $app->url('I18n::language', 'de') ?>"><img src="<?= Asset::image(['flags/de.png']) ?>" /></a>
+	    	</li>
+	    	<li>
+	    		<a href="<?= $app->url('I18n::language', 'en') ?>"><img src="<?= Asset::image(['flags/en_us.png']) ?>" /></a>
+	    	</li>
+	    </ul>
+	</div>
     
     <div class="navbar">
         <div class="navbar-inner">
