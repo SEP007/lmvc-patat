@@ -72,7 +72,7 @@
             "content": "Content-type: text/html; charset=windows-1251 \r\n"
         },
         "links": {
-            "emailVerification": "<a href=\"http:\/\/sep007.tdeekens.name\/registration\/finish\/{usernamehash}\">link</a> "
+            "emailVerification": "<a href=\"http:\/\/sep007.tdeekens.name\/registration\/finish\/{usernamehash}\/{email}\/{randomkey}\">link</a> "
         }
 
     }
