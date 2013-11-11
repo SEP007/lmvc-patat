@@ -11,7 +11,6 @@ use \util;
 use Scandio\lmvc\modules\rendering\traits;
 
 use Scandio\lmvc\modules\security;
-use Scandio\lmvc\utils\config\Config;
 
 class Registration extends controllers\Registration
 {
@@ -93,7 +92,7 @@ class Registration extends controllers\Registration
                 $randomkey = \models\Users::setRandomKey($location->user_id);
                 $username = $parentResponse->username;
                 $address = $parentResponse->email;
-                static::sendEmail($username, $address, $randomkey);
+                \util\Mail::sendEmailVerification($username, $address, $randomkey);
 
                 static::redirect('Menu::index');
 
@@ -137,7 +136,7 @@ class Registration extends controllers\Registration
                 $randomkey = \models\Users::setRandomKey($customer->user_id);
                 $username = $parentResponse->username;
                 $address = $parentResponse->email;
-                static::sendEmail($username, $address, $randomkey);
+                \util\Mail::sendEmailVerification($username, $address, $randomkey);
 
                 static::redirect('Menu::index');
 
@@ -277,41 +276,5 @@ class Registration extends controllers\Registration
                 "<h2>Whoopsi! Are you trying to hack us?</h2>"
             );
         }
-    }
-
-    /**
-     * Sends a verification email
-     * @param $username
-     * @param $address email address of a user
-     */
-    private static function sendEmail($username, $address, $randomkey)
-    {
-        $messageArgs = array(
-            "username" => $username,
-            "usernamehash" => md5($username),
-            "email" => $address,
-            "randomkey" => $randomkey
-        );
-        $subject = Config::get()->emails->subjects->registration;
-        $message = Config::get()->emails->messages->registration . Config::get()->emails->links->emailVerification;
-        $header = Config::get()->emails->headers->content;
-        mail($address, $subject, static::_interpolate($message, $messageArgs), $header);
-    }
-
-    /**
-     * Interpolates context values into the message placeholders.
-     */
-    private static function _interpolate($message, array $context = array())
-    {
-        // build a replacement array with braces around the context keys
-        $replace = array();
-        $message = (string) $message;
-
-        foreach ($context as $key => $val) {
-            $replace['{' . $key . '}'] = $val;
-        }
-
-        // interpolate replacement values into the message and return
-        return strtr($message, $replace);
     }
 }

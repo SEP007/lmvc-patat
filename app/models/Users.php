@@ -43,9 +43,9 @@ class Users
             ->where('id= :id', ['id' =>$userId])
             ->one();
         $randomkey = md5(rand(0,1000));
-        $user -> randomkey = $randomkey;
+        $user->randomkey = $randomkey;
 
-        $user -> save();
+        $user->save();
         return $randomkey;
     }
 }
