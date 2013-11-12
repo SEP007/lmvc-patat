@@ -8,10 +8,14 @@ use Scandio\lmvc\modules\registration\controllers;
 use \models;
 use \forms;
 use \util;
+use Scandio\lmvc\modules\rendering\traits;
+
 use Scandio\lmvc\modules\security;
 
 class Registration extends controllers\Registration
 {
+    use traits\RendererController;
+
     public static function register()
     {
         static::render();

@@ -5,8 +5,11 @@ namespace controllers;
 use models\Categories;
 use Scandio\lmvc\modules\security\SecureController;
 use Scandio\lmvc\modules\security\Security;
+use Scandio\lmvc\modules\rendering\traits;
 
-class Menu extends SecureController {
+class Menu extends SecureController
+{
+    use traits\RendererController;
 
     public static function index()
     {
