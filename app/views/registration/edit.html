@@ -1,6 +1,7 @@
 <?php
     use ui\UI;
     use Scandio\lmvc\modules\assetpipeline\view\Asset;
+    use Scandio\lmvc\modules\i18n\I18nWrapper;
 
     $errors['password'] = $errors['password'] ?: [];
     $errors['passwordRetyped'] = $errors['passwordRetyped'] ?: [];
@@ -18,11 +19,11 @@
 <div class="row-fluid">
     <?php if($error): ?>
         <div class="alert alert-error">
-            <strong>Woopsi!</strong> You're missing some data, please fillout compulsory fields!
+            <strong>Woopsi!</strong> <?= I18nWrapper::translate('youAreMissingSomeData'); ?>
         </div>
     <?php elseif($success): ?>
         <div class="alert alert-success">
-            <strong>Very good!</strong> Everything worked just fine, you can sign in now!
+            <strong><?= I18nWrapper::translate('veryGood'); ?></strong> <?= I18nWrapper::translate('everythingWorkedFine'); ?>
         </div>
     <?php endif; ?>
 
@@ -30,7 +31,7 @@
         <fieldset class="span6">
             <legend>User information</legend>
             <div class="control-group">
-                <label class="control-label" for="username">Username</label>
+                <label class="control-label" for="username"><?= I18nWrapper::translate('username'); ?></label>
                 <div class="controls">
                     <input type="text" readonly name="username" id="username" placeholder="Username" value="<?= $user->username ?>" />
 
@@ -40,7 +41,7 @@
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="password">Password</label>
+                <label class="control-label" for="password"><?= I18nWrapper::translate('password'); ?></label>
                 <div class="controls">
                     <input type="password" name="password" id="password" placeholder="Password" />
 
@@ -50,7 +51,7 @@
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="passwordRetyped">Repeat password</label>
+                <label class="control-label" for="passwordRetyped"><?= I18nWrapper::translate('repeatPassword'); ?></label>
                 <div class="controls">
                     <input type="password" name="passwordRetyped" id="password-retyped" placeholder="Repeat password" />
 
@@ -60,13 +61,13 @@
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="fullname">First- & Surname</label>
+                <label class="control-label" for="fullname"><?= I18nWrapper::translate('firstAndSurname'); ?></label>
                 <div class="controls">
                     <input type="text" name="fullname" id="fullname" placeholder="First- & Surname" value="<?= $user->fullname ?>" />
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="password">E-Mail</label>
+                <label class="control-label" for="password"><?= I18nWrapper::translate('email'); ?></label>
                 <div class="controls">
                     <input type="email" name="email" id="email" placeholder="E-Mail" value="<?= $user->email ?>" />
 
@@ -76,13 +77,13 @@
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="password">Phone</label>
+                <label class="control-label" for="password"><?= I18nWrapper::translate('phone'); ?></label>
                 <div class="controls">
                     <input type="tel" name="phone" id="phone" placeholder="Phone"  value="<?= $user->phone ?>" />
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="password">Mobile</label>
+                <label class="control-label" for="password"><?= I18nWrapper::translate('mobile'); ?></label>
                 <div class="controls">
                     <input type="tel" name="mobile" id="mobile" placeholder="Mobile" value="<?= $user->mobile ?>" />
                 </div>
@@ -90,9 +91,9 @@
         </fieldset>
 
         <fieldset class="span6">
-            <legend>Your restaurant</legend>
+            <legend><?= I18nWrapper::translate('yourRestaurant'); ?></legend>
             <div class="control-group">
-                <label class="control-label" for="restaurant">Name of restaurant</label>
+                <label class="control-label" for="restaurant"><?= I18nWrapper::translate('nameOfRestaurant'); ?></label>
                 <div class="controls">
                     <input type="text" name="restaurant" id="restaurant" placeholder="Name of restaurant" value="<?= $user->restaurant ?>" />
 
@@ -102,7 +103,7 @@
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="handle">Domain for restaurant</label>
+                <label class="control-label" for="handle"><?= I18nWrapper::translate('domainForRestaurant'); ?></label>
                 <div class="controls">
                     <input type="text" name="handle" id="handle" placeholder="Domain for restaurant" value="<?= $user->handle ?>" />
                     <div id="handle-response-indicator" class="input-append">
@@ -115,7 +116,7 @@
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="city">Country</label>
+                <label class="control-label" for="city"><?= I18nWrapper::translate('country'); ?></label>
                 <div class="controls">
                     <input type="text" name="country" id="country" placeholder="Country" value=""/>
 
@@ -125,7 +126,7 @@
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="city">City</label>
+                <label class="control-label" for="city"><?= I18nWrapper::translate('city'); ?></label>
                 <div class="controls">
                     <input type="text" name="city" id="city" placeholder="City" value="<?= $user->city ?>"/>
 
@@ -135,7 +136,7 @@
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="zip">Zip</label>
+                <label class="control-label" for="zip"><?= I18nWrapper::translate('zip'); ?></label>
                 <div class="controls">
                     <input type="number" name="zip" id="zip" placeholder="Zip" value="<?= $user->zip ?>"/>
 
@@ -145,7 +146,7 @@
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="place">Street & Housenumber</label>
+                <label class="control-label" for="place"><?= I18nWrapper::translate('streetAndHouseNumber'); ?></label>
                 <div class="controls">
                     <input type="text" name="place" id="place" placeholder="Street & Housenumber" value="<?= $user->street ?>"/>
 
@@ -155,19 +156,19 @@
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="place">Find your location</label>
+                <label class="control-label" for="place"><?= I18nWrapper::translate('findYourLocation'); ?></label>
                 <div class="controls">
                     <a id="search-long-lat" class="btn btn-small" href="#"><i class="icon-search"></i></a>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="place">Longitude</label>
+                <label class="control-label" for="place"><?= I18nWrapper::translate('longitude'); ?></label>
                 <div class="controls">
                     <input type="text" name="longitude" id="longitude" placeholder="Longitude" value="<?= $user->longitude ?>" />
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="latitude">Latitude</label>
+                <label class="control-label" for="latitude"><?= I18nWrapper::translate('latitude'); ?></label>
                 <div class="controls">
                     <input type="text" name="latitude" id="latitude" placeholder="Latitude" value="<?= $user->latitude ?>" />
                 </div>
@@ -175,8 +176,8 @@
         </fieldset>
 
         <div class="control-group pull-right">
-            <button class="btn btn-primary" type="submit" id="edit" name="edit" value="true">Edit</button>
-            <button class="btn" href="<?= $app->url('Application::index') ?>">Reset</button>
+            <button class="btn btn-primary" type="submit" id="edit" name="edit" value="true"><?= I18nWrapper::translate('edit'); ?></button>
+            <button class="btn" href="<?= $app->url('Application::index') ?>"><?= I18nWrapper::translate('reset'); ?></button>
         </div>
     </form>
 </div>

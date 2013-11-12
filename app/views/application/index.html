@@ -1,51 +1,52 @@
 <?php
     use ui\UI;
     use Scandio\lmvc\modules\assetpipeline\view\Asset;
+    use Scandio\lmvc\modules\i18n\I18nWrapper;
 ?>
 
-<h2>We're trying to locate you, stay put!</h2>
+<h2><?= I18nWrapper::translate('weAreTryingToLocate'); ?></h2>
 
 <h3>…you can also specify your adress</h3>
 <form id="location-form" class="form-horizontal" method="POST" action="<?= $app->url('Dishes::index') ?>">
     <fieldset>
         <div class="control-group">
-            <label class="control-label" for="country">Country</label>
+            <label class="control-label" for="country"><?= I18nWrapper::translate('country'); ?></label>
             <div class="controls">
                 <input type="text" name="country" id="country" placeholder="Country" />
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label" for="city">City</label>
+            <label class="control-label" for="city"><?= I18nWrapper::translate('city'); ?></label>
             <div class="controls">
                 <input type="text" name="city" id="city" placeholder="City" />
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label" for="zip">Zip</label>
+            <label class="control-label" for="zip"><?= I18nWrapper::translate('zip'); ?></label>
             <div class="controls">
                 <input type="number" name="zip" id="zip" placeholder="Zip" />
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label" for="place">Street & Housenumber</label>
+            <label class="control-label" for="place"><?= I18nWrapper::translate('streetAndHouseNumber'); ?></label>
             <div class="controls">
                 <input type="text" name="place" id="place" placeholder="Street & Housenumber" />
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label" for="place">Find me</label>
+            <label class="control-label" for="place"><?= I18nWrapper::translate('findMe'); ?></label>
             <div class="controls">
                 <a id="search-long-lat" class="btn btn-primary btn-big" href="#"><i class="icon-search icon-white"></i></a>
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label" for="longitude">Longitude</label>
+            <label class="control-label" for="longitude"><?= I18nWrapper::translate('longitude'); ?></label>
             <div class="controls">
                 <input type="text" name="longitude" id="longitude" placeholder="Longitude" />
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label" for="latitude">Latitude</label>
+            <label class="control-label" for="latitude"><?= I18nWrapper::translate('latitude'); ?></label>
             <div class="controls">
                 <input type="text" name="latitude" id="latitude" placeholder="Latitude" />
             </div>
@@ -53,7 +54,7 @@
     </fieldset>
 
     <div class="control-group">
-        <button class="btn btn-primary" type="submit" id="signup" name="signup">Find Patat!</button>
+        <button class="btn btn-primary" type="submit" id="signup" name="signup"><?= I18nWrapper::translate('find'); ?> Patat!</button>
     </div>
 </form>
 

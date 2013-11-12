@@ -20,7 +20,7 @@ orIn: 'or in'
 #
 #app/views/imbiss/index.html
 currentOffers: 'Current offers'
-sorry: 'Sorry'
+sorry: 'Sorry,'
 weDontHaveOffers: 'we do not have any offers at them moment!'
 moreSnacks: 'More snacks'
 weDontHaveSnacks: 'we do not have any snacks listed!'
@@ -29,6 +29,7 @@ weDontHaveSnacks: 'we do not have any snacks listed!'
 uploadImage: 'Upload image!'
 #
 #app/views/menu/index.html
+#Haven't finished with this file yet
 name: 'Name'
 image: 'Image'
 description: 'Description'
@@ -38,38 +39,42 @@ yes: 'Yes'
 #
 #app/views/registration/edit.html
 woops: 'Woops!'
-youAreMissingSomeData: 'You're missing some data, please fillout compulsory fields!'
+youAreMissingSomeData: 'You are missing some data, please fillout compulsory fields!'
 veryGood: 'Very good'
 everythingWorkedFine: 'Everything worked just fine, you can sign in now!'
 userInformation: 'User information'
 #
 #app/views/registration/failure.html
 sorryRegistrationFailed: 'Sorry, registration or account editing failed!'
-resolveProblems: 'We're very sorry but you're registration or editing of your account could not be completed due to technical problems. Retrying might solve this issue.'
+resolveProblems: 'We are very sorry but you are registration or editing of your account could not be completed due to technical problems. Retrying might solve this issue.'
 #
 #app/views/registration/signup.html
+youAreMissingMandatoryData: 'You are missing some mandatory data, please add where needed!'
+youAreOnline: 'All worked fine, your restaurant is online!'
+userData: 'userData'
 username: 'Username'
 password: 'Password'
 repeatPassword: 'Repeat Password'
-first: 'First'
-surname: 'Surname'
+firstAndSurname: 'First & Surname'
 email: 'E-Mail'
 phone: 'Phone'
 mobile: 'Mobile'
 yourRestaurant: 'Your restaurant'
+nameOfRestaurant: 'Name of restaurant'
 domainForRestaurant: 'Domain for restaurant'
 country: 'Country'
 city: 'City'
 zip: 'Zip'
-street: 'Street'
-houseNumber: 'House number'
+streetAndHouseNumber: 'Street & House number'
 findYourLocation: 'Find your location'
 longitude: 'Longitude'
 latitude: 'Latitude'
+reset: 'Reset'
+edit: 'Edit'
 #
 #app/views/registration/success.html
 chipFat: 'All hot as chip fat!'
-singedUp: 'Yay! You're signed up. Sign in and start setting up your restaurant!'
+singedUp: 'Yay! You are signed up. Sign in and start setting up your restaurant!'
 toLogin: 'To login'
 #
 #app/views/security/forbidden.html
@@ -99,7 +104,7 @@ retypePassword: 'Retype the password!'
 pickUrl: 'Please pick a url, its your address!'
 urlTooShort: 'This url is too short!'
 #
-#app/forms/Signup.php
+#app/forms/Dish.php
 needName: 'We need your name!'
 yourDescription: 'Your description:'
 shortDescription: 'seems too short!'

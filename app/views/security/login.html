@@ -1,25 +1,26 @@
 <?php
     use ui\UI;
     use Scandio\lmvc\modules\assetpipeline\view\Asset;
+    use Scandio\lmvc\modules\i18n\I18nWrapper;
 ?>
 
 <?php if($failure): ?>
     <div class="alert alert-error">
-        <strong>Oh no!</strong> Login failed. Mistyped something here?
+        <strong><?= I18nWrapper::translate('ohNo'); ?></strong> <?= I18nWrapper::translate('loginFailed'); ?>
     </div>
 <?php endif; ?>
 
 <form class="form-horizontal" method="POST" action="<?= $app->url('Security::login') ?>">
     <fieldset>
-        <legend>Log yerself in!</legend>
+        <legend><?= I18nWrapper::translate('logIn'); ?></legend>
         <div class="control-group">
-            <label class="control-label" for="username">Username</label>
+            <label class="control-label" for="username"><?= I18nWrapper::translate('username'); ?></label>
             <div class="controls">
                 <input type="text" name="username" id="username" placeholder="Username"/>
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label" for="password">Password</label>
+            <label class="control-label" for="password"><?= I18nWrapper::translate('password'); ?></label>
             <div class="controls">
                 <input type="password" name="password" id="password" placeholder="Password"/>
             </div>
@@ -27,9 +28,9 @@
         <div class="control-group">
             <input class="btn btn-primary" type="submit" id="login" name="login" value="Login"/>
 
-            <a class="btn" href="<?= $app->url('Registration::index') ?>">To signup</a>
+            <a class="btn" href="<?= $app->url('Registration::index') ?>"><?= I18nWrapper::translate('toSignup'); ?></a>
 
-            <a class="btn" href="<?= $app->url('Application::index') ?>">Go back</a>
+            <a class="btn" href="<?= $app->url('Application::index') ?>"><?= I18nWrapper::translate('goBack'); ?></a>
         </div>
     </fieldset>
 </form>

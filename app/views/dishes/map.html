@@ -4,11 +4,11 @@
 ?>
 
 <div id="user-location" class="row-fluid">
-    <h2>Start walking: this is where you're heading!</h2>
+    <h2><?= I18nWrapper::translate('startWalking'); ?></h2>
     <p>
-        Show map in
+        <?= I18nWrapper::translate('showMapIn'); ?>
         <a href="http://maps.apple.com/?daddr=<?= $user->zip ?>+<?= $user->city ?>,+<?= $user->street ?>"><strong>Apple Maps</strong></a>
-        or in
+        <?= I18nWrapper::translate('orIn'); ?>
         <a href="http://maps.google.com/?daddr=<?= $user->zip ?>+<?= $user->city ?>,+<?= $user->street ?>"><strong>Google Maps</strong></a>
     </p>
 

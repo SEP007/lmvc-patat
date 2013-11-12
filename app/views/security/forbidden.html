@@ -1,4 +1,8 @@
-<h1>Yau! You need to sign in to see this information</h1>
+<?php
+    use Scandio\lmvc\modules\i18n\I18nWrapper;
+?>
+
+<h1><?= I18nWrapper::translate('needToSingIn'); ?></h1>
 <p>
-    This page is restricted to logged in users only, please login or sign up first.
+	<?= I18nWrapper::translate('restricedPage'); ?>
 </p>
