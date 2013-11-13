@@ -1,0 +1,94 @@
+<?php
+    use ui\UI;
+    use Scandio\lmvc\modules\assetpipeline\view\Asset;
+
+    $errors['password'] = $errors['password'] ?: [];
+    $errors['passwordRetyped'] = $errors['passwordRetyped'] ?: [];
+    $errors['username'] = $errors['username'] ?: [];
+    $errors['email'] = $errors['email'] ?: [];
+
+?>
+
+<div class="row-fluid">
+    <?php if($error): ?>
+    <div class="alert alert-error">
+        <strong>Woopsi!</strong> Something is not right, please edit where needed!
+    </div>
+    <?php elseif($success): ?>
+    <div class="alert alert-success">
+        <strong>Very goode!</strong> All worked find, you are a registered hungry person now!
+    </div>
+    <?php endif; ?>
+
+    <form id="registration-form" class="form-horizontal" method="POST" action="<?= $app->url('Registration::signup-customer') ?>">
+        <fieldset class="span6">
+            <legend>Your profile</legend>
+            <div class="control-group">
+                <label class="control-label" for="username">Username</label>
+                <div class="controls">
+                    <input type="text" name="username" id="username" placeholder="Username" value="<?= $user->username ?>" />
+
+                    <?php foreach ($errors['username'] as $validator => $message): ?>
+                    <span class="help-block <?= $validator ?>"><?= $message ?></span>
+                    <?php endforeach ?>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="password">Password</label>
+                <div class="controls">
+                    <input type="password" name="password" id="password" placeholder="Password"  value="<?= $user->password ?>" />
+
+                    <?php foreach ($errors['password'] as $validator => $message): ?>
+                    <span class="help-block <?= $validator ?>"><?= $message ?></span>
+                    <?php endforeach ?>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="password">Repeat password</label>
+                <div class="controls">
+                    <input type="password" name="passwordRetyped" id="password-retyped" placeholder="Repeat password"  value="<?= $user->passwordRetyped ?>" />
+
+                    <?php foreach ($errors['passwordRetyped'] as $validator => $message): ?>
+                    <span class="help-block <?= $validator ?>"><?= $message ?></span>
+                    <?php endforeach ?>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="username">First- & Surname</label>
+                <div class="controls">
+                    <input type="text" name="fullname" id="fullname" placeholder="First- & Surname" value="<?= $user->fullname ?>" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="password">E-Mail</label>
+                <div class="controls">
+                    <input type="email" name="email" id="email" placeholder="E-Mail"  value="<?= $user->email ?>" />
+
+                    <?php foreach ($errors['email'] as $validator => $message): ?>
+                    <span class="help-block <?= $validator ?>"><?= $message ?></span>
+                    <?php endforeach ?>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="password">Phone</label>
+                <div class="controls">
+                    <input type="tel" name="phone" id="phone" placeholder="Phone"  value="<?= $user->phone ?>" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="password">Mobile</label>
+                <div class="controls">
+                    <input type="tel" name="mobile" id="mobile" placeholder="Mobile"  value="<?= $user->mobile ?>" />
+                </div>
+            </div>
+
+            <div class="control-group pull-left">
+                <button class="btn btn-primary" type="submit" id="signup" name="signup" value="true">Register</button>
+                <button class="btn" href="<?= $app->url('Application::index') ?>">Cancel</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+<?= UI::js(Asset::assets(['jquery.nominatim.js', 'jquery.handle.js'], ['path' => 'plugins'])) ?>
+<?= UI::js(Asset::assets(['jquery.register.js'], ['path' => 'views'])) ?>

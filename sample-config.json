@@ -9,7 +9,8 @@
         "Scandio\\lmvc\\modules\\assetpipeline",
         "Scandio\\lmvc\\modules\\security",
         "Scandio\\lmvc\\modules\\registration",
-		"Scandio\\lmvc\\modules\\i18n"
+	"Scandio\\lmvc\\modules\\i18n",
+        "Scandio\\lmvc\\modules\\logger"
     ],
     
     "I18n": {
@@ -25,6 +26,17 @@
     "username": "root",
     "password": "boot",
 
+    "logger": {
+        "level": "ERROR",
+        "logRoot": null,
+        "scribes": [{
+            "namespace": "\\Scandio\\lmvc\\utils\\logger\\scribes\\FileScribe",
+            "formatter": "\\Scandio\\lmvc\\utils\\logger\\formatters\\LineFormatter",
+            "level": "ERROR",
+            "path": "logs"
+        }]
+    },
+
     "security": {
         "principal": "\\Scandio\\lmvc\\modules\\security\\handlers\\database\\DatabasePrincipal"
     },
@@ -33,6 +45,7 @@
     },
     "assetpipeline" : {
         "useFolders": true,
+        "304-caching": false,
         "assetDirectories": {
             "js": {
                 "fallbacks": ["../bower", "../composer"]

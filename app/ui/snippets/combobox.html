@@ -1,0 +1,66 @@
+<?php
+    $name = $params[0];
+    $label = (isset($params[1]) ? $params[1] : null);
+    $selectedValue = (isset($params[2]) ? $params[2] : null);
+    $options = (isset($params[3]) ? $params[3] : array());
+    $optionKey = (isset($params[4]) ? $params[4] : '');
+    $optionValue = (isset($params[5]) ? $params[5] : '');
+    $error = (isset($params[6]) ? $params[6] : array());
+    $placeholder = (isset($params[7]) ? $params[7] : '');
+    $disabled = (isset($params[8]) ? $params[8] : false);
+    $addOn = (isset($params[9]) ? $params[9] : false);
+?>
+<div class="control-group <?= $name ?>">
+    <?php if($label): ?>
+    <label class="control-label <?= $name ?>" for="<?= $name ?>"><?= $label ?></label>
+    <?php endif ?>
+    <div class="controls">
+        <?php if($addOn): ?>
+            <div class="input-append">
+        <?php endif ?>
+
+        <select <?= ($disabled) ? 'disabled' : '' ?>
+        class="<?= ($error) ? 'validation-error' : '' ?>"
+        id="<?= $name ?>"
+        name="<?= $name ?>">
+            <option value=-1><?= $placeholder ?></option>
+            <?php foreach ($options as $option): ?>
+            <?php
+                if(!empty($optionKey)) {
+                    $class = new ReflectionClass($option);
+                    $keyMethod = new ReflectionMethod($class->getName(), 'get' . ucFirst($optionKey));
+                    $key = $keyMethod->invoke($option);
+                    if(!empty($optionValue)) {
+                        $valueMethod = new ReflectionMethod($class->getName(), 'get' . ucFirst($optionValue));
+                    }
+                    else {
+                        $valueMethod = $keyMethod;
+                    }
+                    $value = $valueMethod->invoke($option);
+                }
+                else {
+                    $key = $option;
+                    $value = $option;
+                }
+
+                $selected = false;
+                if($selectedValue == $key) {
+                    $selected = true;
+                }
+            ?>
+            <option  <?= ($selected) ? 'selected' : '' ?> value="<?= $key ?>">
+                <?= $value ?>
+            </option>
+            <?php endforeach ?>
+        </select>
+
+        <?php if($addOn): ?>
+            <span class="add-on"><?= $addOn ?></span>
+            </div>
+        <?php endif ?>
+
+        <?php foreach ($error as $validator => $message): ?>
+        <span class="help-inline <?= $validator ?>"><?= $message ?></span>
+        <?php endforeach ?>
+    </div>
+</div>

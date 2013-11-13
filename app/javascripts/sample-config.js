@@ -1,3 +1,4 @@
 window.lmvcConfig = {
-    appDir: 'lmvc-patat'
+    appDir: 'lmvc-patat',
+    appPort: 80
 }

@@ -1,6 +1,7 @@
 <?php
     use ui\UI;
     use Scandio\lmvc\modules\assetpipeline\view\Asset;
+    use Scandio\lmvc\modules\session\Session;
     use Scandio\lmvc\modules\i18n\I18nWrapper;
 
     $errors['password'] = $errors['password'] ?: [];
@@ -18,22 +19,22 @@
 
 <div class="row-fluid">
     <?php if($error): ?>
-        <div class="alert alert-error">
-            <strong>Woopsi!</strong> <?= I18nWrapper::translate('youAreMissingSomeData'); ?>
-        </div>
+    <div class="alert alert-error">
+        <strong>Woopsi!</strong> <?= I18nWrapper::translate('youAreMissingMandatoryData'); ?>
+    </div>
     <?php elseif($success): ?>
-        <div class="alert alert-success">
-            <strong><?= I18nWrapper::translate('veryGood'); ?></strong> <?= I18nWrapper::translate('everythingWorkedFine'); ?>
-        </div>
+    <div class="alert alert-success">
+        <strong><?= I18nWrapper::translate('veryGood'); ?></strong> <?= I18nWrapper::translate('youAreOnline'); ?>
+    </div>
     <?php endif; ?>
 
-    <form id="registration-form" class="form-horizontal" method="POST" action="<?= $app->url('Registration::edit') ?>">
+    <form id="registration-form" class="form-horizontal" method="POST" action="<?= $app->url('Registration::signup-restaurant') ?>">
         <fieldset class="span6">
-            <legend>User information</legend>
+            <legend><?= I18nWrapper::translate('userData'); ?></legend>
             <div class="control-group">
                 <label class="control-label" for="username"><?= I18nWrapper::translate('username'); ?></label>
                 <div class="controls">
-                    <input type="text" readonly name="username" id="username" placeholder= <?= I18nWrapper::translate('username'); ?> value="<?= $user->username ?>" />
+                    <input type="text" name="username" id="username" placeholder= <?= I18nWrapper::translate('username'); ?> value="<?= $user->username ?>" />
 
                     <?php foreach ($errors['username'] as $validator => $message): ?>
                         <span class="help-block <?= $validator ?>"><?= $message ?></span>
@@ -43,7 +44,7 @@
             <div class="control-group">
                 <label class="control-label" for="password"><?= I18nWrapper::translate('password'); ?></label>
                 <div class="controls">
-                    <input type="password" name="password" id="password" placeholder= <?= I18nWrapper::translate('password'); ?> />
+                    <input type="password" name="password" id="password" placeholder= <?= I18nWrapper::translate('password'); ?>  value="<?= $user->password ?>" />
 
                     <?php foreach ($errors['password'] as $validator => $message): ?>
                         <span class="help-block <?= $validator ?>"><?= $message ?></span>
@@ -51,9 +52,9 @@
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="passwordRetyped"><?= I18nWrapper::translate('repeatPassword'); ?></label>
+                <label class="control-label" for="password"><?= I18nWrapper::translate('repeatPassword'); ?></label>
                 <div class="controls">
-                    <input type="password" name="passwordRetyped" id="password-retyped" placeholder= <?= I18nWrapper::translate('repeatPassword'); ?> />
+                    <input type="password" name="passwordRetyped" id="password-retyped" placeholder= <?= I18nWrapper::translate('repeatPassword'); ?>  value="<?= $user->passwordRetyped ?>" />
 
                     <?php foreach ($errors['passwordRetyped'] as $validator => $message): ?>
                         <span class="help-block <?= $validator ?>"><?= $message ?></span>
@@ -61,7 +62,7 @@
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="fullname"><?= I18nWrapper::translate('firstAndSurname'); ?></label>
+                <label class="control-label" for="username"><?= I18nWrapper::translate('firstAndSurname'); ?></label>
                 <div class="controls">
                     <input type="text" name="fullname" id="fullname" placeholder= <?= I18nWrapper::translate('firstAndSurname'); ?> value="<?= $user->fullname ?>" />
                 </div>
@@ -69,7 +70,7 @@
             <div class="control-group">
                 <label class="control-label" for="password"><?= I18nWrapper::translate('email'); ?></label>
                 <div class="controls">
-                    <input type="email" name="email" id="email" placeholder= <?= I18nWrapper::translate('email'); ?> value="<?= $user->email ?>" />
+                    <input type="email" name="email" id="email" placeholder= <?= I18nWrapper::translate('email'); ?>  value="<?= $user->email ?>" />
 
                     <?php foreach ($errors['email'] as $validator => $message): ?>
                         <span class="help-block <?= $validator ?>"><?= $message ?></span>
@@ -85,7 +86,7 @@
             <div class="control-group">
                 <label class="control-label" for="password"><?= I18nWrapper::translate('mobile'); ?></label>
                 <div class="controls">
-                    <input type="tel" name="mobile" id="mobile" placeholder= <?= I18nWrapper::translate('mobile'); ?> value="<?= $user->mobile ?>" />
+                    <input type="tel" name="mobile" id="mobile" placeholder= <?= I18nWrapper::translate('mobile'); ?>  value="<?= $user->mobile ?>" />
                 </div>
             </div>
         </fieldset>
@@ -93,7 +94,7 @@
         <fieldset class="span6">
             <legend><?= I18nWrapper::translate('yourRestaurant'); ?></legend>
             <div class="control-group">
-                <label class="control-label" for="restaurant"><?= I18nWrapper::translate('nameOfRestaurant'); ?></label>
+                <label class="control-label" for="restaurant"></label>
                 <div class="controls">
                     <input type="text" name="restaurant" id="restaurant" placeholder= <?= I18nWrapper::translate('nameOfRestaurant'); ?> value="<?= $user->restaurant ?>" />
 
@@ -116,9 +117,9 @@
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="city"><?= I18nWrapper::translate('country'); ?></label>
+                <label class="control-label" for="country"><?= I18nWrapper::translate('country'); ?></label>
                 <div class="controls">
-                    <input type="text" name="country" id="country" placeholder= <?= I18nWrapper::translate('country'); ? value=""/>
+                    <input type="text" name="country" id="country" placeholder= <?= I18nWrapper::translate('country'); ?> value=""/>
 
                     <?php foreach ($errors['country'] as $validator => $message): ?>
                         <span class="help-block <?= $validator ?>"><?= $message ?></span>
@@ -176,11 +177,13 @@
         </fieldset>
 
         <div class="control-group pull-right">
-            <button class="btn btn-primary" type="submit" id="edit" name="edit" value="true"><?= I18nWrapper::translate('edit'); ?></button>
+            <button class="btn btn-primary" type="submit" id="signup" name="signup" value="true"> <?= I18nWrapper::translate('edit'); ?> </button>
             <button class="btn" href="<?= $app->url('Application::index') ?>"><?= I18nWrapper::translate('reset'); ?></button>
+            <button class="btn btn-primary" type="submit" id="signup" name="signup" value="true">Register</button>
+            <button class="btn" href="<?= $app->url('Application::index') ?>">Cancel</button>
         </div>
     </form>
 </div>
 
-<?= UI::js(Asset::assets(['jquery.nominatim.js'], ['path' => 'plugins'])) ?>
+<?= UI::js(Asset::assets(['jquery.nominatim.js', 'jquery.handle.js'], ['path' => 'plugins'])) ?>
 <?= UI::js(Asset::assets(['jquery.register.js'], ['path' => 'views'])) ?>

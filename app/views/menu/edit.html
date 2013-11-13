@@ -1,5 +1,6 @@
 <?php
     use ui\UI;
+    use models\Categories;
     use Scandio\lmvc\modules\assetpipeline\view\Asset;
     use Scandio\lmvc\modules\i18n\I18nWrapper;
 ?>
@@ -21,10 +22,11 @@
     <div class="span7">
         <form id="menu-form" method="POST" action="<?= $app->url('Menu::edit', $dish->id) ?>">
             <fieldset>
-                <?= UI::checkbox('advertised', 'Bewerben', (bool) $dish->advertised, $dish-advertised, $errors['advertised'], false) ?>
+                <?= UI::checkbox('advertised', 'Advertise', (bool) $dish->advertised, $dish-advertised, $errors['advertised'], false) ?>
                 <?= UI::textField('name', null, $dish->name, $errors['name'], 'Name') ?>
-                <?= UI::textField('price', null, $dish->price, $errors['price'], 'Preis', false, '€') ?>
-                <?= UI::textArea('description', null, $dish->description, $errors['description'], 'Beschreibung') ?>
+                <?= UI::combobox('category', null, $dish->category_id, $categories, 'id', 'name', $errors['category'], 'Category') ?>
+                <?= UI::textField('price', null, $dish->price, $errors['price'], 'Price', false, '€') ?>
+                <?= UI::textArea('description', null, $dish->description, $errors['description'], 'Description') ?>
                 <?= UI::saveCancelButtons($app->url('Menu::index')) ?>
             </fieldset>
             <input id="filename" type="hidden" name="img" value="<?= $img ?>"  />

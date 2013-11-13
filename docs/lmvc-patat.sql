@@ -19,6 +19,27 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+# Dump of table Categories
+# ------------------------------------------------------------
+
+CREATE TABLE `Categories` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+`name` varchar(255) NOT NULL,
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+LOCK TABLES `Categories` WRITE;
+/*!40000 ALTER TABLE `Categories` DISABLE KEYS */;
+
+INSERT INTO `Categories` (`id`, `name`)
+VALUES
+(1, 'Pasta'),
+(2, 'Salad'),
+(3, 'Meat'),
+(4, 'Fish');
+
+/*!40000 ALTER TABLE `Categories` ENABLE KEYS */;
+UNLOCK TABLES;
 
 # Dump of table Dishes
 # ------------------------------------------------------------
@@ -33,7 +54,9 @@ CREATE TABLE `Dishes` (
   `price` varchar(255) NOT NULL,
   `img` varchar(255) DEFAULT '',
   `advertised` int(1) NOT NULL,
-  PRIMARY KEY (`id`)
+  `category_id` int(11) NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`category_id`) REFERENCES Categories(id) ON UPDATE CASCADE ON DELETE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `Dishes` WRITE;

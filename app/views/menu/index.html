@@ -12,6 +12,11 @@
             <th><?= I18nWrapper::translate('name'); ?></th>
             <th class="hidden-phone"><?= I18nWrapper::translate('description'); ?></th>
             <th class=""><?= I18nWrapper::translate('price'); ?></th>
+            <th class="hidden-phone hidden-tablet">Image</th>
+            <th>Name</th>
+            <th class="hidden-phone">Description</th>
+            <th class="hidden-phone">Category</th>
+            <th class="">Price</th>
             <th></th>
             <th>
                 <a class="btn btn-small btn-block" href="<?= $app->url('Menu::edit') ?>" title=<?= I18nWrapper::translate('addNewSnack'); ?>>
@@ -22,6 +27,12 @@
     </thead>
     <tbody>
     <?php foreach ($dishes as $dish): ?>
+    <?php
+        $categoryName = "";
+        if($dish->category_id != null) {
+            $categoryName = \models\Categories::getNameById($dish->category_id);
+        }
+    ?>
     <tr>
         <td class=""><?= $dish->id ?></td>
         <td class="hidden-phone hidden-tablet">
@@ -33,6 +44,7 @@
         </td>
         <td><a href="<?= $app->url('Menu::edit', $dish->id) ?>"><?= $dish->name ?></a></td>
         <td class="hidden-phone"><a href="<?= $app->url('Menu::edit', $dish->id) ?>"><?= $dish->description ?></a></td>
+        <td><?= $categoryName ?></td>
         <td class=""><?= $dish->price ?> €</td>
         <td><?= UI::checkbox('advertised', null, (bool) $dish->advertised, 'Ja', null, true) ?></td>
         <td>

@@ -15,7 +15,8 @@ class Dishes
         $img,
         $price,
         $description,
-        $distance;
+        $distance,
+        $category_id;
 
     public function setImg($img)
     {
@@ -80,6 +81,24 @@ class Dishes
     public function getPrice()
     {
         return $this->price;
+    }
+
+    /**
+     * Gets the category id
+     * @return mixed the category id
+     */
+    public function getCategory_id()
+    {
+        return $this->category_id;
+    }
+
+    /**
+     * Sets the category id
+     * @param $categoryId the category id
+     */
+    public function setCategory_id($categoryId)
+    {
+        $this->category_id = $categoryId;
     }
 
     public function getAllDishes($group = false) {

@@ -2,6 +2,7 @@
 
 namespace controllers;
 
+use models\Categories;
 use Scandio\lmvc\modules\security\SecureController;
 use Scandio\lmvc\modules\security\Security;
 
@@ -19,12 +20,13 @@ class Menu extends SecureController {
     public static function edit($id = null)
     {
         $isPost = static::request()->save;
+        $categories = Categories::findAll();
 
         if (is_null($id)) {
             $dish = new \models\Dishes();
         } else {
             $dishModel = new \models\Dishes();
-            $dish = $dishModel->getDishByUser(Security::get()->currentUser()->id, $id);
+            $dish = $dishModel->getDishByUser($id, Security::get()->currentUser()->id);
         }
 
         $form = new \forms\Dish();
@@ -37,6 +39,10 @@ class Menu extends SecureController {
             $dish->setPrice(static::request()->price);
             $dish->setDescription(static::request()->description);
             $dish->setAdvertised(static::request()->advertised ? static::request()->advertised : "0");
+            $category_id = static::request()->category;
+            if ($category_id != -1) {
+                $dish->setCategory_id($category_id);
+            }
         }
 
         if ($form->isValid() && $dish->save()) {
@@ -45,11 +51,15 @@ class Menu extends SecureController {
             return static::render([
                 'dish'      => $dish,
                 'img'       => static::request()->img,
-                'errors'    => $isPost ? $form->getErrors() : []
+                'errors'    => $isPost ? $form->getErrors() : [],
+                'categories' => $categories
             ]);
         }
 
-        return static::render(['dish' => $dish]);
+        return static::render([
+            'dish' => $dish,
+            'categories' => $categories
+        ]);
     }
 
     public static function delete($id)

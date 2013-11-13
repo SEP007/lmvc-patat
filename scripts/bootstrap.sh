@@ -16,8 +16,7 @@ git submodule foreach --recursive --quiet "git submodule sync --quiet && git sub
 
 echo "2.) Fetching dependencies…"
 
-echo "2.1.) Composer from composer.json..."
-php composer.phar install --dev
+sh scripts/composer.sh
 
 if [ "$SET_CHMOD" == true ]
    then
@@ -28,6 +27,7 @@ if [ "$SET_CHMOD" == true ]
       chmod 0777 app/styles/_cache
       chmod 0777 app/fonts/_cache
       chmod 0777 app/markdown/_cache
+      chmod 0777 app/logs
 else
       echo "3.) NOT setting any chmods for caching directories..."
 fi

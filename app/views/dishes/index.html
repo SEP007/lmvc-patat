@@ -52,6 +52,13 @@
 
                         <div class="clearfix row-fluid">
                             <h2><?= $dish->name ?> <span class="price"><?= $dish->price ?> €</span></h2>
+                            <?php if($dish->category_id != null): ?>
+                                <div class="span8">
+                                    <h4>
+                                        <?= \models\Categories::getNameById($dish->category_id); ?>
+                                    </h4>
+                                </div>
+                            <?php endif ?>
                             <p class="span8">
                                 <?= $dish->description ?>
                             </p>
