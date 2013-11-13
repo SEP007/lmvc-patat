@@ -159,6 +159,18 @@ class Dishes
         return $dishes;
     }
 
+    public function getFavoriteDishesForCustomer($custId)
+    {
+        $dishes = static::query()
+            ->select('*')
+            ->innerJoin(new CustFavDishes(), 'Dishes.id = CustFavDishes.dish_id')
+            ->innerJoin(new Locations(), 'Dishes.user_id = Locations.id')
+            ->where('CustFavDishes.cust_id = :id', ['id' => $custId])
+            ->all();
+
+        return $dishes;
+    }
+
     private function _groupDishes($dishes) {
         $dishesGrouped = [];
 

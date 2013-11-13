@@ -1,0 +1,44 @@
+<?php
+    use ui\UI;
+    use Scandio\lmvc\modules\assetpipeline\view\Asset;
+?>
+
+<div class="ios-list-wrap">
+
+    <div class="row-fluid " id="tabs">
+        <ul class="nav nav-pills text-center">
+            <li class="pull-left span6">
+                <a href="<?= $app->url('Favorites::index') ?>">Foooooood</a>
+            </li>
+            <li class="active pull-right span6">
+                <a href="">Places</a>
+            </li>
+        </ul>
+    </div>
+
+    <!--
+    <div class="patat-list">
+        <p>One day this will list all favorite locations</p>
+    </div>
+    -->
+    <div class="patat-list">
+        <dl>
+            <?php foreach($locations as $location): ?>
+
+                <dd class="">
+                    <div class="description span8">
+                        <div class="row-fluid">
+                            <h1>
+                                <a href="
+                                    <?= $app->url('Imbiss::index', $location->handle)
+                                    ?>"><?= $location->restaurant ?>
+                                </a>
+                            </h1>
+                        </div>
+                    </div>
+                </dd>
+
+            <?php endforeach; ?>
+        </dl>
+    </div>
+</div>

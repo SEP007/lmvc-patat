@@ -25,7 +25,7 @@
             <?php foreach($groupedDishes['dishes'] as $dish): ?>
             <dd class="">
                 <div class="span1">
-                    <a href="<?= $app->url('Favorites::addFavorite', $dish->id) ?>">
+                    <a href="<?= $app->url('Favorites::addFavoriteDish', $dish->id) ?>">
                         <img width=100 src="<?= Asset::image(['not_favorite.png']) ?>" alt="" />
                     </a>
                 </div>

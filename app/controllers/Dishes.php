@@ -4,6 +4,7 @@ namespace controllers;
 
 use Scandio\lmvc\modules\security\AnonymousController;
 use Scandio\lmvc\LVC;
+use Scandio\lmvc\modules\session\Session;
 
 class Dishes extends AnonymousController
 {
@@ -11,6 +12,9 @@ class Dishes extends AnonymousController
     {
         $latitude = $latitude == '' ?  static::request()->longitude : $latitude;
         $longitude = $longitude == '' ?  static::request()->latitude : $longitude;
+
+        Session::set("location.longitude", $longitude);
+        Session::set("location.latitude", $latitude);
 
         if($longitude == null || $latitude == null) {
             static::redirect('Application::index');

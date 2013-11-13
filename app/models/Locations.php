@@ -7,4 +7,13 @@ use troba\Model;
 class Locations
 {
     use Model\Getters, Model\Finders, Model\Persisters;
+
+    public function getFavoritePlacesForCustomer($custId)
+    {
+        $location = static::query()
+            ->select('*')
+            ->all();
+
+        return $location;
+    }
 }
