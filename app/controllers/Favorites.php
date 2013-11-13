@@ -3,33 +3,20 @@
 namespace controllers;
 
 use Scandio\lmvc\modules\security\AnonymousController;
-use Scandio\lmvc\utils\logger\Logger;
-use Scandio\lmvc\LVC;
 use Scandio\lmvc\modules\security\Security;
 use \models;
-use Scandio\lmvc\modules\session\Session;
 
 class Favorites extends AnonymousController
 {
     public static function index()
-    {
-        #return static::render();
-        static::dishes();
-    }
-
-    public static function dishes()
     {
         $CustomerModel = new \models\Customers();
         $custId        = $CustomerModel->getByUserId(Security::get()->currentUser()->id)->id;
 
         $dishesModel = new \models\Dishes();
 
-        #self::setRenderArg('dishesGrouped', $dishesModel->
-        #    getDishesWithinDistance(Session::get("location.longitude"), Session::get("location.latitude"), 25, true));
-
         self::setRenderArg('dishes', $dishesModel->
             getFavoriteDishesForCustomer($custId));
-
 
         self::render();
     }
@@ -46,6 +33,26 @@ class Favorites extends AnonymousController
         self::render();
     }
 
+    public static function favoriteDish($dishid)
+    {
+        $CustomerModel = new \models\Customers();
+        $userid = Security::get()->currentUser()->id;
+        $custid = $CustomerModel->getByUserId($userid)->id;
+
+        $dishModel     = new \models\Dishes();
+        $favDishes = $dishModel->getFavoriteDishesForCustomer($custid);
+
+        foreach ($favDishes as $dish)
+        {
+            if ($dish->id == $dishid)
+            {
+                static::removeFavoriteDish($dishid);
+                exit;
+            }
+        }
+        static::addFavoriteDish($dishid);
+    }
+
     public static function addFavoriteDish($dishid)
     {
         $CustFavDishes = new \models\CustFavDishes();
@@ -57,7 +64,26 @@ class Favorites extends AnonymousController
         $CustFavDishes->dish_id = $dishid;
         $CustFavDishes->insert();
 
-        return static::render();
+        return static::renderJson([
+            'result' => true
+        ]);
+
+    }
+
+    public static function removeFavoriteDish($dishid)
+    {
+        $CustFavDishes = new \models\CustFavDishes();
+        $CustomerModel = new \models\Customers();
+
+        $userid = Security::get()->currentUser()->id;
+
+        $CustFavDishes->cust_id = $CustomerModel->getByUserId($userid)->id;
+        $CustFavDishes->dish_id = $dishid;
+        $CustFavDishes->delete();
+
+        return static::renderJson([
+            'result' => true
+        ]);
 
     }
 

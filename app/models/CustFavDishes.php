@@ -2,7 +2,6 @@
 
 namespace models;
 
-use Scandio\lmvc\modules\security\handlers\database\models\Users;
 use troba\Model;
 
 class CustFavDishes

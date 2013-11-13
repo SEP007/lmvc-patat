@@ -159,7 +159,7 @@ class Dishes
         return $dishes;
     }
 
-    public function getFavoriteDishesForCustomer($custId)
+    public function getFavoriteDishesForCustomer($custId, $idonly)
     {
         $dishes = static::query()
             ->select('*')
@@ -168,7 +168,18 @@ class Dishes
             ->where('CustFavDishes.cust_id = :id', ['id' => $custId])
             ->all();
 
-        return $dishes;
+        if ($idonly)
+        {
+            $favDishesId = array();
+            foreach ($dishes as $dish){
+                array_push($favDishesId, $dish->id);
+            }
+            return $favDishesId;
+        }
+        else
+        {
+            return $dishes;
+        }
     }
 
     private function _groupDishes($dishes) {

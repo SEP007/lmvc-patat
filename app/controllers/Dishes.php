@@ -5,6 +5,7 @@ namespace controllers;
 use Scandio\lmvc\modules\security\AnonymousController;
 use Scandio\lmvc\LVC;
 use Scandio\lmvc\modules\session\Session;
+use Scandio\lmvc\modules\security\Security;
 
 class Dishes extends AnonymousController
 {
@@ -21,8 +22,16 @@ class Dishes extends AnonymousController
         }
 
         $dishesModel = new \models\Dishes();
-
         self::setRenderArg('dishesGrouped', $dishesModel->getDishesWithinDistance($longitude, $latitude, 25, true));
+
+
+        $CustomerModel = new \models\Customers();
+        $user = Security::get()->currentUser();
+        $custid = $CustomerModel->getByUserId($user->id)->id;
+        if ($user->username != "anonymous")
+        {
+            self::setRenderArg('dishesFavorite', $dishesModel->getFavoriteDishesForCustomer($custid, true));
+        }
 
         return static::render();
     }
