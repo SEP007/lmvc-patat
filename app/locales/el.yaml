@@ -4,5 +4,111 @@ signUp: 'Εγγραφή'
 myRestaurant: 'Το Εστιατόριό μου'
 menu: 'Μενού'
 logout: 'Έξοδος'
+#
+#app/views/application/index.html
+weAreTryingToLocate: 'Προσπαθούμε να σας εντοπίσουμε. Παραμείνετε στην θέση σας!'
+youCanAlsoSpecifyYourAddress: 'Μπορείτε επίσης να μας δώσετε την διεύθυνσή σας'
+findMe: 'Βρες με'
+find: 'Βρες'
+#
+#app/views/dishes/index.html
+#
+#app/views/dishes/map.html
+startWalking: 'Ξεκινήστε να περπατάτε: εκεί είναι που πηγαίνετε!'
+showMapIn: 'Δείξε χάρτη σε'
+orIn: 'ή σε'
+#
+#app/views/imbiss/index.html
+currentOffers: 'Τρέχουσες προσφορές'
+sorry: 'Συγγνώμη,'
+weDontHaveOffers: 'δεν έχουμε προσφορές αυτή την στιγμή!'
+moreSnacks: 'Περισσότερα snacks'
+weDontHaveSnacks: 'δεν έχουμε καθόλου snacks!'
+#
+#app/views/menu/edit.html
+uploadImage: 'Ανέβασε φωτογραφία!'
+#
+#app/views/menu/index.html
+#Haven't finished with this file yet
+name: 'Όνομα'
+image: 'Φωτογραφία'
+description: 'Περιγραφή'
+price: 'Τιμή'
+addNewSnack: 'Βάλε νέο snack'
+yes: 'Ναι'
+#
+#app/views/registration/edit.html
+woops: 'Ουπς!'
+youAreMissingSomeData: 'Σας λείπουν πληροφορίες, παρακαλώ συμπληρώστε τα υποχρεωτικά πεδία!'
+veryGood: 'Πολύ καλά!'
+everythingWorkedFine: 'Όλα δούλεψαν μία χαρά, μπορείτε να συνδεθείτε τώρα!'
+userInformation: 'Πληροφορίες χρήστη'
+#
+#app/views/registration/failure.html
+sorryRegistrationFailed: 'Συγγνώμη, αλλά η εγραφή ή επεξεργασία του λογαριασμού σας απέτυχε!'
+resolveProblems: 'Λυπούμαστε πολύ, αλλά η εγγραφή σας ή η επεξεργασία του λογαριασμού σας δεν μπορούσε να ολοκληρωθεί λόγω τεχνικών προβλημάτων. Ξαναπροσπαθώντας μπορεί να λυθεί το πρόβλημα.'
+#
 #app/views/registration/signup.html
-username: 'Όνομα Χρήστη'
+youAreMissingMandatoryData: 'Σας λείπουν υποχρεωτικά δεδομένα, παρακαλώ προσθέστε τα όπου χρειάζονται!'
+youAreOnline: 'Όλα πήγαν μία χαρά, το εστιατόριό σας είναι online!'
+userData: 'Δεδομένα χρήστη'
+username: 'Όνομα χρήστη'
+password: 'Κωδικός'
+repeatPassword: 'Επανάληψη Κωδικού'
+firstAndSurname: 'Όνομα & Επίθετο'
+email: 'E-Mail'
+phone: 'Τηλέφωνο'
+mobile: 'Κινητό'
+yourRestaurant: 'Το εστιατόριό σας'
+nameOfRestaurant: 'Όνομα του εστιατορίου'
+domainForRestaurant: 'Domain του εστιατορίου'
+country: 'Χώρα'
+city: 'Πόλη'
+zip: 'Τ.Κ.'
+streetAndHouseNumber: 'Οδός κι αριθμός'
+findYourLocation: 'Βρείτε την τοποθεσία σας'
+longitude: 'Γεωγραφικό μήκος'
+latitude: 'Γεωγραφικό πλάτος'
+reset: 'Καθαρισμός'
+edit: 'Επεξεργασία'
+#
+#app/views/registration/success.html
+chipFat: 'All hot as chip fat!'
+singedUp: 'Yay! Έχετε εγγραφεί. Συνδεθείτε και ξεκινήστε να στήνετε το εστιατόριό σας!'
+toLogin: 'Σύνδεση'
+#
+#app/views/security/forbidden.html
+needToSingIn: 'Yau! Πρέπει να συνδεθείτε για να δείτε αυτές τις πληροφορίες'
+restricedPage: 'Αυτή η σελίδα είναι προσβάσιμη σε συνδεδεμένους χρήστες μόνο, παρακαλώ συνδεθείτε ή εγγραφείτε πρώτα.'
+#
+#app/views/security/login.html
+ohNo: 'Ωχ όχι!'
+loginFailed: 'Η σύνδεση απέτυχε. Μήπως γράψατε κάτι λάθος;'
+logIn: 'Συνδεθείτε!'
+toSignup: 'Εγγραφή'
+goBack: 'Πίσω'
+#
+#app/forms/Signup.php
+nameCompulsory: 'Ένα όνομα για το εστιατόριό σας είναι υποχρεωτικό!'
+typeCity: 'Γράψτε μία πόλη παρακαλώ!'
+zip: 'Ο ταχυδρομικός κώδικας είναι απαραίτητος!'
+mandatoryField: 'Υποχρεωτικό πεδίο είναι άδειο!'
+thatUsername: 'Αυτό το όνομα χρήστη:'
+tooShort: 'είναι πολύ μικρό!'
+giveUsername: 'Παρακαλώ δώστε μας ένα όνομα χρήστη!'
+theEmail: 'Το E-Mail:'
+notValid: 'δεν είναι έγκυρο!'
+weakPassword: 'Ο κωδικός δεν είναι καλός'
+passwordMatch: 'Οι κωδικοί δεν ταιριάζουν'
+retypePassword: 'Πληκτρολογήστε πάλι τον κωδικό!'
+pickUrl: 'Παρακαλώ διαλέξτε ένα url, είναι η διεύθυνσή σας!'
+urlTooShort: 'Το url είναι πολύ μικρό!'
+#
+#app/forms/Dish.php
+needName: 'Χρειαζόμαστε ένα όνομα!'
+yourDescription: 'Η περιγραφή σας:'
+shortDescription: 'φαίνεται να είναι πολύ μικρή!'
+needDescription: 'Χρειάζεται μία περιγραφή'
+addPrice: 'Μπορεί να θέλετε να προσθέσετε μία τιμή!'
+validPrice: 'Αυτή η τιμή δεν είναι έγκυρη!'
+#

@@ -39,19 +39,19 @@ yes: 'Yes'
 #
 #app/views/registration/edit.html
 woops: 'Woops!'
-youAreMissingSomeData: 'You are missing some data, please fillout compulsory fields!'
+youAreMissingSomeData: 'You are missing some data, please fill in compulsory fields!'
 veryGood: 'Very good'
 everythingWorkedFine: 'Everything worked just fine, you can sign in now!'
 userInformation: 'User information'
 #
 #app/views/registration/failure.html
 sorryRegistrationFailed: 'Sorry, registration or account editing failed!'
-resolveProblems: 'We are very sorry but you are registration or editing of your account could not be completed due to technical problems. Retrying might solve this issue.'
+resolveProblems: 'We are very sorry but your registration or editing of your account could not be completed due to technical problems. Retrying might solve this issue.'
 #
 #app/views/registration/signup.html
 youAreMissingMandatoryData: 'You are missing some mandatory data, please add where needed!'
 youAreOnline: 'All worked fine, your restaurant is online!'
-userData: 'userData'
+userData: 'User Data'
 username: 'Username'
 password: 'Password'
 repeatPassword: 'Repeat Password'
@@ -84,7 +84,7 @@ restricedPage: 'This page is restricted to logged in users only, please login or
 #app/views/security/login.html
 ohNo: 'Oh No!'
 loginFailed: 'Login failed. Mistyped something here?'
-logIn: 'Log yerself in!'
+logIn: 'Log yourself in!'
 toSignup: 'To signup'
 goBack: 'Go back'
 #
@@ -101,7 +101,7 @@ notValid: 'is not valid!'
 weakPassword: 'The password is weak'
 passwordMatch: 'The passwords do not match'
 retypePassword: 'Retype the password!'
-pickUrl: 'Please pick a url, its your address!'
+pickUrl: 'Please pick a url, it is your address!'
 urlTooShort: 'This url is too short!'
 #
 #app/forms/Dish.php
