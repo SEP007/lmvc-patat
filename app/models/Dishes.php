@@ -114,7 +114,7 @@ class Dishes
 
     public function getDishesByRestaurant($handle, $group = true, $advertised = false) {
         $dishes = static::query()
-            ->select('*')
+            ->select('Dishes.*')
             ->innerJoin(new Locations(), 'Dishes.user_id = Locations.id')
             ->where('Locations.handle = :handle', ['handle' => $handle])
             ->andWhere('Dishes.advertised = :advertised', ['advertised' => (string) $advertised])

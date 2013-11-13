@@ -27,4 +27,20 @@ class Users
 
         return $user;
     }
+
+
+    /**
+     * Finds user by customer determined by the given id and returns user name only
+     * @param $id customer id
+     */
+    public static function getUsernameByCustomerId($id)
+    {
+        $user = static::query()
+            ->select('*')
+            ->innerJoin(new Customers(), 'Customers.user_id = Users.id')
+            ->where('Customers.id= :id', ['id' => $id])
+            ->one();
+
+        return $user->username;
+    }
 }

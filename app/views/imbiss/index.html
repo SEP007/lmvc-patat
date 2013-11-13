@@ -1,6 +1,9 @@
 <?php
     use ui\UI;
     use Scandio\lmvc\modules\assetpipeline\view\Asset;
+
+    $commentsModel = new \models\Comments();
+    $usersModel = new \models\Users();
 ?>
 
 <div class="row-fluid content-header">
@@ -14,6 +17,34 @@
     <a href="<?= $app->url('Dishes::map', $restaurant->user_id) ?>">
         <div id="map-small" data-userid=<?= $restaurant->user_id ?> class="span4"></div>
     </a>
+</div>
+
+<?php
+    $restaurantComments = $commentsModel->getCommentsByRestaurant($restaurant->id);
+?>
+<div>
+    <ul class="expList">
+        <li>
+        <?php if($restaurantComments->count() == 0): ?>
+        No comments
+        <?php else: ?>
+        Toggle comments
+        <?php endif; ?>
+            <ul>
+            <?php foreach($restaurantComments as $restaurantComment): ?>
+            <li>
+                <?php
+                   $userName = $usersModel->getUsernameByCustomerId($restaurantComment->created_by);
+                ?>
+                <p>
+                <div><span>Created at </span><b><?= $restaurantComment->creation_date ?></b><span>, by </span><b><?= $userName ?></b></div>
+                <div><?= $restaurantComment->description ?></div>
+                </p>
+            </li>
+            <?php endforeach; ?>
+            </ul>
+        </li>
+    </ul>
 </div>
 
 <div class="ios-list-wrap">
@@ -51,6 +82,35 @@
                         </div>
                     </div>
                 </dd>
+
+                <?php
+                    $dishComments = $commentsModel->getCommentsByDish($advertisedDish->id);
+                ?>
+                <p>
+                    <ul class="expList">
+                        <li>
+                        <?php if($dishComments->count() == 0): ?>
+                        No comments
+                        <?php else: ?>
+                        Toggle comments
+                        <?php endif; ?>
+                            <ul>
+                            <?php foreach($dishComments as $dishComment): ?>
+                            <li>
+                                <?php
+                                   $userName = $usersModel->getUsernameByCustomerId($restaurantComment->created_by);
+                                ?>
+                                <p>
+                                <div><span>Created at </span><b><?= $dishComment->creation_date ?></b><span>, by </span><b><?= $userName ?></b></div>
+                                <div><?= $dishComment->description ?></div>
+                                </p>
+                            </li>
+                            <?php endforeach; ?>
+                            </ul>
+                        </li>
+                    </ul>
+                </p>
+
             <?php endforeach; ?>
             <?php else: ?>
             <div class="alert alert-info">
@@ -110,6 +170,35 @@
                             </div>
                         </div>
                     </dd>
+
+                    <?php
+                        $dishComments = $commentsModel->getCommentsByDish($dish->id);
+                    ?>
+                    <p>
+                        <ul class="expList">
+                            <li>
+                                <?php if($dishComments->count() == 0): ?>
+                                No comments
+                                <?php else: ?>
+                                Toggle comments
+                                <?php endif; ?>
+                                <ul>
+                                <?php foreach($dishComments as $dishComment): ?>
+                                <li>
+                                <?php
+                                   $userName = $usersModel->getUsernameByCustomerId($restaurantComment->created_by);
+                                ?>
+                                <p>
+                                <div><span>Created at </span><b><?= $dishComment->creation_date ?></b><span>, by </span><b><?= $userName ?></b></div>
+                                <div><?= $dishComment->description ?></div>
+                                </p>
+                                </li>
+                                <?php endforeach; ?>
+                                </ul>
+                            </li>
+                        </ul>
+                    </p>
+
                 <?php endforeach; ?>
             <?php else: ?>
                 <div class="alert alert-info">
@@ -125,3 +214,4 @@
 <?= UI::js(Asset::assets(['gmaps.js'])) ?>
 <?= UI::js(Asset::assets(['jquery.patatmap.js'], ['path' => 'plugins'])) ?>
 <?= UI::js(Asset::assets(['jquery.imbiss-index.js'], ['path' => 'views'])) ?>
+<?= UI::js(Asset::assets(['jquery.expand-collapse-list.js'], ['path' => 'views'])) ?>
