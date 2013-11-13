@@ -8,8 +8,16 @@
         "Scandio\\lmvc\\modules\\upload",
         "Scandio\\lmvc\\modules\\assetpipeline",
         "Scandio\\lmvc\\modules\\security",
-        "Scandio\\lmvc\\modules\\registration"
+        "Scandio\\lmvc\\modules\\registration",
+		"Scandio\\lmvc\\modules\\i18n"
     ],
+    
+    "I18n": {
+    	"languages": ["en", "de", "el"],
+    	"default": "en",
+    	"path": "locales",
+    	"format": "yaml"
+    },
 
     "views": ["./app/views"],
 
