@@ -2,6 +2,7 @@
 home: 'Αρχική Σελίδα'
 signUp: 'Εγγραφή'
 myRestaurant: 'Το Εστιατόριό μου'
+myProfile: 'Ο λογαριασμός μου'
 menu: 'Μενού'
 logout: 'Έξοδος'
 #
@@ -30,6 +31,7 @@ uploadImage: 'Ανέβασε φωτογραφία!'
 #
 #app/views/menu/index.html
 #Haven't finished with this file yet
+category: 'Κατηγορία'
 name: 'Όνομα'
 image: 'Φωτογραφία'
 description: 'Περιγραφή'
@@ -37,7 +39,7 @@ price: 'Τιμή'
 addNewSnack: 'Βάλε νέο snack'
 yes: 'Ναι'
 #
-#app/views/registration/edit.html
+#app/views/registration/edit-restaurant.html
 woops: 'Ουπς!'
 youAreMissingSomeData: 'Σας λείπουν πληροφορίες, παρακαλώ συμπληρώστε τα υποχρεωτικά πεδία!'
 veryGood: 'Πολύ καλά!'
@@ -48,7 +50,7 @@ userInformation: 'Πληροφορίες χρήστη'
 sorryRegistrationFailed: 'Συγγνώμη, αλλά η εγραφή ή επεξεργασία του λογαριασμού σας απέτυχε!'
 resolveProblems: 'Λυπούμαστε πολύ, αλλά η εγγραφή σας ή η επεξεργασία του λογαριασμού σας δεν μπορούσε να ολοκληρωθεί λόγω τεχνικών προβλημάτων. Ξαναπροσπαθώντας μπορεί να λυθεί το πρόβλημα.'
 #
-#app/views/registration/signup.html
+#app/views/registration/signup-restaurant.html
 youAreMissingMandatoryData: 'Σας λείπουν υποχρεωτικά δεδομένα, παρακαλώ προσθέστε τα όπου χρειάζονται!'
 youAreOnline: 'Όλα πήγαν μία χαρά, το εστιατόριό σας είναι online!'
 userData: 'Δεδομένα χρήστη'
@@ -69,8 +71,8 @@ streetAndHouseNumber: 'Οδός κι αριθμός'
 findYourLocation: 'Βρείτε την τοποθεσία σας'
 longitude: 'Γεωγραφικό μήκος'
 latitude: 'Γεωγραφικό πλάτος'
-reset: 'Καθαρισμός'
-edit: 'Επεξεργασία'
+'register': 'Εγγραφή'
+'cancel': 'Ακύρωση'
 #
 #app/views/registration/success.html
 chipFat: 'All hot as chip fat!'

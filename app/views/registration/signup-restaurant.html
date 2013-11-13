@@ -1,7 +1,6 @@
 <?php
     use ui\UI;
     use Scandio\lmvc\modules\assetpipeline\view\Asset;
-    use Scandio\lmvc\modules\session\Session;
     use Scandio\lmvc\modules\i18n\I18nWrapper;
 
     $errors['password'] = $errors['password'] ?: [];
@@ -177,10 +176,8 @@
         </fieldset>
 
         <div class="control-group pull-right">
-            <button class="btn btn-primary" type="submit" id="signup" name="signup" value="true"> <?= I18nWrapper::translate('edit'); ?> </button>
-            <button class="btn" href="<?= $app->url('Application::index') ?>"><?= I18nWrapper::translate('reset'); ?></button>
-            <button class="btn btn-primary" type="submit" id="signup" name="signup" value="true">Register</button>
-            <button class="btn" href="<?= $app->url('Application::index') ?>">Cancel</button>
+            <button class="btn btn-primary" type="submit" id="signup" name="signup" value="true"><?= I18nWrapper::translate('register'); ?></button>
+            <button class="btn" href="<?= $app->url('Application::index') ?>"><?= I18nWrapper::translate('cancel'); ?></button>
         </div>
     </form>
 </div>

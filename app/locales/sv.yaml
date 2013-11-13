@@ -1,7 +1,8 @@
 #app/views/main.html
 home: 'Hemma'
 signUp: 'Registrera dig'
-myRestaurant: 'Min restaurang'
+myRestaurant: 'Min Restaurang'
+myProfile: 'Min Profil'
 menu: 'Meny'
 logout: 'Logga ut'
 #
@@ -30,6 +31,7 @@ uploadImage: 'Ladda upp en bild!'
 #
 #app/views/menu/index.html
 #Haven't finished with this file yet
+category: 'Kategori'
 name: 'Namn'
 image: 'Bild'
 description: 'Beskrivning'
@@ -37,7 +39,7 @@ price: 'Pris'
 addNewSnack: 'Lägg till nya mellanmål'
 yes: 'Ja'
 #
-#app/views/registration/edit.html
+#app/views/registration/edit-restaurant.html
 woops: 'Woops!'
 youAreMissingSomeData: 'Du saknar en del uppgifter, fyll i obligatoriska fält!'
 veryGood: 'Jättebra'
@@ -48,7 +50,7 @@ userInformation: 'användarinformation'
 sorryRegistrationFailed: 'Tyvärr misslyckades registreringen eller konto redigering!'
 resolveProblems: 'Vi är mycket ledsna, men din registrering eller redigering av ditt konto kunde inte slutföras på grund av tekniska problem. Försöker igen kan lösa problemet.'
 #
-#app/views/registration/signup.html
+#app/views/registration/signup-restaurant.html
 youAreMissingMandatoryData: 'Du saknar vissa obligatoriska uppgifter, lägg där det behövs!'
 youAreOnline: 'Allt fungerade bra, är din restaurang på nätet!'
 userData: 'Användardata'
@@ -69,8 +71,8 @@ streetAndHouseNumber: 'Gata & Husnummer'
 findYourLocation: 'Hitta din plats'
 longitude: 'Longitud'
 latitude: 'Latitud'
-reset: 'Återställ'
-edit: 'Redigera'
+register: 'Registrera'
+cancel: 'Avbryta'
 #
 #app/views/registration/success.html
 chipFat: 'All hot as chip fat!'

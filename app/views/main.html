@@ -83,20 +83,18 @@
                         <ul class="nav pull-left">
                             <li class=""><a href="<?= $app->url('Application::index') ?>"> <?= I18nWrapper::translate('home'); ?> </a></li>
                             <?php if(!Security::get()->isAuthenticated()): ?>
-                                <li><a href="<?= $app->url('Registration::signup') ?>"> <?= I18nWrapper::translate('signUp'); ?> </a></li>
-                                <li><a href="<?= $app->url('Registration::signup-restaurant') ?>">Sign up</a></li>
+                                <li><a href="<?= $app->url('Registration::signup-restaurant') ?>"> <?= I18nWrapper::translate('signUp'); ?> </a></li>
                                 <li><a href="<?= $app->url('Registration::signup-customer') ?>">Register hunger</a></li>
                             <?php endif; ?>
                         </ul>
 
                         <ul class="nav pull-right">
                             <?php if(Security::get()->isAuthenticated()): ?>
-                                <li><a href="<?= $app->url('Registration::edit') ?>"> <?= I18nWrapper::translate('myRestaurant'); ?> </a></li>
                                 <?php if(Security::get()->currentUser()->isInGroup("Customer")): ?>
-                                    <li><a href="<?= $app->url('Registration::edit-customer') ?>">My Profile</a></li>
+                                    <li><a href="<?= $app->url('Registration::edit-customer') ?>"> <?= I18nWrapper::translate('myProfile'); ?> </a></li>
                                 <?php endif; ?>
                                 <?php if(Security::get()->currentUser()->isInGroup("Restaurant")): ?>
-                                    <li><a href="<?= $app->url('Registration::edit-restaurant') ?>">My Restaurant</a></li>
+                                    <li><a href="<?= $app->url('Registration::edit-restaurant') ?>"> <?= I18nWrapper::translate('myRestaurant'); ?> </a></li>
                                 <?php endif; ?>
                             <?php endif; ?>
                             <li><a href="<?= $app->url('Menu::index') ?>"> <?= I18nWrapper::translate('menu'); ?> </a></li>

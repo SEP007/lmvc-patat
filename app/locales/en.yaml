@@ -2,6 +2,7 @@
 home: 'Home'
 signUp: 'Sign Up'
 myRestaurant: 'My Restaurant'
+myProfile: 'My Profile'
 menu: 'Menu'
 logout: 'Logout'
 #
@@ -30,6 +31,7 @@ uploadImage: 'Upload image!'
 #
 #app/views/menu/index.html
 #Haven't finished with this file yet
+category: 'Category'
 name: 'Name'
 image: 'Image'
 description: 'Description'
@@ -37,7 +39,7 @@ price: 'Price'
 addNewSnack: 'Add new snack'
 yes: 'Yes'
 #
-#app/views/registration/edit.html
+#app/views/registration/edit-restaurant.html
 woops: 'Woops!'
 youAreMissingSomeData: 'You are missing some data, please fill in compulsory fields!'
 veryGood: 'Very good'
@@ -48,7 +50,7 @@ userInformation: 'User information'
 sorryRegistrationFailed: 'Sorry, registration or account editing failed!'
 resolveProblems: 'We are very sorry but your registration or editing of your account could not be completed due to technical problems. Retrying might solve this issue.'
 #
-#app/views/registration/signup.html
+#app/views/registration/signup-restaurant.html
 youAreMissingMandatoryData: 'You are missing some mandatory data, please add where needed!'
 youAreOnline: 'All worked fine, your restaurant is online!'
 userData: 'User Data'
@@ -69,8 +71,8 @@ streetAndHouseNumber: 'Street & House number'
 findYourLocation: 'Find your location'
 longitude: 'Longitude'
 latitude: 'Latitude'
-reset: 'Reset'
-edit: 'Edit'
+register: 'Register'
+cancel: 'Cancel'
 #
 #app/views/registration/success.html
 chipFat: 'All hot as chip fat!'
