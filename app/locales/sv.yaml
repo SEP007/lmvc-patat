@@ -7,7 +7,7 @@ logout: 'Logga ut'
 #
 #app/views/application/index.html
 weAreTryingToLocate: 'Vi försöker att hitta dig, stanna kvar!'
-youCanAlsoSpecifyYourAddress: 'Du kan också ange din adress'
+youCanAlsoSpecifyYourAddress: '...du kan också ange din adress'
 findMe: 'Hitta mig'
 find: 'Hitta'
 #
@@ -84,14 +84,14 @@ restricedPage: 'Denna sida är begränsad till inloggade användare, logga in el
 #app/views/security/login.html
 ohNo: 'Oh Nej!'
 loginFailed: 'Inloggningen misslyckades. Stavfel något här?'
-logIn: 'Logga in dig!'
+logIn: 'Logga in!'
 toSignup: 'För att anmäla dig'
 goBack: 'Gå tillbaka'
 #
 #app/forms/Signup.php
 nameCompulsory: 'Ett namn för din restaurang är obligatoriskt!'
 typeCity: 'Skriv en stad vänligen!'
-zip: 'Postnumret behövs!'
+zipCodeNeeded: 'Postnumret behövs!'
 mandatoryField: 'Obligatoriska fält saknas här!'
 thatUsername: 'Denna användarnamn:'
 tooShort: 'är för kort!'

@@ -6,31 +6,31 @@
 
 <h2><?= I18nWrapper::translate('weAreTryingToLocate'); ?></h2>
 
-<h3>…you can also specify your adress</h3>
+<h3><?= I18nWrapper::translate('youCanAlsoSpecifyYourAddress'); ?></h3>
 <form id="location-form" class="form-horizontal" method="POST" action="<?= $app->url('Dishes::index') ?>">
     <fieldset>
         <div class="control-group">
             <label class="control-label" for="country"><?= I18nWrapper::translate('country'); ?></label>
             <div class="controls">
-                <input type="text" name="country" id="country" placeholder="Country" />
+                <input type="text" name="country" id="country" placeholder= <?= I18nWrapper::translate('country'); ?> />
             </div>
         </div>
         <div class="control-group">
             <label class="control-label" for="city"><?= I18nWrapper::translate('city'); ?></label>
             <div class="controls">
-                <input type="text" name="city" id="city" placeholder="City" />
+                <input type="text" name="city" id="city" placeholder= <?= I18nWrapper::translate('city'); ?> />
             </div>
         </div>
         <div class="control-group">
             <label class="control-label" for="zip"><?= I18nWrapper::translate('zip'); ?></label>
             <div class="controls">
-                <input type="number" name="zip" id="zip" placeholder="Zip" />
+                <input type="number" name="zip" id="zip" placeholder= <?= I18nWrapper::translate('zip'); ?> />
             </div>
         </div>
         <div class="control-group">
             <label class="control-label" for="place"><?= I18nWrapper::translate('streetAndHouseNumber'); ?></label>
             <div class="controls">
-                <input type="text" name="place" id="place" placeholder="Street & Housenumber" />
+                <input type="text" name="place" id="place" placeholder= <?= I18nWrapper::translate('streetAndHouseNumber'); ?> />
             </div>
         </div>
         <div class="control-group">
@@ -42,13 +42,13 @@
         <div class="control-group">
             <label class="control-label" for="longitude"><?= I18nWrapper::translate('longitude'); ?></label>
             <div class="controls">
-                <input type="text" name="longitude" id="longitude" placeholder="Longitude" />
+                <input type="text" name="longitude" id="longitude" placeholder= <?= I18nWrapper::translate('longitude'); ?> />
             </div>
         </div>
         <div class="control-group">
             <label class="control-label" for="latitude"><?= I18nWrapper::translate('latitude'); ?></label>
             <div class="controls">
-                <input type="text" name="latitude" id="latitude" placeholder="Latitude" />
+                <input type="text" name="latitude" id="latitude" placeholder= <?= I18nWrapper::translate('latitude'); ?> />
             </div>
         </div>
     </fieldset>

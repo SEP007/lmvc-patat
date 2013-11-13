@@ -16,17 +16,17 @@
         <div class="control-group">
             <label class="control-label" for="username"><?= I18nWrapper::translate('username'); ?></label>
             <div class="controls">
-                <input type="text" name="username" id="username" placeholder="Username"/>
+                <input type="text" name="username" id="username" placeholder= <?= I18nWrapper::translate('username'); ?>/>
             </div>
         </div>
         <div class="control-group">
             <label class="control-label" for="password"><?= I18nWrapper::translate('password'); ?></label>
             <div class="controls">
-                <input type="password" name="password" id="password" placeholder="Password"/>
+                <input type="password" name="password" id="password" placeholder= <?= I18nWrapper::translate('password'); ?>/>
             </div>
         </div>
         <div class="control-group">
-            <input class="btn btn-primary" type="submit" id="login" name="login" value="Login"/>
+            <input class="btn btn-primary" type="submit" id="login" name="login" value= <?= I18nWrapper::translate('logIn'); ?>/>
 
             <a class="btn" href="<?= $app->url('Registration::index') ?>"><?= I18nWrapper::translate('toSignup'); ?></a>
 

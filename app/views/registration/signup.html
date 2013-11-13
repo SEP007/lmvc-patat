@@ -34,7 +34,7 @@
             <div class="control-group">
                 <label class="control-label" for="username"><?= I18nWrapper::translate('username'); ?></label>
                 <div class="controls">
-                    <input type="text" name="username" id="username" placeholder="Username" value="<?= $user->username ?>" />
+                    <input type="text" name="username" id="username" placeholder= <?= I18nWrapper::translate('username'); ?> value="<?= $user->username ?>" />
 
                     <?php foreach ($errors['username'] as $validator => $message): ?>
                         <span class="help-block <?= $validator ?>"><?= $message ?></span>
@@ -44,7 +44,7 @@
             <div class="control-group">
                 <label class="control-label" for="password"><?= I18nWrapper::translate('password'); ?></label>
                 <div class="controls">
-                    <input type="password" name="password" id="password" placeholder="Password"  value="<?= $user->password ?>" />
+                    <input type="password" name="password" id="password" placeholder= <?= I18nWrapper::translate('password'); ?>  value="<?= $user->password ?>" />
 
                     <?php foreach ($errors['password'] as $validator => $message): ?>
                         <span class="help-block <?= $validator ?>"><?= $message ?></span>
@@ -54,7 +54,7 @@
             <div class="control-group">
                 <label class="control-label" for="password"><?= I18nWrapper::translate('repeatPassword'); ?></label>
                 <div class="controls">
-                    <input type="password" name="passwordRetyped" id="password-retyped" placeholder="Repeat password"  value="<?= $user->passwordRetyped ?>" />
+                    <input type="password" name="passwordRetyped" id="password-retyped" placeholder= <?= I18nWrapper::translate('repeatPassword'); ?>  value="<?= $user->passwordRetyped ?>" />
 
                     <?php foreach ($errors['passwordRetyped'] as $validator => $message): ?>
                         <span class="help-block <?= $validator ?>"><?= $message ?></span>
@@ -64,13 +64,13 @@
             <div class="control-group">
                 <label class="control-label" for="username"><?= I18nWrapper::translate('firstAndSurname'); ?></label>
                 <div class="controls">
-                    <input type="text" name="fullname" id="fullname" placeholder="First- & Surname" value="<?= $user->fullname ?>" />
+                    <input type="text" name="fullname" id="fullname" placeholder= <?= I18nWrapper::translate('firstAndSurname'); ?> value="<?= $user->fullname ?>" />
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label" for="password"><?= I18nWrapper::translate('email'); ?></label>
                 <div class="controls">
-                    <input type="email" name="email" id="email" placeholder="E-Mail"  value="<?= $user->email ?>" />
+                    <input type="email" name="email" id="email" placeholder= <?= I18nWrapper::translate('email'); ?>  value="<?= $user->email ?>" />
 
                     <?php foreach ($errors['email'] as $validator => $message): ?>
                         <span class="help-block <?= $validator ?>"><?= $message ?></span>
@@ -80,13 +80,13 @@
             <div class="control-group">
                 <label class="control-label" for="password"><?= I18nWrapper::translate('phone'); ?></label>
                 <div class="controls">
-                    <input type="tel" name="phone" id="phone" placeholder="Phone"  value="<?= $user->phone ?>" />
+                    <input type="tel" name="phone" id="phone" placeholder= <?= I18nWrapper::translate('phone'); ?>  value="<?= $user->phone ?>" />
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label" for="password"><?= I18nWrapper::translate('mobile'); ?></label>
                 <div class="controls">
-                    <input type="tel" name="mobile" id="mobile" placeholder="Mobile"  value="<?= $user->mobile ?>" />
+                    <input type="tel" name="mobile" id="mobile" placeholder= <?= I18nWrapper::translate('mobile'); ?>  value="<?= $user->mobile ?>" />
                 </div>
             </div>
         </fieldset>
@@ -96,7 +96,7 @@
             <div class="control-group">
                 <label class="control-label" for="restaurant"></label>
                 <div class="controls">
-                    <input type="text" name="restaurant" id="restaurant" placeholder="Name of restaurant" value="<?= $user->restaurant ?>" />
+                    <input type="text" name="restaurant" id="restaurant" placeholder= <?= I18nWrapper::translate('nameOfRestaurant'); ?> value="<?= $user->restaurant ?>" />
 
                     <?php foreach ($errors['restaurant'] as $validator => $message): ?>
                         <span class="help-block <?= $validator ?>"><?= $message ?></span>
@@ -106,7 +106,7 @@
             <div class="control-group">
                 <label class="control-label" for="handle"><?= I18nWrapper::translate('domainForRestaurant'); ?></label>
                 <div class="controls">
-                    <input type="text" name="handle" id="handle" placeholder="Domain for restaurant" value="<?= $user->handle ?>" />
+                    <input type="text" name="handle" id="handle" placeholder= <?= I18nWrapper::translate('domainForRestaurant'); ?> value="<?= $user->handle ?>" />
                     <div id="handle-response-indicator" class="input-append">
                         <span class="add-on">✔</span>
                     </div>
@@ -119,7 +119,7 @@
             <div class="control-group">
                 <label class="control-label" for="country"><?= I18nWrapper::translate('country'); ?></label>
                 <div class="controls">
-                    <input type="text" name="country" id="country" placeholder="Country" value=""/>
+                    <input type="text" name="country" id="country" placeholder= <?= I18nWrapper::translate('country'); ?> value=""/>
 
                     <?php foreach ($errors['country'] as $validator => $message): ?>
                         <span class="help-block <?= $validator ?>"><?= $message ?></span>
@@ -129,7 +129,7 @@
             <div class="control-group">
                 <label class="control-label" for="city"><?= I18nWrapper::translate('city'); ?></label>
                 <div class="controls">
-                    <input type="text" name="city" id="city" placeholder="City" value="<?= $user->city ?>"/>
+                    <input type="text" name="city" id="city" placeholder= <?= I18nWrapper::translate('city'); ?> value="<?= $user->city ?>"/>
 
                     <?php foreach ($errors['city'] as $validator => $message): ?>
                         <span class="help-block <?= $validator ?>"><?= $message ?></span>
@@ -139,7 +139,7 @@
             <div class="control-group">
                 <label class="control-label" for="zip"><?= I18nWrapper::translate('zip'); ?></label>
                 <div class="controls">
-                    <input type="number" name="zip" id="zip" placeholder="Zip" value="<?= $user->zip ?>"/>
+                    <input type="number" name="zip" id="zip" placeholder= <?= I18nWrapper::translate('zip'); ?> value="<?= $user->zip ?>"/>
 
                     <?php foreach ($errors['zip'] as $validator => $message): ?>
                         <span class="help-block <?= $validator ?>"><?= $message ?></span>
@@ -149,7 +149,7 @@
             <div class="control-group">
                 <label class="control-label" for="place"><?= I18nWrapper::translate('streetAndHouseNumber'); ?></label>
                 <div class="controls">
-                    <input type="text" name="place" id="place" placeholder="Street & Housenumber" value="<?= $user->street ?>"/>
+                    <input type="text" name="place" id="place" placeholder= <?= I18nWrapper::translate('streetAndHouseNumber'); ?> value="<?= $user->street ?>"/>
 
                     <?php foreach ($errors['place'] as $validator => $message): ?>
                         <span class="help-block <?= $validator ?>"><?= $message ?></span>
@@ -165,19 +165,19 @@
             <div class="control-group">
                 <label class="control-label" for="place"><?= I18nWrapper::translate('longitude'); ?></label>
                 <div class="controls">
-                    <input type="text" name="longitude" id="longitude" placeholder="Longitude" value="<?= $user->longitude ?>" />
+                    <input type="text" name="longitude" id="longitude" placeholder= <?= I18nWrapper::translate('longitude'); ?> value="<?= $user->longitude ?>" />
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label" for="latitude"><?= I18nWrapper::translate('latitude'); ?></label>
                 <div class="controls">
-                    <input type="text" name="latitude" id="latitude" placeholder="Latitude" value="<?= $user->latitude ?>" />
+                    <input type="text" name="latitude" id="latitude" placeholder= <?= I18nWrapper::translate('latitude'); ?> value="<?= $user->latitude ?>" />
                 </div>
             </div>
         </fieldset>
 
         <div class="control-group pull-right">
-            <button class="btn btn-primary" type="submit" id="signup" name="signup" value="true">Anmelden</button>
+            <button class="btn btn-primary" type="submit" id="signup" name="signup" value="true"> <?= I18nWrapper::translate('edit'); ?> </button>
             <button class="btn" href="<?= $app->url('Application::index') ?>"><?= I18nWrapper::translate('reset'); ?></button>
         </div>
     </form>

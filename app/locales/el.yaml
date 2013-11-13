@@ -7,7 +7,7 @@ logout: 'Έξοδος'
 #
 #app/views/application/index.html
 weAreTryingToLocate: 'Προσπαθούμε να σας εντοπίσουμε. Παραμείνετε στην θέση σας!'
-youCanAlsoSpecifyYourAddress: 'Μπορείτε επίσης να μας δώσετε την διεύθυνσή σας'
+youCanAlsoSpecifyYourAddress: '...μπορείτε επίσης να μας δώσετε την διεύθυνσή σας'
 findMe: 'Βρες με'
 find: 'Βρες'
 #
@@ -91,7 +91,7 @@ goBack: 'Πίσω'
 #app/forms/Signup.php
 nameCompulsory: 'Ένα όνομα για το εστιατόριό σας είναι υποχρεωτικό!'
 typeCity: 'Γράψτε μία πόλη παρακαλώ!'
-zip: 'Ο ταχυδρομικός κώδικας είναι απαραίτητος!'
+zipCodeNeeded: 'Ο ταχυδρομικός κώδικας είναι απαραίτητος!'
 mandatoryField: 'Υποχρεωτικό πεδίο είναι άδειο!'
 thatUsername: 'Αυτό το όνομα χρήστη:'
 tooShort: 'είναι πολύ μικρό!'

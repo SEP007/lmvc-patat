@@ -7,7 +7,7 @@ logout: 'Logout'
 #
 #app/views/application/index.html
 weAreTryingToLocate: 'We are trying to locate you, stay put!'
-youCanAlsoSpecifyYourAddress: 'You can also specify your address'
+youCanAlsoSpecifyYourAddress: '...you can also specify your address'
 findMe: 'Find me'
 find: 'Find'
 #
@@ -84,14 +84,14 @@ restricedPage: 'This page is restricted to logged in users only, please login or
 #app/views/security/login.html
 ohNo: 'Oh No!'
 loginFailed: 'Login failed. Mistyped something here?'
-logIn: 'Log yourself in!'
+logIn: 'Log in!'
 toSignup: 'To signup'
 goBack: 'Go back'
 #
 #app/forms/Signup.php
 nameCompulsory: 'A name for your restaurant is compulsory!'
 typeCity: 'Type a city please!'
-zip: 'The zip code is needed!'
+zipCodeNeeded: 'The zip code is needed!'
 mandatoryField: 'Mandatory field missing here!'
 thatUsername: 'That username:'
 tooShort: 'is too short!'
