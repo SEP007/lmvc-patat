@@ -27,9 +27,9 @@ class Dishes extends AnonymousController
 
         $CustomerModel = new \models\Customers();
         $user = Security::get()->currentUser();
-        $custid = $CustomerModel->getByUserId($user->id)->id;
         if ($user->username != "anonymous")
         {
+            $custid = $CustomerModel->getByUserId($user->id)->id;
             self::setRenderArg('dishesFavorite', $dishesModel->getFavoriteDishesForCustomer($custid, true));
         }
 

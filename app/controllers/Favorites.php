@@ -16,7 +16,7 @@ class Favorites extends AnonymousController
         $dishesModel = new \models\Dishes();
 
         self::setRenderArg('dishes', $dishesModel->
-            getFavoriteDishesForCustomer($custId));
+            getFavoriteDishesForCustomer($custId, false));
 
         self::render();
     }
@@ -40,7 +40,7 @@ class Favorites extends AnonymousController
         $custid = $CustomerModel->getByUserId($userid)->id;
 
         $dishModel     = new \models\Dishes();
-        $favDishes = $dishModel->getFavoriteDishesForCustomer($custid);
+        $favDishes = $dishModel->getFavoriteDishesForCustomer($custid, false);
 
         foreach ($favDishes as $dish)
         {
