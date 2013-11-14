@@ -5,6 +5,7 @@ myRestaurant: 'Min Restaurang'
 myProfile: 'Min Profil'
 menu: 'Meny'
 logout: 'Logga ut'
+registerHunger: 'Registrera Hunger'
 #
 #app/views/application/index.html
 weAreTryingToLocate: 'Vi försöker att hitta dig, stanna kvar!'

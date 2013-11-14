@@ -61,6 +61,9 @@
 	    		<a href="<?= $app->url('I18n::language', 'de') ?>"><img src="<?= Asset::image(['flags/de.png']) ?>" /></a>
 	    	</li>
 	    	<li>
+	    		<a href="<?= $app->url('I18n::language', 'ru') ?>"><img src="<?= Asset::image(['flags/ru.png']) ?>" /></a>
+	    	</li>
+	    	<li>
 	    		<a href="<?= $app->url('I18n::language', 'el') ?>"><img src="<?= Asset::image(['flags/el.png']) ?>" /></a>
 	    	</li>
 	    </ul>
@@ -84,7 +87,7 @@
                             <li class=""><a href="<?= $app->url('Application::index') ?>"> <?= I18nWrapper::translate('home'); ?> </a></li>
                             <?php if(!Security::get()->isAuthenticated()): ?>
                                 <li><a href="<?= $app->url('Registration::signup-restaurant') ?>"> <?= I18nWrapper::translate('signUp'); ?> </a></li>
-                                <li><a href="<?= $app->url('Registration::signup-customer') ?>">Register hunger</a></li>
+                                <li><a href="<?= $app->url('Registration::signup-customer') ?>"> <?= I18nWrapper::translate('registerHunger'); ?> </a></li>
                             <?php endif; ?>
                         </ul>
 
