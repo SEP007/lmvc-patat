@@ -1,14 +1,23 @@
 <?php
     use ui\UI;
     use Scandio\lmvc\modules\assetpipeline\view\Asset;
+    use Scandio\lmvc\modules\security\Security;
 ?>
 
 <div class="row-fluid content-header">
 
     <div class="span1">
-        <a href="<?= $app->url('Favorites::addFavoriteLocation', $restaurant->id) ?>">
-            <img width=100 src="<?= Asset::image(['not_favorite.png']) ?>" alt="" />
-        </a>
+        <?php if(Security::get()->isAuthenticated()): ?>
+            <?php if(\models\Locations::isFavoriteLocation($restaurant->id)): ?>
+                <a href="<?= $app->url('Favorites::favoriteLocation', $restaurant->id) ?>">
+                    <img width=100 src="<?= Asset::image(['favorite.png']) ?>" alt="" />
+                </a>
+            <?php else: ?>
+                <a href="<?= $app->url('Favorites::favoriteLocation', $restaurant->id) ?>">
+                    <img width=100 src="<?= Asset::image(['not_favorite.png']) ?>" alt="" />
+                </a>
+            <?php endif ?>
+        <?php endif ?>
     </div>
     <div class="span7">
         <h1><?= $restaurant->restaurant ?></h1>

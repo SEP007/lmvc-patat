@@ -38,7 +38,7 @@
             var that = this;
 
             $.ajax({
-                url: that.settings.endpointUrl + 'favorite-dish/' + that.cachedElems.$triggerEl.data("dishid"),
+                url: that.settings.endpointUrl + 'favorite-dish/' + $clickedStar.data("dishid"),
                 context: document.body,
                 data: { }
             }).done(function(response) {

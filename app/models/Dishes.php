@@ -131,7 +131,8 @@ class Dishes
                             ( 6371 * Acos(Cos(Radians(' . $longitude . ')) * Cos(Radians(latitude)) * Cos(
                                 Radians(longitude) - Radians(' . $latitude . ')) + Sin
                                 (Radians(' . $longitude . ')) * Sin(Radians(latitude)))
-                        ), 4 ) AS distance
+                        ), 4 ) AS distance,
+                        Dishes.id as dish_id, Users.id as user_id
                     ')
             ->innerJoin(new Users(), 'Dishes.user_id = Users.id')
             ->innerJoin(new Locations(), 'Locations.user_id = Users.id')
@@ -162,7 +163,7 @@ class Dishes
     public function getFavoriteDishesForCustomer($custId, $idonly)
     {
         $dishes = static::query()
-            ->select('*')
+            ->select('*, Dishes.id AS dish_id')
             ->innerJoin(new CustFavDishes(), 'Dishes.id = CustFavDishes.dish_id')
             ->innerJoin(new Locations(), 'Dishes.user_id = Locations.id')
             ->where('CustFavDishes.cust_id = :id', ['id' => $custId])
@@ -172,7 +173,7 @@ class Dishes
         {
             $favDishesId = array();
             foreach ($dishes as $dish){
-                array_push($favDishesId, $dish->id);
+                array_push($favDishesId, $dish->dish_id);
             }
             return $favDishesId;
         }

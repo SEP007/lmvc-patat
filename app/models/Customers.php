@@ -8,7 +8,7 @@ class Customers
 {
     use Model\Getters, Model\Finders, Model\Persisters;
 
-    public function getByUserId($userid)
+    public static function getByUserId($userid)
     {
         $customer = static::query()
             ->select('*')

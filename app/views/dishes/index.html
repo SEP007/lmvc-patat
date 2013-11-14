@@ -30,13 +30,13 @@
             <dd class="">
                 <div class="span1">
                     <?php if(Security::get()->isAuthenticated()): ?>
-                        <?php if(in_array($dish->id,$dishesFavorite)): ?>
-                            <a class="favorite-btn" href="#" data-dishid="<?= $dish->id ?>">
+                        <?php if(in_array($dish->dish_id,$dishesFavorite)): ?>
+                            <a class="favorite-btn" href="#" data-dishid="<?= $dish->dish_id ?>">
                                 <img width=100 src="<?= Asset::image(['favorite.png']) ?>"
                                      data-otherwise="<?= Asset::image(['not_favorite.png']) ?>" alt="" />
                             </a>
                         <?php else: ?>
-                            <a class="favorite-btn" href="#" data-dishid="<?= $dish->id ?>">
+                            <a class="favorite-btn" href="#" data-dishid="<?= $dish->dish_id ?>">
                                 <img width=100 src="<?= Asset::image(['not_favorite.png']) ?>"
                                      data-otherwise="<?= Asset::image(['favorite.png']) ?>" alt="" />
                             </a>
