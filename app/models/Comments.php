@@ -120,7 +120,7 @@ class Comments {
         $comments = static::query()
             ->select('*')
             ->where('Comments.location_id = :locationId', ['locationId' => $id])
-            ->orderBy('Comments.creation_date')
+            ->orderBy('Comments.creation_date DESC')
             ->all();
 
         return $comments;
@@ -135,7 +135,7 @@ class Comments {
         $comments = static::query()
             ->select('*')
             ->where('Comments.dish_id = :dishId', ['dishId' => $id])
-            ->orderBy('Comments.creation_date')
+            ->orderBy('Comments.creation_date DESC')
             ->all();
 
         return $comments;
