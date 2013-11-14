@@ -38,7 +38,7 @@
                                 ?>"><?= $dish->restaurant ?>
                             </a>
                             <span class="distance">
-                                <small>Beeline:</small> ~<?= $dish->getDistance() ?>
+                                <small>Beeline:</small> ~<?= $dish->getDistanceTo($dish->longitude,$dish->latitude) ?>
                             </span>
                         </h1>
 

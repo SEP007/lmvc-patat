@@ -3,6 +3,7 @@
 namespace models;
 
 use troba\Model;
+use Scandio\lmvc\modules\session\Session;
 
 class Dishes
 {
@@ -206,5 +207,17 @@ class Dishes
         } else {
             return round($this->distance, 2) . ' km';
         }
+    }
+
+    public function getDistanceTo($longitude,$latitude)
+    {
+        $userlongitude = Session::get("location.longitude");
+        $userlatitude  = Session::get("location.latitude");
+
+        return round(6371 * acos(cos(deg2rad((float)$userlongitude)) * cos(deg2rad((float)$latitude)) * cos(
+                    deg2rad((float)$longitude) - deg2rad((float)$userlatitude)) +
+                    sin(rad2deg((float)$userlongitude)) * sin(deg2rad((float)$latitude))
+                ), 4);
+
     }
 }

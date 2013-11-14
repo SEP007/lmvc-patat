@@ -5,6 +5,7 @@ namespace controllers;
 use Scandio\lmvc\modules\security\AnonymousController;
 use Scandio\lmvc\modules\security\Security;
 use \models;
+use Scandio\lmvc\modules\session\Session;
 
 class Favorites extends AnonymousController
 {
