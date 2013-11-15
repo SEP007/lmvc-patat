@@ -2,8 +2,8 @@
 home: 'Start'
 signUp: 'Registrieren'
 myRestaurant: 'Mein Restaurant'
-myProfile: 'My Profile'
-menu: 'Mein Profil'
+myProfile: 'Mein Profil'
+menu: 'Menu'
 logout: 'Abmelden'
 registerHunger: 'Hunger anmelden!'
 #
@@ -74,6 +74,8 @@ longitude: 'Längengrad'
 latitude: 'Breitengrad'
 register: 'Registrieren'
 cancel: 'Abbrechen'
+edit: 'Bearbeiten'
+reset: 'Zurücksetzen'
 #
 #app/views/registration/success.html
 chipFat: 'All hot as chip fat!'

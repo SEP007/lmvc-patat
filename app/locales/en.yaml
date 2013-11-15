@@ -74,6 +74,8 @@ longitude: 'Longitude'
 latitude: 'Latitude'
 register: 'Register'
 cancel: 'Cancel'
+edit: 'Edit'
+reset: 'Reset'
 #
 #app/views/registration/success.html
 chipFat: 'All hot as chip fat!'

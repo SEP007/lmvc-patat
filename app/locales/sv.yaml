@@ -74,6 +74,8 @@ longitude: 'Longitud'
 latitude: 'Latitud'
 register: 'Registrera'
 cancel: 'Avbryta'
+edit: 'Redigera'
+reset: 'Återställ'
 #
 #app/views/registration/success.html
 chipFat: 'All hot as chip fat!'

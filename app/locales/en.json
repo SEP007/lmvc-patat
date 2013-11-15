@@ -55,6 +55,8 @@
 	"latitude": "Latitude",
 	"register": "Register",
 	"cancel": "Cancel",
+	"edit": "Edit",
+	"reset": "Reset",
 	"chipFat": "All hot as chip fat!'",
 	"singedUp": "Yay! You are signed up. Sign in and start setting up your restaurant!",
 	"toLogin": "To login",

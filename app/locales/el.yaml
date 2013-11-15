@@ -72,8 +72,10 @@ streetAndHouseNumber: 'Οδός κι αριθμός'
 findYourLocation: 'Βρείτε την τοποθεσία σας'
 longitude: 'Γεωγραφικό μήκος'
 latitude: 'Γεωγραφικό πλάτος'
-'register': 'Εγγραφή'
-'cancel': 'Ακύρωση'
+register: 'Εγγραφή'
+cancel: 'Ακύρωση'
+edit: 'Επεξεργασία'
+reset: 'Καθαρισμός'
 #
 #app/views/registration/success.html
 chipFat: 'All hot as chip fat!'

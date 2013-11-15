@@ -14,7 +14,7 @@
     ],
     
     "I18n": {
-    	"languages": ["en", "de", "el", "sv"],
+    	"languages": ["en", "de", "el", "sv", "ru"],
     	"default": "en",
     	"path": "locales",
     	"format": "yaml"
