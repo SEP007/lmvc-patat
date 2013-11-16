@@ -209,15 +209,29 @@ class Dishes
         }
     }
 
+    /**
+     * Calculates the distance between two points using longitude and latitude.
+     * Uses haversine formula
+     * Credits to http://www.movable-type.co.uk/scripts/latlong.html
+     * @param $longitude longitude of the final destination
+     * @param $latitude latitude of the final destination
+     * @return float distance in km
+     */
     public function getDistanceTo($longitude,$latitude)
     {
         $userlongitude = Session::get("location.longitude");
         $userlatitude  = Session::get("location.latitude");
 
-        return round(6371 * acos(cos(deg2rad((float)$userlongitude)) * cos(deg2rad((float)$latitude)) * cos(
-                    deg2rad((float)$longitude) - deg2rad((float)$userlatitude)) +
-                    sin(rad2deg((float)$userlongitude)) * sin(deg2rad((float)$latitude))
-                ), 4);
+        $R = 6371; // Radius of the earth in km
+        $dLat = deg2rad($userlatitude-$latitude);
+        $dLon = deg2rad($userlongitude-$longitude);
+        $a =
+        sin($dLat/2) * sin($dLat/2) +
+        cos(deg2rad($latitude)) * cos(deg2rad($userlatitude)) *
+        sin($dLon/2) * sin($dLon/2);
+        $c = 2 * atan2(sqrt($a), sqrt(1-$a));
+        $d = $R * $c; // Distance in km
 
+        return round($d,1) . ' km';
     }
 }
