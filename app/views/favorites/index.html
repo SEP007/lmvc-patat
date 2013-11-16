@@ -20,13 +20,18 @@
     <div class="patat-list">
         <dl>
             <?php foreach($dishes as $dish): ?>
-            <dd class="">
+            <dd class="" >
+                <div class="span1 hidden-phone">
+                    <?php if($dish->advertised == 1): ?>
+                    <img src="<?= Asset::image('adv2.png') ?>" alt="" />
+                    <?php endif; ?>
+                </div>
                 <div class="span3 hidden-phone">
-                    <a class="image" href="<?= $app->url('Dishes::map', $dish->user_id) ?>">
+                    <a class="image" href="<?= $app->url('Dishes::map', $dish->user_id) ?>" style="position: static">
                         <?php if($dish->img): ?>
-                        <img width=100 src="<?= Asset::image(['uploads', $dish->img], ['w' => 800, 'h' => 600]) ?>" alt="" />
+                            <img width=100 src="<?= Asset::image(['uploads', $dish->img], ['w' => 800, 'h' => 600]) ?>" alt="" />
                         <?php else: ?>
-                        <img width=100 src="<?= Asset::image(['uploads', 'placeholder.png']) ?>" alt="" />
+                            <img width=100 src="<?= Asset::image(['uploads', 'placeholder.png']) ?>" alt="" />
                         <?php endif; ?>
                     </a>
                 </div>
@@ -34,8 +39,7 @@
                     <div class="row-fluid">
                         <h1>
                             <a href="
-                                <?= $app->url('Imbiss::index', $dish->handle)
-                                ?>"><?= $dish->restaurant ?>
+                                <?= $app->url('Imbiss::index', $dish->handle)?>"><?= $dish->restaurant ?>
                             </a>
                             <span class="distance">
                                 <small>Beeline:</small> ~<?= $dish->getDistanceTo($dish->longitude,$dish->latitude) ?>
