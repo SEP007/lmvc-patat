@@ -21,20 +21,23 @@
         <dl>
             <?php foreach($dishes as $dish): ?>
             <dd class="" >
-                <div class="span1 hidden-phone">
-                    <?php if($dish->advertised == 1): ?>
-                    <img src="<?= Asset::image('adv2.png') ?>" alt="" />
-                    <?php endif; ?>
-                </div>
-                <div class="span3 hidden-phone">
-                    <a class="image" href="<?= $app->url('Dishes::map', $dish->user_id) ?>" style="position: static">
-                        <?php if($dish->img): ?>
-                            <img width=100 src="<?= Asset::image(['uploads', $dish->img], ['w' => 800, 'h' => 600]) ?>" alt="" />
-                        <?php else: ?>
-                            <img width=100 src="<?= Asset::image(['uploads', 'placeholder.png']) ?>" alt="" />
+                <div class="advertised span3">
+                    <div class="adicon">
+                        <?php if($dish->advertised == 1): ?>
+                        <img src="<?= Asset::image('adv2.png') ?>" alt="" />
                         <?php endif; ?>
-                    </a>
+                    </div>
+                    <div class="hidden-phone">
+                        <a class="image" href="<?= $app->url('Dishes::map', $dish->user_id) ?>">
+                            <?php if($dish->img): ?>
+                            <img width=100 src="<?= Asset::image(['uploads', $dish->img], ['w' => 800, 'h' => 600]) ?>" alt="" />
+                            <?php else: ?>
+                            <img width=100 src="<?= Asset::image(['uploads', 'placeholder.png']) ?>" alt="" />
+                            <?php endif; ?>
+                        </a>
+                    </div>
                 </div>
+
                 <div class="description span8">
                     <div class="row-fluid">
                         <h1>
