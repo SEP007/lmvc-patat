@@ -35,12 +35,39 @@
         }]
     },
 
+    "rendering": {
+        "handlers": {
+            "php": {
+                "namespace": "\\Scandio\\lmvc\\modules\\rendering\\handlers\\PhpHandler",
+                "extension": "html"
+            },
+            "smarty": {
+                "namespace": "\\Scandio\\lmvc\\modules\\rendering\\handlers\\SmartyHandler",
+                "extension": "smarty"
+            },
+            "mustache": {
+                "namespace": "\\Scandio\\lmvc\\modules\\rendering\\handlers\\MustacheHandler",
+                "extension": "mustache"
+            },
+            "json": {
+                "namespace": "\\Scandio\\lmvc\\modules\\rendering\\handlers\\JsonHandler",
+                "extension": null
+            },
+            "html": {
+                "namespace": "\\Scandio\\lmvc\\modules\\rendering\\handlers\\HtmlHandler",
+                "extension": null
+            }
+        }
+    },
+
     "security": {
         "principal": "\\Scandio\\lmvc\\modules\\security\\handlers\\database\\DatabasePrincipal"
     },
+
     "registration": {
         "mediator": "\\Scandio\\lmvc\\modules\\registration\\handlers\\DatabaseMediator"
     },
+
     "assetpipeline" : {
         "useFolders": true,
         "304-caching": false,
