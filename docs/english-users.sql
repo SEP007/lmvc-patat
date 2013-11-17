@@ -20,7 +20,7 @@ INSERT INTO `Users` (`id`, `username`, `fullname`, `email`, `phone`, `mobile`, `
   (16,'grekiskfood','Gregisk Food','info@scandio.de','+49 89 244 124-0',NULL,'40bd001563085fc35165329ea1ff5c5ecbdbbeef'),
   (17,'olis','Olis Minced Meat Heaven','info@scandio.de','+49 89 244 124-0',NULL,'40bd001563085fc35165329ea1ff5c5ecbdbbeef'),
   (18,'attheracingsnitzel','At the racing Schnitzel','info@scandio.de','+49 89 244 124-0',NULL,'40bd001563085fc35165329ea1ff5c5ecbdbbeef'),
-  (19,'pornochips','Prono Chips','info@scandio.de','+49 89 244 124-0',NULL,'40bd001563085fc35165329ea1ff5c5ecbdbbeef'),
+  (19,'pornochips','Porno Chips','info@scandio.de','+49 89 244 124-0',NULL,'40bd001563085fc35165329ea1ff5c5ecbdbbeef'),
   (20,'saladbar','Salad bar','info@scandio.de','+49 89 244 124-0',NULL,'40bd001563085fc35165329ea1ff5c5ecbdbbeef'),
   (21,'saussagekingdom','Saussage Kingdom','info@scandio.de','+49 89 244 124-0',NULL,'40bd001563085fc35165329ea1ff5c5ecbdbbeef'),
   (22,'lebistro','Le Bistro de la Currwurst','info@scandio.de','+49 89 244 124-0',NULL,'40bd001563085fc35165329ea1ff5c5ecbdbbeef'),
