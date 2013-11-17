@@ -1,4 +1,4 @@
-DROP FROM `Locations`;
+DELETE FROM `Locations`;
 
 INSERT INTO `Locations` (`id`, `user_id`, `longitude`, `latitude`, `accuracy`, `restaurant`, `handle`, `city`, `zip`, `street`)
   VALUES
@@ -25,7 +25,7 @@ INSERT INTO `Locations` (`id`, `user_id`, `longitude`, `latitude`, `accuracy`, `
   (21,21,'11.9406886','57.708077','11.929486','Saussage Kingdom','saussage-kingdom','Göteborg',41134,'Ceresgatan 11'),
   (22,22,'11.9406886','57.705797','11.930683','Le Bistro de la Currwurst','le-bistro','Göteborg',41134,'Förmansgatan 22'),
   (23,23,'11.9406886','57.694193','12.004393','Curry Chaos','curry-chaos','Göteborg',41134,'Arbogatan 22'),
-  (,,'11.9406886','57.718018','11.909159','Roadkill Elk','road-kill-elk','Göteborg',41134,'Örebrogatan 22'),
+  (24,24,'11.9406886','57.718018','11.909159','Roadkill Elk','road-kill-elk','Göteborg',41134,'Örebrogatan 22'),
   (25,25,'11.9406886','57.722359','11.911335','Booted Cat','booted-cat','Göteborg',41134,'Kalmargatan 11'),
   (26,26,'11.9406886','57.716293','11.905132','Foodbar','food-bar','Göteborg',41134,'Baltzersgatan 11'),
   (27,27,'11.9406886','57.706925','11.882082','Yummy','yummy','Göteborg',41134,'Ruskvädersgatan 11'),

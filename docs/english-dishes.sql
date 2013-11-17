@@ -33,7 +33,4 @@ INSERT INTO `Dishes` (`id`, `user_id`, `name`, `description`, `price`, `img`, `a
   (29,29,'Suhsi','Everybody knows what it is and its not enough for anybody.','2,22','ea2efc6d7c9e7480ced6098cc006b7d61629cb0e.png',1),
   (30,30,'Bones','Hard to bite, hard to takle but full of nutrition.','3,33','ea2efc6d7c9e7480ced6098cc006b7d61629cb0e.png',1),
   (31,31,'Crostini','For a minorly sesevere starvation, pea & broad bean purée with pecorino','7,77','ea2efc6d7c9e7480ced6098cc006b7d61629cb0e.png',1),
-  (32,32,'Fish ‘n Chips','Wrapped in a lovely old newspaper we serve originaly old fish with oily chips.','4,00','ea2efc6d7c9e7480ced6098cc006b7d61629cb0e.png',1),
-
-/*!40000 ALTER TABLE `Dishes` ENABLE KEYS */;
-UNLOCK TABLES;
+  (32,32,'Fish n Chips','Wrapped in a lovely old newspaper we serve originaly old fish with oily chips.','4,00','ea2efc6d7c9e7480ced6098cc006b7d61629cb0e.png',1);
