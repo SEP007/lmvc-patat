@@ -3,7 +3,7 @@
 
 CREATE TABLE `Comments` (
 `id` INT(11) NOT NULL AUTO_INCREMENT,
-`description` varchar(5000) NOT NULL,
+`description` varchar(500) NOT NULL,
 `creation_date` DATE NOT NULL,
 `created_by` INT(11) NOT NULL,
 `location_id` INT (11) NULL,
