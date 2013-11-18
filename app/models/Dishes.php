@@ -183,4 +183,22 @@ class Dishes
             return round($this->distance, 2) . ' km';
         }
     }
+
+    /**
+     * Get dishes by user id
+     * @param $userId user id
+     * @param bool $advertised if true then only advertised dishes are returned, otherwise only not advertised
+     * @return array dishes by user id
+     */
+    public function getDishesByUserId($userId, $advertised = false) {
+        $dishes = static::query()
+            ->select('*')
+            ->innerJoin(new Locations(), 'Dishes.user_id = Locations.user_id')
+            ->where('Locations.user_id = :userId', ['userId' => $userId])
+            ->andWhere('Dishes.advertised = :advertised', ['advertised' => (string) $advertised])
+            ->orderBy('Dishes.name')
+            ->all();
+
+        return $dishes;
+    }
 }
