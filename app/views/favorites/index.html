@@ -1,6 +1,7 @@
 <?php
     use ui\UI;
     use Scandio\lmvc\modules\assetpipeline\view\Asset;
+    use \util\Location;
 ?>
 
 <div class="ios-list-wrap">
@@ -45,7 +46,7 @@
                                 <?= $app->url('Imbiss::index', $dish->handle)?>"><?= $dish->restaurant ?>
                             </a>
                             <span class="distance">
-                                <small>Beeline:</small> ~<?= $dish->getDistanceTo($dish->longitude,$dish->latitude) ?>
+                                <small>Beeline:</small> ~<?= Location::getDistanceTo($dish->longitude,$dish->latitude) ?>
                             </span>
                         </h1>
 
