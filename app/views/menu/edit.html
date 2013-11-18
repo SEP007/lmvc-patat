@@ -19,9 +19,12 @@
     </div>
 
     <div class="span7">
-        <form id="menu-form" method="POST" action="<?= $app->url('Menu::edit', $dish->id) ?>">
+        <?php if($disableAdvertise): ?>
+            <label style="color:red">Only three dishes can be advertised!</label>
+        <?php endif; ?>
+        <form id="menu-form" method="POST" action="<?= $app->url('Menu::save', $dish->id) ?>">
             <fieldset>
-                <?= UI::checkbox('advertised', 'Advertise', (bool) $dish->advertised, $dish-advertised, $errors['advertised'], false) ?>
+                <?= UI::checkbox('advertised', 'Advertise', (bool) $dish->advertised, $dish-advertised, $errors['advertised'], $disableAdvertise) ?>
                 <?= UI::textField('name', null, $dish->name, $errors['name'], 'Name') ?>
                 <?= UI::combobox('category', null, $dish->category_id, $categories, 'id', 'name', $errors['category'], 'Category') ?>
                 <?= UI::textField('price', null, $dish->price, $errors['price'], 'Price', false, '€') ?>

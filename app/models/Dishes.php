@@ -210,6 +210,7 @@ class Dishes
     }
 
     /**
+<<<<<<< HEAD
      * Calculates the distance between two points using longitude and latitude.
      * Uses haversine formula
      * Credits to http://www.movable-type.co.uk/scripts/latlong.html
@@ -233,5 +234,21 @@ class Dishes
         $d = $R * $c; // Distance in km
 
         return round($d,1) . ' km';
+
+     * Get dishes by user id
+     * @param $userId user id
+     * @param bool $advertised if true then only advertised dishes are returned, otherwise only not advertised
+     * @return array dishes by user id
+     */
+    public function getDishesByUserId($userId, $advertised = false) {
+        $dishes = static::query()
+            ->select('*')
+            ->innerJoin(new Locations(), 'Dishes.user_id = Locations.user_id')
+            ->where('Locations.user_id = :userId', ['userId' => $userId])
+            ->andWhere('Dishes.advertised = :advertised', ['advertised' => (string) $advertised])
+            ->orderBy('Dishes.name')
+            ->all();
+
+        return $dishes;
     }
 }
