@@ -2,7 +2,8 @@
     var pluginName = "favorite",
         defaults = {
             endpointUrl: location.origin + "/" + window.lmvcConfig.appDir + "/favorites/",
-            triggerEl: 'a.favorite-btn'
+            triggerEl: 'a.favorite-btn',
+            triggerElLoc: 'a.favoriteloc-btn'
         },
         cachedElemes= {};
 
@@ -28,10 +29,18 @@
                 var $clickedStar = $(this);
                 that.favoriteDish($clickedStar);
             });
+
+            this.cachedElems.$triggerElLoc.on('click', function(e){
+                e.preventDefault();
+
+                var $clickedLocStar = $(this);
+                that.favoriteLocation($clickedLocStar);
+            });
         },
         cacheElems: function() {
             this.cachedElems = {
-                $triggerEl: this.$element.find(this.settings.triggerEl)
+                $triggerEl: this.$element.find(this.settings.triggerEl),
+                $triggerElLoc: this.$element.find(this.settings.triggerElLoc)
             };
         },
         favoriteDish: function($clickedStar) {
@@ -48,6 +57,21 @@
                 $img.attr("src", $img.data("otherwise"));
                 $img.data("otherwise", src);
             });
+        },
+        favoriteLocation: function($clickedStar) {
+            var that = this;
+
+            $.ajax({
+                url: that.settings.endpointUrl + 'favorite-location/' + $clickedStar.data("locationid"),
+                context: document.body,
+                data: { }
+            }).done(function(response) {
+                    var $img = $clickedStar.children("img");
+                    var src = $img.attr("src");
+
+                    $img.attr("src", $img.data("otherwise"));
+                    $img.data("otherwise", src);
+                });
         }
     };
 

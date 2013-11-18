@@ -22,7 +22,7 @@ class Locations
         return $location;
     }
 
-    public function isFavoriteLocation($locationid)
+    public static function isFavoriteLocation($locationid)
     {
         $custid = Customers::getByUserId(Security::get()->currentUser()->id)->id;
 

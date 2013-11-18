@@ -30,7 +30,8 @@ class Favorites extends AnonymousController
         $locationModel = new \models\Locations();
 
         self::setRenderArg('locations', $locationModel->
-            getFavoritePlacesForCustomer($custId));
+            getFavoriteLocationsForCustomer($custId));
+
         self::render();
     }
 
