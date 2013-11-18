@@ -34,15 +34,48 @@
             "formatter": "\\Scandio\\lmvc\\utils\\logger\\formatters\\LineFormatter",
             "level": "ERROR",
             "path": "logs"
+        }, {
+            "namespace": "\\Scandio\\lmvc\\utils\\logger\\scribes\\ChromeScribe",
+            "formatter": "\\Scandio\\lmvc\\utils\\logger\\formatters\\ChromeFormatter",
+            "level": "ERROR",
+            "headername": "X-ChromeLogger-Data",
+            "version": "4.0.3"
         }]
+    },
+
+    "rendering": {
+        "handlers": {
+            "php": {
+                "namespace": "\\Scandio\\lmvc\\modules\\rendering\\handlers\\PhpHandler",
+                "extension": "html"
+            },
+            "smarty": {
+                "namespace": "\\Scandio\\lmvc\\modules\\rendering\\handlers\\SmartyHandler",
+                "extension": "smarty"
+            },
+            "mustache": {
+                "namespace": "\\Scandio\\lmvc\\modules\\rendering\\handlers\\MustacheHandler",
+                "extension": "mustache"
+            },
+            "json": {
+                "namespace": "\\Scandio\\lmvc\\modules\\rendering\\handlers\\JsonHandler",
+                "extension": null
+            },
+            "html": {
+                "namespace": "\\Scandio\\lmvc\\modules\\rendering\\handlers\\HtmlHandler",
+                "extension": null
+            }
+        }
     },
 
     "security": {
         "principal": "\\Scandio\\lmvc\\modules\\security\\handlers\\database\\DatabasePrincipal"
     },
+
     "registration": {
         "mediator": "\\Scandio\\lmvc\\modules\\registration\\handlers\\DatabaseMediator"
     },
+
     "assetpipeline" : {
         "useFolders": true,
         "304-caching": false,
@@ -66,5 +99,22 @@
                 "fallbacks": []
             }
         }
+    },
+
+    "emails": {
+        "sender": "LMVC Patat <info@patat.com>",
+        "subjects": {
+            "registration": "Signup verification"
+        },
+        "messages": {
+            "registration": "<h1>Dear {username},</h1><p> To complete your signup please click this "
+        },
+        "headers": {
+            "content": "Content-type: text/html; charset=windows-1251 \r\n"
+        },
+        "links": {
+            "emailVerification": "<a href=\"http:\/\/sep007.tdeekens.name\/registration\/finish\/{usernamehash}\/{email}\/{randomkey}\">link</a> "
+        }
+
     }
 }

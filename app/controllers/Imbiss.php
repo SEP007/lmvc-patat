@@ -4,9 +4,12 @@ namespace controllers;
 
 use Scandio\lmvc\modules\security\AnonymousController;
 use Scandio\lmvc\LVC;
+use Scandio\lmvc\modules\rendering\traits;
 
 class Imbiss extends AnonymousController
 {
+    use traits\RendererController;
+
     public static function index($handle = null)
     {
         if ($handle == null) { return static::redirect('Application::index'); }
