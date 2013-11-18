@@ -5,10 +5,12 @@ namespace controllers;
 use Scandio\lmvc\modules\security\AnonymousController;
 use Scandio\lmvc\modules\security\Security;
 use \models;
-use Scandio\lmvc\modules\session\Session;
+use Scandio\lmvc\modules\rendering\traits;
 
 class Favorites extends AnonymousController
 {
+    use traits\RendererController;
+
     public static function index()
     {
         $CustomerModel = new \models\Customers();
