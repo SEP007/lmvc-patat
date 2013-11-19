@@ -5,7 +5,9 @@ namespace controllers;
 use Scandio\lmvc\modules\security\AnonymousController;
 use Scandio\lmvc\modules\security\Security;
 use \models;
+use \models\Customers;
 use Scandio\lmvc\modules\rendering\traits;
+use Scandio\lmvc\modules\session\Session;
 
 class Favorites extends AnonymousController
 {
@@ -13,10 +15,9 @@ class Favorites extends AnonymousController
 
     public static function index()
     {
-        $CustomerModel = new \models\Customers();
-        $custId        = $CustomerModel->getByUserId(Security::get()->currentUser()->id)->id;
+        $custId        = Customers::getByUserId(Security::get()->currentUser()->id)->id;
 
-        $dishesModel = new \models\Dishes();
+        $dishesModel   = new \models\Dishes();
 
         self::setRenderArg('dishes', $dishesModel->
             getFavoriteDishesForCustomer($custId, false));
@@ -26,8 +27,8 @@ class Favorites extends AnonymousController
 
     public static function locations()
     {
-        $CustomerModel = new \models\Customers();
-        $custId        = $CustomerModel->getByUserId(Security::get()->currentUser()->id)->id;
+
+        $custId        = Customers::getByUserId(Security::get()->currentUser()->id)->id;
 
         $locationModel = new \models\Locations();
 
@@ -39,19 +40,17 @@ class Favorites extends AnonymousController
 
     public static function favoriteDish($dishid)
     {
-        $CustomerModel = new \models\Customers();
-        $userid = Security::get()->currentUser()->id;
-        $custid = $CustomerModel->getByUserId($userid)->id;
+        $custId        = Customers::getByUserId(Security::get()->currentUser()->id)->id;
 
         $dishModel     = new \models\Dishes();
-        $favDishes = $dishModel->getFavoriteDishesForCustomer($custid, false);
+        $favDishes     = $dishModel->getFavoriteDishesForCustomer($custId, false);
 
         foreach ($favDishes as $dish)
         {
             if ($dish->dish_id == $dishid)
             {
                 static::removeFavoriteDish($dishid);
-                exit;
+                return;
             }
         }
         static::addFavoriteDish($dishid);
@@ -59,14 +58,12 @@ class Favorites extends AnonymousController
 
     public static function addFavoriteDish($dishid)
     {
-        $CustFavDishes = new \models\CustFavDishes();
-        $CustomerModel = new \models\Customers();
+        $custId        = Customers::getByUserId(Security::get()->currentUser()->id)->id;
+        $custFavDishes = new \models\CustFavDishes();
 
-        $userid = Security::get()->currentUser()->id;
-
-        $CustFavDishes->cust_id = $CustomerModel->getByUserId($userid)->id;
-        $CustFavDishes->dish_id = $dishid;
-        $CustFavDishes->insert();
+        $custFavDishes->cust_id = $custId;
+        $custFavDishes->dish_id = $dishid;
+        $custFavDishes->insert();
 
         return static::renderJson([
             'result' => true
@@ -76,14 +73,12 @@ class Favorites extends AnonymousController
 
     public static function removeFavoriteDish($dishid)
     {
-        $CustFavDishes = new \models\CustFavDishes();
-        $CustomerModel = new \models\Customers();
+        $custId        = Customers::getByUserId(Security::get()->currentUser()->id)->id;
+        $custFavDishes = new \models\CustFavDishes();
 
-        $userid = Security::get()->currentUser()->id;
-
-        $CustFavDishes->cust_id = $CustomerModel->getByUserId($userid)->id;
-        $CustFavDishes->dish_id = $dishid;
-        $CustFavDishes->delete();
+        $custFavDishes->cust_id = $custId;
+        $custFavDishes->dish_id = $dishid;
+        $custFavDishes->delete();
 
         return static::renderJson([
             'result' => true
@@ -93,12 +88,10 @@ class Favorites extends AnonymousController
 
     public static function favoriteLocation($locationid)
     {
-        $CustomerModel = new \models\Customers();
-        $userid = Security::get()->currentUser()->id;
-        $custid = $CustomerModel->getByUserId($userid)->id;
+        $custId            = Customers::getByUserId(Security::get()->currentUser()->id)->id;
 
         $locationModel     = new \models\Locations();
-        $favLocations      = $locationModel->getFavoriteLocationsForCustomer($custid);
+        $favLocations      = $locationModel->getFavoriteLocationsForCustomer($custId);
 
         foreach ($favLocations as $location)
         {
@@ -113,14 +106,12 @@ class Favorites extends AnonymousController
 
     public static function addFavoriteLocation($locationid)
     {
-        $CustFavLocation = new \models\CustFavLocation();
-        $CustomerModel = new \models\Customers();
+        $custId          = Customers::getByUserId(Security::get()->currentUser()->id)->id;
+        $custFavLocation = new \models\CustFavLocation();
 
-        $userid = Security::get()->currentUser()->id;
-
-        $CustFavLocation->cust_id = $CustomerModel->getByUserId($userid)->id;
-        $CustFavLocation->loc_id = $locationid;
-        $CustFavLocation->insert();
+        $custFavLocation->cust_id = $custId;
+        $custFavLocation->loc_id = $locationid;
+        $custFavLocation->insert();
 
         return static::renderJson([
             'result' => true
@@ -130,14 +121,12 @@ class Favorites extends AnonymousController
 
     public static function removeFavoriteLocation($locationid)
     {
-        $CustFavLocation = new \models\CustFavLocation();
-        $CustomerModel = new \models\Customers();
+        $custId          = Customers::getByUserId(Security::get()->currentUser()->id)->id;
+        $custFavLocation = new \models\CustFavLocation();
 
-        $userid = Security::get()->currentUser()->id;
-
-        $CustFavLocation->cust_id = $CustomerModel->getByUserId($userid)->id;
-        $CustFavLocation->loc_id = $locationid;
-        $CustFavLocation->delete();
+        $custFavLocation->cust_id = $custId;
+        $custFavLocation->loc_id = $locationid;
+        $custFavLocation->delete();
 
         return static::renderJson([
             'result' => true

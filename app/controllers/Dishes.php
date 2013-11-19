@@ -28,11 +28,11 @@ class Dishes extends AnonymousController
         self::setRenderArg('dishesGrouped', $dishesModel->getDishesWithinDistance($longitude, $latitude, 25, true));
 
 
-        $CustomerModel = new \models\Customers();
+        $customerModel = new \models\Customers();
         $user = Security::get()->currentUser();
         if ($user->username != "anonymous")
         {
-            $custid = $CustomerModel->getByUserId($user->id)->id;
+            $custid = $customerModel->getByUserId($user->id)->id;
             self::setRenderArg('dishesFavorite', $dishesModel->getFavoriteDishesForCustomer($custid, true));
         }
 

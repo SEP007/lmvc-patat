@@ -171,9 +171,9 @@ class Dishes
 
         if ($idonly)
         {
-            $favDishesId = array();
+            $favDishesId = [];
             foreach ($dishes as $dish){
-                array_push($favDishesId, $dish->dish_id);
+                $favDishesId[] = $dish->dish_id;
             }
             return $favDishesId;
         }
