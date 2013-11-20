@@ -21,7 +21,7 @@
     <div class="controls">
         <textarea rows="6" <?= ($disabled) ? 'disabled' : '' ?>
         name="<?= $textAreaId ?>"
-        
+        class="<?= ($error) ? 'validation-error' : '' ?>"
         id="<?= $textAreaId ?>"
         placeholder="<?= $placeholder ?>"
 		onkeyup="update_counter('<?= $counterId ?>', '<?= $textAreaId ?>', <?= $maxCharCount ?>)"
