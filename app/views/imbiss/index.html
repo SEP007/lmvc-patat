@@ -4,6 +4,7 @@
 
     $commentsModel = new \models\Comments();
     $usersModel = new \models\Users();
+	$commentCount = 0;
 ?>
 
 <div class="row-fluid content-header">
@@ -22,14 +23,18 @@
 <?php
     $restaurantComments = $commentsModel->getCommentsByRestaurant($restaurant->id);
 ?>
-<p>
-    <?php if($loggedInCustomer != null):?>
-        Adding comments is possible.
-    <?php else :?>
-        To be able to add a comment, please log in.
-    <?php endif; ?>
-</p>
 <div>
+    <?php if($loggedInCustomer != null):?>
+		<form id="comment-form" method="POST" action="<?= $app->url('Imbiss::saveRestaurantComment', ['handle'=>$restaurant->handle, 'customerId'=>$loggedInCustomer->id, 'locationId'=>$restaurant->id, 'commentControl'=>('comment' . $commentCount)]) ?>">
+			<fieldset>
+			<?= UI::textAreaCounter('comment', null, null, $errors['comment'], 'Your comment ...', false, 500, $commentCount++) ?>
+			<?= UI::saveCancelButtons($app->url('Imbiss::index', $restaurant->handle)) ?>
+			</fieldset>
+        </form>
+    <?php else :?>
+        <p>To be able to add a comment, please <a href="<?= $app->url('Security::login')?>">log in.</a></p>
+    <?php endif; ?>
+
     <ul class="expList">
         <li>
         <?php if($restaurantComments->count() == 0): ?>
@@ -93,14 +98,18 @@
                 <?php
                     $dishComments = $commentsModel->getCommentsByDish($advertisedDish->id);
                 ?>
-                <p>
+                <div>
                     <?php if($loggedInCustomer != null):?>
-                    Adding comments is possible.
+						<form id="comment-form" method="POST" action="<?= $app->url('Imbiss::saveDishComment', ['handle'=>$restaurant->handle, 'customerId'=>$loggedInCustomer->id, 'DishId'=>$advertisedDish->id, 'commentControl'=>('comment' . $commentCount)]) ?>">
+							<fieldset>
+							<?= UI::textAreaCounter('comment', null, null, $errors['comment'], 'Your comment ...', false, 500, $commentCount++) ?>
+							<?= UI::saveCancelButtons($app->url('Imbiss::index', $restaurant->handle)) ?>
+							</fieldset>
+						</form>
                     <?php else :?>
-                    To be able to add a comment, please log in.
+                    <p>To be able to add a comment, please <a href="<?= $app->url('Security::login')?>">log in.</a></p>
                     <?php endif; ?>
-                </p>
-                <p>
+
                     <ul class="expList">
                         <li>
                         <?php if($dishComments->count() == 0): ?>
@@ -112,7 +121,7 @@
                             <?php foreach($dishComments as $dishComment): ?>
                             <li>
                                 <?php
-                                   $userName = $usersModel->getUsernameByCustomerId($restaurantComment->created_by);
+                                   $userName = $usersModel->getUsernameByCustomerId($dishComment->created_by);
                                 ?>
                                 <p>
                                 <div><span>Created at </span><b><?= $dishComment->creation_date ?></b><span>, by </span><b><?= $userName ?></b></div>
@@ -123,7 +132,7 @@
                             </ul>
                         </li>
                     </ul>
-                </p>
+                </div>
 
             <?php endforeach; ?>
             <?php else: ?>
@@ -188,14 +197,18 @@
                     <?php
                         $dishComments = $commentsModel->getCommentsByDish($dish->id);
                     ?>
-                    <p>
+                    <div>
                         <?php if($loggedInCustomer != null):?>
-                        Adding comments is possible.
+							<form id="comment-form" method="POST" action="<?= $app->url('Imbiss::saveDishComment', ['handle'=>$restaurant->handle, 'customerId'=>$loggedInCustomer->id, 'DishId'=>$dish->id, 'commentControl'=>('comment' . $commentCount)]) ?>">
+								<fieldset>
+								<?= UI::textAreaCounter('comment', null, null, $errors['comment'], 'Your comment ...', false, 500, $commentCount++) ?>
+								<?= UI::saveCancelButtons($app->url('Imbiss::index', $restaurant->handle)) ?>
+								</fieldset>
+							</form>
                         <?php else :?>
-                        To be able to add a comment, please log in.
+                        <p>To be able to add a comment, please <a href="<?= $app->url('Security::login')?>">log in.</a></p>
                         <?php endif; ?>
-                    </p>
-                    <p>
+
                         <ul class="expList">
                             <li>
                                 <?php if($dishComments->count() == 0): ?>
@@ -207,7 +220,7 @@
                                 <?php foreach($dishComments as $dishComment): ?>
                                 <li>
                                 <?php
-                                   $userName = $usersModel->getUsernameByCustomerId($restaurantComment->created_by);
+                                   $userName = $usersModel->getUsernameByCustomerId($dishComment->created_by);
                                 ?>
                                 <p>
                                 <div><span>Created at </span><b><?= $dishComment->creation_date ?></b><span>, by </span><b><?= $userName ?></b></div>
@@ -218,7 +231,7 @@
                                 </ul>
                             </li>
                         </ul>
-                    </p>
+                    </div>
 
                 <?php endforeach; ?>
             <?php else: ?>
