@@ -196,3 +196,58 @@ footer {
 
   h3 {
     font-size: 1em; } }
+    
+#pwindicator {
+    margin-top: 4px;
+    width: 200px;
+}
+
+.bar {
+    height: 2px;
+}
+
+.pw-very-weak .bar {
+    background: #FF0000;
+    width: 40px;
+}
+
+.pw-very-weak .label {
+    color: #FF0000;
+}
+
+.pw-weak .bar {
+    background: #FF7F50;
+    width: 80px;
+}
+
+.pw-weak .label {
+    color: #FF7F50;
+}
+
+.pw-mediocre .bar {
+    background: #642EFE;
+    width: 120px;
+}
+
+.pw-mediocre .label {
+    color: #642EFE;
+}
+
+.pw-strong .bar {
+    background: #4682B4;
+    width: 160px;
+}
+
+.pw-strong .label {
+    color: #4682B4;
+}
+
+.pw-very-strong .bar {
+    background: #228B22;
+    width: 200px;
+}
+
+.pw-very-strong .label {
+    color: #228B22;
+}
+
