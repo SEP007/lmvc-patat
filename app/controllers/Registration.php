@@ -9,9 +9,12 @@ use \models;
 use \forms;
 use \util;
 use Scandio\lmvc\modules\security;
+use Scandio\lmvc\modules\rendering\traits;
 
 class Registration extends controllers\Registration
 {
+    use traits\RendererController;
+
     public static function register()
     {
         static::render();
@@ -84,6 +87,12 @@ class Registration extends controllers\Registration
                 $location->insert();
                 $userToGroup->insert();
 
+                #Generate a random hash for email verification and send an email
+                $randomkey = \models\Users::setRandomKey($location->user_id);
+                $username = $parentResponse->username;
+                $address = $parentResponse->email;
+                \util\Mail::sendEmailVerification($username, $address, $randomkey);
+
                 static::redirect('Menu::index');
 
             } else {
@@ -114,13 +123,19 @@ class Registration extends controllers\Registration
                 $customer = new \models\Customers();
                 $userToGroups = new \models\UserToGroups();
 
-                $customer->user_id      = $parentResponse->id;
+                $customer->user_id = $parentResponse->id;
 
                 $userToGroups->user_id  = $customer->user_id;
                 $userToGroups->group_id = 3;
 
                 $customer->insert();
                 $userToGroups->insert();
+
+                #Generate a random hash for email verification and send an email
+                $randomkey = \models\Users::setRandomKey($customer->user_id);
+                $username = $parentResponse->username;
+                $address = $parentResponse->email;
+                \util\Mail::sendEmailVerification($username, $address, $randomkey);
 
                 static::redirect('Menu::index');
 
@@ -235,6 +250,30 @@ class Registration extends controllers\Registration
                 # This does not imply a form-validation error, its the last resort...
                 static::redirect('Registration::failure');
             }
+        }
+    }
+
+    /**
+     * Newly registered user email verification
+     * @param $usernamehash hashed username sent to the user
+     * @param $email user email address
+     * @param $randomkey random hash sent to the user
+     */
+    public static function finish($usernamehash, $email, $randomkey)
+    {
+        $user = \models\Users::getByEmail($email);
+        $username = $user->username;
+        $userkey = $user->randomkey;
+        if ( md5($username) == $usernamehash && $userkey == $randomkey )
+        {
+            $user->verified = 1;
+            $user->save();
+
+            static::render();
+        } else {
+            self::renderHtml(
+                "<h2>Whoopsi! Are you trying to hack us?</h2>"
+            );
         }
     }
 }

@@ -28,7 +28,6 @@ class Users
         return $user;
     }
 
-
     /**
      * Finds user by customer determined by the given id and returns user name only
      * @param $id customer id
@@ -42,5 +41,26 @@ class Users
             ->one();
 
         return $user->username;
+    }
+
+    public static function getByEmail($email){
+        $user = static::query()
+            ->select('*')
+            ->where('email= :email', ['email' =>$email])
+            ->one();
+
+        return $user;
+    }
+
+    public static function setRandomKey($userId){
+        $user = static::query()
+            ->select('*')
+            ->where('id= :id', ['id' =>$userId])
+            ->one();
+        $randomkey = md5(rand(0,1000));
+        $user->randomkey = $randomkey;
+
+        $user->save();
+        return $randomkey;
     }
 }

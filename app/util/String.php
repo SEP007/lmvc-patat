@@ -19,4 +19,21 @@ class String {
         return $slug;
     }
 
+    /**
+     * Interpolates context values into the message placeholders.
+     */
+    public static function _interpolate($message, array $context = array())
+    {
+        // build a replacement array with braces around the context keys
+        $replace = array();
+        $message = (string) $message;
+
+        foreach ($context as $key => $val) {
+            $replace['{' . $key . '}'] = $val;
+        }
+
+        // interpolate replacement values into the message and return
+        return strtr($message, $replace);
+    }
+
 }
