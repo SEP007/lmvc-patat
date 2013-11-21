@@ -3,6 +3,7 @@
 	"signUp": "Зарегистрироваться",
 	"myRestaurant": "Мой ресторан",
 	"myProfile": "Мой профиль",
+	"myFavorites": 'Избранные',
 	"menu": "Меню",
 	"logout": "Выход",
 	"registerHunger": "Регистрация голода",
