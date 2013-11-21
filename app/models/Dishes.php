@@ -131,7 +131,8 @@ class Dishes
                             ( 6371 * Acos(Cos(Radians(' . $longitude . ')) * Cos(Radians(latitude)) * Cos(
                                 Radians(longitude) - Radians(' . $latitude . ')) + Sin
                                 (Radians(' . $longitude . ')) * Sin(Radians(latitude)))
-                        ), 4 ) AS distance
+                        ), 4 ) AS distance,
+                         Dishes.id as dish_id, Users.id as user_id, Locations.id as location_id
                     ')
             ->innerJoin(new Users(), 'Dishes.user_id = Users.id')
             ->innerJoin(new Locations(), 'Locations.user_id = Users.id')

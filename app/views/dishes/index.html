@@ -1,4 +1,5 @@
 <?php
+    use ui\UI;
     use Scandio\lmvc\modules\assetpipeline\view\Asset;
 ?>
 
@@ -32,6 +33,22 @@
                         <img width=100 src="<?= Asset::image(['uploads', 'placeholder.png']) ?>" alt="" />
                         <?php endif; ?>
                     </a>
+
+                    <div id="rating_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" class="rating_container">
+                        <?php $stars=5; ?>
+                        <?php for ($rated=1; $rated<=($dish->rating); $rated++ ){ ?>
+                            <input name="potato_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" type="radio" class="potato required" style="display: none;" disabled="disabled" checked="checked">
+                        <?php $stars--; } ?>
+                        <?php if($stars!=o): ?>
+                        <?php for ($non_rated=($dish->rating); $non_rated<5; $non_rated++ ){ ?>
+                            <input name="potato_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" type="radio" class="potato required" style="display: none;" disabled="disabled">
+                        <?php $stars--; } ?>
+                        <?php endif; ?>
+                    </div>
+                    <div class="rating_container">
+                        Rating <?= (is_null($dish->rating)) ? '0.00' : $dish->rating ?>
+                        (<?= (is_null($dish->num_rates)) ? '0' : $dish->num_rates ?> votes)
+                    </div>
                 </div>
                 <div class="description span9">
                     <div class="row-fluid">
@@ -72,3 +89,6 @@
         </dl>
     </div>
 </div>
+
+<?= UI::js(Asset::assets(['jquery.rating.js'], ['path' => 'plugins'])) ?>
+<?= UI::js(Asset::assets(['jquery.MetaData.js'], ['path' => 'plugins'])) ?>
