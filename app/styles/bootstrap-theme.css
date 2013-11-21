@@ -4614,6 +4614,9 @@ input[type="submit"].btn.btn-mini {
     text-decoration: none;
     text-shadow: 0 1px 0 #ffe994;
 }
+.navbar .nav > li > a.active {
+    color:#DC2D2D;
+}
 
 .navbar .nav .dropdown-toggle .caret {
     margin-top: 8px;
@@ -5002,7 +5005,9 @@ input[type="submit"].btn.btn-mini {
     border-left-width: 0;
 }
 
-.pagination ul > li > a:hover,
+.pagination ul > li > a:hover {
+    cursor:pointer;
+}
 .pagination ul > li > a:focus,
 .pagination ul > .active > a,
 .pagination ul > .active > span {
