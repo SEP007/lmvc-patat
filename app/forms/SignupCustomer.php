@@ -32,15 +32,10 @@ class SignupCustomer extends forms\Signup
         $this->isPost = $isPost;
     }
 
-    protected function checkUsername($name)
+    protected function checkTaken($name)
     {
         if ($this->isPost) return;
 
-        parent::checkUsername($name);
-    }
-
-    protected function checkTaken($name)
-    {
         $username = $this->request()->$name;
 
         $count = Users::findBy("username", $username)->count();
