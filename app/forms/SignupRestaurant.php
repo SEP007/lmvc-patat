@@ -29,7 +29,7 @@ class SignupRestaurant extends forms\Signup
         'mandatory' => ['message' => 'Please give us an E-Mail!']
     ];
     public $password = [
-        'check-password' => ['message' => 'Holy, too weak that password is!'],
+        'check-password' => ['message' => 'Password must be between 3-30 characters!'],
         'mandatory' => ['message' => 'Those passwords don\'t match, try again!']
     ];
     public $passwordRetyped = [
