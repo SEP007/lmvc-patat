@@ -20,6 +20,16 @@ find: 'Find'
 startWalking: 'Start walking: this is where you are heading!'
 showMapIn: 'Show map in'
 orIn: 'or in'
+walking: 'Walking'
+driving: 'Driving'
+chooseTravelMode: 'Choose a travel mode:'
+#
+#app/views/favorites/index.html
+places: 'Places'
+food: 'Foooooood'
+#
+#app/views/favorites/index.html
+awayFromYou: 'away from you'
 #
 #app/views/imbiss/index.html
 currentOffers: 'Current offers'

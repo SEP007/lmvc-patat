@@ -1,6 +1,7 @@
 <?php
     use ui\UI;
     use Scandio\lmvc\modules\assetpipeline\view\Asset;
+    use Scandio\lmvc\modules\i18n\I18nWrapper;
 ?>
 
 <div id="user-location" class="row-fluid">
@@ -12,9 +13,9 @@
         <a href="http://maps.google.com/?daddr=<?= $user->zip ?>+<?= $user->city ?>,+<?= $user->street ?>"><strong>Google Maps</strong></a>
     </p>
     <p>
-        Choose a travel mode :
-        <button class="btn btn-primary" disabled='disabled' name="mode_w" id="btn_walk">Walking</button>
-        <button class="btn btn-primary" name="mode_d" id="btn_drive">Driving</button>
+        <?= I18nWrapper::translate('chooseTravelMode'); ?>
+        <button class="btn btn-primary" disabled='disabled' name="mode_w" id="btn_walk"> <?= I18nWrapper::translate('walking'); ?> </button>
+        <button class="btn btn-primary" name="mode_d" id="btn_drive"> <?= I18nWrapper::translate('driving'); ?> </button>
     </p>
     <div class="hidden">
         <span id="longitude"></span>
