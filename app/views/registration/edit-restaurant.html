@@ -43,11 +43,16 @@
             <div class="control-group">
                 <label class="control-label" for="password"><?= I18nWrapper::translate('password'); ?></label>
                 <div class="controls">
-                    <input type="password" name="password" id="password" placeholder= <?= I18nWrapper::translate('password'); ?> />
+                    <input type="password" name="password" id="password" placeholder= <?= I18nWrapper::translate('password'); ?> maxlength="30" data-indicator="pwindicator"/>
 
                     <?php foreach ($errors['password'] as $validator => $message): ?>
                         <span class="help-block <?= $validator ?>"><?= $message ?></span>
                     <?php endforeach ?>
+                    
+                    <div id="pwindicator">
+	                    <div class="bar"></div>
+	                    <div class="label"></div>
+	                </div>
                 </div>
             </div>
             <div class="control-group">
@@ -182,5 +187,5 @@
     </form>
 </div>
 
-<?= UI::js(Asset::assets(['jquery.nominatim.js'], ['path' => 'plugins'])) ?>
-<?= UI::js(Asset::assets(['jquery.register.js'], ['path' => 'views'])) ?>
+<?= UI::js(Asset::assets(['jquery.nominatim.js', 'jquery.pwstrength.js'], ['path' => 'plugins'])) ?>
+<?= UI::js(Asset::assets(['jquery.register.js', 'jquery.password-strength.js'], ['path' => 'views'])) ?>

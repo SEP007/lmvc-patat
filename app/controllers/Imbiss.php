@@ -28,7 +28,7 @@ class Imbiss extends AnonymousController
             'loggedInCustomer'          =>  $customersModel->getCustomerByUsername($sessionUser->username)
         ]);
     }
-	
+
 	/**
 	 * Saves or cancels restaurant comment
 	 * @param handle domain name of restaurant
@@ -40,18 +40,18 @@ class Imbiss extends AnonymousController
 	{
 		$isPost = static::request()->save;
 		$comment = new \models\Comments();
-		
+
         if ($isPost) {
             $comment->setDescription(static::request()->$commentControl);
             $comment->setCreation_date(date("Y-m-d"));
             $comment->setCreated_by($customerId);
             $comment->setLocation_id($locationId);
         }
-		
+
 		$comment->save();
 		return static::redirect('Imbiss::index', $handle);
 	}
-	
+
 		/**
 	 * Saves or cancels dish comment
 	 * @param handle domain name of restaurant
@@ -63,14 +63,14 @@ class Imbiss extends AnonymousController
 	{
 		$isPost = static::request()->save;
 		$comment = new \models\Comments();
-		
+
         if ($isPost) {
             $comment->setDescription(static::request()->$commentControl);
             $comment->setCreation_date(date("Y-m-d"));
             $comment->setCreated_by($customerId);
             $comment->setDish_id($dishId);
         }
-		
+
 		$comment->save();
 		return static::redirect('Imbiss::index', $handle);
 	}
