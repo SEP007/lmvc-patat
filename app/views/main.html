@@ -99,6 +99,7 @@
                             <?php if(Security::get()->isAuthenticated()): ?>
                                 <?php if(Security::get()->currentUser()->isInGroup("Customer")): ?>
                                     <li><a href="<?= $app->url('Registration::edit-customer') ?>"> <?= I18nWrapper::translate('myProfile'); ?> </a></li>
+                                    <li><a href="<?= $app->url('Favorites::index') ?>">My Favorites</a></li>
                                 <?php endif; ?>
                                 <?php if(Security::get()->currentUser()->isInGroup("Restaurant")): ?>
                                     <li><a href="<?= $app->url('Registration::edit-restaurant') ?>"> <?= I18nWrapper::translate('myRestaurant'); ?> </a></li>

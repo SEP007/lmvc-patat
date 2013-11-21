@@ -100,6 +100,10 @@ class Menu extends SecureController
 
     public static function delete($id)
     {
+		$comments = \models\Comments::findBy('dish_id', $id);
+		foreach($comments as $comment) {
+			$comment->delete();
+		}
         \models\Dishes::find($id)->delete();
 
         return static::redirect('Menu::index');
