@@ -1,0 +1,76 @@
+<?php
+    use ui\UI;
+    use Scandio\lmvc\modules\assetpipeline\view\Asset;
+    use \util\Location;
+?>
+
+<div class="ios-list-wrap">
+
+<div class="row-fluid " id="tabs">
+    <ul class="nav nav-pills text-center">
+        <li class="active span6">
+            <a href>Foooooood</a>
+        </li>
+        <li class="pull-right span6">
+            <a href="<?= $app->url('Favorites::locations') ?>">Places</a>
+        </li>
+    </ul>
+</div>
+
+
+    <div class="patat-list">
+        <dl>
+            <?php foreach($dishes as $dish): ?>
+            <dd class="" >
+                <div class="advertised span3">
+                    <div class="adicon">
+                        <?php if($dish->advertised == 1): ?>
+                        <img src="<?= Asset::image('adv2.png') ?>" alt="" />
+                        <?php endif; ?>
+                    </div>
+                    <div class="hidden-phone">
+                        <a class="image" href="<?= $app->url('Dishes::map', $dish->user_id) ?>">
+                            <?php if($dish->img): ?>
+                            <img width=100 src="<?= Asset::image(['uploads', $dish->img], ['w' => 800, 'h' => 600]) ?>" alt="" />
+                            <?php else: ?>
+                            <img width=100 src="<?= Asset::image(['uploads', 'placeholder.png']) ?>" alt="" />
+                            <?php endif; ?>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="description span8">
+                    <div class="row-fluid">
+                        <h1>
+                            <a href="
+                                <?= $app->url('Imbiss::index', $dish->handle)?>"><?= $dish->restaurant ?>
+                            </a>
+                            <span class="distance">
+                                <small>Beeline:</small> ~<?= Location::getDistanceTo($dish->longitude,$dish->latitude) ?>
+                            </span>
+                        </h1>
+
+                        <div class="span8">
+                            <h4><a href="<?= $app->url('Dishes::map', $dish->user_id) ?>"><?= $dish->street ?></a></h4>
+                        </div>
+
+                        <div class="clearfix row-fluid">
+                            <h2><?= $dish->name ?> <span class="price"><?= $dish->price ?> €</span></h2>
+                            <?php if($dish->category_id != null): ?>
+                            <div class="span8">
+                                <h4>
+                                    <?= \models\Categories::getNameById($dish->category_id); ?>
+                                </h4>
+                            </div>
+                            <?php endif ?>
+                            <p class="span8">
+                                <?= $dish->description ?>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </dd>
+            <?php endforeach; ?>
+        </dl>
+    </div>
+</div>

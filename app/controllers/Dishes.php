@@ -4,21 +4,37 @@ namespace controllers;
 
 use Scandio\lmvc\modules\security\AnonymousController;
 use Scandio\lmvc\LVC;
+use Scandio\lmvc\modules\session\Session;
+use Scandio\lmvc\modules\security\Security;
+use Scandio\lmvc\modules\rendering\traits;
 
 class Dishes extends AnonymousController
 {
+    use traits\RendererController;
+
     public static function index($longitude = null, $latitude = null)
     {
-        $latitude = $latitude == '' ?  static::request()->longitude : $latitude;
-        $longitude = $longitude == '' ?  static::request()->latitude : $longitude;
+        $latitude = $latitude == '' ?  static::request()->latitude : $latitude;
+        $longitude = $longitude == '' ?  static::request()->longitude : $longitude;
+
+        Session::set("location.longitude", $longitude);
+        Session::set("location.latitude", $latitude);
 
         if($longitude == null || $latitude == null) {
             static::redirect('Application::index');
         }
 
         $dishesModel = new \models\Dishes();
-
         self::setRenderArg('dishesGrouped', $dishesModel->getDishesWithinDistance($longitude, $latitude, 25, true));
+
+
+        $customerModel = new \models\Customers();
+        $user = Security::get()->currentUser();
+        if ($user->username != "anonymous")
+        {
+            $custid = $customerModel->getByUserId($user->id)->id;
+            self::setRenderArg('dishesFavorite', $dishesModel->getFavoriteDishesForCustomer($custid, true));
+        }
 
         return static::render();
     }

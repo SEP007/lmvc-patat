@@ -6,4 +6,5 @@ config.json
 /composer.lock
 _cache/
 .DS_Store
+.project
 /bin/

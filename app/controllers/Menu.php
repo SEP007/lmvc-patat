@@ -5,8 +5,11 @@ namespace controllers;
 use models\Categories;
 use Scandio\lmvc\modules\security\SecureController;
 use Scandio\lmvc\modules\security\Security;
+use Scandio\lmvc\modules\rendering\traits;
 
-class Menu extends SecureController {
+class Menu extends SecureController
+{
+    use traits\RendererController;
 
     public static function index()
     {
@@ -17,22 +20,30 @@ class Menu extends SecureController {
         return static::render(['dishes' => $dishes]);
     }
 
-    public static function edit($id = null)
+    /**
+     * Saves dish
+     * @param null $id dish id
+     * @return bool true if has been saved successfully
+     */
+    public static function save($id = null)
     {
         $isPost = static::request()->save;
-        $categories = Categories::findAll();
+        $userId = Security::get()->currentUser()->id;
+        $dishModel = new \models\Dishes();
 
         if (is_null($id)) {
-            $dish = new \models\Dishes();
+            // add new dish
+            $dish = $dishModel;
         } else {
-            $dishModel = new \models\Dishes();
-            $dish = $dishModel->getDishByUser($id, Security::get()->currentUser()->id);
+            // edit existing dish
+            $dish = $dishModel->getDishByUser($id, $userId);
         }
 
         $form = new \forms\Dish();
         $form->validate(static::request());
 
         if ($isPost) {
+            // prepare saving
             $dish->user_id = \models\Users::findBy('username', Security::get()->currentUser()->username)->one()->id;
             $dish->setName(static::request()->name);
             $dish->setImg(static::request()->img);
@@ -46,24 +57,53 @@ class Menu extends SecureController {
         }
 
         if ($form->isValid() && $dish->save()) {
+            // save dish
             return static::redirect('Menu::index');
+        }
+    }
+
+    /**
+     * Prepare for edit view
+     * @param null $id dish id
+     * @return bool true if edit view has been successfully prepared
+     */
+    public static function edit($id = null)
+    {
+        $advertiseLimit = 3;
+        $categories = Categories::findAll();
+        $userId = Security::get()->currentUser()->id;
+        $dishModel = new \models\Dishes();
+        $advertisedDishes = $dishModel->getDishesByUserId($userId, true);
+
+        if (is_null($id)) {
+            // add new dish
+            $dish = $dishModel;
+            $disableAdvertise = $advertisedDishes->count() >= $advertiseLimit;
         } else {
-            return static::render([
-                'dish'      => $dish,
-                'img'       => static::request()->img,
-                'errors'    => $isPost ? $form->getErrors() : [],
-                'categories' => $categories
-            ]);
+            // edit existing dish
+            $dish = $dishModel->getDishByUser($id, $userId);
+            $disableAdvertise = (($advertisedDishes->count() >= $advertiseLimit) && !$dish->getAdvertised());
         }
 
+        $form = new \forms\Dish();
+        $form->validate(static::request());
+
+        // edit/add dish
         return static::render([
-            'dish' => $dish,
-            'categories' => $categories
+            'dish'      => $dish,
+            'img'       => static::request()->img,
+            'errors'    => [],
+            'categories' => $categories,
+            'disableAdvertise' => $disableAdvertise
         ]);
     }
 
     public static function delete($id)
     {
+		$comments = \models\Comments::findBy('dish_id', $id);
+		foreach($comments as $comment) {
+			$comment->delete();
+		}
         \models\Dishes::find($id)->delete();
 
         return static::redirect('Menu::index');

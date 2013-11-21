@@ -1,6 +1,10 @@
 <?php
+    use ui\UI;
     use Scandio\lmvc\modules\assetpipeline\view\Asset;
+    use Scandio\lmvc\modules\security\Security;
 ?>
+
+<?= UI::js(Asset::assets(['jquery.favorites.js'], ['path' => 'views'])) ?>
 
 <div class="ios-list-wrap">
     <div class="row-fluid">
@@ -24,6 +28,21 @@
 
             <?php foreach($groupedDishes['dishes'] as $dish): ?>
             <dd class="">
+                <div class="span1">
+                    <?php if(Security::get()->isAuthenticated()): ?>
+                        <?php if(in_array($dish->dish_id,$dishesFavorite)): ?>
+                            <a class="favorite-btn" href="#" data-dishid="<?= $dish->dish_id ?>">
+                                <img width=100 src="<?= Asset::image(['favorite.png']) ?>"
+                                     data-otherwise="<?= Asset::image(['not_favorite.png']) ?>" alt="" />
+                            </a>
+                        <?php else: ?>
+                            <a class="favorite-btn" href="#" data-dishid="<?= $dish->dish_id ?>">
+                                <img width=100 src="<?= Asset::image(['not_favorite.png']) ?>"
+                                     data-otherwise="<?= Asset::image(['favorite.png']) ?>" alt="" />
+                            </a>
+                        <?php endif ?>
+                    <?php endif ?>
+                </div>
                 <div class="span3 hidden-phone">
                     <a class="image" href="<?= $app->url('Dishes::map', $dish->user_id) ?>">
                         <?php if($dish->img): ?>
@@ -33,7 +52,7 @@
                         <?php endif; ?>
                     </a>
                 </div>
-                <div class="description span9">
+                <div class="description span8">
                     <div class="row-fluid">
                         <h1>
                             <a href="

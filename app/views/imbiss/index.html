@@ -1,10 +1,35 @@
 <?php
     use ui\UI;
     use Scandio\lmvc\modules\assetpipeline\view\Asset;
+
+    $commentsModel = new \models\Comments();
+    $usersModel = new \models\Users();
+	$commentCount = 0;
+
+    use Scandio\lmvc\modules\security\Security;
+    use \models\Locations;
 ?>
 
+<?= UI::js(Asset::assets(['jquery.favorites.js'], ['path' => 'views'])) ?>
+
 <div class="row-fluid content-header">
-    <div class="span8">
+
+    <div class="span1">
+        <?php if(Security::get()->isAuthenticated()): ?>
+            <?php if(Locations::isFavoriteLocation($restaurant->id)): ?>
+                <a class="favoriteloc-btn" href="#" data-locationid="<?= $restaurant->id ?>">
+                    <img width=100 src="<?= Asset::image(['favorite.png']) ?>"
+                         data-otherwise="<?= Asset::image(['not_favorite.png']) ?>" alt="" />
+                </a>
+            <?php else: ?>
+                <a class="favoriteloc-btn" href="#" data-locationid="<?= $restaurant->id ?>">
+                    <img width=100 src="<?= Asset::image(['not_favorite.png']) ?>"
+                         data-otherwise="<?= Asset::image(['favorite.png']) ?>" alt="" />
+                </a>
+            <?php endif ?>
+        <?php endif ?>
+    </div>
+    <div class="span7">
         <h1><?= $restaurant->restaurant ?></h1>
 
         <h4><a href="<?= $app->url('Dishes::map', $restaurant->user_id) ?>"><?= $restaurant->street ?></a></h4>
@@ -26,6 +51,45 @@
     <a href="<?= $app->url('Dishes::map', $restaurant->user_id) ?>">
         <div id="map-small" data-userid=<?= $restaurant->user_id ?> class="span4"></div>
     </a>
+</div>
+
+<?php
+    $restaurantComments = $commentsModel->getCommentsByRestaurant($restaurant->id);
+?>
+<div>
+    <?php if($loggedInCustomer != null):?>
+		<form id="comment-form" method="POST" action="<?= $app->url('Imbiss::saveRestaurantComment', ['handle'=>$restaurant->handle, 'customerId'=>$loggedInCustomer->id, 'locationId'=>$restaurant->id, 'commentControl'=>('comment' . $commentCount)]) ?>">
+			<fieldset>
+			<?= UI::textAreaCounter('comment', null, null, $errors['comment'], 'Your comment ...', false, 500, $commentCount++) ?>
+			<?= UI::saveCancelButtons($app->url('Imbiss::index', $restaurant->handle)) ?>
+			</fieldset>
+        </form>
+    <?php else :?>
+        <p>To be able to add a comment, please <a href="<?= $app->url('Security::login')?>">log in.</a></p>
+    <?php endif; ?>
+
+    <ul class="expList">
+        <li>
+        <?php if($restaurantComments->count() == 0): ?>
+        No comments
+        <?php else: ?>
+        Toggle comments
+        <?php endif; ?>
+            <ul>
+            <?php foreach($restaurantComments as $restaurantComment): ?>
+            <li>
+                <?php
+                   $userName = $usersModel->getUsernameByCustomerId($restaurantComment->created_by);
+                ?>
+                <p>
+                <div><span>Created at </span><b><?= $restaurantComment->creation_date ?></b><span>, by </span><b><?= $userName ?></b></div>
+                <div><?= $restaurantComment->description ?></div>
+                </p>
+            </li>
+            <?php endforeach; ?>
+            </ul>
+        </li>
+    </ul>
 </div>
 
 <div class="ios-list-wrap">
@@ -63,6 +127,46 @@
                         </div>
                     </div>
                 </dd>
+
+                <?php
+                    $dishComments = $commentsModel->getCommentsByDish($advertisedDish->id);
+                ?>
+                <div>
+                    <?php if($loggedInCustomer != null):?>
+						<form id="comment-form" method="POST" action="<?= $app->url('Imbiss::saveDishComment', ['handle'=>$restaurant->handle, 'customerId'=>$loggedInCustomer->id, 'DishId'=>$advertisedDish->id, 'commentControl'=>('comment' . $commentCount)]) ?>">
+							<fieldset>
+							<?= UI::textAreaCounter('comment', null, null, $errors['comment'], 'Your comment ...', false, 500, $commentCount++) ?>
+							<?= UI::saveCancelButtons($app->url('Imbiss::index', $restaurant->handle)) ?>
+							</fieldset>
+						</form>
+                    <?php else :?>
+                    <p>To be able to add a comment, please <a href="<?= $app->url('Security::login')?>">log in.</a></p>
+                    <?php endif; ?>
+
+                    <ul class="expList">
+                        <li>
+                        <?php if($dishComments->count() == 0): ?>
+                        No comments
+                        <?php else: ?>
+                        Toggle comments
+                        <?php endif; ?>
+                            <ul>
+                            <?php foreach($dishComments as $dishComment): ?>
+                            <li>
+                                <?php
+                                   $userName = $usersModel->getUsernameByCustomerId($dishComment->created_by);
+                                ?>
+                                <p>
+                                <div><span>Created at </span><b><?= $dishComment->creation_date ?></b><span>, by </span><b><?= $userName ?></b></div>
+                                <div><?= $dishComment->description ?></div>
+                                </p>
+                            </li>
+                            <?php endforeach; ?>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
             <?php endforeach; ?>
             <?php else: ?>
             <div class="alert alert-info">
@@ -122,6 +226,46 @@
                             </div>
                         </div>
                     </dd>
+
+                    <?php
+                        $dishComments = $commentsModel->getCommentsByDish($dish->id);
+                    ?>
+                    <div>
+                        <?php if($loggedInCustomer != null):?>
+							<form id="comment-form" method="POST" action="<?= $app->url('Imbiss::saveDishComment', ['handle'=>$restaurant->handle, 'customerId'=>$loggedInCustomer->id, 'DishId'=>$dish->id, 'commentControl'=>('comment' . $commentCount)]) ?>">
+								<fieldset>
+								<?= UI::textAreaCounter('comment', null, null, $errors['comment'], 'Your comment ...', false, 500, $commentCount++) ?>
+								<?= UI::saveCancelButtons($app->url('Imbiss::index', $restaurant->handle)) ?>
+								</fieldset>
+							</form>
+                        <?php else :?>
+                        <p>To be able to add a comment, please <a href="<?= $app->url('Security::login')?>">log in.</a></p>
+                        <?php endif; ?>
+
+                        <ul class="expList">
+                            <li>
+                                <?php if($dishComments->count() == 0): ?>
+                                No comments
+                                <?php else: ?>
+                                Toggle comments
+                                <?php endif; ?>
+                                <ul>
+                                <?php foreach($dishComments as $dishComment): ?>
+                                <li>
+                                <?php
+                                   $userName = $usersModel->getUsernameByCustomerId($dishComment->created_by);
+                                ?>
+                                <p>
+                                <div><span>Created at </span><b><?= $dishComment->creation_date ?></b><span>, by </span><b><?= $userName ?></b></div>
+                                <div><?= $dishComment->description ?></div>
+                                </p>
+                                </li>
+                                <?php endforeach; ?>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
                 <?php endforeach; ?>
             <?php else: ?>
                 <div class="alert alert-info">
@@ -137,3 +281,4 @@
 <?= UI::js(Asset::assets(['gmaps.js'])) ?>
 <?= UI::js(Asset::assets(['jquery.patatmap.js'], ['path' => 'plugins'])) ?>
 <?= UI::js(Asset::assets(['jquery.imbiss-index.js'], ['path' => 'views'])) ?>
+<?= UI::js(Asset::assets(['jquery.expand-collapse-list.js'], ['path' => 'views'])) ?>
