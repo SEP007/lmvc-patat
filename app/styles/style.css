@@ -43,6 +43,10 @@ a.symbol:before {
   content: attr(title);
   margin-right: 0.3em;
   font-size: 130%; }
+  
+ul {
+  cursor : pointer;
+}
 
 dl {
   margin: 0;
@@ -176,6 +180,17 @@ header .bar-right {
 footer {
   height: 10%;
   margin-bottom: 25px; }
+  
+.languages ul { 
+	margin: 4px;
+	padding: 0;
+	list-style-type: none; }
+
+.languages ul li { 
+	display: inline; }
+	
+.languages ul li a { 
+	text-decoration: none; }
 
 #map {
   height: 400px; }
@@ -196,3 +211,73 @@ footer {
 
   h3 {
     font-size: 1em; } }
+    
+#pwindicator {
+    margin-top: 4px;
+    width: 200px;
+}
+
+.bar {
+    height: 2px;
+}
+
+.pw-very-weak .bar {
+    background: #FF0000;
+    width: 40px;
+}
+
+.pw-very-weak .label {
+    color: #FF0000;
+}
+
+.pw-weak .bar {
+    background: #FF7F50;
+    width: 80px;
+}
+
+.pw-weak .label {
+    color: #FF7F50;
+}
+
+.pw-mediocre .bar {
+    background: #642EFE;
+    width: 120px;
+}
+
+.pw-mediocre .label {
+    color: #642EFE;
+}
+
+.pw-strong .bar {
+    background: #4682B4;
+    width: 160px;
+}
+
+.pw-strong .label {
+    color: #4682B4;
+}
+
+.pw-very-strong .bar {
+    background: #228B22;
+    width: 200px;
+}
+
+.pw-very-strong .label {
+    color: #228B22;
+}
+
+.advertised {
+    position:relative;
+}
+.advertised img {
+    position:relative;
+    z-index:1;
+}
+.advertised .adicon {
+    position:absolute;
+    z-index:2;
+    right:0px;
+    bottom:0px;
+    width:40%;
+    height:40%;
+}

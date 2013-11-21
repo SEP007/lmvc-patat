@@ -7,6 +7,8 @@ use \models\Users;
 
 class SignupCustomer extends forms\Signup
 {
+    private $isPost = false;
+
     public $username = [
         'check-username' => ['message' => 'That username: "%s" is too short!'],
         'mandatory' => ['message' => 'Please give us a username!'],
@@ -17,7 +19,7 @@ class SignupCustomer extends forms\Signup
         'mandatory' => ['message' => 'Please give us an E-Mail!']
     ];
     public $password = [
-        'check-password' => ['message' => 'Holy, too weak that password is!'],
+        'check-password' => ['message' => 'Password must be between 3-30 characters!'],
         'mandatory' => ['message' => 'Those passwords don\'t match, try again!']
     ];
     public $passwordRetyped = [
@@ -25,8 +27,15 @@ class SignupCustomer extends forms\Signup
         'check-password-retyped' => ['message' => 'Nope, these two passwords do not match!']
     ];
 
+    public function setAsPost($isPost)
+    {
+        $this->isPost = $isPost;
+    }
+
     protected function checkTaken($name)
     {
+        if ($this->isPost) return;
+
         $username = $this->request()->$name;
 
         $count = Users::findBy("username", $username)->count();

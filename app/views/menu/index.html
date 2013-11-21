@@ -1,20 +1,21 @@
 <?php
     use ui\UI;
     use Scandio\lmvc\modules\assetpipeline\view\Asset;
+    use Scandio\lmvc\modules\i18n\I18nWrapper;
 ?>
 
 <table class="table table-striped">
     <thead>
         <tr>
             <th class="">#</th>
-            <th class="hidden-phone hidden-tablet">Image</th>
-            <th>Name</th>
-            <th class="hidden-phone">Description</th>
-            <th class="hidden-phone">Category</th>
-            <th class="">Price</th>
+            <th class="hidden-phone hidden-tablet"> <?= I18nWrapper::translate('image'); ?> </th>
+            <th> <?= I18nWrapper::translate('name'); ?> </th>
+            <th class="hidden-phone"> <?= I18nWrapper::translate('description'); ?> </th>
+            <th class="hidden-phone"> <?= I18nWrapper::translate('category'); ?> </th>
+            <th class=""> <?= I18nWrapper::translate('price'); ?> </th>
             <th></th>
             <th>
-                <a class="btn btn-small btn-block" href="<?= $app->url('Menu::edit') ?>" title="Add new snack">
+                <a class="btn btn-small btn-block" href="<?= $app->url('Menu::edit') ?>" title=<?= I18nWrapper::translate('addNewSnack'); ?>>
                     <span class="icon-plus-sign icon-black"></span>
                 </a>
             </th>

@@ -4,12 +4,15 @@ use troba\EQM\EQM;
 use Scandio\lmvc\LVC;
 use Scandio\lmvc\modules\assetpipeline;
 use Scandio\lmvc\modules\upload;
+use Scandio\lmvc\modules\i18n;
 use Scandio\lmvc\utils\logger;
 
 class Bootstrap extends \Scandio\lmvc\utils\bootstrap\Bootstrap
 {
     public function initialize()
     {
+        logger\Bootstrap::configure(static::getPath());
+
         EQM::initialize([
             'dsn' => LVC::get()->config->dsn,
             'username' => LVC::get()->config->username,
@@ -24,6 +27,8 @@ class Bootstrap extends \Scandio\lmvc\utils\bootstrap\Bootstrap
         ]);
 
         assetpipeline\Bootstrap::configure(static::getPath());
+	    i18n\Bootstrap::configure(static::getPath());
         logger\Bootstrap::configure(static::getPath());
+
     }
 }

@@ -6,7 +6,7 @@ use Scandio\lmvc\modules\registration\forms;
 
 class SignupRestaurant extends forms\Signup
 {
-    public $isPost = false;
+    private $isPost = false;
 
     public $restaurant = [
         'mandatory' => ['message' => 'A name for your restaurant is compulsory!'],
@@ -29,7 +29,7 @@ class SignupRestaurant extends forms\Signup
         'mandatory' => ['message' => 'Please give us an E-Mail!']
     ];
     public $password = [
-        'check-password' => ['message' => 'Holy, too weak that password is!'],
+        'check-password' => ['message' => 'Password must be between 3-30 characters!'],
         'mandatory' => ['message' => 'Those passwords don\'t match, try again!']
     ];
     public $passwordRetyped = [

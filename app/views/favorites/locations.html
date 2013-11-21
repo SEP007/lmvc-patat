@@ -1,0 +1,51 @@
+<?php
+    use ui\UI;
+    use Scandio\lmvc\modules\assetpipeline\view\Asset;
+    use Scandio\lmvc\modules\i18n\I18nWrapper;
+    use \util\Location;
+?>
+
+<div class="ios-list-wrap">
+
+    <div class="row-fluid " id="tabs">
+        <ul class="nav nav-pills text-center">
+            <li class="pull-left span6">
+                <a href="<?= $app->url('Favorites::index') ?>"> <?= I18nWrapper::translate('food'); ?> </a>
+            </li>
+            <li class="active pull-right span6">
+                <a href=""> <?= I18nWrapper::translate('places'); ?> </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="patat-list">
+        <dl>
+            <?php foreach($locations as $location): ?>
+
+                <dd class="">
+                    <div class="description span10">
+                        <div class="row-fluid">
+                            <h1>
+                                <a href="
+                                    <?= $app->url('Imbiss::index', $location->handle)
+                                    ?>"><?= $location->restaurant ?>
+                                </a>
+                                <span class="distance">
+                                    <?= Location::getDistanceTo($location->longitude, $location->latitude)?>
+                                    <small>away from you</small>
+                                </span>
+                            </h1>
+                            <h5>
+                                <?= $location->phone ?>
+                            </h5>
+                            <h5>
+                                <?= $location->street ?>
+                            </h5>
+                        </div>
+                    </div>
+                </dd>
+
+            <?php endforeach; ?>
+        </dl>
+    </div>
+</div>

@@ -1,0 +1,120 @@
+#app/views/main.html
+home: 'Начало'
+signUp: 'Регистрирай се'
+myRestaurant: 'Моят ресторант'
+myProfile: 'Моят профил'
+myFavorites: 'моите любими'
+menu: 'Меню'
+logout: 'Изход'
+registerHunger: 'Регистрирай глад'
+#
+#app/views/application/index.html
+weAreTryingToLocate: 'Опитваме се да открием местонахождението ви, моля изчакайте!'
+youCanAlsoSpecifyYourAddress: 'Можете също да посочите адреса си'
+findMe: 'Намери ме'
+find: 'Намери'
+#
+#app/views/dishes/index.html
+#
+#app/views/dishes/map.html
+startWalking: 'Пеша: това е мястото, за където сте се запътили!'
+showMapIn: 'Покажи на картата в'
+orIn: 'или'
+#
+#app/views/imbiss/index.html
+currentOffers: 'Актуални оферти'
+sorry: 'Съжаляваме,'
+weDontHaveOffers: 'нямаме оферти в момента!'
+moreSnacks: 'Още закуски'
+weDontHaveSnacks: 'не разполагаме с никакви закуски!'
+#
+#app/views/menu/edit.html
+uploadImage: 'Прикачи изображение!'
+#
+#app/views/menu/index.html
+#Haven't finished with this file yet
+category: 'категория'
+name: 'Име'
+image: 'Изображение'
+description: 'Описание'
+price: 'Цена'
+addNewSnack: 'Добавяне на нова закуска'
+yes: 'да'
+#
+#app/views/registration/edit-restaurant.html
+woops: 'Опа!'
+youAreMissingSomeData: 'Липсват някои данни, моля попълнете задължителните полета!'
+veryGood: 'Много добре'
+everythingWorkedFine: 'Всичко мина добре, сега можете да се логнете!'
+userInformation: 'Информация за потребител'
+#
+#app/views/registration/failure.html
+sorryRegistrationFailed: 'Съжаляваме, регистрацията или редакцията на профила ви се провали!'
+resolveProblems: 'Съжаляваме, но регистрацията или редакция на профила ви не може да бъде завършена поради технически проблеми. Моля опитайте отново.'
+#
+#app/views/registration/signup-restaurant.html
+youAreMissingMandatoryData: 'Липсват данни в задължителни полета, моля добавете, където е необходимо!'
+youAreOnline: 'Всичко мина добре, ресторантът ви е онлайн!'
+userData: 'Потребителски данни'
+username: 'Потребителско име'
+password: 'Парола'
+repeatPassword: 'Повторете паролата'
+firstAndSurname: 'Първо име и Фамилия'
+email: 'Електронна поща'
+phone: 'Телефон'
+mobile: 'Мобилен Телефон'
+yourRestaurant: 'Вашият ресторант'
+nameOfRestaurant: 'Име на ресторанта'
+domainForRestaurant: 'Регион на ресторанта'
+country: 'Държава'
+city: 'Град'
+zip: 'Пощ. Код'
+streetAndHouseNumber: 'Улица и номер'
+findYourLocation: 'Намерете Вашето местоположение'
+longitude: 'Географска дължина'
+latitude: 'Географска ширина'
+register: 'Регистрирай'
+cancel: 'Отказ'
+edit: 'Редактирай'
+reset: 'Изчисти'
+#
+#app/views/registration/success.html
+chipFat: 'Всичко е яко като мазен чипс!'
+singedUp: 'Ура! Вие се регистрирахте. Влезте в профила си и започнете създаването на своя ресторант!'
+toLogin: 'За да влезете'
+#
+#app/views/security/forbidden.html
+needToSingIn: 'Опа! Трябва да влезете в профила си, за да видите тази информация'
+restricedPage: 'Тази страница може да се достъпва само от регистрирани потребители, моля влезте в профила си или се регистрирайте сега.'
+#
+#app/views/security/login.html
+ohNo: 'O не!'
+loginFailed: 'Влизането в профила се провали. Нещо да сбъркахте?'
+logIn: 'Вход!'
+toSignup: 'Към регистрация'
+goBack: 'Назад'
+#
+#app/forms/Signup.php
+nameCompulsory: 'Името на ресторанта е задължително поле!'
+typeCity: 'Въведете град, моля!'
+zipCodeNeeded: 'Пощенският код е необходим!'
+mandatoryField: 'Тук липсва задължително поле!'
+thatUsername: 'Това потребителско име:'
+tooShort: 'е твърде кратко!'
+giveUsername: 'Моля, въведете потребителско име!'
+theEmail: 'Електронната поща:'
+notValid: 'не е валлидна!'
+weakPassword: 'Паролата е твърде кратка'
+passwordMatch: 'Паролите не съвпадат'
+retypePassword: 'Въведете отново паролата!'
+pickUrl: 'Моля, изберете url, това ще бъде вашият адрес!'
+urlTooShort: 'Този url е твърде кратък!'
+#
+#app/forms/Dish.php
+needName: 'Имаме нужда от вашето име!'
+yourDescription: 'Вашето описание:'
+shortDescription: 'изглежда твърде кратко!'
+needDescription: 'Описанието е необходимо'
+addPrice: 'Може би искате да добавите цена!'
+validPrice: 'Смятаме, че това не е валидна цена!'
+#
