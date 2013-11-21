@@ -67,6 +67,7 @@ class Registration extends controllers\Registration
             if ($parentResponse) {
                 $location = new \models\Locations();
                 $userToGroup = new \models\UserToGroups();
+				$opentimes = new \models\OpenTimes();
 
                 $location->user_id      = $parentResponse->id;
                 $location->longitude    = static::request()->longitude;
@@ -77,13 +78,45 @@ class Registration extends controllers\Registration
                 $location->city         = static::request()->city;
                 $location->zip          = static::request()->zip;
                 $location->street       = static::request()->place;
-
+			
                 $userToGroup->user_id   = $location->user_id;
                 $userToGroup->group_id  = 2;
 
-                $location->insert();
+                $newlocation=$location->insert();
                 $userToGroup->insert();
-
+				
+				#opening times data
+				
+				$opentimes->restaurant_id = $newlocation->id;
+				$opentimes->week_day = "Monday";
+				$opentimes->opening_time = static::request()->wd_open_h;
+				$opentimes->closing_time = static::request()->wd_close_h;
+				$opentimes->insert();
+				$opentimes->week_day = "Tuesday";
+				$opentimes->opening_time = static::request()->wd_open_h;
+				$opentimes->closing_time = static::request()->wd_close_h;
+				$opentimes->insert();
+				$opentimes->week_day = "Wednesday";
+				$opentimes->opening_time = static::request()->wd_open_h;
+				$opentimes->closing_time = static::request()->wd_close_h;
+				$opentimes->insert();
+				$opentimes->week_day = "Thursday";
+				$opentimes->opening_time = static::request()->wd_open_h;
+				$opentimes->closing_time = static::request()->wd_close_h;
+				$opentimes->insert();
+				$opentimes->week_day = "Friday";
+				$opentimes->opening_time = static::request()->wd_open_h;
+				$opentimes->closing_time = static::request()->wd_close_h;
+				
+				$opentimes->insert();	
+				$opentimes->week_day = "Saturday";
+				$opentimes->opening_time = static::request()->we_open_h;	
+				$opentimes->closing_time = static::request()->we_close_h;
+				$opentimes->insert();	
+				$opentimes->week_day = "Sunday";
+				$opentimes->opening_time = static::request()->we_open_h;	
+				$opentimes->closing_time = static::request()->we_close_h;
+				$opentimes->insert();	
                 static::redirect('Menu::index');
 
             } else {

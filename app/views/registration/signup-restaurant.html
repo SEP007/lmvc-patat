@@ -1,18 +1,18 @@
 <?php
-    use ui\UI;
-    use Scandio\lmvc\modules\assetpipeline\view\Asset;
+use ui\UI;
+use Scandio\lmvc\modules\assetpipeline\view\Asset;
 
-    $errors['password'] = $errors['password'] ?: [];
-    $errors['passwordRetyped'] = $errors['passwordRetyped'] ?: [];
-    $errors['username'] = $errors['username'] ?: [];
-    $errors['email'] = $errors['email'] ?: [];
+$errors['password'] = $errors['password'] ?: [];
+$errors['passwordRetyped'] = $errors['passwordRetyped'] ?: [];
+$errors['username'] = $errors['username'] ?: [];
+$errors['email'] = $errors['email'] ?: [];
 
-    $errors['restaurant'] = $errors['restaurant'] ?: [];
-    $errors['country'] = $errors['country'] ?: [];
-    $errors['city'] = $errors['city'] ?: [];
-    $errors['zip'] = $errors['zip'] ?: [];
-    $errors['place'] = $errors['place'] ?: [];
-    $errors['handle'] = $errors['handle'] ?: [];
+$errors['restaurant'] = $errors['restaurant'] ?: [];
+$errors['country'] = $errors['country'] ?: [];
+$errors['city'] = $errors['city'] ?: [];
+$errors['zip'] = $errors['zip'] ?: [];
+$errors['place'] = $errors['place'] ?: [];
+$errors['handle'] = $errors['handle'] ?: [];
 ?>
 
 <div class="row-fluid">
@@ -42,7 +42,7 @@
             <div class="control-group">
                 <label class="control-label" for="password">Password</label>
                 <div class="controls">
-                    <input type="password" name="password" id="password" placeholder="Password"  value="<?= $user->password ?>" />
+                    <input type="password" name="password" id="password" placeholder="Password" value="<?= $user->password ?>" />
 
                     <?php foreach ($errors['password'] as $validator => $message): ?>
                         <span class="help-block <?= $validator ?>"><?= $message ?></span>
@@ -52,7 +52,7 @@
             <div class="control-group">
                 <label class="control-label" for="password">Repeat password</label>
                 <div class="controls">
-                    <input type="password" name="passwordRetyped" id="password-retyped" placeholder="Repeat password"  value="<?= $user->passwordRetyped ?>" />
+                    <input type="password" name="passwordRetyped" id="password-retyped" placeholder="Repeat password" value="<?= $user->passwordRetyped ?>" />
 
                     <?php foreach ($errors['passwordRetyped'] as $validator => $message): ?>
                         <span class="help-block <?= $validator ?>"><?= $message ?></span>
@@ -68,7 +68,7 @@
             <div class="control-group">
                 <label class="control-label" for="password">E-Mail</label>
                 <div class="controls">
-                    <input type="email" name="email" id="email" placeholder="E-Mail"  value="<?= $user->email ?>" />
+                    <input type="email" name="email" id="email" placeholder="E-Mail" value="<?= $user->email ?>" />
 
                     <?php foreach ($errors['email'] as $validator => $message): ?>
                         <span class="help-block <?= $validator ?>"><?= $message ?></span>
@@ -78,13 +78,13 @@
             <div class="control-group">
                 <label class="control-label" for="password">Phone</label>
                 <div class="controls">
-                    <input type="tel" name="phone" id="phone" placeholder="Phone"  value="<?= $user->phone ?>" />
+                    <input type="tel" name="phone" id="phone" placeholder="Phone" value="<?= $user->phone ?>" />
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label" for="password">Mobile</label>
                 <div class="controls">
-                    <input type="tel" name="mobile" id="mobile" placeholder="Mobile"  value="<?= $user->mobile ?>" />
+                    <input type="tel" name="mobile" id="mobile" placeholder="Mobile" value="<?= $user->mobile ?>" />
                 </div>
             </div>
         </fieldset>
@@ -140,6 +140,152 @@
                     <input type="number" name="zip" id="zip" placeholder="Zip" value="<?= $user->zip ?>"/>
 
                     <?php foreach ($errors['zip'] as $validator => $message): ?>
+                        <span class="help-block <?= $validator ?>"><?= $message ?></span>
+                    <?php endforeach ?>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="wd_open_h">Weekday opening time</label>
+                <div class="controls">
+                	<select name="wd_open_h">
+                		<option value="">--:--</option>
+              			<option value="00:00:00">00:00</option>
+                		<option value="01:00:00">01:00</option>
+                		<option value="02:00:00">02:00</option>
+                		<option value="03:00:00">03:00</option>
+                		<option value="04:00:00">04:00</option>
+                		<option value="05:00:00">05:00</option>
+                		<option value="06:00:00">06:00</option>
+                		<option value="07:00:00">07:00</option>
+                		<option value="08:00:00">08:00</option>
+                		<option value="09:00:00">09:00</option>
+                		<option value="10:00:00">10:00</option>
+                		<option value="11:00:00">11:00</option>
+                		<option value="12:00:00">12:00</option>
+                		<option value="13:00:00">13:00</option>
+                		<option value="14:00:00">14:00</option>
+                		<option value="15:00:00">15:00</option>
+                		<option value="16:00:00">16:00</option>
+                		<option value="17:00:00">17:00</option>
+                		<option value="18:00:00">18:00</option>
+                		<option value="19:00:00">19:00</option>
+                		<option value="20:00:00">20:00</option>
+                		<option value="21:00:00">21:00</option>
+                		<option value="22:00:00">22:00</option>
+                		<option value="23:00:00">23:00</option>
+                	</select>
+
+                    <?php foreach ($errors['wd_open_h'] as $validator => $message): ?>
+                        <span class="help-block <?= $validator ?>"><?= $message ?></span>
+                    <?php endforeach ?>
+                </div>
+            </div>
+            <div class="controlwd_open_h-group">
+                <label class="control-label" for="wd_close_h">Weekday closing time</label>
+                <div class="controls">
+                	<select name="wd_close_h">
+                		<option value="">--:--</option>
+                		<option value="00:00:00">00:00</option>
+                		<option value="01:00:00">01:00</option>
+                		<option value="02:00:00">02:00</option>
+                		<option value="03:00:00">03:00</option>
+                		<option value="04:00:00">04:00</option>
+                		<option value="05:00:00">05:00</option>
+                		<option value="06:00:00">06:00</option>
+                		<option value="07:00:00">07:00</option>
+                		<option value="08:00:00">08:00</option>
+                		<option value="09:00:00">09:00</option>
+                		<option value="10:00:00">10:00</option>
+                		<option value="11:00:00">11:00</option>
+                		<option value="12:00:00">12:00</option>
+                		<option value="13:00:00">13:00</option>
+                		<option value="14:00:00">14:00</option>
+                		<option value="15:00:00">15:00</option>
+                		<option value="16:00:00">16:00</option>
+                		<option value="17:00:00">17:00</option>
+                		<option value="18:00:00">18:00</option>
+                		<option value="19:00:00">19:00</option>
+                		<option value="20:00:00">20:00</option>
+                		<option value="21:00:00">21:00</option>
+                		<option value="22:00:00">22:00</option>
+                		<option value="23:00:00">23:00</option>
+                	</select>
+
+                    <?php foreach ($errors['wd_close_h'] as $validator => $message): ?>
+                        <span class="help-block <?= $validator ?>"><?= $message ?></span>
+                    <?php endforeach ?>
+                </div>
+            </div>
+           </br>
+          </br>
+           <div class="control-group">
+                <label class="control-label" for="we_open_h">Weekend opening time</label>
+                <div class="controls">
+                    <select name="we_open_h">
+                    	<option value="">--:--</option>
+                		<option value="00:00:00">00:00</option>
+                		<option value="01:00:00">01:00</option>
+                		<option value="02:00:00">02:00</option>
+                		<option value="03:00:00">03:00</option>
+                		<option value="04:00:00">04:00</option>
+                		<option value="05:00:00">05:00</option>
+                		<option value="06:00:00">06:00</option>
+                		<option value="07:00:00">07:00</option>
+                		<option value="08:00:00">08:00</option>
+                		<option value="09:00:00">09:00</option>
+                		<option value="10:00:00">10:00</option>
+                		<option value="11:00:00">11:00</option>
+                		<option value="12:00:00">12:00</option>
+                		<option value="13:00:00">13:00</option>
+                		<option value="14:00:00">14:00</option>
+                		<option value="15:00:00">15:00</option>
+                		<option value="16:00:00">16:00</option>
+                		<option value="17:00:00">17:00</option>
+                		<option value="18:00:00">18:00</option>
+                		<option value="19:00:00">19:00</option>
+                		<option value="20:00:00">20:00</option>
+                		<option value="21:00:00">21:00</option>
+                		<option value="22:00:00">22:00</option>
+                		<option value="23:00:00">23:00</option>
+                	</select>
+
+                    <?php foreach ($errors['we_open_h'] as $validator => $message): ?>
+                        <span class="help-block <?= $validator ?>"><?= $message ?></span>
+                    <?php endforeach ?>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="we_close_h">Weekend closing time</label>
+                <div class="controls">
+                    <select name="we_close_h">
+                    	<option value="">--:--</option>
+                		<option value="00:00:00">00:00</option>
+                		<option value="01:00:00">01:00</option>
+                		<option value="02:00:00">02:00</option>
+                		<option value="03:00:00">03:00</option>
+                		<option value="04:00:00">04:00</option>
+                		<option value="05:00:00">05:00</option>
+                		<option value="06:00:00">06:00</option>
+                		<option value="07:00:00">07:00</option>
+                		<option value="08:00:00">08:00</option>
+                		<option value="09:00:00">09:00</option>
+                		<option value="10:00:00">10:00</option>
+                		<option value="11:00:00">11:00</option>
+                		<option value="12:00:00">12:00</option>
+                		<option value="13:00:00">13:00</option>
+                		<option value="14:00:00">14:00</option>
+                		<option value="15:00:00">15:00</option>
+                		<option value="16:00:00">16:00</option>
+                		<option value="17:00:00">17:00</option>
+                		<option value="18:00:00">18:00</option>
+                		<option value="19:00:00">19:00</option>
+                		<option value="20:00:00">20:00</option>
+                		<option value="21:00:00">21:00</option>
+                		<option value="22:00:00">22:00</option>
+                		<option value="23:00:00">23:00</option>
+                	</select>
+
+                    <?php foreach ($errors['we_close_h'] as $validator => $message): ?>
                         <span class="help-block <?= $validator ?>"><?= $message ?></span>
                     <?php endforeach ?>
                 </div>

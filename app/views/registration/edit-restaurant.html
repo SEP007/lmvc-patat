@@ -1,18 +1,18 @@
 <?php
-    use ui\UI;
-    use Scandio\lmvc\modules\assetpipeline\view\Asset;
+use ui\UI;
+use Scandio\lmvc\modules\assetpipeline\view\Asset;
 
-    $errors['password'] = $errors['password'] ?: [];
-    $errors['passwordRetyped'] = $errors['passwordRetyped'] ?: [];
-    $errors['username'] = $errors['username'] ?: [];
-    $errors['email'] = $errors['email'] ?: [];
+$errors['password'] = $errors['password'] ?: [];
+$errors['passwordRetyped'] = $errors['passwordRetyped'] ?: [];
+$errors['username'] = $errors['username'] ?: [];
+$errors['email'] = $errors['email'] ?: [];
 
-    $errors['restaurant'] = $errors['restaurant'] ?: [];
-    $errors['country'] = $errors['country'] ?: [];
-    $errors['city'] = $errors['city'] ?: [];
-    $errors['zip'] = $errors['zip'] ?: [];
-    $errors['place'] = $errors['place'] ?: [];
-    $errors['handle'] = $errors['handle'] ?: [];
+$errors['restaurant'] = $errors['restaurant'] ?: [];
+$errors['country'] = $errors['country'] ?: [];
+$errors['city'] = $errors['city'] ?: [];
+$errors['zip'] = $errors['zip'] ?: [];
+$errors['place'] = $errors['place'] ?: [];
+$errors['handle'] = $errors['handle'] ?: [];
 ?>
 
 <div class="row-fluid">
@@ -78,7 +78,7 @@
             <div class="control-group">
                 <label class="control-label" for="password">Phone</label>
                 <div class="controls">
-                    <input type="tel" name="phone" id="phone" placeholder="Phone"  value="<?= $user->phone ?>" />
+                    <input type="tel" name="phone" id="phone" placeholder="Phone" value="<?= $user->phone ?>" />
                 </div>
             </div>
             <div class="control-group">
