@@ -7,6 +7,8 @@ use \models\Users;
 
 class SignupCustomer extends forms\Signup
 {
+    private $isPost = false;
+
     public $username = [
         'check-username' => ['message' => 'That username: "%s" is too short!'],
         'mandatory' => ['message' => 'Please give us a username!'],
@@ -24,6 +26,18 @@ class SignupCustomer extends forms\Signup
         'mandatory' => ['message' => 'For you own sake: retype the password!'],
         'check-password-retyped' => ['message' => 'Nope, these two passwords do not match!']
     ];
+
+    public function setAsPost($isPost)
+    {
+        $this->isPost = $isPost;
+    }
+
+    protected function checkUsername($name)
+    {
+        if ($this->isPost) return;
+
+        parent::checkUsername($name);
+    }
 
     protected function checkTaken($name)
     {
