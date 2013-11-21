@@ -43,6 +43,10 @@ a.symbol:before {
   content: attr(title);
   margin-right: 0.3em;
   font-size: 130%; }
+  
+ul {
+  cursor : pointer;
+}
 
 dl {
   margin: 0;
@@ -251,3 +255,18 @@ footer {
     color: #228B22;
 }
 
+.advertised {
+    position:relative;
+}
+.advertised img {
+    position:relative;
+    z-index:1;
+}
+.advertised .adicon {
+    position:absolute;
+    z-index:2;
+    right:0px;
+    bottom:0px;
+    width:40%;
+    height:40%;
+}
