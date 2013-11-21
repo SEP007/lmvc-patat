@@ -1,0 +1,120 @@
+#app/views/main.html
+home: 'Hemma'
+signUp: 'Registrera dig'
+myRestaurant: 'Min Restaurang'
+myProfile: 'Min Profil'
+myFavorites: 'Mina Favoriter'
+menu: 'Meny'
+logout: 'Logga ut'
+registerHunger: 'Registrera Hunger'
+#
+#app/views/application/index.html
+weAreTryingToLocate: 'Vi försöker att hitta dig, stanna kvar!'
+youCanAlsoSpecifyYourAddress: '...du kan också ange din adress'
+findMe: 'Hitta mig'
+find: 'Hitta'
+#
+#app/views/dishes/index.html
+#
+#app/views/dishes/map.html
+startWalking: 'Börja gå: det är där du är på väg!'
+showMapIn: 'Visa kartan i'
+orIn: 'eller i'
+#
+#app/views/imbiss/index.html
+currentOffers: 'Aktuella erbjudanden'
+sorry: 'Ledsen,'
+weDontHaveOffers: 'vi har inga erbjudanden just nu!'
+moreSnacks: 'Fler mellanmål'
+weDontHaveSnacks: 'vi har inte några snacks listade!'
+#
+#app/views/menu/edit.html
+uploadImage: 'Ladda upp en bild!'
+#
+#app/views/menu/index.html
+#Haven't finished with this file yet
+category: 'Kategori'
+name: 'Namn'
+image: 'Bild'
+description: 'Beskrivning'
+price: 'Pris'
+addNewSnack: 'Lägg till nya mellanmål'
+yes: 'Ja'
+#
+#app/views/registration/edit-restaurant.html
+woops: 'Woops!'
+youAreMissingSomeData: 'Du saknar en del uppgifter, fyll i obligatoriska fält!'
+veryGood: 'Jättebra'
+everythingWorkedFine: 'Allt fungerade fint, kan du logga in nu!'
+userInformation: 'användarinformation'
+#
+#app/views/registration/failure.html
+sorryRegistrationFailed: 'Tyvärr misslyckades registreringen eller konto redigering!'
+resolveProblems: 'Vi är mycket ledsna, men din registrering eller redigering av ditt konto kunde inte slutföras på grund av tekniska problem. Försöker igen kan lösa problemet.'
+#
+#app/views/registration/signup-restaurant.html
+youAreMissingMandatoryData: 'Du saknar vissa obligatoriska uppgifter, lägg där det behövs!'
+youAreOnline: 'Allt fungerade bra, är din restaurang på nätet!'
+userData: 'Användardata'
+username: 'Användarnamn'
+password: 'Lösenord'
+repeatPassword: 'Upprepa lösenord'
+firstAndSurname: 'Först & Efternamn'
+email: 'E-Mail'
+phone: 'Telefon'
+mobile: 'Mobil'
+yourRestaurant: 'Din restaurang'
+nameOfRestaurant: 'Namn på restaurang'
+domainForRestaurant: 'Domän för restaurang'
+country: 'Land'
+city: 'Stad'
+zip: 'Zip'
+streetAndHouseNumber: 'Gata & Husnummer'
+findYourLocation: 'Hitta din plats'
+longitude: 'Longitud'
+latitude: 'Latitud'
+register: 'Registrera'
+cancel: 'Avbryta'
+edit: 'Redigera'
+reset: 'Återställ'
+#
+#app/views/registration/success.html
+chipFat: 'All hot as chip fat!'
+singedUp: 'Yay! Du har registrerat dig. Logga in och börja ställa in din restaurang!'
+toLogin: 'För att logga in'
+#
+#app/views/security/forbidden.html
+needToSingIn: 'Yau! Du måste logga in för att se denna information'
+restricedPage: 'Denna sida är begränsad till inloggade användare, logga in eller registrera dig först.'
+#
+#app/views/security/login.html
+ohNo: 'Oh Nej!'
+loginFailed: 'Inloggningen misslyckades. Stavfel något här?'
+logIn: 'Logga in!'
+toSignup: 'För att anmäla dig'
+goBack: 'Gå tillbaka'
+#
+#app/forms/Signup.php
+nameCompulsory: 'Ett namn för din restaurang är obligatoriskt!'
+typeCity: 'Skriv en stad vänligen!'
+zipCodeNeeded: 'Postnumret behövs!'
+mandatoryField: 'Obligatoriska fält saknas här!'
+thatUsername: 'Denna användarnamn:'
+tooShort: 'är för kort!'
+giveUsername: 'Vänligen uppge ett användarnamn!'
+theEmail: 'Den E-Mail:'
+notValid: 'är inte giltig!'
+weakPassword: 'Lösenordet är svag'
+passwordMatch: 'Lösenorden matchar inte'
+retypePassword: 'Ange lösenordet!'
+pickUrl: 'Vänligen välj en url, är det din adress!'
+urlTooShort: 'Denna url är för kort!'
+#
+#app/forms/Dish.php
+needName: 'Vi behöver ditt namn!'
+yourDescription: 'Din beskrivning:'
+shortDescription: 'verkar för kort!'
+needDescription: 'En beskrivning erfordras'
+addPrice: 'Du kanske vill lägga till ett pris!'
+validPrice: 'Vi tänkte att detta är inte ett giltigt pris!'
+#

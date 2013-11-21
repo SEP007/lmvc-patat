@@ -1,5 +1,9 @@
-<h3>Sorry, registration or account editing failed!</h3>
+<?php
+    use Scandio\lmvc\modules\i18n\I18nWrapper;
+?>
+
+<h3><?= I18nWrapper::translate('sorryRegistrationFailed'); ?></h3>
 
 <p>
-    We're very sorry but you're registration or editing of your account could not be completed due to technical problems. Retrying might solve this issue.
+	<?= I18nWrapper::translate('resolveProblems'); ?>
 </p>

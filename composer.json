@@ -17,6 +17,7 @@
         "scandio/lmvc": "dev-master",
         "scandio/troba": "dev-master",
         "scandio/lmvc-modules": "dev-master",
+        "mustangostang/spyc": "0.5.*@dev",
         "scandio/lmvc-utils": "dev-master"
     },
     "repositories": [

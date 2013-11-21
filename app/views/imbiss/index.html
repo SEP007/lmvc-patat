@@ -1,13 +1,14 @@
 <?php
     use ui\UI;
     use Scandio\lmvc\modules\assetpipeline\view\Asset;
+    use Scandio\lmvc\modules\i18n\I18nWrapper;
+    use Scandio\lmvc\modules\security\Security;
+    use \models\Locations;
 
     $commentsModel = new \models\Comments();
     $usersModel = new \models\Users();
 	$commentCount = 0;
-
-    use Scandio\lmvc\modules\security\Security;
-    use \models\Locations;
+    
 ?>
 
 <?= UI::js(Asset::assets(['jquery.favorites.js'], ['path' => 'views'])) ?>
@@ -83,7 +84,7 @@
 <div class="ios-list-wrap">
     <div class="patat-list">
         <dl>
-            <dt>Current offers</dt>
+            <dt><?= I18nWrapper::translate('currentOffers'); ?></dt>
 
             <?php if (count($advertisedDishes) > 0): ?>
             <?php foreach($advertisedDishes as $advertisedDish): ?>
@@ -158,7 +159,7 @@
             <?php endforeach; ?>
             <?php else: ?>
             <div class="alert alert-info">
-                <strong>Sorry,</strong> we don't have any offers at the moment!
+                <strong><?= I18nWrapper::translate('sorry'); ?></strong> <?= I18nWrapper::translate('weDontHaveOffers'); ?>
             </div>
             <?php endif; ?>
         </dl>
@@ -182,7 +183,7 @@
 
     <div class="patat-list">
         <dl>
-            <dt>More snacks</dt>
+            <dt><?= I18nWrapper::translate('moreSnacks'); ?> </dt>
 
             <?php if (count($unadvertisedDishes) > 0): ?>
                 <?php foreach($unadvertisedDishes as $dish): ?>
@@ -257,7 +258,7 @@
                 <?php endforeach; ?>
             <?php else: ?>
                 <div class="alert alert-info">
-                    <strong>Sorry,</strong> we don't have any snacks listed!
+                    <strong><?= I18nWrapper::translate('sorry'); ?> </strong> <?= I18nWrapper::translate('weDontHaveSnacks'); ?>
                 </div>
             <?php endif; ?>
         </dl>

@@ -1,6 +1,7 @@
 <?php
     use ui\UI;
     use Scandio\lmvc\modules\assetpipeline\view\Asset;
+    use Scandio\lmvc\modules\i18n\I18nWrapper;
     use \util\Location;
 ?>
 
@@ -9,10 +10,10 @@
     <div class="row-fluid " id="tabs">
         <ul class="nav nav-pills text-center">
             <li class="pull-left span6">
-                <a href="<?= $app->url('Favorites::index') ?>">Foooooood</a>
+                <a href="<?= $app->url('Favorites::index') ?>"> <?= I18nWrapper::translate('food'); ?> </a>
             </li>
             <li class="active pull-right span6">
-                <a href="">Places</a>
+                <a href=""> <?= I18nWrapper::translate('places'); ?> </a>
             </li>
         </ul>
     </div>

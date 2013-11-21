@@ -1,0 +1,120 @@
+#app/views/main.html
+home: 'Домой'
+signUp: 'Зарегистрироваться'
+myRestaurant: 'Мой ресторан'
+myProfile: 'Мой профиль'
+myFavorites: 'Избранные'
+menu: 'Меню'
+logout: 'Выход'
+registerHunger: 'Регистрация голода'
+#
+#app/views/application/index.html
+weAreTryingToLocate: 'Мы пытаемся найти вас, оставайтесь на месте!'
+youCanAlsoSpecifyYourAddress: '...Вы можете также указать ваш адрес'
+findMe: 'Найти меня'
+find: 'Найти'
+#
+#app/views/dishes/index.html
+#
+#app/views/dishes/map.html
+startWalking: 'Начать путь: это куда вы направляетесь!'
+showMapIn: 'Показать карту в'
+orIn: 'или в'
+#
+#app/views/imbiss/index.html
+currentOffers: 'Актуальные предложения'
+sorry: 'Извините,'
+weDontHaveOffers: 'Мы не располагаем предложениями на данный момент!'
+moreSnacks: 'Больше закусок'
+weDontHaveSnacks: 'У нас нет закусок!'
+#
+#app/views/menu/edit.html
+uploadImage: 'Загрузить изображение!'
+#
+#app/views/menu/index.html
+#Haven't finished with this file yet
+category: 'Категория'
+name: 'Название'
+image: 'Изображение'
+description: 'Описание'
+price: 'Цена'
+addNewSnack: 'Добавить новую закуску'
+yes: 'Да'
+#
+#app/views/registration/edit-restaurant.html
+woops: 'Ууупс!'
+youAreMissingSomeData: 'Не хватает некоторых данных, пожалуйста, заполните обязательные поля!'
+veryGood: 'Очень хорошо'
+everythingWorkedFine: 'Все сработало просто отлично, вы можете войти!'
+userInformation: 'Информация о пользователе'
+#
+#app/views/registration/failure.html
+sorryRegistrationFailed: 'К сожалению, регистрация или редактирование профиля не удались!'
+resolveProblems: 'Нам очень жаль, но регистрация или редактирование вашей учетной записи не могут быть завершены из-за технических проблем. Повторное обращение может решить эту проблему.'
+#
+#app/views/registration/signup-restaurant.html
+youAreMissingMandatoryData: 'Не хватает некоторых обязательных данных — пожалуйста, добавьте в случае необходимости!'
+youAreOnline: 'Все сработало нормально, ваш ресторан онлайн!'
+userData: 'Данные пользователя'
+username: 'Имя пользователя'
+password: 'Пароль'
+repeatPassword: 'Повторите пароль'
+firstAndSurname: 'Имя и фамилия'
+email: 'E-Mail'
+phone: 'Телефон'
+mobile: 'Мобильный'
+yourRestaurant: 'Ваш ресторан'
+nameOfRestaurant: 'Название ресторана'
+domainForRestaurant: 'Домен для ресторана'
+country: 'Страна'
+city: 'Город'
+zip: 'Индекс'
+streetAndHouseNumber: 'Улица и номер дома'
+findYourLocation: 'Улица и номер дома'
+longitude: 'Долгота'
+latitude: 'Широта'
+register: 'Зарегистрироваться'
+cancel: 'Отменить'
+edit: 'редактировать'
+reset: 'сброс'
+#
+#app/views/registration/success.html
+chipFat: 'Все отличненько!'
+singedUp: 'Йоу! Вы зарегистрированы. Залогиньтесь и начните создание вашего ресторана!'
+toLogin: 'Вход'
+#
+#app/views/security/forbidden.html
+needToSingIn: 'Опс! Вы должны войти в систему, чтобы увидеть эту информацию'
+restricedPage: 'Доступ к данной странице ограничен, сперва войдите или зарегистрируйтесь.'
+#
+#app/views/security/login.html
+ohNo: 'О нет!'
+loginFailed: 'Войти не удалось. Пропустили чего-нибудь здесь?'
+logIn: 'Войти!'
+toSignup: 'Зарегистрироваться'
+goBack: 'Назад'
+#
+#app/forms/Signup.php
+nameCompulsory: 'Имя для вашего ресторана является обязательным!'
+typeCity: 'Введите город, пожалуйста!'
+zipCodeNeeded: 'Почтовый индекс необходим!'
+mandatoryField: 'Отсутствуют обязательные поля!'
+thatUsername: 'Это имя пользователя:'
+tooShort: 'слишком короткое!'
+giveUsername: 'Пожалуйста, дайте нам имя пользователя!'
+theEmail: 'E-Mail:'
+notValid: 'не действителен!'
+weakPassword: 'Пароль слабоват'
+passwordMatch: 'Пароли не совпадают'
+retypePassword: 'Повторно введите пароль!'
+pickUrl: 'Пожалуйста, выберите url, это ваш адрес!'
+urlTooShort: 'Этот URL слишком короткий!'
+#
+#app/forms/Dish.php
+needName: 'Нам нужно ваше имя!'
+yourDescription: 'Ваше описание:'
+shortDescription: 'кажется слишком коротким!'
+needDescription: 'Описание необходимо'
+addPrice: 'Вы могли бы добавить цену!'
+validPrice: 'Мы полагаем, что это недопустимая цена!'
+#
