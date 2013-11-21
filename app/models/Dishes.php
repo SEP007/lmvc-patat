@@ -114,7 +114,7 @@ class Dishes
 
     public function getDishesByRestaurant($handle, $group = true, $advertised = false) {
         $dishes = static::query()
-            ->select('*')
+            ->select('Dishes.*')
             ->innerJoin(new Locations(), 'Dishes.user_id = Locations.id')
             ->where('Locations.handle = :handle', ['handle' => $handle])
             ->andWhere('Dishes.advertised = :advertised', ['advertised' => (string) $advertised])
@@ -128,10 +128,11 @@ class Dishes
         $dishes = static::query()
             ->select('*,
                         ROUND(
-                            ( 6371 * Acos(Cos(Radians(' . $longitude . ')) * Cos(Radians(latitude)) * Cos(
-                                Radians(longitude) - Radians(' . $latitude . ')) + Sin
-                                (Radians(' . $longitude . ')) * Sin(Radians(latitude)))
-                        ), 4 ) AS distance
+                            ( 6371 * Acos(Cos(Radians(' . $latitude . ')) * Cos(Radians(latitude)) * Cos(
+                                Radians(longitude) - Radians(' . $longitude . ')) + Sin
+                                (Radians(' . $latitude . ')) * Sin(Radians(latitude)))
+                        ), 4 ) AS distance,
+                        Dishes.id as dish_id, Users.id as user_id
                     ')
             ->innerJoin(new Users(), 'Dishes.user_id = Users.id')
             ->innerJoin(new Locations(), 'Locations.user_id = Users.id')
@@ -159,6 +160,29 @@ class Dishes
         return $dishes;
     }
 
+    public function getFavoriteDishesForCustomer($custId, $idonly)
+    {
+        $dishes = static::query()
+            ->select('*, Dishes.id AS dish_id')
+            ->innerJoin(new CustFavDishes(), 'Dishes.id = CustFavDishes.dish_id')
+            ->innerJoin(new Locations(), 'Dishes.user_id = Locations.id')
+            ->where('CustFavDishes.cust_id = :id', ['id' => $custId])
+            ->all();
+
+        if ($idonly)
+        {
+            $favDishesId = [];
+            foreach ($dishes as $dish){
+                $favDishesId[] = $dish->dish_id;
+            }
+            return $favDishesId;
+        }
+        else
+        {
+            return $dishes;
+        }
+    }
+
     private function _groupDishes($dishes) {
         $dishesGrouped = [];
 
@@ -184,7 +208,7 @@ class Dishes
         }
     }
 
-    /**
+     /**
      * Get dishes by user id
      * @param $userId user id
      * @param bool $advertised if true then only advertised dishes are returned, otherwise only not advertised
