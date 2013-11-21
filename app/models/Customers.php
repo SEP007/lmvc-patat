@@ -20,6 +20,16 @@ class Customers
             ->where('Users.username = :username', ['username' => $username])
             ->one();
 
+        return $customer;			
+	}
+
+    public static function getByUserId($userid)
+    {
+        $customer = static::query()
+            ->select('*')
+            ->where('user_id = :userid', ['userid' => $userid])
+            ->one();
+
         return $customer;
     }
 }
