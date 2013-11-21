@@ -128,9 +128,9 @@ class Dishes
         $dishes = static::query()
             ->select('*,
                         ROUND(
-                            ( 6371 * Acos(Cos(Radians(' . $longitude . ')) * Cos(Radians(latitude)) * Cos(
-                                Radians(longitude) - Radians(' . $latitude . ')) + Sin
-                                (Radians(' . $longitude . ')) * Sin(Radians(latitude)))
+                            ( 6371 * Acos(Cos(Radians(' . $latitude . ')) * Cos(Radians(latitude)) * Cos(
+                                Radians(longitude) - Radians(' . $longitude . ')) + Sin
+                                (Radians(' . $latitude . ')) * Sin(Radians(latitude)))
                         ), 4 ) AS distance
                     ')
             ->innerJoin(new Users(), 'Dishes.user_id = Users.id')
@@ -182,5 +182,23 @@ class Dishes
         } else {
             return round($this->distance, 2) . ' km';
         }
+    }
+
+    /**
+     * Get dishes by user id
+     * @param $userId user id
+     * @param bool $advertised if true then only advertised dishes are returned, otherwise only not advertised
+     * @return array dishes by user id
+     */
+    public function getDishesByUserId($userId, $advertised = false) {
+        $dishes = static::query()
+            ->select('*')
+            ->innerJoin(new Locations(), 'Dishes.user_id = Locations.user_id')
+            ->where('Locations.user_id = :userId', ['userId' => $userId])
+            ->andWhere('Dishes.advertised = :advertised', ['advertised' => (string) $advertised])
+            ->orderBy('Dishes.name')
+            ->all();
+
+        return $dishes;
     }
 }
