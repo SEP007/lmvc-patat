@@ -14,8 +14,8 @@ class Dishes extends AnonymousController
 
     public static function index($longitude = null, $latitude = null)
     {
-        $latitude = $latitude == '' ?  static::request()->longitude : $latitude;
-        $longitude = $longitude == '' ?  static::request()->latitude : $longitude;
+        $latitude = $latitude == '' ?  static::request()->latitude : $latitude;
+        $longitude = $longitude == '' ?  static::request()->longitude : $longitude;
 
         Session::set("location.longitude", $longitude);
         Session::set("location.latitude", $latitude);
