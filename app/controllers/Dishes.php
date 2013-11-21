@@ -4,9 +4,12 @@ namespace controllers;
 
 use Scandio\lmvc\modules\security\AnonymousController;
 use Scandio\lmvc\LVC;
+use Scandio\lmvc\modules\rendering\traits;
 
 class Dishes extends AnonymousController
 {
+    use traits\RendererController;
+
     public static function index($longitude = null, $latitude = null)
     {
         $latitude = $latitude == '' ?  static::request()->longitude : $latitude;
