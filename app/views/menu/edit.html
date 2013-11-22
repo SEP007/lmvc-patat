@@ -2,6 +2,7 @@
     use ui\UI;
     use models\Categories;
     use Scandio\lmvc\modules\assetpipeline\view\Asset;
+    use Scandio\lmvc\modules\i18n\I18nWrapper;
 ?>
 
 <div class="row-fluid">
@@ -9,7 +10,7 @@
         <form action="<?= $app->url('Upload::img', 'sha1') ?>" class="dropzone dz-clickable" id="image-upload">
             <div class="dz-default dz-message">
                 <?php if ($dish->img == null): ?>
-                    <span id="no-img">Upload image!</span>
+                    <span id="no-img"><?= I18nWrapper::translate('uploadImage'); ?></span>
                     <img width=100 src="<?= Asset::image(['uploads', 'placeholder.png']) ?>" alt="" />
                 <?php else: ?>
                     <img  width=75 height=100 src="<?= Asset::image(['uploads', $dish->img], ['w' => 800, 'h' => 600]) ?>" alt="" />

@@ -145,6 +145,7 @@ class Registration extends controllers\Registration
     public static function postSignupCustomer()
     {
         $signupForm = new forms\SignupCustomer();
+        $signupForm->setAsPost(false);
         $signupForm->validate(static::request());
 
         if (! $signupForm->isValid()) {
@@ -260,6 +261,7 @@ class Registration extends controllers\Registration
     public static function postEditCustomer()
     {
         $signupForm = new forms\SignupCustomer();
+        $signupForm->setAsPost(true);
         $signupForm->validate(static::request());
 
         if (!$signupForm->isValid()) {

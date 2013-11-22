@@ -4,6 +4,7 @@
     use Scandio\lmvc\modules\security\handlers\database\models;
     use Scandio\lmvc\modules\security\Security;
     use Scandio\lmvc\modules\htmltag\Html;
+    use Scandio\lmvc\modules\i18n\I18nWrapper;
 ?>
 
 <!doctype html>
@@ -45,10 +46,34 @@
                     Html::img(['src' => Asset::image(['header-ketchup.png'])], null)
                 )
             )
-        );
+         );
     ?>
-
+    
+    
+    
     <div class="navbar">
+    	<div class="languages">
+	    <ul>
+	    	<li>
+	    		<a href="<?= $app->url('I18n::language', 'en') ?>"><img src="<?= Asset::image(['flags/en_us.png']) ?>" /></a>
+	    	</li>
+	    	<li>
+	    		<a href="<?= $app->url('I18n::language', 'sv') ?>"><img src="<?= Asset::image(['flags/sv.png']) ?>" /></a>
+	    	</li>
+	    	<li>
+	    		<a href="<?= $app->url('I18n::language', 'de') ?>"><img src="<?= Asset::image(['flags/de.png']) ?>" /></a>
+	    	</li>
+	    	<li>
+	    		<a href="<?= $app->url('I18n::language', 'ru') ?>"><img src="<?= Asset::image(['flags/ru.png']) ?>" /></a>
+	    	</li>
+	    	<li>
+	    		<a href="<?= $app->url('I18n::language', 'bl') ?>"><img src="<?= Asset::image(['flags/bl.png']) ?>" /></a>
+	    	</li>
+	    	<li>
+	    		<a href="<?= $app->url('I18n::language', 'el') ?>"><img src="<?= Asset::image(['flags/el.png']) ?>" /></a>
+	    	</li>
+	    </ul>
+	</div>
         <div class="navbar-inner">
             <div class="container">
                 <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -63,26 +88,26 @@
                 <div class="nav-collapse collapse">
                     <nav>
                         <ul class="nav pull-left">
-                            <li class=""><a href="<?= $app->url('Application::index') ?>">Home</a></li>
+                            <li class=""><a href="<?= $app->url('Application::index') ?>"> <?= I18nWrapper::translate('home'); ?> </a></li>
                             <?php if(!Security::get()->isAuthenticated()): ?>
-                                <li><a href="<?= $app->url('Registration::signup-restaurant') ?>">Sign up</a></li>
-                                <li><a href="<?= $app->url('Registration::signup-customer') ?>">Register hunger</a></li>
+                                <li><a href="<?= $app->url('Registration::signup-restaurant') ?>"> <?= I18nWrapper::translate('signUp'); ?> </a></li>
+                                <li><a href="<?= $app->url('Registration::signup-customer') ?>"> <?= I18nWrapper::translate('registerHunger'); ?> </a></li>
                             <?php endif; ?>
                         </ul>
 
                         <ul class="nav pull-right">
                             <?php if(Security::get()->isAuthenticated()): ?>
                                 <?php if(Security::get()->currentUser()->isInGroup("Customer")): ?>
-                                    <li><a href="<?= $app->url('Registration::edit-customer') ?>">My Profile</a></li>
-                                    <li><a href="<?= $app->url('Favorites::index') ?>">My Favorites</a></li>
+                                    <li><a href="<?= $app->url('Registration::edit-customer') ?>"> <?= I18nWrapper::translate('myProfile'); ?> </a></li>
+                                    <li><a href="<?= $app->url('Favorites::index') ?>"><?= I18nWrapper::translate('myFavorites'); ?></a></li>
                                 <?php endif; ?>
                                 <?php if(Security::get()->currentUser()->isInGroup("Restaurant")): ?>
-                                    <li><a href="<?= $app->url('Registration::edit-restaurant') ?>">My Restaurant</a></li>
+                                    <li><a href="<?= $app->url('Registration::edit-restaurant') ?>"> <?= I18nWrapper::translate('myRestaurant'); ?> </a></li>
                                 <?php endif; ?>
                             <?php endif; ?>
-                            <li><a href="<?= $app->url('Menu::index') ?>">Menu</a></li>
+                            <li><a href="<?= $app->url('Menu::index') ?>"> <?= I18nWrapper::translate('menu'); ?> </a></li>
                             <?php if(Security::get()->isAuthenticated()): ?>
-                                <li><a href="<?= $app->url('Security::logout') ?>">Logout</a></li>
+                                <li><a href="<?= $app->url('Security::logout') ?>"> <?= I18nWrapper::translate('logout'); ?> </a></li>
                             <?php endif; ?>
                         </ul>
                     </nav>
