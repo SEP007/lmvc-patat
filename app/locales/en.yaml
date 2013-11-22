@@ -103,6 +103,7 @@ loginFailed: 'Login failed. Mistyped something here?'
 logIn: 'Log in!'
 toSignup: 'To signup'
 goBack: 'Go back'
+notVerified: 'Gotta click that link we sent you!'
 #
 #app/forms/Signup.php
 nameCompulsory: 'A name for your restaurant is compulsory!'

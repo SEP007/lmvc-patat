@@ -74,6 +74,7 @@
 	"logIn": "Log in!",
 	"toSignup": "To signup",
 	"goBack": "Go back",
+    "notVerified": "Gotta click that link we sent you!",
 	"nameCompulsory": "A name for your restaurant is compulsory!",
 	"typeCity": "Type a city please!",
 	"zipCodeNeeded": "The zip code is needed!",
