@@ -17,6 +17,7 @@ class SignupRestaurant extends forms\Signup
     public $zip = [
         'mandatory' => ['message' => 'The zip code is needed!']
     ];
+	
     public $place = [
         'mandatory' => ['message' => 'Mandatory field missing here!']
     ];
