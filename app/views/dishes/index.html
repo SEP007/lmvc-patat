@@ -67,18 +67,19 @@
                         <div class="span8">
                             <h4><a href="<?= $app->url('Dishes::map', $dish->user_id) ?>"><?= $dish->street ?></a></h4>
                             <h5><a href="tel:<?= $dish->phone ?>"><?= $dish->phone ?></a></h5>
-                            <h4>Opening times on weekdays: <?php $opentimes = new \models\OpenTimes();
+                            <h4>Opening times</h4>
+                            <h5>Monday - Friday: <?php $opentimes = new \models\OpenTimes();
                             	$resultopentimes = $opentimes->getOpeningTimeswd($dish->id); ?>
                             	 <?php foreach($resultopentimes as $selectedoptim):  ?>
                             	<?= $selectedoptim->opening_time ?> - <?= $selectedoptim->closing_time ?>
                             	<?php endforeach; ?>
-                            	</h4>
-                            <h4>Opening times on weekends: <?php $opentimes = new \models\OpenTimes();
+                            	</h5>
+                            <h5>Saturday & Sunday: <?php $opentimes = new \models\OpenTimes();
                             	$resultopentimes = $opentimes->getOpeningTimeswe($dish->id); ?>
                             	 <?php foreach($resultopentimes as $selectedoptim):  ?>
                             	<?= $selectedoptim->opening_time ?> - <?= $selectedoptim->closing_time ?>
                             	<?php endforeach; ?>
-                            	</h4>
+                            	</h5>
                         </div>
 
                         <div class="clearfix row-fluid">

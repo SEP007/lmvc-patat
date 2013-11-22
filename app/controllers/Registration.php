@@ -97,29 +97,16 @@ class Registration extends controllers\Registration
 				$opentimes->closing_time = static::request()->wd_close_h;
 				$opentimes->insert();
 				$opentimes->week_day = "Tuesday";
-				$opentimes->opening_time = static::request()->wd_open_h;
-				$opentimes->closing_time = static::request()->wd_close_h;
 				$opentimes->insert();
 				$opentimes->week_day = "Wednesday";
-				$opentimes->opening_time = static::request()->wd_open_h;
-				$opentimes->closing_time = static::request()->wd_close_h;
 				$opentimes->insert();
 				$opentimes->week_day = "Thursday";
-				$opentimes->opening_time = static::request()->wd_open_h;
-				$opentimes->closing_time = static::request()->wd_close_h;
 				$opentimes->insert();
 				$opentimes->week_day = "Friday";
-				$opentimes->opening_time = static::request()->wd_open_h;
-				$opentimes->closing_time = static::request()->wd_close_h;
-				
 				$opentimes->insert();	
 				$opentimes->week_day = "Saturday";
-				$opentimes->opening_time = static::request()->we_open_h;	
-				$opentimes->closing_time = static::request()->we_close_h;
 				$opentimes->insert();	
 				$opentimes->week_day = "Sunday";
-				$opentimes->opening_time = static::request()->we_open_h;	
-				$opentimes->closing_time = static::request()->we_close_h;
 				$opentimes->insert();	
 
 
