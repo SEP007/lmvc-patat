@@ -29,7 +29,7 @@
 
     <form id="registration-form" class="form-horizontal" method="POST" action="<?= $app->url('Registration::edit-restaurant') ?>">
         <fieldset class="span6">
-            <legend>User information</legend>
+            <legend> <?= I18nWrapper::translate('userInformation'); ?> </legend>
             <div class="control-group">
                 <label class="control-label" for="username"><?= I18nWrapper::translate('username'); ?></label>
                 <div class="controls">
