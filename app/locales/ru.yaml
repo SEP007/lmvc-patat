@@ -20,6 +20,16 @@ find: 'Найти'
 startWalking: 'Начать путь: это куда вы направляетесь!'
 showMapIn: 'Показать карту в'
 orIn: 'или в'
+walking: 'Walking'
+driving: 'Driving'
+chooseTravelMode: 'Choose a travel mode:'
+#
+#app/views/favorites/index.html
+places: 'Places'
+food: 'Foooooood'
+#
+#app/views/favorites/index.html
+awayFromYou: 'away from you'
 #
 #app/views/imbiss/index.html
 currentOffers: 'Актуальные предложения'
@@ -30,9 +40,10 @@ weDontHaveSnacks: 'У нас нет закусок!'
 #
 #app/views/menu/edit.html
 uploadImage: 'Загрузить изображение!'
+only3Dishes: 'Only three dishes can be advertised!'
+advertise: 'Advertise'
 #
 #app/views/menu/index.html
-#Haven't finished with this file yet
 category: 'Категория'
 name: 'Название'
 image: 'Изображение'
@@ -51,6 +62,11 @@ userInformation: 'Информация о пользователе'
 #app/views/registration/failure.html
 sorryRegistrationFailed: 'К сожалению, регистрация или редактирование профиля не удались!'
 resolveProblems: 'Нам очень жаль, но регистрация или редактирование вашей учетной записи не могут быть завершены из-за технических проблем. Повторное обращение может решить эту проблему.'
+#
+#app/views/registration/finish.html
+emailChecksOut: 'Hooray, your email checks out! Sign in and get loose!'
+toDishes: 'To dishes...'
+toSingIn: 'To sign in...'
 #
 #app/views/registration/signup-restaurant.html
 youAreMissingMandatoryData: 'Не хватает некоторых обязательных данных — пожалуйста, добавьте в случае необходимости!'
@@ -86,6 +102,21 @@ toLogin: 'Вход'
 #app/views/security/forbidden.html
 needToSingIn: 'Опс! Вы должны войти в систему, чтобы увидеть эту информацию'
 restricedPage: 'Доступ к данной странице ограничен, сперва войдите или зарегистрируйтесь.'
+#
+#app/views/registration/signup-customer.html
+somethingIsWrong: 'Something is wrong, please edit where needed!'
+allWorkedFine: 'All worked find, you are a registered hungry person now!'
+yourProfile: 'Your Profile'
+#
+#app/views/registration/success-customer.html
+youAreSignedUpUser: 'Yay! You're signed up. Sign in and be hungry!'
+#
+#app/views/registration/success-restaurant.html
+youAreSignedUpRestaurant: 'Yay! You're signed up. Sign in and set up your restaurant!'
+toMenu: 'To menu...'
+#
+#app/views/registration/success-customer.html
+successEdit: 'Yay! All is saved. Keep on using Patat!'
 #
 #app/views/security/login.html
 ohNo: 'О нет!'
