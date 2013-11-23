@@ -13,6 +13,7 @@ weAreTryingToLocate: 'Wir versuchen Sie zu finden. Ruhe bewahren!'
 youCanAlsoSpecifyYourAddress: '... Sie können auch Ihre Adresse angeben!'
 findMe: 'Finde mich!'
 find: 'Suche'
+canNotLocateUser: "Wir können dich nicht finden, versuche es mit einer ungenaueren Adresse!"
 #
 #app/views/dishes/index.html
 #

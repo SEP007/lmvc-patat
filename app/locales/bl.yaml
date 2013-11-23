@@ -13,6 +13,7 @@ weAreTryingToLocate: 'Опитваме се да открием местонах
 youCanAlsoSpecifyYourAddress: 'Можете също да посочите адреса си'
 findMe: 'Намери ме'
 find: 'Намери'
+canNotLocateUser: 'Ние не може да ви намери, може да бъде по-конкретен!'
 #
 #app/views/dishes/index.html
 #

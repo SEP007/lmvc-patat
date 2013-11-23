@@ -13,6 +13,7 @@ weAreTryingToLocate: 'Vi försöker att hitta dig, stanna kvar!'
 youCanAlsoSpecifyYourAddress: '...du kan också ange din adress'
 findMe: 'Hitta mig'
 find: 'Hitta'
+canNotLocateUser: 'Vi kan inte hitta dig, kanske vara mindre specifik!'
 #
 #app/views/dishes/index.html
 #

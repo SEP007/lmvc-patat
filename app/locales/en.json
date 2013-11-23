@@ -61,7 +61,7 @@
 	"country": "Country",
 	"city": "City",
 	"zip": "Zip",
-	"streetAndHouseNumber": "Street & House number",
+	"streetAndHouseNumber": "Street & Number",
 	"findYourLocation": "Find your location",
 	"longitude": "Longitude",
 	"latitude": "Latitude",
@@ -105,5 +105,6 @@
 	"shortDescription": "seems too short!",
 	"needDescription": "A description is needed'",
 	"addPrice": "You might want to add a price!",
-	"validPrice": "We figured that this is not a valid price!"
+	"validPrice": "We figured that this is not a valid price!",
+    "canNotLocateUser": "We can not locate you, maybe be less specific!"
 }

@@ -131,7 +131,6 @@
                 url: this.parseLongLatUrl( this.getParams() ),
                 context: document.body
             }).done(function( data ) {
-                console.log(data);
                 if(!data[0]) {
                     data = [{
                         lat: "",
