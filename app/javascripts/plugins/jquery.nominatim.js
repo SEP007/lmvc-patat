@@ -3,7 +3,9 @@
         defaults = {
             nominatimUrlInto: "http://nominatim.openstreetmap.org/",
             nominatimUrlOutro: "&format=json&polygon=0&addressdetails=0",
+            dishesAction: "dishes/",
             searchBtn: "#search-long-lat",
+            errorBar: "#js-user-not-located",
             resultElems: {
                 latitude: "#latitude",
                 longitude: "#longitude"
@@ -41,7 +43,9 @@
                 latitude: this.$element.find(this.settings.resultElems.latitude),
                 longitude: this.$element.find(this.settings.resultElems.longitude),
 
-                searchBtn: this.$element.find(this.settings.searchBtn)
+                searchBtn: this.$element.find(this.settings.searchBtn),
+
+                errorBar: this.$element.find(this.settings.errorBar)
             };
         },
         findLocation: function() {
@@ -101,6 +105,19 @@
                 place: this.cachedElems.place.val()
             };
         },
+        processLongLat: function () {
+            // user located if found by long and lat
+            var isUserLocated = this.cachedElems.longitude.val().length > 0 &&
+                                this.cachedElems.latitude.val().length > 0
+
+            // if he is redirect, otherwise show error
+            if (isUserLocated === false) {
+                this.cachedElems.errorBar.removeClass('hidden');
+            } else {
+                window.location = this.settings.dishesAction + this.cachedElems.longitude.val()
+                                  + "/" + this.cachedElems.latitude.val();
+            }
+        },
         requestAddress: function() {
             var that = this;
             $.ajax({
@@ -138,12 +155,10 @@
                     }];
                 }
 
-                that.cachedElems.latitude.val(
-                    data[0].lat || ""
-                );
-                that.cachedElems.longitude.val(
-                    data[0].lon || ""
-                );
+                that.cachedElems.latitude.val( data[0].lat || "" );
+                that.cachedElems.longitude.val( data[0].lon || "" );
+
+                that.processLongLat();
             });
         }
     };

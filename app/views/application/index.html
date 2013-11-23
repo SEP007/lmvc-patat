@@ -10,7 +10,7 @@
 <form id="location-form" class="form-horizontal" method="POST" action="<?= $app->url('Dishes::index') ?>">
     <fieldset>
         <div class="control-group">
-            <div class="alert alert-error hidden">
+            <div id="js-user-not-located" class="alert alert-error hidden">
                 <?= I18nWrapper::translate('canNotLocateUser'); ?>
             </div>
         </div>
