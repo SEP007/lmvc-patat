@@ -28,7 +28,7 @@
     Plugin.prototype = {
         init: function () {
             this.cacheElems();
-            this.bindSearchBtn();
+            this.bindEventHandlers();
             this.findLocation();
         },
         cacheElems: function() {
@@ -65,13 +65,26 @@
                 this.location.longitude
             );
         },
-        bindSearchBtn: function() {
+        bindEventHandlers: function() {
             var that = this;
 
+            // whenever the search button is clicked
             this.cachedElems.searchBtn.on('click', function(e) {
                 e.preventDefault();
 
                 that.requestLongLat();
+            });
+
+            // whenever the enter key is pressed
+            this.$element.on('keypress', function(e) {
+
+                var code = e.keyCode || e.which;
+
+                // 13 is enter key's code
+                if(code === 13) {
+                    e.preventDefault();
+                    that.requestLongLat();
+                }
             });
         },
         parseLongLatUrl: function (params) {
