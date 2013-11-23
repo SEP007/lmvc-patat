@@ -1,6 +1,7 @@
 <?php
     use ui\UI;
     use Scandio\lmvc\modules\assetpipeline\view\Asset;
+    use Scandio\lmvc\modules\i18n\I18nWrapper;
 
     $errors['password'] = $errors['password'] ?: [];
     $errors['passwordRetyped'] = $errors['passwordRetyped'] ?: [];
@@ -12,19 +13,19 @@
 <div class="row-fluid">
     <?php if($error): ?>
     <div class="alert alert-error">
-        <strong>Woopsi!</strong> Something is not right, please edit where needed!
+        <strong>Woopsi!</strong> <?= I18nWrapper::translate('somethingIsWrong'); ?>
     </div>
     <?php elseif($success): ?>
     <div class="alert alert-success">
-        <strong>Very goode!</strong> All worked find, you are a registered hungry person now!
+        <strong> <?= I18nWrapper::translate('veryGood'); ?> </strong> <?= I18nWrapper::translate('allWorkedFine'); ?>
     </div>
     <?php endif; ?>
 
     <form id="registration-form" class="form-horizontal" method="POST" action="<?= $app->url('Registration::signup-customer') ?>">
         <fieldset class="span6">
-            <legend>Your profile</legend>
+            <legend> <?= I18nWrapper::translate('yourProfile'); ?> </legend>
             <div class="control-group">
-                <label class="control-label" for="username">Username</label>
+                <label class="control-label" for="username"> <?= I18nWrapper::translate('username'); ?> </label>
                 <div class="controls">
                     <input type="text" name="username" id="username" placeholder="Username" value="<?= $user->username ?>" />
 
@@ -34,9 +35,9 @@
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="password">Password</label>
+                <label class="control-label" for="password"> <?= I18nWrapper::translate('password'); ?> </label>
                 <div class="controls">
-                    <input type="password" name="password" id="password" placeholder="Password" maxlength="30" value="<?= $user->password ?>" data-indicator="pwindicator" />
+                    <input type="password" name="password" id="password" placeholder= <?= I18nWrapper::translate('password'); ?> maxlength="30" value="<?= $user->password ?>" data-indicator="pwindicator" />
 
                     <?php foreach ($errors['password'] as $validator => $message): ?>
                     <span class="help-block <?= $validator ?>"><?= $message ?></span>
@@ -49,9 +50,9 @@
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="password">Repeat password</label>
+                <label class="control-label" for="password"> <?= I18nWrapper::translate('repeatPassword'); ?> </label>
                 <div class="controls">
-                    <input type="password" name="passwordRetyped" id="password-retyped" placeholder="Repeat password"  value="<?= $user->passwordRetyped ?>" />
+                    <input type="password" name="passwordRetyped" id="password-retyped" placeholder= <?= I18nWrapper::translate('repeatPassword'); ?>  value="<?= $user->passwordRetyped ?>" />
 
                     <?php foreach ($errors['passwordRetyped'] as $validator => $message): ?>
                     <span class="help-block <?= $validator ?>"><?= $message ?></span>
@@ -59,15 +60,15 @@
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="username">First- & Surname</label>
+                <label class="control-label" for="username"> <?= I18nWrapper::translate('firstAndSurname'); ?> </label>
                 <div class="controls">
-                    <input type="text" name="fullname" id="fullname" placeholder="First- & Surname" value="<?= $user->fullname ?>" />
+                    <input type="text" name="fullname" id="fullname" placeholder= <?= I18nWrapper::translate('firstAndSurname'); ?> value="<?= $user->fullname ?>" />
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="password">E-Mail</label>
+                <label class="control-label" for="password"> <?= I18nWrapper::translate('email'); ?> </label>
                 <div class="controls">
-                    <input type="email" name="email" id="email" placeholder="E-Mail"  value="<?= $user->email ?>" />
+                    <input type="email" name="email" id="email" placeholder= <?= I18nWrapper::translate('email'); ?>  value="<?= $user->email ?>" />
 
                     <?php foreach ($errors['email'] as $validator => $message): ?>
                     <span class="help-block <?= $validator ?>"><?= $message ?></span>
@@ -75,21 +76,21 @@
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="password">Phone</label>
+                <label class="control-label" for="password"> <?= I18nWrapper::translate('phone'); ?> </label>
                 <div class="controls">
-                    <input type="tel" name="phone" id="phone" placeholder="Phone"  value="<?= $user->phone ?>" />
+                    <input type="tel" name="phone" id="phone" placeholder= <?= I18nWrapper::translate('phone'); ?>  value="<?= $user->phone ?>" />
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="password">Mobile</label>
+                <label class="control-label" for="password"> <?= I18nWrapper::translate('mobile'); ?> </label>
                 <div class="controls">
-                    <input type="tel" name="mobile" id="mobile" placeholder="Mobile"  value="<?= $user->mobile ?>" />
+                    <input type="tel" name="mobile" id="mobile" placeholder= <?= I18nWrapper::translate('mobile'); ?>  value="<?= $user->mobile ?>" />
                 </div>
             </div>
 
             <div class="control-group pull-left">
-                <button class="btn btn-primary" type="submit" id="signup" name="signup" value="true">Register</button>
-                <button class="btn" href="<?= $app->url('Application::index') ?>">Cancel</button>
+                <button class="btn btn-primary" type="submit" id="signup" name="signup" value="true"> <?= I18nWrapper::translate('register'); ?> </button>
+                <button class="btn" href="<?= $app->url('Application::index') ?>"> <?= I18nWrapper::translate('cancel'); ?> </button>
             </div>
         </fieldset>
     </form>

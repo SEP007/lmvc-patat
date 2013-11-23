@@ -1,7 +1,11 @@
-<h3>All hot as chip fat!</h3>
+<?php
+    use Scandio\lmvc\modules\i18n\I18nWrapper;
+?>
+
+<h3> <?= I18nWrapper::translate('chipFat'); ?> </h3>
 
 <p>
-    Yay! All is saved. Keep on using Patat!
+    <?= I18nWrapper::translate('successEdit'); ?>
 </p>
 
-<h4><a href="<?= $app->url('Application::index') ?>">To dishes...</a></h4>
+<h4><a href="<?= $app->url('Application::index') ?>"> <?= I18nWrapper::translate('toDishes'); ?> </a></h4>

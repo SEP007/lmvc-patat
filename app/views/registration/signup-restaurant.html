@@ -1,4 +1,5 @@
 <?php
+
     use ui\UI;
     use Scandio\lmvc\modules\assetpipeline\view\Asset;
     use Scandio\lmvc\modules\i18n\I18nWrapper;
@@ -14,6 +15,7 @@
     $errors['zip'] = $errors['zip'] ?: [];
     $errors['place'] = $errors['place'] ?: [];
     $errors['handle'] = $errors['handle'] ?: [];
+
 ?>
 
 <div class="row-fluid">
@@ -43,7 +45,10 @@
             <div class="control-group">
                 <label class="control-label" for="password"><?= I18nWrapper::translate('password'); ?></label>
                 <div class="controls">
+
                     <input type="password" name="password" id="password" placeholder= <?= I18nWrapper::translate('password'); ?> maxlength="30" value="<?= $user->password ?>" data-indicator="pwindicator"/>
+
+
 
                     <?php foreach ($errors['password'] as $validator => $message): ?>
                         <span class="help-block <?= $validator ?>"><?= $message ?></span>
@@ -58,7 +63,9 @@
             <div class="control-group">
                 <label class="control-label" for="password"><?= I18nWrapper::translate('repeatPassword'); ?></label>
                 <div class="controls">
+
                     <input type="password" name="passwordRetyped" id="password-retyped" placeholder= <?= I18nWrapper::translate('repeatPassword'); ?>  value="<?= $user->passwordRetyped ?>" />
+
 
                     <?php foreach ($errors['passwordRetyped'] as $validator => $message): ?>
                         <span class="help-block <?= $validator ?>"><?= $message ?></span>
@@ -74,7 +81,9 @@
             <div class="control-group">
                 <label class="control-label" for="password"><?= I18nWrapper::translate('email'); ?></label>
                 <div class="controls">
+
                     <input type="email" name="email" id="email" placeholder= <?= I18nWrapper::translate('email'); ?>  value="<?= $user->email ?>" />
+
 
                     <?php foreach ($errors['email'] as $validator => $message): ?>
                         <span class="help-block <?= $validator ?>"><?= $message ?></span>
@@ -84,13 +93,17 @@
             <div class="control-group">
                 <label class="control-label" for="password"><?= I18nWrapper::translate('phone'); ?></label>
                 <div class="controls">
+
                     <input type="tel" name="phone" id="phone" placeholder= <?= I18nWrapper::translate('phone'); ?>  value="<?= $user->phone ?>" />
+
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label" for="password"><?= I18nWrapper::translate('mobile'); ?></label>
                 <div class="controls">
+
                     <input type="tel" name="mobile" id="mobile" placeholder= <?= I18nWrapper::translate('mobile'); ?>  value="<?= $user->mobile ?>" />
+
                 </div>
             </div>
         </fieldset>
@@ -151,7 +164,153 @@
                 </div>
             </div>
             <div class="control-group">
+
+                <label class="control-label" for="wd_open_h">Weekday opening time</label>
+                <div class="controls">
+                	<select name="wd_open_h">
+              			<option value="00:00:00">00:00</option>
+                		<option value="01:00:00">01:00</option>
+                		<option value="02:00:00">02:00</option>
+                		<option value="03:00:00">03:00</option>
+                		<option value="04:00:00">04:00</option>
+                		<option value="05:00:00">05:00</option>
+                		<option value="06:00:00">06:00</option>
+                		<option value="07:00:00">07:00</option>
+                		<option value="08:00:00">08:00</option>
+                		<option value="09:00:00">09:00</option>
+                		<option value="10:00:00">10:00</option>
+                		<option value="11:00:00">11:00</option>
+                		<option value="12:00:00">12:00</option>
+                		<option value="13:00:00">13:00</option>
+                		<option value="14:00:00">14:00</option>
+                		<option value="15:00:00">15:00</option>
+                		<option value="16:00:00">16:00</option>
+                		<option value="17:00:00">17:00</option>
+                		<option value="18:00:00">18:00</option>
+                		<option value="19:00:00">19:00</option>
+                		<option value="20:00:00">20:00</option>
+                		<option value="21:00:00">21:00</option>
+                		<option value="22:00:00">22:00</option>
+                		<option value="23:00:00">23:00</option>
+                	</select>
+
+                    <?php foreach ($errors['wd_open_h'] as $validator => $message): ?>
+                        <span class="help-block <?= $validator ?>"><?= $message ?></span>
+                    <?php endforeach ?>
+                </div>
+            </div>
+            <div class="controlwd_open_h-group">
+                <label class="control-label" for="wd_close_h">Weekday closing time</label>
+                <div class="controls">
+                	<select name="wd_close_h">
+                		<option value="00:00:00">00:00</option>
+                		<option value="01:00:00">01:00</option>
+                		<option value="02:00:00">02:00</option>
+                		<option value="03:00:00">03:00</option>
+                		<option value="04:00:00">04:00</option>
+                		<option value="05:00:00">05:00</option>
+                		<option value="06:00:00">06:00</option>
+                		<option value="07:00:00">07:00</option>
+                		<option value="08:00:00">08:00</option>
+                		<option value="09:00:00">09:00</option>
+                		<option value="10:00:00">10:00</option>
+                		<option value="11:00:00">11:00</option>
+                		<option value="12:00:00">12:00</option>
+                		<option value="13:00:00">13:00</option>
+                		<option value="14:00:00">14:00</option>
+                		<option value="15:00:00">15:00</option>
+                		<option value="16:00:00">16:00</option>
+                		<option value="17:00:00">17:00</option>
+                		<option value="18:00:00">18:00</option>
+                		<option value="19:00:00">19:00</option>
+                		<option value="20:00:00">20:00</option>
+                		<option value="21:00:00">21:00</option>
+                		<option value="22:00:00">22:00</option>
+                		<option value="23:00:00">23:00</option>
+                	</select>
+
+                    <?php foreach ($errors['wd_close_h'] as $validator => $message): ?>
+                        <span class="help-block <?= $validator ?>"><?= $message ?></span>
+                    <?php endforeach ?>
+                </div>
+            </div>
+           </br>
+          </br>
+           <div class="control-group">
+                <label class="control-label" for="we_open_h">Weekend opening time</label>
+                <div class="controls">
+                    <select name="we_open_h">
+                		<option value="00:00:00">00:00</option>
+                		<option value="01:00:00">01:00</option>
+                		<option value="02:00:00">02:00</option>
+                		<option value="03:00:00">03:00</option>
+                		<option value="04:00:00">04:00</option>
+                		<option value="05:00:00">05:00</option>
+                		<option value="06:00:00">06:00</option>
+                		<option value="07:00:00">07:00</option>
+                		<option value="08:00:00">08:00</option>
+                		<option value="09:00:00">09:00</option>
+                		<option value="10:00:00">10:00</option>
+                		<option value="11:00:00">11:00</option>
+                		<option value="12:00:00">12:00</option>
+                		<option value="13:00:00">13:00</option>
+                		<option value="14:00:00">14:00</option>
+                		<option value="15:00:00">15:00</option>
+                		<option value="16:00:00">16:00</option>
+                		<option value="17:00:00">17:00</option>
+                		<option value="18:00:00">18:00</option>
+                		<option value="19:00:00">19:00</option>
+                		<option value="20:00:00">20:00</option>
+                		<option value="21:00:00">21:00</option>
+                		<option value="22:00:00">22:00</option>
+                		<option value="23:00:00">23:00</option>
+                	</select>
+
+                    <?php foreach ($errors['we_open_h'] as $validator => $message): ?>
+                        <span class="help-block <?= $validator ?>"><?= $message ?></span>
+                    <?php endforeach ?>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="we_close_h">Weekend closing time</label>
+                <div class="controls">
+                    <select name="we_close_h">
+                		<option value="00:00:00">00:00</option>
+                		<option value="01:00:00">01:00</option>
+                		<option value="02:00:00">02:00</option>
+                		<option value="03:00:00">03:00</option>
+                		<option value="04:00:00">04:00</option>
+                		<option value="05:00:00">05:00</option>
+                		<option value="06:00:00">06:00</option>
+                		<option value="07:00:00">07:00</option>
+                		<option value="08:00:00">08:00</option>
+                		<option value="09:00:00">09:00</option>
+                		<option value="10:00:00">10:00</option>
+                		<option value="11:00:00">11:00</option>
+                		<option value="12:00:00">12:00</option>
+                		<option value="13:00:00">13:00</option>
+                		<option value="14:00:00">14:00</option>
+                		<option value="15:00:00">15:00</option>
+                		<option value="16:00:00">16:00</option>
+                		<option value="17:00:00">17:00</option>
+                		<option value="18:00:00">18:00</option>
+                		<option value="19:00:00">19:00</option>
+                		<option value="20:00:00">20:00</option>
+                		<option value="21:00:00">21:00</option>
+                		<option value="22:00:00">22:00</option>
+                		<option value="23:00:00">23:00</option>
+                	</select>
+
+                    <?php foreach ($errors['we_close_h'] as $validator => $message): ?>
+                        <span class="help-block <?= $validator ?>"><?= $message ?></span>
+                    <?php endforeach ?>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="place">Street & Housenumber</label>
+
                 <label class="control-label" for="place"><?= I18nWrapper::translate('streetAndHouseNumber'); ?></label>
+
                 <div class="controls">
                     <input type="text" name="place" id="place" placeholder= <?= I18nWrapper::translate('streetAndHouseNumber'); ?> value="<?= $user->street ?>"/>
 
