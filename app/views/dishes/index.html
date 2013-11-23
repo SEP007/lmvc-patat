@@ -53,19 +53,55 @@
                     </a>
 
                     <div id="rating_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" class="rating_container">
-                        <?php $stars=5; ?>
-                        <?php for ($rated=1; $rated<=($dish->rating); $rated++ ){ ?>
-                            <input name="potato_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" type="radio" class="potato required" style="display: none;" disabled="disabled" checked="checked">
-                        <?php $stars--; } ?>
-                        <?php if($stars!=o): ?>
-                        <?php for ($non_rated=($dish->rating); $non_rated<5; $non_rated++ ){ ?>
-                            <input name="potato_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" type="radio" class="potato required" style="display: none;" disabled="disabled">
-                        <?php $stars--; } ?>
-                        <?php endif; ?>
+                        <?php
+                            $stars=5;
+                            $rating_label=array("1-Poor","2-Fair","3-Good","4-Very Good","5-Excellent");
+                            for ($rated=1; $rated<=($dish->rating); $rated++ ){
+                        ?>
+                            <input name="potato_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" type="radio"
+                                   class="potato required" style="display: none;" disabled="disabled" checked="checked" value="<?= $rating_label[$rated-1] ?>">
+                        <?php
+                                $stars--;
+                            }
+                            if($stars!=o):
+                                $non_rated = (is_null($dish->rating)) ? 0 : $dish->rating;
+                                for (; $non_rated<5; $non_rated++ ){
+                        ?>
+                            <input name="potato_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" type="radio"
+                                   class="potato required" style="display: none;" disabled="disabled" value="<?= $rating_label[$non_rated] ?>">
+                        <?php
+                                $stars--; }
+                            endif;
+                        ?>
                     </div>
                     <div class="rating_container">
-                        Rating <?= (is_null($dish->rating)) ? '0.00' : $dish->rating ?>
+                        <?= (is_null($dish->rating)) ? '0.00' : $dish->rating ?>
                         (<?= (is_null($dish->num_rates)) ? '0' : $dish->num_rates ?> votes)
+                    </div>
+                    <div class="rateUs">
+                        <a id="_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" class="exp">Rate me!</a>
+                        <div id="user_rating_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" class="rate_me_conatainer">
+                            <?php
+                                $stars=5;
+                                for ($rated=1; $rated<=($dish->rating); $rated++ ){
+                            ?>
+                            <input name="user_potato_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" type="radio"
+                                   class="potato required" style="display: none;" checked="checked" value="<?= $rating_label[$rated-1] ?>">
+                            <?php
+                                    $stars--;
+                                }
+                                if($stars!=o):
+                                    $non_rated = (is_null($dish->rating)) ? 0 : $dish->rating;
+                                    for(; $non_rated<5; $non_rated++ ){
+                            ?>
+                            <input name="user_potato_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" type="radio"
+                                   class="potato required" style="display: none;" value="<?= $rating_label[$non_rated] ?>">
+                            <?php
+                                    $stars--;
+                                }
+                                endif;
+                            ?>
+                        </div>
                     </div>
                 </div>
                 <div class="description span8">
@@ -110,3 +146,4 @@
 
 <?= UI::js(Asset::assets(['jquery.rating.js'], ['path' => 'plugins'])) ?>
 <?= UI::js(Asset::assets(['jquery.MetaData.js'], ['path' => 'plugins'])) ?>
+<?= UI::js(Asset::assets(['jquery.expand-collapse-list.js'], ['path' => 'views'])) ?>
