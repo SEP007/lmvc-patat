@@ -266,6 +266,30 @@ footer {
     color: #228B22;
 }
 
+.required_field {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.required_field input {
+  background-color : #F6CEEC; 
+}
+
+.required_field label {
+  /* constrain the absolutely positioned pseudo */
+  position: relative;
+  /* create some space for the '*' */
+  margin-right: .4em;
+}
+
+.required_field label:after {
+  content:"*";
+  display: block;
+  position: absolute;
+  right: -.5em;
+  top: 0.35em;
+}
+
 .advertised {
     position:relative;
 }

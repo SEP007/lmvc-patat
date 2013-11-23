@@ -24,17 +24,17 @@
     <form id="registration-form" class="form-horizontal" method="POST" action="<?= $app->url('Registration::signup-customer') ?>">
         <fieldset class="span6">
             <legend> <?= I18nWrapper::translate('yourProfile'); ?> </legend>
-            <div class="control-group">
+            <div class="required_field">
                 <label class="control-label" for="username"> <?= I18nWrapper::translate('username'); ?> </label>
                 <div class="controls">
-                    <input type="text" name="username" id="username" placeholder="Username" value="<?= $user->username ?>" />
+                    <input type="text" name="username" id="username" placeholder="Username" value="<?= $user->username ?>" che="checked"/>
 
                     <?php foreach ($errors['username'] as $validator => $message): ?>
                     <span class="help-block <?= $validator ?>"><?= $message ?></span>
                     <?php endforeach ?>
                 </div>
             </div>
-            <div class="control-group">
+            <div class="required_field">
                 <label class="control-label" for="password"> <?= I18nWrapper::translate('password'); ?> </label>
                 <div class="controls">
                     <input type="password" name="password" id="password" placeholder= <?= I18nWrapper::translate('password'); ?> maxlength="30" value="<?= $user->password ?>" data-indicator="pwindicator" />
@@ -49,7 +49,7 @@
 	                </div>
                 </div>
             </div>
-            <div class="control-group">
+            <div class="required_field">
                 <label class="control-label" for="password"> <?= I18nWrapper::translate('repeatPassword'); ?> </label>
                 <div class="controls">
                     <input type="password" name="passwordRetyped" id="password-retyped" placeholder= <?= I18nWrapper::translate('repeatPassword'); ?>  value="<?= $user->passwordRetyped ?>" />
@@ -65,7 +65,7 @@
                     <input type="text" name="fullname" id="fullname" placeholder= <?= I18nWrapper::translate('firstAndSurname'); ?> value="<?= $user->fullname ?>" />
                 </div>
             </div>
-            <div class="control-group">
+            <div class="required_field">
                 <label class="control-label" for="password"> <?= I18nWrapper::translate('email'); ?> </label>
                 <div class="controls">
                     <input type="email" name="email" id="email" placeholder= <?= I18nWrapper::translate('email'); ?>  value="<?= $user->email ?>" />
@@ -97,4 +97,4 @@
 </div>
 
 <?= UI::js(Asset::assets(['jquery.nominatim.js', 'jquery.handle.js', 'jquery.pwstrength.js'], ['path' => 'plugins'])) ?>
-<?= UI::js(Asset::assets(['jquery.register.js', 'jquery.password-strength.js'], ['path' => 'views'])) ?>
+<?= UI::js(Asset::assets(['jquery.register.js', 'jquery.password-strength.js', 'jquery.star.js'], ['path' => 'views'])) ?>
