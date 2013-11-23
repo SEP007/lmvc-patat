@@ -5,6 +5,7 @@
             nominatimUrlOutro: "&format=json&polygon=0&addressdetails=0",
             dishesAction: "dishes/",
             searchBtn: "#search-long-lat",
+            findPatatBtn: "#findpatat",
             errorBar: "#js-user-not-located",
             resultElems: {
                 latitude: "#latitude",
@@ -44,6 +45,7 @@
                 longitude: this.$element.find(this.settings.resultElems.longitude),
 
                 searchBtn: this.$element.find(this.settings.searchBtn),
+                findPatatBtn: this.$element.find(this.settings.findPatatBtn),
 
                 errorBar: this.$element.find(this.settings.errorBar)
             };
@@ -114,6 +116,8 @@
             if (isUserLocated === false) {
                 this.cachedElems.errorBar.removeClass('hidden');
             } else {
+                this.cachedElems.findPatatBtn.removeAttr("disabled");
+
                 window.location = this.settings.dishesAction + this.cachedElems.longitude.val()
                                   + "/" + this.cachedElems.latitude.val();
             }
