@@ -40,6 +40,13 @@ sorry: 'Sorry,'
 weDontHaveOffers: 'we do not have any offers at the moment!'
 moreSnacks: 'More snacks'
 weDontHaveSnacks: 'we do not have any snacks listed!'
+yourComment: 'Your comment ...'
+commentDisabled: 'Only logged in customers can leave comments.'
+navigateToLogin: 'To log-in ...'
+noComments: 'No comments'
+toggleComments: 'Toggle comments'
+commentCreatedAt: 'Created at'
+commentCreatedBy: 'by'
 #
 #app/views/menu/edit.html
 uploadImage: 'Upload image!'

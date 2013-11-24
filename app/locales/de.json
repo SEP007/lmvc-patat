@@ -90,5 +90,12 @@
 	"validPrice": "Dies ist kein gültiger Preis!",
     "save": "Speichern!",
     "advertise": "Bewerben",
-    "only3Dishes": "Es können nur drei Gerichte beworben werden!"
+    "only3Dishes": "Es können nur drei Gerichte beworben werden!",
+	"yourComment": "Ihr Kommentar ...",
+	"commentDisabled": "Nur eingeloggte Kunden können kommentieren.",
+	"navigateToLogin": "Zur Anmeldung ...",
+	"noComments": "Keine Kommentare",
+	"toggleComments": "Kommentare ein-/ausblenden",
+	"commentCreatedAt": "Erstellt am",
+	"commentCreatedBy": "durch"
 }

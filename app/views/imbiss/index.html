@@ -64,20 +64,20 @@
     <?php if($loggedInCustomer != null):?>
 		<form id="comment-form" method="POST" action="<?= $app->url('Imbiss::saveRestaurantComment', ['handle'=>$restaurant->handle, 'customerId'=>$loggedInCustomer->id, 'locationId'=>$restaurant->id, 'commentControl'=>('comment' . $commentCount)]) ?>">
 			<fieldset>
-			<?= UI::textAreaCounter('comment', null, null, $errors['comment'], 'Your comment ...', false, 500, $commentCount++) ?>
+			<?= UI::textAreaCounter('comment', null, null, $errors['comment'], I18nWrapper::translate('yourComment'), false, 500, $commentCount++) ?>
 			<?= UI::saveCancelButtons($app->url('Imbiss::index', $restaurant->handle)) ?>
 			</fieldset>
         </form>
     <?php else :?>
-        <p>To be able to add a comment, please <a href="<?= $app->url('Security::login')?>">log in.</a></p>
+        <p><?= I18nWrapper::translate('commentDisabled'); ?> <a href="<?= $app->url('Security::login')?>"><?= I18nWrapper::translate('navigateToLogin'); ?></a></p>
     <?php endif; ?>
 
     <ul class="expList">
         <li>
         <?php if($restaurantComments->count() == 0): ?>
-        No comments
+			<?= I18nWrapper::translate('noComments'); ?>
         <?php else: ?>
-        Toggle comments
+			<?= I18nWrapper::translate('toggleComments'); ?>
         <?php endif; ?>
             <ul>
             <?php foreach($restaurantComments as $restaurantComment): ?>
@@ -86,7 +86,7 @@
                    $userName = $usersModel->getUsernameByCustomerId($restaurantComment->created_by);
                 ?>
                 <p>
-                <div><span>Created at </span><b><?= $restaurantComment->creation_date ?></b><span>, by </span><b><?= $userName ?></b></div>
+                <div><span><?= I18nWrapper::translate('commentCreatedAt'); ?> </span><b><?= $restaurantComment->creation_date ?></b><span>, <?= I18nWrapper::translate('commentCreatedBy'); ?> </span><b><?= $userName ?></b></div>
                 <div><?= $restaurantComment->description ?></div>
                 </p>
             </li>
@@ -139,21 +139,21 @@
                     <?php if($loggedInCustomer != null):?>
 						<form id="comment-form" method="POST" action="<?= $app->url('Imbiss::saveDishComment', ['handle'=>$restaurant->handle, 'customerId'=>$loggedInCustomer->id, 'DishId'=>$advertisedDish->id, 'commentControl'=>('comment' . $commentCount)]) ?>">
 							<fieldset>
-							<?= UI::textAreaCounter('comment', null, null, $errors['comment'], 'Your comment ...', false, 500, $commentCount++) ?>
+							<?= UI::textAreaCounter('comment', null, null, $errors['comment'], I18nWrapper::translate('yourComment'), false, 500, $commentCount++) ?>
 							<?= UI::saveCancelButtons($app->url('Imbiss::index', $restaurant->handle)) ?>
 							</fieldset>
 						</form>
                     <?php else :?>
-                    <p>To be able to add a comment, please <a href="<?= $app->url('Security::login')?>">log in.</a></p>
+						<p><?= I18nWrapper::translate('commentDisabled'); ?> <a href="<?= $app->url('Security::login')?>"><?= I18nWrapper::translate('navigateToLogin'); ?></a></p>
                     <?php endif; ?>
 
                     <ul class="expList">
                         <li>
                         <?php if($dishComments->count() == 0): ?>
-                        No comments
-                        <?php else: ?>
-                        Toggle comments
-                        <?php endif; ?>
+							<?= I18nWrapper::translate('noComments'); ?>
+						<?php else: ?>
+							<?= I18nWrapper::translate('toggleComments'); ?>
+						<?php endif; ?>
                             <ul>
                             <?php foreach($dishComments as $dishComment): ?>
                             <li>
@@ -161,7 +161,7 @@
                                    $userName = $usersModel->getUsernameByCustomerId($dishComment->created_by);
                                 ?>
                                 <p>
-                                <div><span>Created at </span><b><?= $dishComment->creation_date ?></b><span>, by </span><b><?= $userName ?></b></div>
+                                <div><span><?= I18nWrapper::translate('commentCreatedAt'); ?> </span><b><?= $dishComment->creation_date ?></b><span>, <?= I18nWrapper::translate('commentCreatedBy'); ?> </span><b><?= $userName ?></b></div>
                                 <div><?= $dishComment->description ?></div>
                                 </p>
                             </li>
@@ -238,21 +238,21 @@
                         <?php if($loggedInCustomer != null):?>
 							<form id="comment-form" method="POST" action="<?= $app->url('Imbiss::saveDishComment', ['handle'=>$restaurant->handle, 'customerId'=>$loggedInCustomer->id, 'DishId'=>$dish->id, 'commentControl'=>('comment' . $commentCount)]) ?>">
 								<fieldset>
-								<?= UI::textAreaCounter('comment', null, null, $errors['comment'], 'Your comment ...', false, 500, $commentCount++) ?>
+								<?= UI::textAreaCounter('comment', null, null, $errors['comment'], I18nWrapper::translate('yourComment'), false, 500, $commentCount++) ?>
 								<?= UI::saveCancelButtons($app->url('Imbiss::index', $restaurant->handle)) ?>
 								</fieldset>
 							</form>
                         <?php else :?>
-                        <p>To be able to add a comment, please <a href="<?= $app->url('Security::login')?>">log in.</a></p>
+							<p><?= I18nWrapper::translate('commentDisabled'); ?> <a href="<?= $app->url('Security::login')?>"><?= I18nWrapper::translate('navigateToLogin'); ?></a></p>
                         <?php endif; ?>
 
                         <ul class="expList">
                             <li>
                                 <?php if($dishComments->count() == 0): ?>
-                                No comments
-                                <?php else: ?>
-                                Toggle comments
-                                <?php endif; ?>
+									<?= I18nWrapper::translate('noComments'); ?>
+								<?php else: ?>
+									<?= I18nWrapper::translate('toggleComments'); ?>
+								<?php endif; ?>
                                 <ul>
                                 <?php foreach($dishComments as $dishComment): ?>
                                 <li>
@@ -260,7 +260,7 @@
                                    $userName = $usersModel->getUsernameByCustomerId($dishComment->created_by);
                                 ?>
                                 <p>
-                                <div><span>Created at </span><b><?= $dishComment->creation_date ?></b><span>, by </span><b><?= $userName ?></b></div>
+                                <div><span><?= I18nWrapper::translate('commentCreatedAt'); ?> </span><b><?= $dishComment->creation_date ?></b><span>, <?= I18nWrapper::translate('commentCreatedBy'); ?> </span><b><?= $userName ?></b></div>
                                 <div><?= $dishComment->description ?></div>
                                 </p>
                                 </li>
