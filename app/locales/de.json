@@ -87,5 +87,8 @@
 	"shortDescription": "ist zu kurz!",
 	"needDescription": "Eine Beschreibung ist erforderlich!",
 	"addPrice": "Vielleicht möchten sie einen Preis hinzügen?",
-	"validPrice": "Dies ist kein gültiger Preis!"
+	"validPrice": "Dies ist kein gültiger Preis!",
+    "save": "Speichern!",
+    "advertise": "Bewerben",
+    "only3Dishes": "Es können nur drei Gerichte beworben werden!"
 }
