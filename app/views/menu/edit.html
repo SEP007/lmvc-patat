@@ -23,7 +23,7 @@
         <?php if($disableAdvertise): ?>
             <label style="color:red"> <?= I18nWrapper::translate('only3Dishes'); ?> </label>
         <?php endif; ?>
-        <form id="menu-form" method="POST" action="<?= $app->url('Menu::save', $dish->id) ?>">
+        <form id="menu-form" method="POST" action="<?= $app->url('Menu::edit', $dish->id) ?>">
             <fieldset>
                 <?= UI::checkbox('advertised', I18nWrapper::translate('advertise'), (bool) $dish->advertised, $dish-advertised, $errors['advertised'], $disableAdvertise) ?>
                 <?= UI::textField('name', null, $dish->name, $errors['name'], 'Name') ?>
