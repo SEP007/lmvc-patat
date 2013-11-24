@@ -26,10 +26,10 @@
         <form id="menu-form" method="POST" action="<?= $app->url('Menu::edit', $dish->id) ?>">
             <fieldset>
                 <?= UI::checkbox('advertised', I18nWrapper::translate('advertise'), (bool) $dish->advertised, $dish-advertised, $errors['advertised'], $disableAdvertise) ?>
-                <?= UI::textField('name', null, $dish->name, $errors['name'], 'Name') ?>
-                <?= UI::combobox('category', null, $dish->category_id, $categories, 'id', 'name', $errors['category'], 'Category') ?>
-                <?= UI::textField('price', null, $dish->price, $errors['price'], 'Price', false, '€') ?>
-                <?= UI::textArea('description', null, $dish->description, $errors['description'], 'Description') ?>
+                <?= UI::textField('name', null, $dish->name, $errors['name'], I18nWrapper::translate('name')) ?>
+                <?= UI::combobox('category', null, $dish->category_id, $categories, 'id', 'name', $errors['category'], I18nWrapper::translate('category')) ?>
+                <?= UI::textField('price', null, $dish->price, $errors['price'], I18nWrapper::translate('price'), false, '€') ?>
+                <?= UI::textArea('description', null, $dish->description, $errors['description'], I18nWrapper::translate('description')) ?>
                 <?= UI::saveCancelButtons($app->url('Menu::index')) ?>
             </fieldset>
             <input id="filename" type="hidden" name="img" value="<?= $img ?>"  />

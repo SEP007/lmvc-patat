@@ -87,5 +87,8 @@
 	"shortDescription": "verkar för kort!",
 	"needDescription": "En beskrivning erfordras",
 	"addPrice": "Du kanske vill lägga till ett pris!",
-	"validPrice": "Vi tänkte att detta är inte ett giltigt pris!"
+	"validPrice": "Vi tänkte att detta är inte ett giltigt pris!",
+    "save": "Post!",
+    "advertise": "Annonsörer",
+    "only3Dishes": "Endast tre rätter kan annonseras!"
 }

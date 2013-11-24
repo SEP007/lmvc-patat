@@ -1,3 +1,6 @@
+#snippets
+save: 'экономить!'
+#
 #app/views/main.html
 home: 'Домой'
 signUp: 'Зарегистрироваться'
@@ -40,8 +43,8 @@ weDontHaveSnacks: 'У нас нет закусок!'
 #
 #app/views/menu/edit.html
 uploadImage: 'Загрузить изображение!'
-only3Dishes: 'Only three dishes can be advertised!'
-advertise: 'Advertise'
+only3Dishes: 'Можно рекламировать только 3 блюда'
+advertise: 'рекламировать'
 #
 #app/views/menu/index.html
 category: 'Категория'
