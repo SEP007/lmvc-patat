@@ -113,6 +113,66 @@
                             <p class="span8">
                                 <?= $advertisedDish->description ?>
                             </p>
+
+                            <div class="span8">
+                            <div id="rating_<?= $advertisedDish->id ?>_<?= $restaurant->id ?>" class="rating_container">
+                                <?php
+                            $potatoes=5;
+                            $ratingLabel=array("1-Poor","2-Fair","3-Good","4-Very Good","5-Excellent");
+                            for ($rated=1; $rated<=($advertisedDish->avg_rating); $rated++ ){
+                                ?>
+                                <input id="inp_<?= $advertisedDish->id ?>_<?= $restaurant->id ?>_<?= $rated ?>" name="potato_<?= $advertisedDish->id ?>_<?= $restaurant->id ?>" type="radio"
+                                       class="potato required" style="display: none;" disabled="disabled" checked="checked" value="<?= $ratingLabel[$rated-1] ?>">
+                                <?php
+                                $potatoes--;
+                            }
+                            if($potatoes!=0):
+                                $nonRated = (is_null($advertisedDish->avg_rating)) ? 0 : intval($advertisedDish->avg_rating);
+                                for (; $nonRated<5; $nonRated++ ){
+                                ?>
+                                <input id="inp_<?= $advertisedDish->id ?>_<?= $restaurant->id ?>_<?= ($nonRated + 1) ?>" name="potato_<?= $advertisedDish->id ?>_<?= $restaurant->id ?>" type="radio"
+                                       class="potato required" style="display: none;" disabled="disabled" value="<?= $ratingLabel[$nonRated] ?>">
+                                <?php
+                                $potatoes--; }
+                            endif;
+                        ?>
+                            </div>
+                            <div id="avg_<?= $advertisedDish->id ?>_<?= $restaurant->id ?>" class="rating_container">
+                                &nbsp;
+                                <?= (is_null($advertisedDish->avg_rating)) ? '0.00' : $advertisedDish->avg_rating ?>
+                                (<?= (is_null($advertisedDish->num_votes)) ? '0' : $advertisedDish->num_votes ?> votes)
+                            </div>
+
+                            <?php if(Security::get()->isAuthenticated()): ?>
+                            <div class="rateUs">
+                                <a id="_<?= $advertisedDish->id ?>_<?= $restaurant->id ?>" class="exp">Rate me!</a>
+                                <div id="user_rating_<?= $advertisedDish->id ?>_<?= $restaurant->id ?>" class="rate_me_conatainer">
+                                    <?php
+                                $potatoes=5;
+                                $dishCustomerRating = $dishesRatingMap[$advertisedDish->id];
+                                    for ($rated=1; $rated<=($dishCustomerRating); $rated++ ){
+                                    ?>
+                                    <input name="user_potato_<?= $advertisedDish->id ?>_<?= $restaurant->id ?>" type="radio"
+                                           class="potato required" style="display: none;" checked="checked" value="<?= $ratingLabel[$rated-1] ?>">
+                                    <?php
+                                    $potatoes--;
+                                }
+                                if($potatoes!=0):
+                                    $nonRated = (is_null($dishCustomerRating)) ? 0 : $dishCustomerRating;
+                                    for(; $nonRated<5; $nonRated++ ){
+                            ?>
+                                    <input name="user_potato_<?= $advertisedDish->id ?>_<?= $restaurant->id ?>" type="radio"
+                                           class="potato required" style="display: none;" value="<?= $ratingLabel[$nonRated] ?>">
+                                    <?php
+                                    $potatoes--;
+                                }
+                                endif;
+                            ?>
+                                </div>
+                            </div>
+                            <?php endif ?>
+                          </div>
+
                         </div>
                     </div>
                 </dd>
@@ -271,3 +331,5 @@
 <?= UI::js(Asset::assets(['jquery.patatmap.js'], ['path' => 'plugins'])) ?>
 <?= UI::js(Asset::assets(['jquery.imbiss-index.js'], ['path' => 'views'])) ?>
 <?= UI::js(Asset::assets(['jquery.expand-collapse-list.js'], ['path' => 'views'])) ?>
+<?= UI::js(Asset::assets(['jquery.rating.js'], ['path' => 'plugins'])) ?>
+<?= UI::js(Asset::assets(['jquery.MetaData.js'], ['path' => 'plugins'])) ?>

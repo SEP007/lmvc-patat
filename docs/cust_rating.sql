@@ -18,7 +18,7 @@ CREATE TABLE Cust_Dish_Rating (
 # ------------------------------------------------------------
 
 ALTER TABLE `Dishes`
-ADD COLUMN rating DECIMAL(3,2) NULL;
+ADD COLUMN avg_rating DECIMAL(3,2) NULL;
 
 ALTER TABLE `Dishes`
-ADD COLUMN num_rates int(11) NULL;
+ADD COLUMN num_votes int(11) NULL;

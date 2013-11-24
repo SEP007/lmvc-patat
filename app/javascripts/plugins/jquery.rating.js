@@ -372,7 +372,7 @@
                     var locationId = response.location_id;
                     var rating = response.rating;
                     var intRating = response.int_rating;
-                    var votes = response.num_rates;
+                    var votes = response.num_votes;
                     $('#avg_' + dishId + '_' + locationId)[0]
                         .innerHTML = "&nbsp;" + new Number(rating).toPrecision(3) + "&nbsp;(" + votes + "&nbsp;votes)";
                     var divList = $("div[id*='inp_" + dishId + "_" + locationId + "']");
