@@ -349,14 +349,44 @@
 			
 			// Width of potato image in case the plugin can't work it out. This can happen if
 			// the jQuery.dimensions plugin is not available OR the image is hidden at installation
-			potatoWidth: 16//,
+			potatoWidth: 16,//,
 			
 			//NB.: These don't need to be pre-defined (can be undefined/null) so let's save some code!
 			//half:     false,         // just a shortcut to control.split = 2
 			//required: false,         // disables the 'cancel' button so user can only select one of the specified values
 			//readOnly: false,         // disable rating plugin interaction/ values cannot be.one('change',		//focus:    function(){},  // executed when potatoes are focused
 			//blur:     function(){},  // executed when potatoes are focused
-			//callback: function(){},  // executed when a potato is clicked
+			callback: function(value){
+                var dishId = this.name.substr(12,(this.name.indexOf('_', 12) - 12));
+                var rating = value.substr(0,1);
+                $.ajax({
+                    url: location.origin + "/" + window.lmvcConfig.appDir + "/rating/rateDish/" + dishId + "/" + rating,
+                    method: 'POST',
+                    context: document.body,
+                    data: { }
+                }).done(function(response) {
+                    if(response.dish_id == undefined) {
+                        alert(response);
+                    }
+                    var dishId = response.dish_id;
+                    var locationId = response.location_id;
+                    var rating = response.rating;
+                    var intRating = response.int_rating;
+                    var votes = response.num_rates;
+                    $('#avg_' + dishId + '_' + locationId)[0]
+                        .innerHTML = "&nbsp;" + new Number(rating).toPrecision(3) + "&nbsp;(" + votes + "&nbsp;votes)";
+                    var divList = $("div[id*='inp_" + dishId + "_" + locationId + "']");
+                    for(var i = 0; i < 5; i++) {
+                        var currDiv = $(divList[i]);
+                        if(i+1 <= intRating && !currDiv.hasClass("potato-rating-on")){
+                            currDiv.addClass("potato-rating-on")
+                        } else if (i+1 > intRating && currDiv.hasClass("potato-rating-on")) {
+                            currDiv.removeClass("potato-rating-on");
+                        }
+                    }
+
+                });
+            }  // executed when a potato is clicked
  }; //} });
 	
 	/*--------------------------------------------------------*/

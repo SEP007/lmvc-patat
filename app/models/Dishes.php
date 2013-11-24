@@ -225,4 +225,24 @@ class Dishes
 
         return $dishes;
     }
+
+    public static function getDish($dishId) {
+        $dishes = static::query()
+            ->select('*')
+            ->where('id = :dishId', ['dishId' => $dishId])
+            ->all();
+
+        return empty($dishes) ? null : $dishes[0];
+    }
+
+    public static function getDishWithLocation($dishId) {
+        $dishes = static::query()
+            ->select('*, Dishes.id as dish_id, Locations.id as location_id')
+            ->innerJoin(new Locations(), 'Dishes.user_id = Locations.user_id')
+            ->where('Dishes.id = :dishId', ['dishId' => $dishId])
+            ->all();
+
+        return empty($dishes) ? null : $dishes[0];
+    }
+
 }

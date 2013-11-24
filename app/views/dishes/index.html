@@ -51,58 +51,6 @@
                         <img width=100 src="<?= Asset::image(['uploads', 'placeholder.png']) ?>" alt="" />
                         <?php endif; ?>
                     </a>
-
-                    <div id="rating_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" class="rating_container">
-                        <?php
-                            $stars=5;
-                            $rating_label=array("1-Poor","2-Fair","3-Good","4-Very Good","5-Excellent");
-                            for ($rated=1; $rated<=($dish->rating); $rated++ ){
-                        ?>
-                            <input name="potato_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" type="radio"
-                                   class="potato required" style="display: none;" disabled="disabled" checked="checked" value="<?= $rating_label[$rated-1] ?>">
-                        <?php
-                                $stars--;
-                            }
-                            if($stars!=o):
-                                $non_rated = (is_null($dish->rating)) ? 0 : $dish->rating;
-                                for (; $non_rated<5; $non_rated++ ){
-                        ?>
-                            <input name="potato_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" type="radio"
-                                   class="potato required" style="display: none;" disabled="disabled" value="<?= $rating_label[$non_rated] ?>">
-                        <?php
-                                $stars--; }
-                            endif;
-                        ?>
-                    </div>
-                    <div class="rating_container">
-                        <?= (is_null($dish->rating)) ? '0.00' : $dish->rating ?>
-                        (<?= (is_null($dish->num_rates)) ? '0' : $dish->num_rates ?> votes)
-                    </div>
-                    <div class="rateUs">
-                        <a id="_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" class="exp">Rate me!</a>
-                        <div id="user_rating_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" class="rate_me_conatainer">
-                            <?php
-                                $stars=5;
-                                for ($rated=1; $rated<=($dish->rating); $rated++ ){
-                            ?>
-                            <input name="user_potato_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" type="radio"
-                                   class="potato required" style="display: none;" checked="checked" value="<?= $rating_label[$rated-1] ?>">
-                            <?php
-                                    $stars--;
-                                }
-                                if($stars!=o):
-                                    $non_rated = (is_null($dish->rating)) ? 0 : $dish->rating;
-                                    for(; $non_rated<5; $non_rated++ ){
-                            ?>
-                            <input name="user_potato_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" type="radio"
-                                   class="potato required" style="display: none;" value="<?= $rating_label[$non_rated] ?>">
-                            <?php
-                                    $stars--;
-                                }
-                                endif;
-                            ?>
-                        </div>
-                    </div>
                 </div>
                 <div class="description span8">
                     <div class="row-fluid">
@@ -133,6 +81,59 @@
                             <p class="span8">
                                 <?= $dish->description ?>
                             </p>
+                        </div>
+                    </div>
+                    <div id="rating_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" class="rating_container">
+                        <?php
+                            $stars=5;
+                            $ratingLabel=array("1-Poor","2-Fair","3-Good","4-Very Good","5-Excellent");
+                            for ($rated=1; $rated<=($dish->rating); $rated++ ){
+                        ?>
+                        <input id="inp_<?= $dish->dish_id ?>_<?= $dish->location_id ?>_<?= $rated ?>" name="potato_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" type="radio"
+                               class="potato required" style="display: none;" disabled="disabled" checked="checked" value="<?= $ratingLabel[$rated-1] ?>">
+                        <?php
+                                $stars--;
+                            }
+                            if($stars!=0):
+                                $nonRated = (is_null($dish->rating)) ? 0 : intval($dish->rating);
+                        for (; $nonRated<5; $nonRated++ ){
+                        ?>
+                        <input id="inp_<?= $dish->dish_id ?>_<?= $dish->location_id ?>_<?= ($nonRated + 1) ?>" name="potato_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" type="radio"
+                               class="potato required" style="display: none;" disabled="disabled" value="<?= $ratingLabel[$nonRated] ?>">
+                        <?php
+                                $stars--; }
+                            endif;
+                        ?>
+                    </div>
+                    <div id="avg_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" class="rating_container">
+                        &nbsp;
+                        <?= (is_null($dish->rating)) ? '0.00' : $dish->rating ?>
+                        (<?= (is_null($dish->num_rates)) ? '0' : $dish->num_rates ?> votes)
+                    </div>
+                    <div class="rateUs">
+                        <a id="_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" class="exp">Rate me!</a>
+                        <div id="user_rating_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" class="rate_me_conatainer">
+                            <?php
+                                $stars=5;
+                                $dishCustomerRating = $dishesRatingMap[$dish->dish_id];
+                            for ($rated=1; $rated<=($dishCustomerRating); $rated++ ){
+                            ?>
+                            <input name="user_potato_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" type="radio"
+                                   class="potato required" style="display: none;" checked="checked" value="<?= $ratingLabel[$rated-1] ?>">
+                            <?php
+                                    $stars--;
+                                }
+                                if($stars!=0):
+                                    $nonRated = (is_null($dishCustomerRating)) ? 0 : $dishCustomerRating;
+                                    for(; $nonRated<5; $nonRated++ ){
+                            ?>
+                            <input name="user_potato_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" type="radio"
+                                   class="potato required" style="display: none;" value="<?= $ratingLabel[$nonRated] ?>">
+                            <?php
+                                    $stars--;
+                                }
+                                endif;
+                            ?>
                         </div>
                     </div>
                 </div>
