@@ -266,6 +266,10 @@ footer {
     color: #228B22;
 }
 
+textarea#mandatory {
+  background-color : #F6CEEC; 
+}
+
 .required_field {
   display: inline-block;
   margin-bottom: 20px;
