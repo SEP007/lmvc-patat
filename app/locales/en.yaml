@@ -1,3 +1,6 @@
+#snippets
+save: 'Save!'
+#
 #app/views/main.html
 home: 'Home'
 signUp: 'Sign Up'

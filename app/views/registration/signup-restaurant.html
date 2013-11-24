@@ -111,7 +111,7 @@
         <fieldset class="span6">
             <legend><?= I18nWrapper::translate('yourRestaurant'); ?></legend>
             <div class="control-group">
-                <label class="control-label" for="restaurant"></label>
+                <label class="control-label" for="restaurant"><?= I18nWrapper::translate('nameOfRestaurant'); ?></label>
                 <div class="controls">
                     <input type="text" name="restaurant" id="restaurant" placeholder= <?= I18nWrapper::translate('nameOfRestaurant'); ?> value="<?= $user->restaurant ?>" />
 
@@ -307,8 +307,6 @@
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="place">Street & Housenumber</label>
-
                 <label class="control-label" for="place"><?= I18nWrapper::translate('streetAndHouseNumber'); ?></label>
 
                 <div class="controls">

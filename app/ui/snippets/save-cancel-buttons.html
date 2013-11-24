@@ -1,7 +1,9 @@
 <?php
+    use Scandio\lmvc\modules\i18n\I18nWrapper;
+
     $url = $params[0];
 ?>
 <div class="control-group">
-    <input class="btn btn-primary" type="submit" id="save" name="save" value="Speichern"/>
-    <a class="btn" href="<?= $url ?>">Abbrechen</a>
+    <input class="btn btn-primary" type="submit" id="save" name="save" value="<?= I18nWrapper::translate('save'); ?>"/>
+    <a class="btn" href="<?= $url ?>"><?= I18nWrapper::translate('cancel'); ?></a>
 </div>
