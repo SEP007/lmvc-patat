@@ -49,14 +49,15 @@ class Rating extends AnonymousController
             'dish_id' => $dish->id,
             'location_id' => $dishWithLoc->location_id,
             'rating' => $dish->avg_rating,
-            'int_rating' => intval($dish->avg_rating),
+            'int_rating' => round($dish->avg_rating),
             'num_votes' => $dish->num_votes
         ]);
     }
 
     private static function calculateRating ($avgRating, $custRating, $newCustRating, $numRates){
         //rating formula
-        $rating = ($avgRating*$numRates - $custRating + $newCustRating);
+        $sumRatings = $avgRating*$numRates;
+        $rating = (round($sumRatings, 1, PHP_ROUND_HALF_EVEN) - $custRating + $newCustRating);
         //check if the user has already rated this dish
         if (is_null($custRating)){
             $rating = $rating / ($numRates + 1);
