@@ -118,6 +118,7 @@
                             <div id="rating_<?= $advertisedDish->id ?>_<?= $restaurant->id ?>" class="rating_container">
                                 <?php
                             $potatoes=5;
+                            
                             $ratingLabel=array("1-Poor","2-Fair","3-Good","4-Very Good","5-Excellent");
                             for ($rated=1; $rated<=($advertisedDish->avg_rating); $rated++ ){
                                 ?>
@@ -140,12 +141,12 @@
                             <div id="avg_<?= $advertisedDish->id ?>_<?= $restaurant->id ?>" class="rating_container">
                                 &nbsp;
                                 <?= (is_null($advertisedDish->avg_rating)) ? '0.00' : $advertisedDish->avg_rating ?>
-                                (<?= (is_null($advertisedDish->num_votes)) ? '0' : $advertisedDish->num_votes ?> votes)
+                                (<?= (is_null($advertisedDish->num_votes)) ? '0' : $advertisedDish->num_votes ?> <?= I18nWrapper::translate('votes'); ?>)
                             </div>
 
-                            <?php if(Security::get()->isAuthenticated()): ?>
+                            <?php if(Security::get()->isAuthenticated() AND Security::get()->currentUser()->isInGroup("Customer") ): ?>
                             <div class="rateUs">
-                                <a id="_<?= $advertisedDish->id ?>_<?= $restaurant->id ?>" class="exp">Rate me!</a>
+                                <a id="_<?= $advertisedDish->id ?>_<?= $restaurant->id ?>" class="exp"><?= I18nWrapper::translate('rateMe'); ?></a>
                                 <div id="user_rating_<?= $advertisedDish->id ?>_<?= $restaurant->id ?>" class="rate_me_conatainer">
                                     <?php
                                 $potatoes=5;

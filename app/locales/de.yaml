@@ -15,6 +15,8 @@ findMe: 'Finde mich!'
 find: 'Suche'
 #
 #app/views/dishes/index.html
+votes:'Stimmen'
+rateMe:'Bewerten Sie mich!'
 #
 #app/views/dishes/map.html
 startWalking: 'Loslaufen, hier mussen Sie hin!'

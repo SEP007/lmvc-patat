@@ -15,6 +15,8 @@ findMe: 'Намери ме'
 find: 'Намери'
 #
 #app/views/dishes/index.html
+votes: 'гласували'
+rateMe: 'Оцени ме!'
 #
 #app/views/dishes/map.html
 startWalking: 'Пеша: това е мястото, за където сте се запътили!'
