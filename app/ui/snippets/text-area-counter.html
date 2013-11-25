@@ -25,11 +25,11 @@
     <div class="controls">
         <textarea rows="6" <?= ($disabled) ? 'disabled' : '' ?>
         name="<?= $textAreaId ?>"
-        class="<?= ($error) ? 'validation-error' : '' ?>"
         id="<?= $textAreaId ?>"
         placeholder="<?= $placeholder ?>"
 		onkeyup="update_counter('<?= $counterId ?>', '<?= $textAreaId ?>', '<?= $submitButtonId ?>', <?= $minCharCount ?>, <?= $maxCharCount ?>)"
-        ><?= $value ?></textarea>
+        style="width: 462px; height: 133px;"
+		><?= $value ?></textarea>
         <div>
 			<input class="btn btn-primary" type="submit" id="<?= $submitButtonId ?>" name="<?= $submitButtonId ?>" disabled="true" value="<?= I18nWrapper::translate('save'); ?>"/>
 			<span id="<?= $counterId ?>"> <?= $maxCharCount ?></span><span>   <?= I18nWrapper::translate('charactersLeft'); ?></span>
