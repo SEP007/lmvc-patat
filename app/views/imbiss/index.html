@@ -5,14 +5,17 @@
     use Scandio\lmvc\modules\security\Security;
     use \models\Locations;
     use Scandio\lmvc\modules\session\Session;
+    use util\Location;
+    use \models\OpenTimes;
 
     $commentsModel = new \models\Comments();
     $usersModel = new \models\Users();
 	$commentCount = 0;
-    
+
 ?>
 
 <?= UI::js(Asset::assets(['jquery.favorites.js'], ['path' => 'views'])) ?>
+<?= UI::js(Asset::assets(['jquery.time-to-get.js'], ['path' => 'views'])) ?>
 
 <div class="row-fluid content-header">
 
@@ -39,8 +42,7 @@
         <h5><a href="tel:<?= $restaurant->phone ?>"><?= $restaurant->phone ?></a></h5>
         
         <h4>Opening times</h4>
-        <div id="time-left" onClick = "calc_time(<?= $restaurant->longitude ?>,<?= Session::get("location.longitude") ?>,<?= $restaurant->latitude ?>,<?= Session::get("location.latitude") ?>)">
-        Calculating time...</div>
+        <small>You can reach this place in , but <?= OpenTimes::getTimeLeftOpen($restaurant->id); ?> </small>
         <h5>Monday - Friday: <?php $opentimes = new \models\OpenTimes();
                             	$resultopentimes = $opentimes->getOpeningTimeswd($restaurant->id); ?>
                             	 <?php foreach($resultopentimes as $selectedoptim):  ?>
@@ -289,4 +291,3 @@
 <?= UI::js(Asset::assets(['jquery.patatmap.js'], ['path' => 'plugins'])) ?>
 <?= UI::js(Asset::assets(['jquery.imbiss-index.js'], ['path' => 'views'])) ?>
 <?= UI::js(Asset::assets(['jquery.expand-collapse-list.js'], ['path' => 'views'])) ?>
-<?= UI::js(Asset::assets(['jquery.time-to-get.js'], ['path' => 'views'])) ?>
