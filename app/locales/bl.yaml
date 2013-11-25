@@ -10,6 +10,7 @@ myFavorites: 'моите любими'
 menu: 'Меню'
 logout: 'Изход'
 registerHunger: 'Регистрирай глад'
+login: 'Login'
 #
 #app/views/application/index.html
 weAreTryingToLocate: 'Опитваме се да открием местонахождението ви, моля изчакайте!'

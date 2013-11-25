@@ -10,6 +10,7 @@ myFavorites: 'Meine Favoriten'
 menu: 'Menu'
 logout: 'Abmelden'
 registerHunger: 'Hunger anmelden!'
+login: 'Anmelden'
 #
 #app/views/application/index.html
 weAreTryingToLocate: 'Wir versuchen Sie zu finden. Ruhe bewahren!'

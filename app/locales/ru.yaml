@@ -10,6 +10,7 @@ myFavorites: 'Избранные'
 menu: 'Меню'
 logout: 'Выход'
 registerHunger: 'Регистрация голода'
+login: 'Login'
 #
 #app/views/application/index.html
 weAreTryingToLocate: 'Мы пытаемся найти вас, оставайтесь на месте!'

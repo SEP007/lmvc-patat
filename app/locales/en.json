@@ -106,5 +106,6 @@
 	"needDescription": "A description is needed'",
 	"addPrice": "You might want to add a price!",
 	"validPrice": "We figured that this is not a valid price!",
-    "save": "Save!"
+    "save": "Save!",
+	"login": "Login"
 }

@@ -90,5 +90,6 @@
 	"validPrice": "Dies ist kein gültiger Preis!",
     "save": "Speichern!",
     "advertise": "Bewerben",
-    "only3Dishes": "Es können nur drei Gerichte beworben werden!"
+    "only3Dishes": "Es können nur drei Gerichte beworben werden!",
+	"login": "Anmelden"
 }

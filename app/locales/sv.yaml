@@ -10,6 +10,7 @@ myFavorites: 'Mina Favoriter'
 menu: 'Meny'
 logout: 'Logga ut'
 registerHunger: 'Registrera Hunger'
+login: 'Login'
 #
 #app/views/application/index.html
 weAreTryingToLocate: 'Vi försöker att hitta dig, stanna kvar!'

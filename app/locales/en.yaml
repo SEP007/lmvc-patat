@@ -10,6 +10,7 @@ myFavorites: 'My Favorites'
 menu: 'Menu'
 logout: 'Logout'
 registerHunger: 'Register Hunger'
+login: 'Login'
 #
 #app/views/application/index.html
 weAreTryingToLocate: 'We are trying to locate you, stay put!'

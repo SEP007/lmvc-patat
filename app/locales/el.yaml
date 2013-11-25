@@ -10,6 +10,7 @@ myFavorites: 'Τα αγαπημένα μου'
 menu: 'Μενού'
 logout: 'Έξοδος'
 registerHunger: 'Εγγραφή Πείνας'
+login: 'Login'
 #
 #app/views/application/index.html
 weAreTryingToLocate: 'Προσπαθούμε να σας εντοπίσουμε. Παραμείνετε στην θέση σας!'
