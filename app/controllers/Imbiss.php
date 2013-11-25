@@ -18,32 +18,29 @@ class Imbiss extends AnonymousController
 
         $dishesModel = new \models\Dishes();
         $usersModel = new \models\Users();
-        $sessionUser = Security::get()->currentUser();
-        $customersModel = new \models\Customers();
 
         return static::render([
             'advertisedDishes'          =>  $dishesModel->getDishesByRestaurant($handle, false, true),
             'unadvertisedDishes'        =>  $dishesModel->getDishesByRestaurant($handle, false),
-            'restaurant'                =>  $usersModel->getByHandle($handle),
-            'loggedInCustomer'          =>  $customersModel->getCustomerByUsername($sessionUser->username)
+            'restaurant'                =>  $usersModel->getByHandle($handle)
         ]);
     }
 
 	/**
 	 * Saves or cancels restaurant comment
 	 * @param handle domain name of restaurant
-	 * @param customerId id of customer that creates comment
 	 * @param locationId id of location comment is created for
 	 */
-	public static function saveRestaurantComment($handle, $customerId, $locationId)
+	public static function saveRestaurantComment($handle, $locationId)
 	{
 		$comment = new \models\Comments();
+        $customersModel = new \models\Customers();
 
 		$commentControl = static::request()->textAreaId;
 		
 		$comment->setDescription(static::request()->$commentControl);
 		$comment->setCreation_date(date("Y-m-d"));
-		$comment->setCreated_by($customerId);
+		$comment->setCreated_by($customersModel->getCustomerByUsername(Security::get()->currentUser()->username)->id);
 		$comment->setLocation_id($locationId);
 
 		$comment->save();
@@ -53,18 +50,18 @@ class Imbiss extends AnonymousController
 		/**
 	 * Saves or cancels dish comment
 	 * @param handle domain name of restaurant
-	 * @param customerId id of customer that creates comment
 	 * @param locationId id of location comment is created for
 	 */
-	public static function saveDishComment($handle, $customerId, $dishId)
+	public static function saveDishComment($handle, $dishId)
 	{
 		$comment = new \models\Comments();
+		$customersModel = new \models\Customers();
 		
 		$commentControl = static::request()->textAreaId;
         
 		$comment->setDescription(static::request()->$commentControl);
 		$comment->setCreation_date(date("Y-m-d"));
-		$comment->setCreated_by($customerId);
+		$comment->setCreated_by($customersModel->getCustomerByUsername(Security::get()->currentUser()->username)->id);
 		$comment->setDish_id($dishId);
 
 		$comment->save();

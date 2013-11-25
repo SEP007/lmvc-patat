@@ -8,6 +8,7 @@
     $commentsModel = new \models\Comments();
     $usersModel = new \models\Users();
 	$commentCount = 0;
+	$customerLoggedIn = Security::get()->currentUser()->isInGroup("Customer");
     
 ?>
 
@@ -16,7 +17,7 @@
 <div class="row-fluid content-header">
 
     <div class="span1">
-        <?php if(Security::get()->currentUser()->isInGroup("Customer")): ?>
+        <?php if($customerLoggedIn): ?>
             <?php if(Locations::isFavoriteLocation($restaurant->id)): ?>
                 <a class="favoriteloc-btn" href="#" data-locationid="<?= $restaurant->id ?>">
                     <img width=100 src="<?= Asset::image(['favorite.png']) ?>"
@@ -61,8 +62,8 @@
     $restaurantComments = $commentsModel->getCommentsByRestaurant($restaurant->id);
 ?>
 <div>
-    <?php if($loggedInCustomer != null):?>
-		<form id="<?= $commentCount ?>" method="POST" action="<?= $app->url('Imbiss::saveRestaurantComment', ['handle'=>$restaurant->handle, 'customerId'=>$loggedInCustomer->id, 'locationId'=>$restaurant->id]) ?>">
+    <?php if($customerLoggedIn): ?>
+		<form id="<?= $commentCount ?>" method="POST" action="<?= $app->url('Imbiss::saveRestaurantComment', ['handle'=>$restaurant->handle, 'locationId'=>$restaurant->id]) ?>">
 			<fieldset>
 			<?= UI::textAreaCounter($commentCount, null, null, I18nWrapper::translate('yourComment'), false, 1, 500) ?>
 			</fieldset>
@@ -136,8 +137,8 @@
 					$commentCount = $commentCount + 1;
                 ?>
                 <div>
-                    <?php if($loggedInCustomer != null):?>
-						<form id="<?= $commentCount ?>" method="POST" action="<?= $app->url('Imbiss::saveDishComment', ['handle'=>$restaurant->handle, 'customerId'=>$loggedInCustomer->id, 'DishId'=>$advertisedDish->id]) ?>">
+                    <?php if($customerLoggedIn):?>
+						<form id="<?= $commentCount ?>" method="POST" action="<?= $app->url('Imbiss::saveDishComment', ['handle'=>$restaurant->handle, 'DishId'=>$advertisedDish->id]) ?>">
 							<fieldset>
 							<?= UI::textAreaCounter($commentCount, null, null, I18nWrapper::translate('yourComment'), false, 1, 500) ?>
 							</fieldset>
@@ -235,8 +236,8 @@
 						$commentCount = $commentCount + 1;
                     ?>
                     <div>
-                        <?php if($loggedInCustomer != null):?>
-							<form id="<?= $commentCount ?>" method="POST" action="<?= $app->url('Imbiss::saveDishComment', ['handle'=>$restaurant->handle, 'customerId'=>$loggedInCustomer->id, 'DishId'=>$dish->id]) ?>">
+                        <?php if($customerLoggedIn):?>
+							<form id="<?= $commentCount ?>" method="POST" action="<?= $app->url('Imbiss::saveDishComment', ['handle'=>$restaurant->handle, 'DishId'=>$dish->id]) ?>">
 								<fieldset>
 								<?= UI::textAreaCounter($commentCount, null, null, I18nWrapper::translate('yourComment'), false, 1, 500) ?>
 								</fieldset>
