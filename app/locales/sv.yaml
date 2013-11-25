@@ -1,3 +1,6 @@
+#snippets
+save: 'Post!'
+#
 #app/views/main.html
 home: 'Hemma'
 signUp: 'Registrera dig'
@@ -20,6 +23,16 @@ find: 'Hitta'
 startWalking: 'Börja gå: det är där du är på väg!'
 showMapIn: 'Visa kartan i'
 orIn: 'eller i'
+walking: 'Walking'
+driving: 'Driving'
+chooseTravelMode: 'Choose a travel mode:'
+#
+#app/views/favorites/index.html
+places: 'Places'
+food: 'Foooooood'
+#
+#app/views/favorites/index.html
+awayFromYou: 'away from you'
 #
 #app/views/imbiss/index.html
 currentOffers: 'Aktuella erbjudanden'
@@ -30,9 +43,10 @@ weDontHaveSnacks: 'vi har inte några snacks listade!'
 #
 #app/views/menu/edit.html
 uploadImage: 'Ladda upp en bild!'
+only3Dishes: 'Endast tre rätter kan annonseras!'
+advertise: 'Annonsörer'
 #
 #app/views/menu/index.html
-#Haven't finished with this file yet
 category: 'Kategori'
 name: 'Namn'
 image: 'Bild'
@@ -51,6 +65,11 @@ userInformation: 'användarinformation'
 #app/views/registration/failure.html
 sorryRegistrationFailed: 'Tyvärr misslyckades registreringen eller konto redigering!'
 resolveProblems: 'Vi är mycket ledsna, men din registrering eller redigering av ditt konto kunde inte slutföras på grund av tekniska problem. Försöker igen kan lösa problemet.'
+#
+#app/views/registration/finish.html
+emailChecksOut: 'Hooray, your email checks out! Sign in and get loose!'
+toDishes: 'To dishes...'
+toSingIn: 'To sign in...'
 #
 #app/views/registration/signup-restaurant.html
 youAreMissingMandatoryData: 'Du saknar vissa obligatoriska uppgifter, lägg där det behövs!'
@@ -86,6 +105,21 @@ toLogin: 'För att logga in'
 #app/views/security/forbidden.html
 needToSingIn: 'Yau! Du måste logga in för att se denna information'
 restricedPage: 'Denna sida är begränsad till inloggade användare, logga in eller registrera dig först.'
+#
+#app/views/registration/signup-customer.html
+somethingIsWrong: 'Something is wrong, please edit where needed!'
+allWorkedFine: 'All worked find, you are a registered hungry person now!'
+yourProfile: 'Your Profile'
+#
+#app/views/registration/success-customer.html
+youAreSignedUpUser: 'Yay! You're signed up. Sign in and be hungry!'
+#
+#app/views/registration/success-restaurant.html
+youAreSignedUpRestaurant: 'Yay! You're signed up. Sign in and set up your restaurant!'
+toMenu: 'To menu...'
+#
+#app/views/registration/success-customer.html
+successEdit: 'Yay! All is saved. Keep on using Patat!'
 #
 #app/views/security/login.html
 ohNo: 'Oh Nej!'

@@ -29,7 +29,7 @@
             <?php foreach($groupedDishes['dishes'] as $dish): ?>
             <dd class="">
                 <div class="span1">
-                    <?php if(Security::get()->isAuthenticated()): ?>
+                    <?php if(Security::get()->currentUser()->isInGroup("Customer")): ?>
                         <?php if(in_array($dish->dish_id,$dishesFavorite)): ?>
                             <a class="favorite-btn" href="#" data-dishid="<?= $dish->dish_id ?>">
                                 <img width=100 src="<?= Asset::image(['favorite.png']) ?>"
@@ -67,6 +67,19 @@
                         <div class="span8">
                             <h4><a href="<?= $app->url('Dishes::map', $dish->user_id) ?>"><?= $dish->street ?></a></h4>
                             <h5><a href="tel:<?= $dish->phone ?>"><?= $dish->phone ?></a></h5>
+                            <h4>Opening times</h4>
+                            <h5>Monday - Friday: <?php $opentimes = new \models\OpenTimes();
+                            	$resultopentimes = $opentimes->getOpeningTimeswd($dish->id); ?>
+                            	 <?php foreach($resultopentimes as $selectedoptim):  ?>
+                            	<?= $selectedoptim->opening_time ?> - <?= $selectedoptim->closing_time ?>
+                            	<?php endforeach; ?>
+                            	</h5>
+                            <h5>Saturday & Sunday: <?php $opentimes = new \models\OpenTimes();
+                            	$resultopentimes = $opentimes->getOpeningTimeswe($dish->id); ?>
+                            	 <?php foreach($resultopentimes as $selectedoptim):  ?>
+                            	<?= $selectedoptim->opening_time ?> - <?= $selectedoptim->closing_time ?>
+                            	<?php endforeach; ?>
+                            	</h5>
                         </div>
 
                         <div class="clearfix row-fluid">

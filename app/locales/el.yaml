@@ -1,3 +1,6 @@
+#snippets
+save: 'εκτός!'
+#
 #app/views/main.html
 home: 'Αρχική Σελίδα'
 signUp: 'Εγγραφή'
@@ -20,6 +23,16 @@ find: 'Βρες'
 startWalking: 'Ξεκινήστε να περπατάτε: εκεί είναι που πηγαίνετε!'
 showMapIn: 'Δείξε χάρτη σε'
 orIn: 'ή σε'
+walking: 'Με τα πόδια'
+driving: 'Οδηγώντας'
+chooseTravelMode: 'Διαλέξτε μία μέθοδο μετάβασης:'
+#
+#app/views/favorites/index.html
+places: 'Εστιατόρια'
+food: 'Φαγητοοοοοοοό'
+#
+#app/views/favorites/index.html
+awayFromYou: 'μακριά από εσάς'
 #
 #app/views/imbiss/index.html
 currentOffers: 'Τρέχουσες προσφορές'
@@ -30,9 +43,10 @@ weDontHaveSnacks: 'δεν έχουμε καθόλου snacks!'
 #
 #app/views/menu/edit.html
 uploadImage: 'Ανέβασε φωτογραφία!'
+only3Dishes: 'Μόνο 3 πιάτα μπορούν να διαφημιστούν!'
+advertise: 'Διαφημίστε'
 #
 #app/views/menu/index.html
-#Haven't finished with this file yet
 category: 'Κατηγορία'
 name: 'Όνομα'
 image: 'Φωτογραφία'
@@ -51,6 +65,11 @@ userInformation: 'Πληροφορίες χρήστη'
 #app/views/registration/failure.html
 sorryRegistrationFailed: 'Συγγνώμη, αλλά η εγραφή ή επεξεργασία του λογαριασμού σας απέτυχε!'
 resolveProblems: 'Λυπούμαστε πολύ, αλλά η εγγραφή σας ή η επεξεργασία του λογαριασμού σας δεν μπορούσε να ολοκληρωθεί λόγω τεχνικών προβλημάτων. Ξαναπροσπαθώντας μπορεί να λυθεί το πρόβλημα.'
+#
+#app/views/registration/finish.html
+emailChecksOut: 'Ζήτω! Το email σας είναι σωστό! Συνδεθείτε και χαλαρώστε!'
+toDishes: 'Πιάτα...'
+toSingIn: 'Για να συνδεθείτε...'
 #
 #app/views/registration/signup-restaurant.html
 youAreMissingMandatoryData: 'Σας λείπουν υποχρεωτικά δεδομένα, παρακαλώ προσθέστε τα όπου χρειάζονται!'
@@ -86,6 +105,21 @@ toLogin: 'Σύνδεση'
 #app/views/security/forbidden.html
 needToSingIn: 'Yau! Πρέπει να συνδεθείτε για να δείτε αυτές τις πληροφορίες'
 restricedPage: 'Αυτή η σελίδα είναι προσβάσιμη σε συνδεδεμένους χρήστες μόνο, παρακαλώ συνδεθείτε ή εγγραφείτε πρώτα.'
+#
+#app/views/registration/signup-customer.html
+somethingIsWrong: 'Something is wrong, please edit where needed!'
+allWorkedFine: 'All worked find, you are a registered hungry person now!'
+yourProfile: 'Your Profile'
+#
+#app/views/registration/success-customer.html
+youAreSignedUpUser: 'Yay! You're signed up. Sign in and be hungry!'
+#
+#app/views/registration/success-customer.html
+youAreSignedUpRestaurant: 'Yay! You're signed up. Sign in and set up your restaurant!'
+toMenu: 'To menu...'
+#
+#app/views/registration/success-customer.html
+successEdit: 'Yay! All is saved. Keep on using Patat!'
 #
 #app/views/security/login.html
 ohNo: 'Ωχ όχι!'
