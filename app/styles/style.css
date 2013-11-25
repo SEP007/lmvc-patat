@@ -113,12 +113,30 @@ dl {
   overflow-x: hidden;
   overflow-y: auto; }
 
-@media (max-width: 767px) {
+@media (max-width: 979px) {
   h1 {
-    line-height: 35px; } }
-@media (max-width: 480px) {
+    line-height: 35px;
+    text-align: left;
+  }
+  dl dd .description .price, dl dd .description .distance {
+    display: block;
+    margin-top: 15px;
+    float: none;
+  }
   .ios-list-wrap .pagination {
-    display: none; } }
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  dl dd .description .price, dl dd .description .distance {
+    float: right;
+  }
+  .dish-description {
+    width: 80% !important;
+  }
+}
+
 body {
   background-color: #fffbeb;
   margin: 0;
@@ -180,11 +198,17 @@ header .bar-right {
 footer {
   height: 10%;
   margin-bottom: 25px; }
-  
+
+.languages {
+    min-height: 30px;
+    margin: 5px 0;
+    background: #FFF5D2; }
+
 .languages ul { 
 	margin: 4px;
 	padding: 0;
-	list-style-type: none; }
+	list-style-type: none;
+    text-align: center; }
 
 .languages ul li { 
 	display: inline; }
@@ -280,4 +304,13 @@ footer {
     bottom:0px;
     width:40%;
     height:40%;
+}
+
+@media (max-width: 767px) {
+  .span1.component-favorite {
+     width: 50px;
+  }
+  .span1.component-favorite img {
+     margin: 30px 15px 0 0;
+  }
 }
