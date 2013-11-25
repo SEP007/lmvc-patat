@@ -15,10 +15,28 @@ function prepareList() {
         .children('ul').hide();
 };
 
+/**************************************************************/
+/* Adds toggle functionality for rating  */
+/**************************************************************/
+function toggleRating() {
+    $('.rateUs').find("a[class*='exp']")
+        .click( function(event) {
+            if (this == event.target) {
+                var $this = $(this);
+                var container = $('#user_rating' + $this.get(0).id);
+                container.toggleClass('expanded');
+                container.toggle();
+            }
+            return false;
+        });
+    $('.rate_me_conatainer').addClass('collapsed');
+    $('.rate_me_conatainer').hide();
+};
 
 /**************************************************************/
 /* Functions to execute on loading the document               */
 /**************************************************************/
 $(document).ready( function() {
-    prepareList()
+    prepareList();
+    toggleRating();
 });

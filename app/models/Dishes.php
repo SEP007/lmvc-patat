@@ -132,7 +132,7 @@ class Dishes
                                 Radians(longitude) - Radians(' . $longitude . ')) + Sin
                                 (Radians(' . $latitude . ')) * Sin(Radians(latitude)))
                         ), 4 ) AS distance,
-                        Dishes.id as dish_id, Users.id as user_id
+                         Dishes.id as dish_id, Users.id as user_id, Locations.id as location_id
                     ')
             ->innerJoin(new Users(), 'Dishes.user_id = Users.id')
             ->innerJoin(new Locations(), 'Locations.user_id = Users.id')
@@ -225,4 +225,24 @@ class Dishes
 
         return $dishes;
     }
+
+    public static function getDish($dishId) {
+        $dishes = static::query()
+            ->select('*')
+            ->where('id = :dishId', ['dishId' => $dishId])
+            ->all();
+
+        return empty($dishes) ? null : $dishes[0];
+    }
+
+    public static function getDishWithLocation($dishId) {
+        $dishes = static::query()
+            ->select('*, Dishes.id as dish_id, Locations.id as location_id')
+            ->innerJoin(new Locations(), 'Dishes.user_id = Locations.user_id')
+            ->where('Dishes.id = :dishId', ['dishId' => $dishId])
+            ->all();
+
+        return empty($dishes) ? null : $dishes[0];
+    }
+
 }

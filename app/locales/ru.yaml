@@ -18,6 +18,8 @@ findMe: 'Найти меня'
 find: 'Найти'
 #
 #app/views/dishes/index.html
+votes: 'голосов'
+rateMe: 'Оценить меня!'
 #
 #app/views/dishes/map.html
 startWalking: 'Начать путь: это куда вы направляетесь!'

@@ -2,6 +2,8 @@
     use ui\UI;
     use Scandio\lmvc\modules\assetpipeline\view\Asset;
     use Scandio\lmvc\modules\security\Security;
+    use Scandio\lmvc\modules\i18n\I18nWrapper;
+
 ?>
 
 <?= UI::js(Asset::assets(['jquery.favorites.js'], ['path' => 'views'])) ?>
@@ -96,6 +98,62 @@
                             </p>
                         </div>
                     </div>
+                    <div id="rating_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" class="rating_container">
+                        <?php
+                            $potatoes=5;
+                            $ratingLabel=array("1-Poor","2-Fair","3-Good","4-Very Good","5-Excellent");
+                            for ($rated=1; $rated<=($dish->avg_rating); $rated++ ){
+                        ?>
+                        <input id="inp_<?= $dish->dish_id ?>_<?= $dish->location_id ?>_<?= $rated ?>" name="potato_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" type="radio"
+                               class="potato required" style="display: none;" disabled="disabled" checked="checked" value="<?= $ratingLabel[$rated-1] ?>">
+                        <?php
+                                $potatoes--;
+                            }
+                            if($potatoes!=0):
+                                $nonRated = (is_null($dish->avg_rating)) ? 0 : intval($dish->avg_rating);
+                        for (; $nonRated<5; $nonRated++ ){
+                        ?>
+                        <input id="inp_<?= $dish->dish_id ?>_<?= $dish->location_id ?>_<?= ($nonRated + 1) ?>" name="potato_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" type="radio"
+                               class="potato required" style="display: none;" disabled="disabled" value="<?= $ratingLabel[$nonRated] ?>">
+                        <?php
+                                $potatoes--; }
+                            endif;
+                        ?>
+                    </div>
+                    <div id="avg_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" class="rating_container">
+                        &nbsp;
+                        <?= (is_null($dish->avg_rating)) ? '0.00' : $dish->avg_rating ?>
+                        (<?= (is_null($dish->num_votes)) ? '0' : $dish->num_votes ?> <?= I18nWrapper::translate('votes'); ?>)
+                    </div>
+
+                    <?php if(Security::get()->isAuthenticated() AND Security::get()->currentUser()->isInGroup("Customer")): ?>
+                    <div class="rateUs">
+                        <a id="_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" class="exp"><?= I18nWrapper::translate('rateMe'); ?></a>
+                        <div id="user_rating_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" class="rate_me_conatainer">
+                            <?php
+                                $potatoes=5;
+                                $dishCustomerRating = $dishesRatingMap[$dish->dish_id];
+                            for ($rated=1; $rated<=($dishCustomerRating); $rated++ ){
+                            ?>
+                            <input name="user_potato_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" type="radio"
+                                   class="potato required" style="display: none;" checked="checked" value="<?= $ratingLabel[$rated-1] ?>">
+                            <?php
+                                    $potatoes--;
+                                }
+                                if($potatoes!=0):
+                                    $nonRated = (is_null($dishCustomerRating)) ? 0 : $dishCustomerRating;
+                                    for(; $nonRated<5; $nonRated++ ){
+                            ?>
+                            <input name="user_potato_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" type="radio"
+                                   class="potato required" style="display: none;" value="<?= $ratingLabel[$nonRated] ?>">
+                            <?php
+                                    $potatoes--;
+                                }
+                                endif;
+                            ?>
+                        </div>
+                    </div>
+                    <?php endif ?>
                 </div>
             </dd>
             <?php endforeach; ?>
@@ -104,3 +162,7 @@
         </dl>
     </div>
 </div>
+
+<?= UI::js(Asset::assets(['jquery.rating.js'], ['path' => 'plugins'])) ?>
+<?= UI::js(Asset::assets(['jquery.MetaData.js'], ['path' => 'plugins'])) ?>
+<?= UI::js(Asset::assets(['jquery.expand-collapse-list.js'], ['path' => 'views'])) ?>
