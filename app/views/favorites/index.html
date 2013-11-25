@@ -56,7 +56,12 @@
                         </div>
 
                         <div class="clearfix row-fluid">
-                            <h2><?= $dish->name ?> <span class="price"><?= $dish->price ?> €</span></h2>
+                            <h2>
+                                <?= $dish->name ?>
+                                <span class="price">
+                                    <small>Price:</small> <?= $dish->price ?> €
+                                </span>
+                            </h2>
                             <?php if($dish->category_id != null): ?>
                             <div class="span8">
                                 <h4>
@@ -64,7 +69,7 @@
                                 </h4>
                             </div>
                             <?php endif ?>
-                            <p class="span8">
+                            <p class="span8 dish-description">
                                 <?= $dish->description ?>
                             </p>
                         </div>
