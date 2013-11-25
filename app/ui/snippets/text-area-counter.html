@@ -1,18 +1,22 @@
 <?php
     use ui\UI;
     use Scandio\lmvc\modules\assetpipeline\view\Asset;
+    use Scandio\lmvc\modules\i18n\I18nWrapper;
 	
+	// parameters
     $name = (isset($params[0]) ? $params[0] : null);
     $label = (isset($params[1]) ? $params[1] : null);
     $value = (isset($params[2]) ? $params[2] : null);
-    $error = (isset($params[3]) ? $params[3] : array());
-    $placeholder = (isset($params[4]) ? $params[4] : '');
-    $disabled = (isset($params[5]) ? $params[5] : false);
+    $placeholder = (isset($params[3]) ? $params[3] : '');
+    $disabled = (isset($params[4]) ? $params[4] : false);
+	$minCharCount = (isset($params[5]) ? $params[5] : 0);
     $maxCharCount = (isset($params[6]) ? $params[6] : 0);
-	$controlCount = (isset($params[7]) ? $params[7] :0);
 	
-	$counterId = 'text_counter' . $controlCount;
-	$textAreaId = $name . $controlCount;
+	// control ids
+	// ids have to be unique, that is why it is concatenated with the name
+	$textAreaId = 'comment' . $name;	
+	$counterId = 'text_counter' . $name;
+	$submitButtonId = 'submit' .$name;
 ?>
 <div class="control-group <?= $name ?>" xmlns="http://www.w3.org/1999/html">
     <?php if($label): ?>
@@ -24,13 +28,14 @@
         class="<?= ($error) ? 'validation-error' : '' ?>"
         id="<?= $textAreaId ?>"
         placeholder="<?= $placeholder ?>"
-		onkeyup="update_counter('<?= $counterId ?>', '<?= $textAreaId ?>', <?= $maxCharCount ?>)"
+		onkeyup="update_counter('<?= $counterId ?>', '<?= $textAreaId ?>', '<?= $submitButtonId ?>', <?= $minCharCount ?>, <?= $maxCharCount ?>)"
         ><?= $value ?></textarea>
-        <?php foreach ($error as $validator => $message): ?>
-            <span class="help-inline <?= $validator ?>"><?= $message ?></span>
-        <?php endforeach ?>
-        <div id="<?= $counterId ?>"> <?= $maxCharCount ?></div>
-    </div>
+        <div>
+			<input class="btn btn-primary" type="submit" id="<?= $submitButtonId ?>" name="<?= $submitButtonId ?>" disabled="true" value="<?= I18nWrapper::translate('save'); ?>"/>
+			<span id="<?= $counterId ?>"> <?= $maxCharCount ?></span><span>   <?= I18nWrapper::translate('charactersLeft'); ?></span>
+		</div>
+		<input type="hidden" name="textAreaId" value="<?= $textAreaId ?>">
+	</div>
 </div>
 
 <?= UI::js(Asset::assets(['jquery.character-counter.js'], ['path' => 'ui'])) ?>

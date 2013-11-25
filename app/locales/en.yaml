@@ -47,6 +47,7 @@ noComments: 'No comments'
 toggleComments: 'Toggle comments'
 commentCreatedAt: 'Created at'
 commentCreatedBy: 'by'
+charactersLeft: 'characters left'
 #
 #app/views/menu/edit.html
 uploadImage: 'Upload image!'

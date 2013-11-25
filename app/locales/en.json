@@ -113,5 +113,6 @@
 	"noComments": "No comments",
 	"toggleComments": "Toggle comments",
 	"commentCreatedAt": "Created at",
-	"commentCreatedBy": "by"
+	"commentCreatedBy": "by",
+	"charactersLeft": "characters left"
 }

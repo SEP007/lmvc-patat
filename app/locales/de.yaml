@@ -47,6 +47,7 @@ noComments: 'Keine Kommentare'
 toggleComments: 'Kommentare ein-/ausblenden'
 commentCreatedAt: 'Erstellt am'
 commentCreatedBy: 'durch'
+charactersLeft: 'Zeichen übrig'
 #
 #app/views/menu/edit.html
 uploadImage: 'Bild hochladen!'

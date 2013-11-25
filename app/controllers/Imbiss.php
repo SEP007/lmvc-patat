@@ -34,19 +34,17 @@ class Imbiss extends AnonymousController
 	 * @param handle domain name of restaurant
 	 * @param customerId id of customer that creates comment
 	 * @param locationId id of location comment is created for
-	 * @param commentControl name of control comment description is stored in
 	 */
-	public static function saveRestaurantComment($handle, $customerId, $locationId, $commentControl)
+	public static function saveRestaurantComment($handle, $customerId, $locationId)
 	{
-		$isPost = static::request()->save;
 		$comment = new \models\Comments();
 
-        if ($isPost) {
-            $comment->setDescription(static::request()->$commentControl);
-            $comment->setCreation_date(date("Y-m-d"));
-            $comment->setCreated_by($customerId);
-            $comment->setLocation_id($locationId);
-        }
+		$commentControl = static::request()->textAreaId;
+		
+		$comment->setDescription(static::request()->$commentControl);
+		$comment->setCreation_date(date("Y-m-d"));
+		$comment->setCreated_by($customerId);
+		$comment->setLocation_id($locationId);
 
 		$comment->save();
 		return static::redirect('Imbiss::index', $handle);
@@ -57,19 +55,17 @@ class Imbiss extends AnonymousController
 	 * @param handle domain name of restaurant
 	 * @param customerId id of customer that creates comment
 	 * @param locationId id of location comment is created for
-	 * @param commentControl name of control comment description is stored in
 	 */
-	public static function saveDishComment($handle, $customerId, $dishId, $commentControl)
+	public static function saveDishComment($handle, $customerId, $dishId)
 	{
-		$isPost = static::request()->save;
 		$comment = new \models\Comments();
-
-        if ($isPost) {
-            $comment->setDescription(static::request()->$commentControl);
-            $comment->setCreation_date(date("Y-m-d"));
-            $comment->setCreated_by($customerId);
-            $comment->setDish_id($dishId);
-        }
+		
+		$commentControl = static::request()->textAreaId;
+        
+		$comment->setDescription(static::request()->$commentControl);
+		$comment->setCreation_date(date("Y-m-d"));
+		$comment->setCreated_by($customerId);
+		$comment->setDish_id($dishId);
 
 		$comment->save();
 		return static::redirect('Imbiss::index', $handle);

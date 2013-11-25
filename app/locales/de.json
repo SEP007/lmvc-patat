@@ -97,5 +97,6 @@
 	"noComments": "Keine Kommentare",
 	"toggleComments": "Kommentare ein-/ausblenden",
 	"commentCreatedAt": "Erstellt am",
-	"commentCreatedBy": "durch"
+	"commentCreatedBy": "durch",
+	"charactersLeft": "Zeichen übrig"
 }

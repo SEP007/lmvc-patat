@@ -62,10 +62,9 @@
 ?>
 <div>
     <?php if($loggedInCustomer != null):?>
-		<form id="comment-form" method="POST" action="<?= $app->url('Imbiss::saveRestaurantComment', ['handle'=>$restaurant->handle, 'customerId'=>$loggedInCustomer->id, 'locationId'=>$restaurant->id, 'commentControl'=>('comment' . $commentCount)]) ?>">
+		<form id="<?= $commentCount ?>" method="POST" action="<?= $app->url('Imbiss::saveRestaurantComment', ['handle'=>$restaurant->handle, 'customerId'=>$loggedInCustomer->id, 'locationId'=>$restaurant->id]) ?>">
 			<fieldset>
-			<?= UI::textAreaCounter('comment', null, null, $errors['comment'], I18nWrapper::translate('yourComment'), false, 500, $commentCount++) ?>
-			<?= UI::saveCancelButtons($app->url('Imbiss::index', $restaurant->handle)) ?>
+			<?= UI::textAreaCounter($commentCount, null, null, I18nWrapper::translate('yourComment'), false, 1, 500) ?>
 			</fieldset>
         </form>
     <?php else :?>
@@ -134,13 +133,13 @@
 
                 <?php
                     $dishComments = $commentsModel->getCommentsByDish($advertisedDish->id);
+					$commentCount = $commentCount + 1;
                 ?>
                 <div>
                     <?php if($loggedInCustomer != null):?>
-						<form id="comment-form" method="POST" action="<?= $app->url('Imbiss::saveDishComment', ['handle'=>$restaurant->handle, 'customerId'=>$loggedInCustomer->id, 'DishId'=>$advertisedDish->id, 'commentControl'=>('comment' . $commentCount)]) ?>">
+						<form id="<?= $commentCount ?>" method="POST" action="<?= $app->url('Imbiss::saveDishComment', ['handle'=>$restaurant->handle, 'customerId'=>$loggedInCustomer->id, 'DishId'=>$advertisedDish->id]) ?>">
 							<fieldset>
-							<?= UI::textAreaCounter('comment', null, null, $errors['comment'], I18nWrapper::translate('yourComment'), false, 500, $commentCount++) ?>
-							<?= UI::saveCancelButtons($app->url('Imbiss::index', $restaurant->handle)) ?>
+							<?= UI::textAreaCounter($commentCount, null, null, I18nWrapper::translate('yourComment'), false, 1, 500) ?>
 							</fieldset>
 						</form>
                     <?php else :?>
@@ -233,13 +232,13 @@
 
                     <?php
                         $dishComments = $commentsModel->getCommentsByDish($dish->id);
+						$commentCount = $commentCount + 1;
                     ?>
                     <div>
                         <?php if($loggedInCustomer != null):?>
-							<form id="comment-form" method="POST" action="<?= $app->url('Imbiss::saveDishComment', ['handle'=>$restaurant->handle, 'customerId'=>$loggedInCustomer->id, 'DishId'=>$dish->id, 'commentControl'=>('comment' . $commentCount)]) ?>">
+							<form id="<?= $commentCount ?>" method="POST" action="<?= $app->url('Imbiss::saveDishComment', ['handle'=>$restaurant->handle, 'customerId'=>$loggedInCustomer->id, 'DishId'=>$dish->id]) ?>">
 								<fieldset>
-								<?= UI::textAreaCounter('comment', null, null, $errors['comment'], I18nWrapper::translate('yourComment'), false, 500, $commentCount++) ?>
-								<?= UI::saveCancelButtons($app->url('Imbiss::index', $restaurant->handle)) ?>
+								<?= UI::textAreaCounter($commentCount, null, null, I18nWrapper::translate('yourComment'), false, 1, 500) ?>
 								</fieldset>
 							</form>
                         <?php else :?>
