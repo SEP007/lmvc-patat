@@ -42,7 +42,7 @@
         <h5><a href="tel:<?= $restaurant->phone ?>"><?= $restaurant->phone ?></a></h5>
         
         <h4>Opening times</h4>
-        <small>You can reach this place in , but <?= OpenTimes::getTimeLeftOpen($restaurant->id); ?> </small>
+        <small>You can reach this place in <span id="time-left" data-longitude="<?= $restaurant->longitude ?>" data-latitude="<?= $restaurant->latitude ?>"></span>, but <?= OpenTimes::getTimeLeftOpen($restaurant->id); ?> </small>
         <h5>Monday - Friday: <?php $opentimes = new \models\OpenTimes();
                             	$resultopentimes = $opentimes->getOpeningTimeswd($restaurant->id); ?>
                             	 <?php foreach($resultopentimes as $selectedoptim):  ?>
