@@ -12,7 +12,7 @@ function update_counter(counterId, textAreaId, submitButtonId, minLength, maxLen
     var textElem = document.getElementById(textAreaId);
 	var submitElem = document.getElementById(submitButtonId);
 	var len = textElem.value.length;
-    var val = maxLength - textElem.value.length;
+    var val = maxLength - len;
     
 	// update counter
 	counterElem.innerHTML = val; 
