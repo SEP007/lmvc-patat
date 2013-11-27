@@ -26,7 +26,7 @@
 	"moreSnacks": "More snacks",
 	"weDontHaveSnacks": "we do not have any snacks listed!'",
 	"uploadImage": "Upload image!'",
-	"only3Dishes": "Only 3 dishes",
+	"only3Dishes": "Only 3 dishes can be advertised!",
 	"advertise": "Advertise",
 	"category": "Category",
 	"name": "Name",
@@ -105,5 +105,6 @@
 	"shortDescription": "seems too short!",
 	"needDescription": "A description is needed'",
 	"addPrice": "You might want to add a price!",
-	"validPrice": "We figured that this is not a valid price!"
+	"validPrice": "We figured that this is not a valid price!",
+    "save": "Save!"
 }

@@ -20,14 +20,7 @@ sh scripts/composer.sh
 
 if [ "$SET_CHMOD" == true ]
    then
-      echo "3.) Setting chmods for caching directories..."
-      chmod 0777 app/coffeescript/_cache
-      chmod 0777 app/javascripts/_cache
-      chmod 0777 app/img/_cache
-      chmod 0777 app/styles/_cache
-      chmod 0777 app/fonts/_cache
-      chmod 0777 app/markdown/_cache
-      chmod 0777 app/logs
+      sh scripts/permissions.sh
 else
       echo "3.) NOT setting any chmods for caching directories..."
 fi

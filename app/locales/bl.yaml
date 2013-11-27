@@ -1,3 +1,6 @@
+#snippets
+save: 'спасяване!'
+#
 #app/views/main.html
 home: 'Начало'
 signUp: 'Регистрирай се'
@@ -40,8 +43,8 @@ weDontHaveSnacks: 'не разполагаме с никакви закуски!
 #
 #app/views/menu/edit.html
 uploadImage: 'Прикачи изображение!'
-only3Dishes: 'Only three dishes can be advertised!'
-advertise: 'Advertise'
+only3Dishes: 'Само три ястия могат да се рекламират!'
+advertise: 'рекламирам'
 #
 #app/views/menu/index.html
 category: 'категория'
