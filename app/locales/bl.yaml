@@ -40,6 +40,10 @@ sorry: 'Съжаляваме,'
 weDontHaveOffers: 'нямаме оферти в момента!'
 moreSnacks: 'Още закуски'
 weDontHaveSnacks: 'не разполагаме с никакви закуски!'
+youCanReachThisPlaceIn: 'You can reach this place in '
+but: 'but'
+thisPlaceIsNowClosed:'this place is closed'
+itClosesIn: 'it closes in'
 #
 #app/views/menu/edit.html
 uploadImage: 'Прикачи изображение!'

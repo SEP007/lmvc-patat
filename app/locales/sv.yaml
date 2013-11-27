@@ -40,6 +40,10 @@ sorry: 'Ledsen,'
 weDontHaveOffers: 'vi har inga erbjudanden just nu!'
 moreSnacks: 'Fler mellanmål'
 weDontHaveSnacks: 'vi har inte några snacks listade!'
+youCanReachThisPlaceIn: 'You can reach this place in '
+but: 'but'
+thisPlaceIsNowClosed:'this place is closed'
+itClosesIn: 'it closes in'
 #
 #app/views/menu/edit.html
 uploadImage: 'Ladda upp en bild!'

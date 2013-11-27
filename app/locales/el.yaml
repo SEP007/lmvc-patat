@@ -40,6 +40,10 @@ sorry: 'Συγγνώμη,'
 weDontHaveOffers: 'δεν έχουμε προσφορές αυτή την στιγμή!'
 moreSnacks: 'Περισσότερα snacks'
 weDontHaveSnacks: 'δεν έχουμε καθόλου snacks!'
+youCanReachThisPlaceIn: 'You can reach this place in '
+but: 'but'
+thisPlaceIsNowClosed:'this place is closed'
+itClosesIn: 'it closes in'
 #
 #app/views/menu/edit.html
 uploadImage: 'Ανέβασε φωτογραφία!'

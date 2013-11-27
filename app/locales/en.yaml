@@ -40,6 +40,10 @@ sorry: 'Sorry,'
 weDontHaveOffers: 'we do not have any offers at the moment!'
 moreSnacks: 'More snacks'
 weDontHaveSnacks: 'we do not have any snacks listed!'
+youCanReachThisPlaceIn: 'You can reach this place in '
+but: 'but'
+thisPlaceIsClosed: 'this place is closed'
+itClosesIn: 'it closes in'
 #
 #app/views/menu/edit.html
 uploadImage: 'Upload image!'

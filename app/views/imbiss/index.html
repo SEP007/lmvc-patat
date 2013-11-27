@@ -11,11 +11,11 @@
     $commentsModel = new \models\Comments();
     $usersModel = new \models\Users();
 	$commentCount = 0;
+	$diff = OpenTimes::getTimeLeftOpen($restaurant->id);
 
 ?>
 
-<?= UI::js(Asset::assets(['jquery.favorites.js'], ['path' => 'views'])) ?>
-<?= UI::js(Asset::assets(['jquery.time-to-get.js'], ['path' => 'views'])) ?>
+<?= UI::js(Asset::assets(['jquery.favorites.js', 'jquery.time-to-get.js' ], ['path' => 'views'])) ?>
 
 <div class="row-fluid content-header">
 
@@ -42,7 +42,12 @@
         <h5><a href="tel:<?= $restaurant->phone ?>"><?= $restaurant->phone ?></a></h5>
         
         <h4>Opening times</h4>
-        <small>You can reach this place in <span id="time-left" data-longitude="<?= $restaurant->longitude ?>" data-latitude="<?= $restaurant->latitude ?>"></span>, but <?= OpenTimes::getTimeLeftOpen($restaurant->id); ?> </small>
+        <small><?= I18nWrapper::translate('youCanReachThisPlaceIn'); ?><span id="time-left" data-longitude="<?= $restaurant->longitude ?>" data-latitude="<?= $restaurant->latitude ?>"></span>, <?= I18nWrapper::translate('but'); ?>
+            <?php if ($diff == null): ?>
+                <?= I18nWrapper::translate('thisPlaceIsClosed'); ?> </small>
+            <?php else: ?>
+                <?= I18nWrapper::translate('itClosesIn'); ?> <?= $diff?></small>
+            <?php endif ?>
         <h5>Monday - Friday: <?php $opentimes = new \models\OpenTimes();
                             	$resultopentimes = $opentimes->getOpeningTimeswd($restaurant->id); ?>
                             	 <?php foreach($resultopentimes as $selectedoptim):  ?>
@@ -289,5 +294,4 @@
 
 <?= UI::js(Asset::assets(['gmaps.js'])) ?>
 <?= UI::js(Asset::assets(['jquery.patatmap.js'], ['path' => 'plugins'])) ?>
-<?= UI::js(Asset::assets(['jquery.imbiss-index.js'], ['path' => 'views'])) ?>
-<?= UI::js(Asset::assets(['jquery.expand-collapse-list.js'], ['path' => 'views'])) ?>
+<?= UI::js(Asset::assets(['jquery.imbiss-index.js', 'jquery.expand-collapse-list.js'], ['path' => 'views'])) ?>

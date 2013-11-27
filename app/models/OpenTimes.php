@@ -98,13 +98,13 @@ class OpenTimes
         $closingtime = static::getOpeningTimeToday($restaurantid)->closing_time;
         if (strtotime($currenttime) > strtotime($closingtime))
         {
-            return "it is now closed.";
+            return null;
         }
         else
         {
             $diff = gmdate("H",strtotime($closingtime)-strtotime($currenttime)) . " h " .
                 gmdate("i",strtotime($closingtime)-strtotime($currenttime)) . " min";
-            return "it closes in ".$diff;
+            return $diff;
         }
     }
 
