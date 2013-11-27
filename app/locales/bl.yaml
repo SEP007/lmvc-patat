@@ -14,6 +14,7 @@ youCanAlsoSpecifyYourAddress: 'Можете също да посочите ад�
 findMe: 'Намери ме'
 find: 'Намери'
 canNotLocateUser: 'Ние не може да ви намери, може да бъде по-конкретен!'
+noLocationGiven: 'Please specify an address, otherwise we can‘t locate you!'
 #
 #app/views/dishes/index.html
 #

@@ -14,6 +14,7 @@ youCanAlsoSpecifyYourAddress: '...you can also specify your address'
 findMe: 'Find me'
 find: 'Find'
 canNotLocateUser: 'We can not locate you, maybe be less specific!'
+noLocationGiven: 'Please specify an address, otherwise we can‘t locate you!'
 #
 #app/views/dishes/index.html
 #

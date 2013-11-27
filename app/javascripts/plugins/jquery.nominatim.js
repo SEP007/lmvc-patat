@@ -6,7 +6,8 @@
             dishesAction: "dishes/",
             searchBtn: "#search-long-lat",
             findPatatBtn: "#findpatat",
-            errorBar: "#js-user-not-located",
+            errorBarNotLocated: "#js-user-not-located",
+            errorBarNoLocation: "#js-no-location",
             resultElems: {
                 latitude: "#latitude",
                 longitude: "#longitude"
@@ -47,8 +48,19 @@
                 searchBtn: this.$element.find(this.settings.searchBtn),
                 findPatatBtn: this.$element.find(this.settings.findPatatBtn),
 
-                errorBar: this.$element.find(this.settings.errorBar)
+                errorBarNotLocated: this.$element.find(this.settings.errorBarNotLocated),
+                errorBarNoLocation: this.$element.find(this.settings.errorBarNoLocation)
             };
+        },
+        validateInputs: function() {
+            if (
+                this.cachedElems.country.val() == 0 &&
+                this.cachedElems.zip.val() == 0 &&
+                this.cachedElems.city.val() == 0 &&
+                this.cachedElems.place.val() == 0
+            ) { return false; }
+
+            return true;
         },
         findLocation: function() {
             var that = this;
@@ -89,7 +101,13 @@
                 // 13 is enter key's code
                 if(code === 13) {
                     e.preventDefault();
-                    that.requestLongLat();
+
+                    if (that.validateInputs() === true) {
+                        that.requestLongLat();
+                    } else {
+                        that.cachedElems.errorBarNoLocation.removeClass('hidden');
+                        that.cachedElems.errorBarNotLocated.addClass('hidden');
+                    }
                 }
             });
         },
@@ -114,7 +132,8 @@
 
             // if he is redirect, otherwise show error
             if (isUserLocated === false) {
-                this.cachedElems.errorBar.removeClass('hidden');
+                this.cachedElems.errorBarNoLocation.addClass('hidden');
+                this.cachedElems.errorBarNotLocated.removeClass('hidden');
             } else {
                 this.cachedElems.findPatatBtn.removeAttr("disabled");
 
