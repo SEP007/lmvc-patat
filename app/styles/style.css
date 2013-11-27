@@ -318,3 +318,22 @@ footer {
      margin: 30px 15px 0 0;
   }
 }
+
+#tabs {
+    margin: 0;
+    font-family: 'Benthem-Regular';
+}
+
+#tabs .navbar-inner {
+    height: 30px;
+    min-height: 30px;
+}
+
+#tabs li a {
+    border: 1px solid black;
+    background: #FFF5D2;
+}
+
+#tabs li.active a {
+    background: #E36B23;
+}
