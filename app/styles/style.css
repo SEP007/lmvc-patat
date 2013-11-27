@@ -90,10 +90,12 @@ dl {
       padding-left: 10px; }
     dl dd .description .price, dl dd .description .distance {
       float: right;
+      padding-top: 15px;
       font-family: Baskerville;
       font-size: .8em;
-      font-weight: bold;
-      font-style: italic; }
+      font-weight: bold; }
+    dl dd .description .price {
+        padding-top: 10px; }
       dl dd .description .price small, dl dd .description .distance small {
         display: block; }
     dl dd img {
