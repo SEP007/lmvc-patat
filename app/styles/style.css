@@ -122,8 +122,12 @@ dl {
   }
   dl dd .description .price, dl dd .description .distance {
     display: block;
+    padding-top: 0;
     margin-top: 15px;
     float: none;
+  }
+  dl dd .description .price {
+    padding-top: 0;
   }
   .ios-list-wrap .pagination {
     display: none;
@@ -136,6 +140,9 @@ dl {
   }
   .dish-description {
     width: 80% !important;
+  }
+  dl dd .description .price {
+    padding-top: 0;
   }
 }
 
@@ -318,6 +325,9 @@ footer {
   }
   .span1.component-favorite img {
      margin: 30px 15px 0 0;
+  }
+  .up-btn {
+     display: none;
   }
 }
 
