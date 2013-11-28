@@ -5,13 +5,18 @@
     $error = (isset($params[3]) ? $params[3] : array());
     $placeholder = (isset($params[4]) ? $params[4] : '');
     $disabled = (isset($params[5]) ? $params[5] : false);
+    $mandatory = (isset($params[6]) ? $params[6] : false);
 ?>
 <div class="control-group <?= $name ?>" xmlns="http://www.w3.org/1999/html">
     <?php if($label): ?>
     <label class="control-label <?= $name ?>" for="<?= $name ?>"><?= $label ?></label>
     <?php endif ?>
     <div class="controls">
-        <textarea rows="6" <?= ($disabled) ? 'disabled' : '' ?>
+    	<?php if($mandatory): ?>
+        	<textarea id="mandatory" rows="6" <?= ($disabled) ? 'disabled' : '' ?>
+       <?php else: ?>
+       		<textarea rows="6" <?= ($disabled) ? 'disabled' : '' ?>
+       	<?php endif ?>
         name="<?= $name ?>"
         class="<?= ($error) ? 'validation-error' : '' ?>"
         id="<?= $name ?>"

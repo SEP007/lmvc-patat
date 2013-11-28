@@ -92,4 +92,12 @@
     "advertise": "рекламировать",
     "only3Dishes": "Можно рекламировать только 3 блюда!",
 	"login": "Login"
+	"yourComment": "Your comment ...",
+	"commentDisabled": "Only logged in customers can leave comments.",
+	"navigateToLogin": "To log-in ...",
+	"noComments": "No comments",
+	"toggleComments": "Toggle comments",
+	"commentCreatedAt": "Created at",
+	"commentCreatedBy": "by",
+	"charactersLeft": "characters left"
 }

@@ -92,4 +92,12 @@
     "advertise": "Bewerben",
     "only3Dishes": "Es können nur drei Gerichte beworben werden!",
 	"login": "Anmelden"
+	"yourComment": "Ihr Kommentar ...",
+	"commentDisabled": "Nur eingeloggte Kunden können kommentieren.",
+	"navigateToLogin": "Zur Anmeldung ...",
+	"noComments": "Keine Kommentare",
+	"toggleComments": "Kommentare ein-/ausblenden",
+	"commentCreatedAt": "Erstellt am",
+	"commentCreatedBy": "durch",
+	"charactersLeft": "Zeichen übrig"
 }
