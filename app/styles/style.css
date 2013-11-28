@@ -271,12 +271,11 @@ textarea#mandatory {
 }
 
 .required_field {
-  display: inline-block;
   margin-bottom: 20px;
 }
 
 .required_field input {
-  background-color : #F6CEEC; 
+  background-color : #F3E2A9; 
 }
 
 .required_field label {
