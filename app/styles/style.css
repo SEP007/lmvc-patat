@@ -266,6 +266,33 @@ footer {
     color: #228B22;
 }
 
+textarea#mandatory {
+  background-color : #F6CEEC; 
+}
+
+.required_field {
+  margin-bottom: 20px;
+}
+
+.required_field input {
+  background-color : #F3E2A9; 
+}
+
+.required_field label {
+  /* constrain the absolutely positioned pseudo */
+  position: relative;
+  /* create some space for the '*' */
+  margin-right: .4em;
+}
+
+.required_field label:after {
+  content:"*";
+  display: block;
+  position: absolute;
+  right: -.5em;
+  top: 0.35em;
+}
+
 .advertised {
     position:relative;
 }
