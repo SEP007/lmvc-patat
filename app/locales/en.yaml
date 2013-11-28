@@ -17,6 +17,8 @@ weAreTryingToLocate: 'We are trying to locate you, stay put!'
 youCanAlsoSpecifyYourAddress: '...you can also specify your address'
 findMe: 'Find me'
 find: 'Find'
+canNotLocateUser: 'We can not locate you, maybe be less specific!'
+noLocationGiven: 'Please specify an address, otherwise we can‘t locate you!'
 #
 #app/views/dishes/index.html
 #
@@ -101,7 +103,7 @@ domainForRestaurant: 'Domain for restaurant'
 country: 'Country'
 city: 'City'
 zip: 'Zip'
-streetAndHouseNumber: 'Street & House number'
+streetAndHouseNumber: 'Street & Number'
 findYourLocation: 'Find your location'
 longitude: 'Longitude'
 latitude: 'Latitude'

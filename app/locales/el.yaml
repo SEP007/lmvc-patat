@@ -17,6 +17,8 @@ weAreTryingToLocate: 'Προσπαθούμε να σας εντοπίσουμε.
 youCanAlsoSpecifyYourAddress: '...μπορείτε επίσης να μας δώσετε την διεύθυνσή σας'
 findMe: 'Βρες με'
 find: 'Βρες'
+canNotLocateUser: 'Δεν μπορείτε να εντοπίσετε, ίσως να είναι λιγότερο ειδικό!'
+noLocationGiven: 'Please specify an address, otherwise we can‘t locate you!'
 #
 #app/views/dishes/index.html
 #

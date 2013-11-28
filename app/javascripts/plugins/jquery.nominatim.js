@@ -3,7 +3,11 @@
         defaults = {
             nominatimUrlInto: "http://nominatim.openstreetmap.org/",
             nominatimUrlOutro: "&format=json&polygon=0&addressdetails=0",
+            dishesAction: "dishes/",
             searchBtn: "#search-long-lat",
+            findPatatBtn: "#findpatat",
+            errorBarNotLocated: "#js-user-not-located",
+            errorBarNoLocation: "#js-no-location",
             resultElems: {
                 latitude: "#latitude",
                 longitude: "#longitude"
@@ -28,7 +32,7 @@
     Plugin.prototype = {
         init: function () {
             this.cacheElems();
-            this.bindSearchBtn();
+            this.bindEventHandlers();
             this.findLocation();
         },
         cacheElems: function() {
@@ -41,8 +45,22 @@
                 latitude: this.$element.find(this.settings.resultElems.latitude),
                 longitude: this.$element.find(this.settings.resultElems.longitude),
 
-                searchBtn: this.$element.find(this.settings.searchBtn)
+                searchBtn: this.$element.find(this.settings.searchBtn),
+                findPatatBtn: this.$element.find(this.settings.findPatatBtn),
+
+                errorBarNotLocated: this.$element.find(this.settings.errorBarNotLocated),
+                errorBarNoLocation: this.$element.find(this.settings.errorBarNoLocation)
             };
+        },
+        validateInputs: function() {
+            if (
+                this.cachedElems.country.val() == 0 &&
+                this.cachedElems.zip.val() == 0 &&
+                this.cachedElems.city.val() == 0 &&
+                this.cachedElems.place.val() == 0
+            ) { return false; }
+
+            return true;
         },
         findLocation: function() {
             var that = this;
@@ -65,13 +83,32 @@
                 this.location.longitude
             );
         },
-        bindSearchBtn: function() {
+        bindEventHandlers: function() {
             var that = this;
 
+            // whenever the search button is clicked
             this.cachedElems.searchBtn.on('click', function(e) {
                 e.preventDefault();
 
                 that.requestLongLat();
+            });
+
+            // whenever the enter key is pressed
+            this.$element.on('keypress', function(e) {
+
+                var code = e.keyCode || e.which;
+
+                // 13 is enter key's code
+                if(code === 13) {
+                    e.preventDefault();
+
+                    if (that.validateInputs() === true) {
+                        that.requestLongLat();
+                    } else {
+                        that.cachedElems.errorBarNoLocation.removeClass('hidden');
+                        that.cachedElems.errorBarNotLocated.addClass('hidden');
+                    }
+                }
             });
         },
         parseLongLatUrl: function (params) {
@@ -87,6 +124,22 @@
                 city: this.cachedElems.city.val(),
                 place: this.cachedElems.place.val()
             };
+        },
+        processLongLat: function () {
+            // user located if found by long and lat
+            var isUserLocated = this.cachedElems.longitude.val().length > 0 &&
+                                this.cachedElems.latitude.val().length > 0
+
+            // if he is redirect, otherwise show error
+            if (isUserLocated === false) {
+                this.cachedElems.errorBarNoLocation.addClass('hidden');
+                this.cachedElems.errorBarNotLocated.removeClass('hidden');
+            } else {
+                this.cachedElems.findPatatBtn.removeAttr("disabled");
+
+                window.location = this.settings.dishesAction + this.cachedElems.longitude.val()
+                                  + "/" + this.cachedElems.latitude.val();
+            }
         },
         requestAddress: function() {
             var that = this;
@@ -118,7 +171,6 @@
                 url: this.parseLongLatUrl( this.getParams() ),
                 context: document.body
             }).done(function( data ) {
-                console.log(data);
                 if(!data[0]) {
                     data = [{
                         lat: "",
@@ -126,12 +178,10 @@
                     }];
                 }
 
-                that.cachedElems.latitude.val(
-                    data[0].lat || ""
-                );
-                that.cachedElems.longitude.val(
-                    data[0].lon || ""
-                );
+                that.cachedElems.latitude.val( data[0].lat || "" );
+                that.cachedElems.longitude.val( data[0].lon || "" );
+
+                that.processLongLat();
             });
         }
     };
