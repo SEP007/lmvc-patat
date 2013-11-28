@@ -127,7 +127,7 @@
             <div class="control-group">
                 <label class="control-label" for="city"><?= I18nWrapper::translate('country'); ?></label>
                 <div class="controls">
-                    <input type="text" name="country" id="country" placeholder= <?= I18nWrapper::translate('country'); ? value=""/>
+                    <input type="text" name="country" id="country" placeholder= <?= I18nWrapper::translate('country'); ?> value=""/>
 
                     <?php foreach ($errors['country'] as $validator => $message): ?>
                         <span class="help-block <?= $validator ?>"><?= $message ?></span>
@@ -191,7 +191,14 @@
     </form>
 </div>
 
+<?= UI::css(Asset::assets(['jquery.ui.all.css'], [])) ?>
 
-<?= UI::js(Asset::assets(['jquery.nominatim.js', 'jquery.pwstrength.js'], ['path' => 'plugins'])) ?>
-<?= UI::js(Asset::assets(['jquery.register.js', 'jquery.password-strength.js'], ['path' => 'views'])) ?>
+<!-- Library includes -->
+<?= UI::js(Asset::assets(['jquery.ui.core.js'])) ?>
+<?= UI::js(Asset::assets(['jquery.ui.widget.js'])) ?>
+<?= UI::js(Asset::assets(['jquery.ui.position.js'])) ?>
+<?= UI::js(Asset::assets(['jquery.ui.menu.js'])) ?>
+<?= UI::js(Asset::assets(['jquery.ui.autocomplete.js'])) ?>
 
+<?= UI::js(Asset::assets(['jquery.nominatim.js', 'jquery.pwstrength.js', 'jquery.emailAutocomplete.js'], ['path' => 'plugins'])) ?>
+<?= UI::js(Asset::assets(['jquery.register.js', 'jquery.password-strength.js', 'jquery.emailAutocomplete.js'], ['path' => 'views'])) ?>
