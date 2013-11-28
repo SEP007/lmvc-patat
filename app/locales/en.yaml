@@ -17,6 +17,11 @@ find: 'Find'
 #app/views/dishes/index.html
 votes: 'votes'
 rateMe: 'Rate me!'
+ratingOne: '1-Poor'
+ratingTwo: '2-Fair'
+ratingThree: '3-Good'
+ratingFour: '4-Very Good'
+ratingFive: '5-Excellent'
 #
 #app/views/dishes/map.html
 startWalking: 'Start walking: this is where you are heading!'
@@ -39,6 +44,7 @@ sorry: 'Sorry,'
 weDontHaveOffers: 'we do not have any offers at the moment!'
 moreSnacks: 'More snacks'
 weDontHaveSnacks: 'we do not have any snacks listed!'
+rateMe: 'Rate me!'
 #
 #app/views/menu/edit.html
 uploadImage: 'Upload image!'

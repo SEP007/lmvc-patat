@@ -17,6 +17,11 @@ find: 'Намери'
 #app/views/dishes/index.html
 votes: 'гласували'
 rateMe: 'Оцени ме!'
+ratingOne: '1-Слаб'
+ratingTwo: '2-Среден'
+ratingThree: '3-Добър'
+ratingFour: '4-Мн. добър'
+ratingFive: '5-Отличен'
 #
 #app/views/dishes/map.html
 startWalking: 'Пеша: това е мястото, за където сте се запътили!'

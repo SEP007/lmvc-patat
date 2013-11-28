@@ -17,6 +17,11 @@ find: 'Hitta'
 #app/views/dishes/index.html
 votes:'röster'
 rateMe:'Gradera mig!'
+ratingOne: '1-Dålig'
+ratingTwo: '2-Verkligt'
+ratingThree: '3-Bra'
+ratingFour: '4-Mycket bra'
+ratingFive: '5-Utmärkt'
 #
 #app/views/dishes/map.html
 startWalking: 'Börja gå: det är där du är på väg!'

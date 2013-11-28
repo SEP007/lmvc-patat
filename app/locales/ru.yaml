@@ -17,6 +17,11 @@ find: 'Найти'
 #app/views/dishes/index.html
 votes: 'голосов'
 rateMe: 'Оценить меня!'
+ratingOne: '1-Бедный'
+ratingTwo: '2-Ярмарка'
+ratingThree: '3-Хорошо'
+ratingFour: '4-Очень хорошо'
+ratingFive: '5-Отлично'
 #
 #app/views/dishes/map.html
 startWalking: 'Начать путь: это куда вы направляетесь!'

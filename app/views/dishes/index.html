@@ -88,7 +88,7 @@
                     <div id="rating_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" class="rating_container">
                         <?php
                             $potatoes=5;
-                            $ratingLabel=array("1-Poor","2-Fair","3-Good","4-Very Good","5-Excellent");
+                            $ratingLabel=array(I18nWrapper::translate('ratingOne'),I18nWrapper::translate('ratingTwo'),I18nWrapper::translate('ratingThree'),I18nWrapper::translate('ratingFour'),I18nWrapper::translate('ratingFive'));
                             for ($rated=1; $rated<=($dish->avg_rating); $rated++ ){
                         ?>
                         <input id="inp_<?= $dish->dish_id ?>_<?= $dish->location_id ?>_<?= $rated ?>" name="potato_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" type="radio"

@@ -17,6 +17,11 @@ find: 'Suche'
 #app/views/dishes/index.html
 votes:'Stimmen'
 rateMe:'Bewerten Sie mich!'
+ratingOne: '1-Arm'
+ratingTwo: '2-Messe'
+ratingThree: '3-Gut'
+ratingFour: '4-Sehr gut'
+ratingFive: '5-Ausgezeichnet'
 #
 #app/views/dishes/map.html
 startWalking: 'Loslaufen, hier mussen Sie hin!'
