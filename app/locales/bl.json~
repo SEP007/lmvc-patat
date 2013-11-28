@@ -89,13 +89,18 @@
 	"needDescription": "Описанието е необходимо",
 	"addPrice": "Може би искате да добавите цена!",
 	"validPrice": "Смятаме, че това не е валидна цена!",
+<<<<<<< HEAD
     	"save": "спасяване!",
     	"advertise": "рекламирам",
     	"only3Dishes": "Само три ястия могат да се рекламират!",
 	"openTimes": "Opening times",
 	"weekday": "Monday - Friday",
-	"weekend" : "Saturday & Sunday",
-   	"canNotLocateUser": "Ние не може да ви намери, може да бъде по-конкретен!",
+	"weekend" : "Saturday & Sunday"
+=======
+   "canNotLocateUser": "Ние не може да ви намери, може да бъде по-конкретен!",
+   "save": "спасяване!",
+   "advertise": "рекламирам",
+   "only3Dishes": "Само три ястия могат да се рекламират!",
 	"login": "Login",
 	"yourComment": "Your comment ...",
 	"commentDisabled": "Only logged in customers can leave comments.",
@@ -105,4 +110,5 @@
 	"commentCreatedAt": "Created at",
 	"commentCreatedBy": "by",
 	"charactersLeft": "characters left"
+>>>>>>> master
 }

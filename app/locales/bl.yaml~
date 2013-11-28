@@ -10,20 +10,14 @@ myFavorites: 'моите любими'
 menu: 'Меню'
 logout: 'Изход'
 registerHunger: 'Регистрирай глад'
-login: 'Login'
 #
 #app/views/application/index.html
 weAreTryingToLocate: 'Опитваме се да открием местонахождението ви, моля изчакайте!'
 youCanAlsoSpecifyYourAddress: 'Можете също да посочите адреса си'
 findMe: 'Намери ме'
 find: 'Намери'
-canNotLocateUser: 'Ние не може да ви намери, може да бъде по-конкретен!'
-noLocationGiven: 'Please specify an address, otherwise we can‘t locate you!'
 #
 #app/views/dishes/index.html
-openTimes: 'Opening times'
-weekday: 'Monday - Friday'
-weekend: 'Saturday & Sunday'
 #
 #app/views/dishes/map.html
 startWalking: 'Пеша: това е мястото, за където сте се запътили!'
@@ -46,18 +40,6 @@ sorry: 'Съжаляваме,'
 weDontHaveOffers: 'нямаме оферти в момента!'
 moreSnacks: 'Още закуски'
 weDontHaveSnacks: 'не разполагаме с никакви закуски!'
-youCanReachThisPlaceIn: 'You can reach this place in '
-but: 'but'
-thisPlaceIsClosed: 'it is now closed'
-itClosesIn: 'it closes in'
-yourComment: 'Your comment ...'
-commentDisabled: 'Only logged in customers can leave comments.'
-navigateToLogin: 'To log-in ...'
-noComments: 'No comments'
-toggleComments: 'Toggle comments'
-commentCreatedAt: 'Created at'
-commentCreatedBy: 'by'
-charactersLeft: 'characters left'
 #
 #app/views/menu/edit.html
 uploadImage: 'Прикачи изображение!'
@@ -145,7 +127,6 @@ loginFailed: 'Влизането в профила се провали. Нещо
 logIn: 'Вход!'
 toSignup: 'Към регистрация'
 goBack: 'Назад'
-notVerified: 'Трябва да кликнете върху тази връзка ние ви изпрати!'
 #
 #app/forms/Signup.php
 nameCompulsory: 'Името на ресторанта е задължително поле!'

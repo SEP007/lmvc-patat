@@ -27,7 +27,7 @@ class OpenTimes
             	]
 			)
             ->all();
-
+           
         return $opentimes;
     }
 	
@@ -48,7 +48,7 @@ class OpenTimes
             	]
 			)
             ->all();
-
+			
         return $opentimes;
     }
 

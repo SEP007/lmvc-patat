@@ -89,13 +89,19 @@
 	"needDescription": "Описание необходимо",
 	"addPrice": "Вы могли бы добавить цену!",
 	"validPrice": "Мы полагаем, что это недопустимая цена!",
+<<<<<<< HEAD
     	"save": "экономить!",
     	"advertise": "рекламировать",
     	"only3Dishes": "Можно рекламировать только 3 блюда!",
 	"openTimes": "Opening times",
 	"weekday": "Monday - Friday",
-	"weekend" : "Saturday & Sunday",
-	"canNotLocateUser": "Мы не можем найти вас, может быть, менее конкретные!",
+	"weekend" : "Saturday & Sunday"
+}
+=======
+   "canNotLocateUser": "Мы не можем найти вас, может быть, менее конкретные!",
+   "save": "экономить!",
+   "advertise": "рекламировать",
+   "only3Dishes": "Можно рекламировать только 3 блюда!",
 	"login": "Login",
 	"yourComment": "Your comment ...",
 	"commentDisabled": "Only logged in customers can leave comments.",
@@ -106,4 +112,4 @@
 	"commentCreatedBy": "by",
 	"charactersLeft": "characters left"
 }
-
+>>>>>>> master

@@ -89,13 +89,18 @@
 	"needDescription": "En beskrivning erfordras",
 	"addPrice": "Du kanske vill lägga till ett pris!",
 	"validPrice": "Vi tänkte att detta är inte ett giltigt pris!",
+<<<<<<< HEAD
     	"save": "Post!",
    	"advertise": "Annonsörer",
     	"only3Dishes": "Endast tre rätter kan annonseras!",
 	"openTimes": "Opening times",
 	"weekday": "Monday - Friday",
-	"weekend" : "Saturday & Sunday",
-   	"canNotLocateUser": "Vi kan inte hitta dig, kanske vara mindre specifik!",
+	"weekend" : "Saturday & Sunday"
+=======
+   "canNotLocateUser": "Vi kan inte hitta dig, kanske vara mindre specifik!",
+   "save": "Post!",
+   "advertise": "Annonsörer",
+   "only3Dishes": "Endast tre rätter kan annonseras!",
 	"login": "Login",
 	"yourComment": "Your comment ...",
 	"commentDisabled": "Only logged in customers can leave comments.",
@@ -105,4 +110,5 @@
 	"commentCreatedAt": "Created at",
 	"commentCreatedBy": "by",
 	"charactersLeft": "characters left"
+>>>>>>> master
 }

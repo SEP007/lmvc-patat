@@ -89,13 +89,18 @@
 	"needDescription": "Eine Beschreibung ist erforderlich!",
 	"addPrice": "Vielleicht möchten sie einen Preis hinzügen?",
 	"validPrice": "Dies ist kein gültiger Preis!",
+<<<<<<< HEAD
   	"save": "Speichern!",
     	"advertise": "Bewerben",
     	"only3Dishes": "Es können nur drei Gerichte beworben werden!",
 	"openTimes": "Opening times",
 	"weekday": "Monday - Friday",
-	"weekend" : "Saturday & Sunday",
-   	"canNotLocateUser": "Wir können dich nicht finden, versuche es mit einer ungenaueren Adresse!",
+	"weekend" : "Saturday & Sunday"
+=======
+   "canNotLocateUser": "Wir können dich nicht finden, versuche es mit einer ungenaueren Adresse!",
+   "save": "Speichern!",
+   "advertise": "Bewerben",
+   "only3Dishes": "Es können nur drei Gerichte beworben werden!",
 	"login": "Anmelden",
 	"yourComment": "Ihr Kommentar ...",
 	"commentDisabled": "Nur eingeloggte Kunden können kommentieren.",
@@ -105,4 +110,5 @@
 	"commentCreatedAt": "Erstellt am",
 	"commentCreatedBy": "durch",
 	"charactersLeft": "Zeichen übrig"
+>>>>>>> master
 }

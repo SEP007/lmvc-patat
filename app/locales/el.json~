@@ -89,13 +89,18 @@
 	"needDescription": "Χρειάζεται μία περιγραφή",
 	"addPrice": "Μπορεί να θέλετε να προσθέσετε μία τιμή!",
 	"validPrice": "Αυτή η τιμή δεν είναι έγκυρη!",
-    	"save": "εκτός!",
-    	"advertise": "Διαφημίστε",
-    	"only3Dishes": "Μόνο 3 πιάτα μπορούν να διαφημιστούν!",
+<<<<<<< HEAD
+    "save": "εκτός!",
+    "advertise": "Διαφημίστε",
+    "only3Dishes": "Μόνο 3 πιάτα μπορούν να διαφημιστούν!",
 	"openTimes": "Ώρες λειτουργίας",
 	"weekday": "Δευτέρα - Παρασκευή",
-	"weekend" : "Σάββατο & Κυριακή",
-	"canNotLocateUser": "Δεν μπορείτε να εντοπίσετε, ίσως να είναι λιγότερο ειδικό!",
+	"weekend" : "Σάββατο & Κυριακή"
+=======
+   "canNotLocateUser": "Δεν μπορείτε να εντοπίσετε, ίσως να είναι λιγότερο ειδικό!",
+   "save": "εκτός!",
+   "advertise": "Διαφημίστε",
+   "only3Dishes": "Μόνο 3 πιάτα μπορούν να διαφημιστούν!",
 	"login": "Login",
 	"yourComment": "Your comment ...",
 	"commentDisabled": "Only logged in customers can leave comments.",
@@ -105,4 +110,5 @@
 	"commentCreatedAt": "Created at",
 	"commentCreatedBy": "by",
 	"charactersLeft": "characters left"
+>>>>>>> master
 }

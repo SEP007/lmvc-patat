@@ -10,20 +10,14 @@ myFavorites: 'Mina Favoriter'
 menu: 'Meny'
 logout: 'Logga ut'
 registerHunger: 'Registrera Hunger'
-login: 'Login'
 #
 #app/views/application/index.html
 weAreTryingToLocate: 'Vi försöker att hitta dig, stanna kvar!'
 youCanAlsoSpecifyYourAddress: '...du kan också ange din adress'
 findMe: 'Hitta mig'
 find: 'Hitta'
-canNotLocateUser: 'Vi kan inte hitta dig, kanske vara mindre specifik!'
-noLocationGiven: 'Vänligen ange en adress, annars kan vi inte hitta dig!'
 #
 #app/views/dishes/index.html
-openTimes: 'Opening times'
-weekday: 'Monday - Friday'
-weekend: 'Saturday & Sunday'
 #
 #app/views/dishes/map.html
 startWalking: 'Börja gå: det är där du är på väg!'
@@ -46,18 +40,6 @@ sorry: 'Ledsen,'
 weDontHaveOffers: 'vi har inga erbjudanden just nu!'
 moreSnacks: 'Fler mellanmål'
 weDontHaveSnacks: 'vi har inte några snacks listade!'
-youCanReachThisPlaceIn: 'You can reach this place in '
-but: 'but'
-thisPlaceIsClosed: 'it is now closed'
-itClosesIn: 'it closes in'
-yourComment: 'Your comment ...'
-commentDisabled: 'Only logged in customers can leave comments.'
-navigateToLogin: 'To log-in ...'
-noComments: 'No comments'
-toggleComments: 'Toggle comments'
-commentCreatedAt: 'Created at'
-commentCreatedBy: 'by'
-charactersLeft: 'characters left'
 #
 #app/views/menu/edit.html
 uploadImage: 'Ladda upp en bild!'
@@ -145,7 +127,6 @@ loginFailed: 'Inloggningen misslyckades. Stavfel något här?'
 logIn: 'Logga in!'
 toSignup: 'För att anmäla dig'
 goBack: 'Gå tillbaka'
-notVerified: 'Måste klicka på den länken vi skickat dig!'
 #
 #app/forms/Signup.php
 nameCompulsory: 'Ett namn för din restaurang är obligatoriskt!'
