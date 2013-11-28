@@ -21,6 +21,13 @@ canNotLocateUser: 'Vi kan inte hitta dig, kanske vara mindre specifik!'
 noLocationGiven: 'Vänligen ange en adress, annars kan vi inte hitta dig!'
 #
 #app/views/dishes/index.html
+votes:'röster'
+rateMe:'Gradera mig!'
+ratingOne: '1-Dålig'
+ratingTwo: '2-Verkligt'
+ratingThree: '3-Bra'
+ratingFour: '4-Mycket bra'
+ratingFive: '5-Utmärkt'
 openTimes: 'Opening times'
 weekday: 'Monday - Friday'
 weekend: 'Saturday & Sunday'
