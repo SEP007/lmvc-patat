@@ -26,7 +26,7 @@
             <?php foreach($dishesGrouped as $groupedDishes): ?>
             <dt id="<?= $groupedDishes['sortLetter']?>" name="<?= $groupedDishes['sortLetter']?>"><?= $groupedDishes['sortLetter'] ?></dt>
 
-            <?php foreach($groupedDishes['dishes'] as $dish): ?>
+            <?php foreach($groupedDishes['dishes'] as $dish): ?>	
             <dd class="">
                 <div class="span1">
                     <?php if(Security::get()->currentUser()->isInGroup("Customer")): ?>
@@ -67,23 +67,29 @@
                         <div class="span8">
                             <h4><a href="<?= $app->url('Dishes::map', $dish->user_id) ?>"><?= $dish->street ?></a></h4>
                             <h5><a href="tel:<?= $dish->phone ?>"><?= $dish->phone ?></a></h5>
-                            <h4>Opening times</h4>
-                            <h5>Monday - Friday: <?php $opentimes = new \models\OpenTimes();
+                           <?php $opentimes = new \models\OpenTimes();                           
                             	$resultopentimes = $opentimes->getOpeningTimeswd($dish->id); ?>
+                            	<?php if (count($resultopentimes)>0): ?>
+                            <h4>Opening times</h4>
+                            <h5>Monday - Friday: 
                             	 <?php foreach($resultopentimes as $selectedoptim):
                             	 	$result1 = mktime($selectedoptim->opening_time,00);
                             	 	$result2 = mktime($selectedoptim->closing_time,00) ?>
                             	<?= date("H:i", $result1) ?> - <?= date("H:i", $result2) ?>
                             	<?php endforeach; ?>
+                            <?php endif; ?>
                             	</h5>
-                            <h5>Saturday & Sunday: <?php $opentimes = new \models\OpenTimes();
+                            	<?php $opentimes = new \models\OpenTimes();
                             	$resultopentimes = $opentimes->getOpeningTimeswe($dish->id); ?>
+                            	<?php if (count($resultopentimes)>0): ?>
+                            <h5>Saturday & Sunday: 
                             	 <?php foreach($resultopentimes as $selectedoptim): 
                             	 	$result1 = mktime($selectedoptim->opening_time,00);
                             	 	$result2 = mktime($selectedoptim->closing_time,00) ?>
                             	<?= date("H:i", $result1) ?> - <?= date("H:i", $result2) ?>
                             	<?php endforeach; ?>
-                            	</h5>
+                            </h5>
+                        <?php endif; ?>
                         </div>
 
                         <div class="clearfix row-fluid">
