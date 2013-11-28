@@ -32,7 +32,7 @@
     <form id="registration-form" class="form-horizontal" method="POST" action="<?= $app->url('Registration::edit-restaurant') ?>">
         <fieldset class="span6">
             <legend> <?= I18nWrapper::translate('userInformation'); ?> </legend>
-            <div class="control-group">
+            <div class="required_field">
                 <label class="control-label" for="username"><?= I18nWrapper::translate('username'); ?></label>
                 <div class="controls">
                     <input type="text" readonly name="username" id="username" placeholder= <?= I18nWrapper::translate('username'); ?> value="<?= $user->username ?>" />
@@ -73,7 +73,7 @@
                     <input type="text" name="fullname" id="fullname" placeholder= <?= I18nWrapper::translate('firstAndSurname'); ?> value="<?= $user->fullname ?>" />
                 </div>
             </div>
-            <div class="control-group">
+            <div class="required_field">
                 <label class="control-label" for="password"><?= I18nWrapper::translate('email'); ?></label>
                 <div class="controls">
                     <input type="email" name="email" id="email" placeholder= <?= I18nWrapper::translate('email'); ?> value="<?= $user->email ?>" />
@@ -101,7 +101,7 @@
 
         <fieldset class="span6">
             <legend><?= I18nWrapper::translate('yourRestaurant'); ?></legend>
-            <div class="control-group">
+            <div class="required_field">
                 <label class="control-label" for="restaurant"><?= I18nWrapper::translate('nameOfRestaurant'); ?></label>
                 <div class="controls">
                     <input type="text" name="restaurant" id="restaurant" placeholder= <?= I18nWrapper::translate('nameOfRestaurant'); ?> value="<?= $user->restaurant ?>" />
@@ -111,7 +111,7 @@
                     <?php endforeach ?>
                 </div>
             </div>
-            <div class="control-group">
+            <div class="required_field">
                 <label class="control-label" for="handle"><?= I18nWrapper::translate('domainForRestaurant'); ?></label>
                 <div class="controls">
                     <input type="text" readonly name="handle" id="handle" placeholder= <?= I18nWrapper::translate('domainForRestaurant'); ?> value="<?= $user->handle ?>" />
@@ -134,7 +134,7 @@
                     <?php endforeach ?>
                 </div>
             </div>
-            <div class="control-group">
+            <div class="required_field">
                 <label class="control-label" for="city"><?= I18nWrapper::translate('city'); ?></label>
                 <div class="controls">
                     <input type="text" name="city" id="city" placeholder= <?= I18nWrapper::translate('city'); ?> value="<?= $user->city ?>"/>
@@ -144,7 +144,7 @@
                     <?php endforeach ?>
                 </div>
             </div>
-            <div class="control-group">
+            <div class="required_field">
                 <label class="control-label" for="zip"><?= I18nWrapper::translate('zip'); ?></label>
                 <div class="controls">
                     <input type="number" name="zip" id="zip" placeholder= <?= I18nWrapper::translate('zip'); ?> value="<?= $user->zip ?>"/>
@@ -154,7 +154,7 @@
                     <?php endforeach ?>
                 </div>
             </div>
-            <div class="control-group">
+            <div class="required_field">
                 <label class="control-label" for="place"><?= I18nWrapper::translate('streetAndHouseNumber'); ?></label>
                 <div class="controls">
                     <input type="text" name="place" id="place" placeholder= <?= I18nWrapper::translate('streetAndHouseNumber'); ?> value="<?= $user->street ?>"/>

@@ -24,7 +24,7 @@
     <form id="registration-form" class="form-horizontal" method="POST" action="<?= $app->url('Registration::edit-customer') ?>">
         <fieldset class="span6">
             <legend><?= I18nWrapper::translate('userInformation'); ?></legend>
-            <div class="control-group">
+            <div class="required_field">
                 <label class="control-label" for="username"><?= I18nWrapper::translate('username'); ?></label>
                 <div class="controls">
                     <input type="text" readonly name="username" id="username" placeholder=<?= I18nWrapper::translate('username'); ?> value="<?= $user->username ?>" />
@@ -62,10 +62,10 @@
             <div class="control-group">
                 <label class="control-label" for="fullname"><?= I18nWrapper::translate('firstAndSurname'); ?></label>
                 <div class="controls">
-                    <input type="text" name="fullname" id="fullname" placeholder=<?= I18nWrapper::translate('firstAndSurname'); ?> value="<?= $user->fullname ?>" />
+                    <input type="text" narequired_fieldme="fullname" id="fullname" placeholder=<?= I18nWrapper::translate('firstAndSurname'); ?> value="<?= $user->fullname ?>" />
                 </div>
             </div>
-            <div class="control-group">
+            <div class="required_field">
                 <label class="control-label" for="password"><?= I18nWrapper::translate('email'); ?></label>
                 <div class="controls">
                     <input type="email" name="email" id="email" placeholder= <?= I18nWrapper::translate('email'); ?> value="<?= $user->email ?>" />
