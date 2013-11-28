@@ -96,9 +96,13 @@ class OpenTimes
         $currenttime = $today->format("H:i:s");
 
         $closingtime = static::getOpeningTimeToday($restaurantid)->closing_time;
-        if (strtotime($currenttime) > strtotime($closingtime))
+        if ($closingtime == null)
         {
             return null;
+        }
+        elseif (strtotime($currenttime) > strtotime($closingtime))
+        {
+            return -1;
         }
         else
         {

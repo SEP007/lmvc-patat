@@ -42,7 +42,7 @@ moreSnacks: 'Още закуски'
 weDontHaveSnacks: 'не разполагаме с никакви закуски!'
 youCanReachThisPlaceIn: 'You can reach this place in '
 but: 'but'
-thisPlaceIsNowClosed:'this place is closed'
+thisPlaceIsClosed: 'it is now closed'
 itClosesIn: 'it closes in'
 #
 #app/views/menu/edit.html
