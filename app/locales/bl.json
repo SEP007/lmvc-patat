@@ -90,5 +90,14 @@
 	"validPrice": "Смятаме, че това не е валидна цена!",
     "save": "спасяване!",
     "advertise": "рекламирам",
-    "only3Dishes": "Само три ястия могат да се рекламират!"
+    "only3Dishes": "Само три ястия могат да се рекламират!",
+	"login": "Login"
+	"yourComment": "Your comment ...",
+	"commentDisabled": "Only logged in customers can leave comments.",
+	"navigateToLogin": "To log-in ...",
+	"noComments": "No comments",
+	"toggleComments": "Toggle comments",
+	"commentCreatedAt": "Created at",
+	"commentCreatedBy": "by",
+	"charactersLeft": "characters left"
 }

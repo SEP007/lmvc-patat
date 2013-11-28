@@ -10,6 +10,7 @@ myFavorites: 'Избранные'
 menu: 'Меню'
 logout: 'Выход'
 registerHunger: 'Регистрация голода'
+login: 'Login'
 #
 #app/views/application/index.html
 weAreTryingToLocate: 'Мы пытаемся найти вас, оставайтесь на месте!'
@@ -44,6 +45,14 @@ youCanReachThisPlaceIn: 'You can reach this place in '
 but: 'but'
 thisPlaceIsClosed: 'it is now closed'
 itClosesIn: 'it closes in'
+yourComment: 'Your comment ...'
+commentDisabled: 'Only logged in customers can leave comments.'
+navigateToLogin: 'To log-in ...'
+noComments: 'No comments'
+toggleComments: 'Toggle comments'
+commentCreatedAt: 'Created at'
+commentCreatedBy: 'by'
+charactersLeft: 'characters left'
 #
 #app/views/menu/edit.html
 uploadImage: 'Загрузить изображение!'

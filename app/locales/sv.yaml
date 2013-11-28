@@ -10,6 +10,7 @@ myFavorites: 'Mina Favoriter'
 menu: 'Meny'
 logout: 'Logga ut'
 registerHunger: 'Registrera Hunger'
+login: 'Login'
 #
 #app/views/application/index.html
 weAreTryingToLocate: 'Vi försöker att hitta dig, stanna kvar!'
@@ -44,6 +45,14 @@ youCanReachThisPlaceIn: 'You can reach this place in '
 but: 'but'
 thisPlaceIsClosed: 'it is now closed'
 itClosesIn: 'it closes in'
+yourComment: 'Your comment ...'
+commentDisabled: 'Only logged in customers can leave comments.'
+navigateToLogin: 'To log-in ...'
+noComments: 'No comments'
+toggleComments: 'Toggle comments'
+commentCreatedAt: 'Created at'
+commentCreatedBy: 'by'
+charactersLeft: 'characters left'
 #
 #app/views/menu/edit.html
 uploadImage: 'Ladda upp en bild!'
