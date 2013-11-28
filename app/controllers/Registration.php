@@ -70,6 +70,7 @@ class Registration extends controllers\Registration
             if ($parentResponse) {
                 $location = new \models\Locations();
                 $userToGroup = new \models\UserToGroups();
+				$opentimes = new \models\OpenTimes();
 
                 $location->user_id      = $parentResponse->id;
                 $location->longitude    = static::request()->longitude;
@@ -80,18 +81,41 @@ class Registration extends controllers\Registration
                 $location->city         = static::request()->city;
                 $location->zip          = static::request()->zip;
                 $location->street       = static::request()->place;
-
+			
                 $userToGroup->user_id   = $location->user_id;
                 $userToGroup->group_id  = 2;
 
-                $location->insert();
+                $newlocation=$location->insert();
                 $userToGroup->insert();
+
+				
+				#opening times data
+				
+				$opentimes->restaurant_id = $newlocation->id;
+				$opentimes->week_day = "Monday";
+				$opentimes->opening_time = static::request()->wd_open_h;
+				$opentimes->closing_time = static::request()->wd_close_h;
+				$opentimes->insert();
+				$opentimes->week_day = "Tuesday";
+				$opentimes->insert();
+				$opentimes->week_day = "Wednesday";
+				$opentimes->insert();
+				$opentimes->week_day = "Thursday";
+				$opentimes->insert();
+				$opentimes->week_day = "Friday";
+				$opentimes->insert();	
+				$opentimes->week_day = "Saturday";
+				$opentimes->insert();	
+				$opentimes->week_day = "Sunday";
+				$opentimes->insert();	
+
 
                 #Generate a random hash for email verification and send an email
                 $randomkey = \models\Users::setRandomKey($location->user_id);
                 $username = $parentResponse->username;
                 $address = $parentResponse->email;
                 \util\Mail::sendEmailVerification($username, $address, $randomkey);
+
 
                 static::redirect('Menu::index');
 

@@ -4,19 +4,23 @@
     use Scandio\lmvc\modules\i18n\I18nWrapper;
     use Scandio\lmvc\modules\security\Security;
     use \models\Locations;
+    use Scandio\lmvc\modules\session\Session;
+    use util\Location;
+    use \models\OpenTimes;
 
     $commentsModel = new \models\Comments();
     $usersModel = new \models\Users();
 	$commentCount = 0;
-    
+	$diff = OpenTimes::getTimeLeftOpen($restaurant->id);
+	$customerLoggedIn = Security::get()->currentUser()->isInGroup("Customer");
 ?>
 
-<?= UI::js(Asset::assets(['jquery.favorites.js'], ['path' => 'views'])) ?>
+<?= UI::js(Asset::assets(['jquery.favorites.js', 'jquery.time-to-get.js' ], ['path' => 'views'])) ?>
 
 <div class="row-fluid content-header">
 
     <div class="span1">
-        <?php if(Security::get()->isAuthenticated()): ?>
+        <?php if($customerLoggedIn): ?>
             <?php if(Locations::isFavoriteLocation($restaurant->id)): ?>
                 <a class="favoriteloc-btn" href="#" data-locationid="<?= $restaurant->id ?>">
                     <img width=100 src="<?= Asset::image(['favorite.png']) ?>"
@@ -34,7 +38,42 @@
         <h1><?= $restaurant->restaurant ?></h1>
 
         <h4><a href="<?= $app->url('Dishes::map', $restaurant->user_id) ?>"><?= $restaurant->street ?></a></h4>
+
         <h5><a href="tel:<?= $restaurant->phone ?>"><?= $restaurant->phone ?></a></h5>
+
+
+        <small><?= I18nWrapper::translate('youCanReachThisPlaceIn'); ?><span id="time-left" data-longitude="<?= $restaurant->longitude ?>" data-latitude="<?= $restaurant->latitude ?>"></span>
+        <?php if ($diff <> null): ?>
+            <?= I18nWrapper::translate('but'); ?>
+            <?php if ($diff == -1): ?>
+                <?= I18nWrapper::translate('thisPlaceIsClosed'); ?> </small>
+            <?php else: ?>
+                <?= I18nWrapper::translate('itClosesIn'); ?> <?= $diff?></small>
+            <?php endif ?>
+        <?php endif ?>
+        
+        <?php $opentimes = new \models\OpenTimes();
+          $resultopentimes = $opentimes->getOpeningTimeswd($restaurant->id); ?>
+       <?php if (count($resultopentimes)>0): ?>
+                            <h4><?= I18nWrapper::translate('openTimes'); ?></h4>
+                            <h5><?= I18nWrapper::translate('weekday'); ?> 
+                            	 <?php foreach($resultopentimes as $selectedoptim): 
+                            	 	$result1 = mktime($selectedoptim->opening_time,00);
+                            	 	$result2 = mktime($selectedoptim->closing_time,00) ?>
+                            	<?= date("H:i", $result1) ?> - <?= date("H:i", $result2) ?>
+                            	<?php endforeach; ?>
+                            	</h5>
+                            	
+        <?php $opentimes = new \models\OpenTimes();
+          $resultopentimes = $opentimes->getOpeningTimeswe($restaurant->id); ?>
+       <?php if (count($resultopentimes)>0): ?>
+                            <h5><?= I18nWrapper::translate('weekend'); ?>
+                            	 <?php foreach($resultopentimes as $selectedoptim): 
+                            	 	$result1 = mktime($selectedoptim->opening_time,00);
+                            	 	$result2 = mktime($selectedoptim->closing_time,00) ?>
+                            	<?= date("H:i", $result1) ?> - <?= date("H:i", $result2) ?>
+                            	<?php endforeach; ?>
+                            	</h5>
     </div>
 
     <a href="<?= $app->url('Dishes::map', $restaurant->user_id) ?>">
@@ -46,23 +85,22 @@
     $restaurantComments = $commentsModel->getCommentsByRestaurant($restaurant->id);
 ?>
 <div>
-    <?php if($loggedInCustomer != null):?>
-		<form id="comment-form" method="POST" action="<?= $app->url('Imbiss::saveRestaurantComment', ['handle'=>$restaurant->handle, 'customerId'=>$loggedInCustomer->id, 'locationId'=>$restaurant->id, 'commentControl'=>('comment' . $commentCount)]) ?>">
+    <?php if($customerLoggedIn): ?>
+		<form id="<?= $commentCount ?>" method="POST" action="<?= $app->url('Imbiss::saveRestaurantComment', ['handle'=>$restaurant->handle, 'locationId'=>$restaurant->id]) ?>">
 			<fieldset>
-			<?= UI::textAreaCounter('comment', null, null, $errors['comment'], 'Your comment ...', false, 500, $commentCount++) ?>
-			<?= UI::saveCancelButtons($app->url('Imbiss::index', $restaurant->handle)) ?>
+			<?= UI::textAreaCounter($commentCount, null, null, I18nWrapper::translate('yourComment'), false, 1, 500) ?>
 			</fieldset>
         </form>
     <?php else :?>
-        <p>To be able to add a comment, please <a href="<?= $app->url('Security::login')?>">log in.</a></p>
+        <p><?= I18nWrapper::translate('commentDisabled'); ?> <a href="<?= $app->url('Security::login')?>"><?= I18nWrapper::translate('navigateToLogin'); ?></a></p>
     <?php endif; ?>
 
     <ul class="expList">
         <li>
         <?php if($restaurantComments->count() == 0): ?>
-        No comments
+			<?= I18nWrapper::translate('noComments'); ?>
         <?php else: ?>
-        Toggle comments
+			<?= I18nWrapper::translate('toggleComments'); ?>
         <?php endif; ?>
             <ul>
             <?php foreach($restaurantComments as $restaurantComment): ?>
@@ -71,7 +109,7 @@
                    $userName = $usersModel->getUsernameByCustomerId($restaurantComment->created_by);
                 ?>
                 <p>
-                <div><span>Created at </span><b><?= $restaurantComment->creation_date ?></b><span>, by </span><b><?= $userName ?></b></div>
+                <div><span><?= I18nWrapper::translate('commentCreatedAt'); ?> </span><b><?= $restaurantComment->creation_date ?></b><span>, <?= I18nWrapper::translate('commentCreatedBy'); ?> </span><b><?= $userName ?></b></div>
                 <div><?= $restaurantComment->description ?></div>
                 </p>
             </li>
@@ -100,9 +138,12 @@
                     </div>
                     <div class="description span9">
                         <div class="row-fluid">
-                            <h1>
-                                <?= $advertisedDish->name ?> <span class="price"><?= $advertisedDish->price ?> €</span>
-                            </h1>
+                            <h2>
+                                <?= $advertisedDish->name ?>
+                                <span class="price">
+                                    <small>Price:</small> <?= $advertisedDish->price ?> €
+                                </span>
+                            </h2>
                             <?php if($advertisedDish->category_id != null): ?>
                             <div class="span8">
                                 <h4>
@@ -180,26 +221,26 @@
 
                 <?php
                     $dishComments = $commentsModel->getCommentsByDish($advertisedDish->id);
+					$commentCount = $commentCount + 1;
                 ?>
                 <div>
-                    <?php if($loggedInCustomer != null):?>
-						<form id="comment-form" method="POST" action="<?= $app->url('Imbiss::saveDishComment', ['handle'=>$restaurant->handle, 'customerId'=>$loggedInCustomer->id, 'DishId'=>$advertisedDish->id, 'commentControl'=>('comment' . $commentCount)]) ?>">
+                    <?php if($customerLoggedIn):?>
+						<form id="<?= $commentCount ?>" method="POST" action="<?= $app->url('Imbiss::saveDishComment', ['handle'=>$restaurant->handle, 'DishId'=>$advertisedDish->id]) ?>">
 							<fieldset>
-							<?= UI::textAreaCounter('comment', null, null, $errors['comment'], 'Your comment ...', false, 500, $commentCount++) ?>
-							<?= UI::saveCancelButtons($app->url('Imbiss::index', $restaurant->handle)) ?>
+							<?= UI::textAreaCounter($commentCount, null, null, I18nWrapper::translate('yourComment'), false, 1, 500) ?>
 							</fieldset>
 						</form>
                     <?php else :?>
-                    <p>To be able to add a comment, please <a href="<?= $app->url('Security::login')?>">log in.</a></p>
+						<p><?= I18nWrapper::translate('commentDisabled'); ?> <a href="<?= $app->url('Security::login')?>"><?= I18nWrapper::translate('navigateToLogin'); ?></a></p>
                     <?php endif; ?>
 
                     <ul class="expList">
                         <li>
                         <?php if($dishComments->count() == 0): ?>
-                        No comments
-                        <?php else: ?>
-                        Toggle comments
-                        <?php endif; ?>
+							<?= I18nWrapper::translate('noComments'); ?>
+						<?php else: ?>
+							<?= I18nWrapper::translate('toggleComments'); ?>
+						<?php endif; ?>
                             <ul>
                             <?php foreach($dishComments as $dishComment): ?>
                             <li>
@@ -207,7 +248,7 @@
                                    $userName = $usersModel->getUsernameByCustomerId($dishComment->created_by);
                                 ?>
                                 <p>
-                                <div><span>Created at </span><b><?= $dishComment->creation_date ?></b><span>, by </span><b><?= $userName ?></b></div>
+                                <div><span><?= I18nWrapper::translate('commentCreatedAt'); ?> </span><b><?= $dishComment->creation_date ?></b><span>, <?= I18nWrapper::translate('commentCreatedBy'); ?> </span><b><?= $userName ?></b></div>
                                 <div><?= $dishComment->description ?></div>
                                 </p>
                             </li>
@@ -279,26 +320,26 @@
 
                     <?php
                         $dishComments = $commentsModel->getCommentsByDish($dish->id);
+						$commentCount = $commentCount + 1;
                     ?>
                     <div>
-                        <?php if($loggedInCustomer != null):?>
-							<form id="comment-form" method="POST" action="<?= $app->url('Imbiss::saveDishComment', ['handle'=>$restaurant->handle, 'customerId'=>$loggedInCustomer->id, 'DishId'=>$dish->id, 'commentControl'=>('comment' . $commentCount)]) ?>">
+                        <?php if($customerLoggedIn):?>
+							<form id="<?= $commentCount ?>" method="POST" action="<?= $app->url('Imbiss::saveDishComment', ['handle'=>$restaurant->handle, 'DishId'=>$dish->id]) ?>">
 								<fieldset>
-								<?= UI::textAreaCounter('comment', null, null, $errors['comment'], 'Your comment ...', false, 500, $commentCount++) ?>
-								<?= UI::saveCancelButtons($app->url('Imbiss::index', $restaurant->handle)) ?>
+								<?= UI::textAreaCounter($commentCount, null, null, I18nWrapper::translate('yourComment'), false, 1, 500) ?>
 								</fieldset>
 							</form>
                         <?php else :?>
-                        <p>To be able to add a comment, please <a href="<?= $app->url('Security::login')?>">log in.</a></p>
+							<p><?= I18nWrapper::translate('commentDisabled'); ?> <a href="<?= $app->url('Security::login')?>"><?= I18nWrapper::translate('navigateToLogin'); ?></a></p>
                         <?php endif; ?>
 
                         <ul class="expList">
                             <li>
                                 <?php if($dishComments->count() == 0): ?>
-                                No comments
-                                <?php else: ?>
-                                Toggle comments
-                                <?php endif; ?>
+									<?= I18nWrapper::translate('noComments'); ?>
+								<?php else: ?>
+									<?= I18nWrapper::translate('toggleComments'); ?>
+								<?php endif; ?>
                                 <ul>
                                 <?php foreach($dishComments as $dishComment): ?>
                                 <li>
@@ -306,7 +347,7 @@
                                    $userName = $usersModel->getUsernameByCustomerId($dishComment->created_by);
                                 ?>
                                 <p>
-                                <div><span>Created at </span><b><?= $dishComment->creation_date ?></b><span>, by </span><b><?= $userName ?></b></div>
+                                <div><span><?= I18nWrapper::translate('commentCreatedAt'); ?> </span><b><?= $dishComment->creation_date ?></b><span>, <?= I18nWrapper::translate('commentCreatedBy'); ?> </span><b><?= $userName ?></b></div>
                                 <div><?= $dishComment->description ?></div>
                                 </p>
                                 </li>
@@ -330,6 +371,7 @@
 
 <?= UI::js(Asset::assets(['gmaps.js'])) ?>
 <?= UI::js(Asset::assets(['jquery.patatmap.js'], ['path' => 'plugins'])) ?>
+
 <?= UI::js(Asset::assets(['jquery.imbiss-index.js'], ['path' => 'views'])) ?>
 <?= UI::js(Asset::assets(['jquery.expand-collapse-list.js'], ['path' => 'views'])) ?>
 <?= UI::js(Asset::assets(['jquery.rating.js'], ['path' => 'plugins'])) ?>

@@ -49,7 +49,7 @@
                     <span class="icon-edit"></span>
                     <span class="hidden-phone"></span>
                 </a>
-                <a class="btn btn-mini btn-danger" href="<?= $app->url('Menu::delete', $dish->id) ?>"
+                <a class="btn btn-mini btn-danger js-delete-dish" href="<?= $app->url('Menu::delete', $dish->id) ?>"
                    title="Delete snack">
                     <span class="icon-trash icon-white"></span>
                 </a>
@@ -59,3 +59,5 @@
     <?php endforeach ?>
     </tbody>
 </table>
+
+<?= UI::js(Asset::assets(['jquery.menu-delete.js'], ['path' => 'views'])) ?>

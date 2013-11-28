@@ -1,3 +1,6 @@
+#snippets
+save: 'εκτός!'
+#
 #app/views/main.html
 home: 'Αρχική Σελίδα'
 signUp: 'Εγγραφή'
@@ -7,12 +10,15 @@ myFavorites: 'Τα αγαπημένα μου'
 menu: 'Μενού'
 logout: 'Έξοδος'
 registerHunger: 'Εγγραφή Πείνας'
+login: 'Login'
 #
 #app/views/application/index.html
 weAreTryingToLocate: 'Προσπαθούμε να σας εντοπίσουμε. Παραμείνετε στην θέση σας!'
 youCanAlsoSpecifyYourAddress: '...μπορείτε επίσης να μας δώσετε την διεύθυνσή σας'
 findMe: 'Βρες με'
 find: 'Βρες'
+canNotLocateUser: 'Δεν μπορείτε να εντοπίσετε, ίσως να είναι λιγότερο ειδικό!'
+noLocationGiven: 'Please specify an address, otherwise we can‘t locate you!'
 #
 #app/views/dishes/index.html
 votes:'ψήφους'
@@ -22,11 +28,24 @@ ratingTwo: '2-δίκαιος'
 ratingThree: '3-καλός'
 ratingFour: '4-πολύ καλό'
 ratingFive: '5-άριστη'
+openTimes: 'Ώρες λειτουργίας'
+weekday: 'Δευτέρα - Παρασκευή'
+weekend: 'Σάββατο & Κυριακή'
 #
 #app/views/dishes/map.html
 startWalking: 'Ξεκινήστε να περπατάτε: εκεί είναι που πηγαίνετε!'
 showMapIn: 'Δείξε χάρτη σε'
 orIn: 'ή σε'
+walking: 'Με τα πόδια'
+driving: 'Οδηγώντας'
+chooseTravelMode: 'Διαλέξτε μία μέθοδο μετάβασης:'
+#
+#app/views/favorites/index.html
+places: 'Εστιατόρια'
+food: 'Φαγητοοοοοοοό'
+#
+#app/views/favorites/index.html
+awayFromYou: 'μακριά από εσάς'
 #
 #app/views/imbiss/index.html
 currentOffers: 'Τρέχουσες προσφορές'
@@ -34,12 +53,25 @@ sorry: 'Συγγνώμη,'
 weDontHaveOffers: 'δεν έχουμε προσφορές αυτή την στιγμή!'
 moreSnacks: 'Περισσότερα snacks'
 weDontHaveSnacks: 'δεν έχουμε καθόλου snacks!'
+youCanReachThisPlaceIn: 'You can reach this place in '
+but: 'but'
+thisPlaceIsClosed: 'it is now closed'
+itClosesIn: 'it closes in'
+yourComment: 'Your comment ...'
+commentDisabled: 'Only logged in customers can leave comments.'
+navigateToLogin: 'To log-in ...'
+noComments: 'No comments'
+toggleComments: 'Toggle comments'
+commentCreatedAt: 'Created at'
+commentCreatedBy: 'by'
+charactersLeft: 'characters left'
 #
 #app/views/menu/edit.html
 uploadImage: 'Ανέβασε φωτογραφία!'
+only3Dishes: 'Μόνο 3 πιάτα μπορούν να διαφημιστούν!'
+advertise: 'Διαφημίστε'
 #
 #app/views/menu/index.html
-#Haven't finished with this file yet
 category: 'Κατηγορία'
 name: 'Όνομα'
 image: 'Φωτογραφία'
@@ -58,6 +90,11 @@ userInformation: 'Πληροφορίες χρήστη'
 #app/views/registration/failure.html
 sorryRegistrationFailed: 'Συγγνώμη, αλλά η εγραφή ή επεξεργασία του λογαριασμού σας απέτυχε!'
 resolveProblems: 'Λυπούμαστε πολύ, αλλά η εγγραφή σας ή η επεξεργασία του λογαριασμού σας δεν μπορούσε να ολοκληρωθεί λόγω τεχνικών προβλημάτων. Ξαναπροσπαθώντας μπορεί να λυθεί το πρόβλημα.'
+#
+#app/views/registration/finish.html
+emailChecksOut: 'Ζήτω! Το email σας είναι σωστό! Συνδεθείτε και χαλαρώστε!'
+toDishes: 'Πιάτα...'
+toSingIn: 'Για να συνδεθείτε...'
 #
 #app/views/registration/signup-restaurant.html
 youAreMissingMandatoryData: 'Σας λείπουν υποχρεωτικά δεδομένα, παρακαλώ προσθέστε τα όπου χρειάζονται!'
@@ -94,12 +131,28 @@ toLogin: 'Σύνδεση'
 needToSingIn: 'Yau! Πρέπει να συνδεθείτε για να δείτε αυτές τις πληροφορίες'
 restricedPage: 'Αυτή η σελίδα είναι προσβάσιμη σε συνδεδεμένους χρήστες μόνο, παρακαλώ συνδεθείτε ή εγγραφείτε πρώτα.'
 #
+#app/views/registration/signup-customer.html
+somethingIsWrong: 'Something is wrong, please edit where needed!'
+allWorkedFine: 'All worked find, you are a registered hungry person now!'
+yourProfile: 'Your Profile'
+#
+#app/views/registration/success-customer.html
+youAreSignedUpUser: 'Yay! You're signed up. Sign in and be hungry!'
+#
+#app/views/registration/success-customer.html
+youAreSignedUpRestaurant: 'Yay! You're signed up. Sign in and set up your restaurant!'
+toMenu: 'To menu...'
+#
+#app/views/registration/success-customer.html
+successEdit: 'Yay! All is saved. Keep on using Patat!'
+#
 #app/views/security/login.html
 ohNo: 'Ωχ όχι!'
 loginFailed: 'Η σύνδεση απέτυχε. Μήπως γράψατε κάτι λάθος;'
 logIn: 'Συνδεθείτε!'
 toSignup: 'Εγγραφή'
 goBack: 'Πίσω'
+notVerified: 'Πρέπει να κάνετε κλικ στο σύνδεσμο που σας στείλαμε!'
 #
 #app/forms/Signup.php
 nameCompulsory: 'Ένα όνομα για το εστιατόριό σας είναι υποχρεωτικό!'

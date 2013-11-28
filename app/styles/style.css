@@ -43,7 +43,7 @@ a.symbol:before {
   content: attr(title);
   margin-right: 0.3em;
   font-size: 130%; }
-  
+
 ul {
   cursor : pointer;
 }
@@ -90,10 +90,12 @@ dl {
       padding-left: 10px; }
     dl dd .description .price, dl dd .description .distance {
       float: right;
+      padding-top: 15px;
       font-family: Baskerville;
       font-size: .8em;
-      font-weight: bold;
-      font-style: italic; }
+      font-weight: bold; }
+    dl dd .description .price {
+        padding-top: 10px; }
       dl dd .description .price small, dl dd .description .distance small {
         display: block; }
     dl dd img {
@@ -113,12 +115,40 @@ dl {
   overflow-x: hidden;
   overflow-y: auto; }
 
-@media (max-width: 767px) {
+@media (max-width: 979px) {
   h1 {
-    line-height: 35px; } }
-@media (max-width: 480px) {
+    line-height: 35px;
+    text-align: left;
+  }
+  dl dd .description .price, dl dd .description .distance {
+    display: block;
+    padding-top: 0;
+    margin-top: 15px;
+    float: none;
+  }
+  dl dd .description .price {
+    padding-top: 0;
+  }
   .ios-list-wrap .pagination {
-    display: none; } }
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  dl dd .description .price, dl dd .description .distance {
+    float: right;
+  }
+  .dish-description {
+    width: 80% !important;
+  }
+  dl dd .description .price {
+    padding-top: 0;
+  }
+  .favoriteloc-btn img {
+     width: 50px;
+  }
+}
+
 body {
   background-color: #fffbeb;
   margin: 0;
@@ -180,16 +210,22 @@ header .bar-right {
 footer {
   height: 10%;
   margin-bottom: 25px; }
-  
-.languages ul { 
+
+.languages {
+    min-height: 30px;
+    margin: 5px 0;
+    background: #FFF5D2; }
+
+.languages ul {
 	margin: 4px;
 	padding: 0;
-	list-style-type: none; }
+	list-style-type: none;
+    text-align: center; }
 
-.languages ul li { 
+.languages ul li {
 	display: inline; }
-	
-.languages ul li a { 
+
+.languages ul li a {
 	text-decoration: none; }
 
 #map {
@@ -211,7 +247,7 @@ footer {
 
   h3 {
     font-size: 1em; } }
-    
+
 #pwindicator {
     margin-top: 4px;
     width: 200px;
@@ -266,6 +302,33 @@ footer {
     color: #228B22;
 }
 
+textarea#mandatory {
+  background-color : #F6CEEC; 
+}
+
+.required_field {
+  margin-bottom: 20px;
+}
+
+.required_field input {
+  background-color : #F3E2A9; 
+}
+
+.required_field label {
+  /* constrain the absolutely positioned pseudo */
+  position: relative;
+  /* create some space for the '*' */
+  margin-right: .4em;
+}
+
+.required_field label:after {
+  content:"*";
+  display: block;
+  position: absolute;
+  right: -.5em;
+  top: 0.35em;
+}
+
 .advertised {
     position:relative;
 }
@@ -280,4 +343,39 @@ footer {
     bottom:0px;
     width:40%;
     height:40%;
+}
+
+.up-btn img {
+    padding-top: 25px;
+}
+
+@media (max-width: 767px) {
+  .span1.component-favorite {
+     width: 50px;
+  }
+  .span1.component-favorite img {
+     margin: 30px 15px 0 0;
+  }
+  .up-btn {
+     display: none;
+  }
+}
+
+#tabs {
+    margin: 0;
+    font-family: 'Benthem-Regular';
+}
+
+#tabs .navbar-inner {
+    height: 30px;
+    min-height: 30px;
+}
+
+#tabs li a {
+    border: 1px solid black;
+    background: #FFF5D2;
+}
+
+#tabs li.active a {
+    background: #E36B23;
 }

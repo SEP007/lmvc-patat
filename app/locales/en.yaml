@@ -1,3 +1,6 @@
+#snippets
+save: 'Save!'
+#
 #app/views/main.html
 home: 'Home'
 signUp: 'Sign Up'
@@ -7,12 +10,15 @@ myFavorites: 'My Favorites'
 menu: 'Menu'
 logout: 'Logout'
 registerHunger: 'Register Hunger'
+login: 'Login'
 #
 #app/views/application/index.html
 weAreTryingToLocate: 'We are trying to locate you, stay put!'
 youCanAlsoSpecifyYourAddress: '...you can also specify your address'
 findMe: 'Find me'
 find: 'Find'
+canNotLocateUser: 'We can not locate you, maybe be less specific!'
+noLocationGiven: 'Please specify an address, otherwise we can‘t locate you!'
 #
 #app/views/dishes/index.html
 votes: 'votes'
@@ -22,6 +28,9 @@ ratingTwo: '2-Fair'
 ratingThree: '3-Good'
 ratingFour: '4-Very Good'
 ratingFive: '5-Excellent'
+openTimes: 'Opening times'
+weekday: 'Monday - Friday'
+weekend: 'Saturday & Sunday'
 #
 #app/views/dishes/map.html
 startWalking: 'Start walking: this is where you are heading!'
@@ -44,13 +53,25 @@ sorry: 'Sorry,'
 weDontHaveOffers: 'we do not have any offers at the moment!'
 moreSnacks: 'More snacks'
 weDontHaveSnacks: 'we do not have any snacks listed!'
-rateMe: 'Rate me!'
+youCanReachThisPlaceIn: 'You can reach this place in '
+but: 'but'
+thisPlaceIsClosed: 'it is now closed'
+itClosesIn: 'it closes in'
+yourComment: 'Your comment ...'
+commentDisabled: 'Only logged in customers can leave comments.'
+navigateToLogin: 'To log-in ...'
+noComments: 'No comments'
+toggleComments: 'Toggle comments'
+commentCreatedAt: 'Created at'
+commentCreatedBy: 'by'
+charactersLeft: 'characters left'
 #
 #app/views/menu/edit.html
 uploadImage: 'Upload image!'
+only3Dishes: 'Only three dishes can be advertised!'
+advertise: 'Advertise'
 #
 #app/views/menu/index.html
-#Haven't finished with this file yet
 category: 'Category'
 name: 'Name'
 image: 'Image'
@@ -70,6 +91,11 @@ userInformation: 'User information'
 sorryRegistrationFailed: 'Sorry, registration or account editing failed!'
 resolveProblems: 'We are very sorry but your registration or editing of your account could not be completed due to technical problems. Retrying might solve this issue.'
 #
+#app/views/registration/finish.html
+emailChecksOut: 'Hooray, your email checks out! Sign in and get loose!'
+toDishes: 'To dishes...'
+toSingIn: 'To sign in...'
+#
 #app/views/registration/signup-restaurant.html
 youAreMissingMandatoryData: 'You are missing some mandatory data, please add where needed!'
 youAreOnline: 'All worked fine, your restaurant is online!'
@@ -87,7 +113,7 @@ domainForRestaurant: 'Domain for restaurant'
 country: 'Country'
 city: 'City'
 zip: 'Zip'
-streetAndHouseNumber: 'Street & House number'
+streetAndHouseNumber: 'Street & Number'
 findYourLocation: 'Find your location'
 longitude: 'Longitude'
 latitude: 'Latitude'
@@ -105,12 +131,28 @@ toLogin: 'To login'
 needToSingIn: 'Yau! You need to sign in to see this information'
 restricedPage: 'This page is restricted to logged in users only, please login or sign up first.'
 #
+#app/views/registration/signup-customer.html
+somethingIsWrong: 'Something is wrong, please edit where needed!'
+allWorkedFine: 'All worked find, you are a registered hungry person now!'
+yourProfile: 'Your Profile'
+#
+#app/views/registration/success-customer.html
+youAreSignedUpUser: 'Yay! You're signed up. Sign in and be hungry!'
+#
+#app/views/registration/success-restaurant.html
+youAreSignedUpRestaurant: 'Yay! You're signed up. Sign in and set up your restaurant!'
+toMenu: 'To menu...'
+#
+#app/views/registration/success-customer.html
+successEdit: 'Yay! All is saved. Keep on using Patat!'
+#
 #app/views/security/login.html
 ohNo: 'Oh No!'
 loginFailed: 'Login failed. Mistyped something here?'
 logIn: 'Log in!'
 toSignup: 'To signup'
 goBack: 'Go back'
+notVerified: 'Gotta click that link we sent you!'
 #
 #app/forms/Signup.php
 nameCompulsory: 'A name for your restaurant is compulsory!'
@@ -136,3 +178,4 @@ needDescription: 'A description is needed'
 addPrice: 'You might want to add a price!'
 validPrice: 'We figured that this is not a valid price!'
 #
+

@@ -1,4 +1,5 @@
 <?php
+
     use ui\UI;
     use Scandio\lmvc\modules\assetpipeline\view\Asset;
     use Scandio\lmvc\modules\i18n\I18nWrapper;
@@ -14,6 +15,7 @@
     $errors['zip'] = $errors['zip'] ?: [];
     $errors['place'] = $errors['place'] ?: [];
     $errors['handle'] = $errors['handle'] ?: [];
+
 ?>
 
 <div class="row-fluid">
@@ -29,8 +31,8 @@
 
     <form id="registration-form" class="form-horizontal" method="POST" action="<?= $app->url('Registration::edit-restaurant') ?>">
         <fieldset class="span6">
-            <legend>User information</legend>
-            <div class="control-group">
+            <legend> <?= I18nWrapper::translate('userInformation'); ?> </legend>
+            <div class="required_field">
                 <label class="control-label" for="username"><?= I18nWrapper::translate('username'); ?></label>
                 <div class="controls">
                     <input type="text" readonly name="username" id="username" placeholder= <?= I18nWrapper::translate('username'); ?> value="<?= $user->username ?>" />
@@ -71,7 +73,7 @@
                     <input type="text" name="fullname" id="fullname" placeholder= <?= I18nWrapper::translate('firstAndSurname'); ?> value="<?= $user->fullname ?>" />
                 </div>
             </div>
-            <div class="control-group">
+            <div class="required_field">
                 <label class="control-label" for="password"><?= I18nWrapper::translate('email'); ?></label>
                 <div class="controls">
                     <input type="email" name="email" id="email" placeholder= <?= I18nWrapper::translate('email'); ?> value="<?= $user->email ?>" />
@@ -84,7 +86,9 @@
             <div class="control-group">
                 <label class="control-label" for="password"><?= I18nWrapper::translate('phone'); ?></label>
                 <div class="controls">
+
                     <input type="tel" name="phone" id="phone" placeholder= <?= I18nWrapper::translate('phone'); ?>  value="<?= $user->phone ?>" />
+
                 </div>
             </div>
             <div class="control-group">
@@ -97,7 +101,7 @@
 
         <fieldset class="span6">
             <legend><?= I18nWrapper::translate('yourRestaurant'); ?></legend>
-            <div class="control-group">
+            <div class="required_field">
                 <label class="control-label" for="restaurant"><?= I18nWrapper::translate('nameOfRestaurant'); ?></label>
                 <div class="controls">
                     <input type="text" name="restaurant" id="restaurant" placeholder= <?= I18nWrapper::translate('nameOfRestaurant'); ?> value="<?= $user->restaurant ?>" />
@@ -107,7 +111,7 @@
                     <?php endforeach ?>
                 </div>
             </div>
-            <div class="control-group">
+            <div class="required_field">
                 <label class="control-label" for="handle"><?= I18nWrapper::translate('domainForRestaurant'); ?></label>
                 <div class="controls">
                     <input type="text" readonly name="handle" id="handle" placeholder= <?= I18nWrapper::translate('domainForRestaurant'); ?> value="<?= $user->handle ?>" />
@@ -123,14 +127,14 @@
             <div class="control-group">
                 <label class="control-label" for="city"><?= I18nWrapper::translate('country'); ?></label>
                 <div class="controls">
-                    <input type="text" name="country" id="country" placeholder= <?= I18nWrapper::translate('country'); ? value=""/>
+                    <input type="text" name="country" id="country" placeholder= <?= I18nWrapper::translate('country'); ?> value=""/>
 
                     <?php foreach ($errors['country'] as $validator => $message): ?>
                         <span class="help-block <?= $validator ?>"><?= $message ?></span>
                     <?php endforeach ?>
                 </div>
             </div>
-            <div class="control-group">
+            <div class="required_field">
                 <label class="control-label" for="city"><?= I18nWrapper::translate('city'); ?></label>
                 <div class="controls">
                     <input type="text" name="city" id="city" placeholder= <?= I18nWrapper::translate('city'); ?> value="<?= $user->city ?>"/>
@@ -140,7 +144,7 @@
                     <?php endforeach ?>
                 </div>
             </div>
-            <div class="control-group">
+            <div class="required_field">
                 <label class="control-label" for="zip"><?= I18nWrapper::translate('zip'); ?></label>
                 <div class="controls">
                     <input type="number" name="zip" id="zip" placeholder= <?= I18nWrapper::translate('zip'); ?> value="<?= $user->zip ?>"/>
@@ -150,7 +154,7 @@
                     <?php endforeach ?>
                 </div>
             </div>
-            <div class="control-group">
+            <div class="required_field">
                 <label class="control-label" for="place"><?= I18nWrapper::translate('streetAndHouseNumber'); ?></label>
                 <div class="controls">
                     <input type="text" name="place" id="place" placeholder= <?= I18nWrapper::translate('streetAndHouseNumber'); ?> value="<?= $user->street ?>"/>
@@ -187,5 +191,14 @@
     </form>
 </div>
 
-<?= UI::js(Asset::assets(['jquery.nominatim.js', 'jquery.pwstrength.js'], ['path' => 'plugins'])) ?>
-<?= UI::js(Asset::assets(['jquery.register.js', 'jquery.password-strength.js'], ['path' => 'views'])) ?>
+<?= UI::css(Asset::assets(['jquery.ui.all.css'], [])) ?>
+
+<!-- Library includes -->
+<?= UI::js(Asset::assets(['jquery.ui.core.js'])) ?>
+<?= UI::js(Asset::assets(['jquery.ui.widget.js'])) ?>
+<?= UI::js(Asset::assets(['jquery.ui.position.js'])) ?>
+<?= UI::js(Asset::assets(['jquery.ui.menu.js'])) ?>
+<?= UI::js(Asset::assets(['jquery.ui.autocomplete.js'])) ?>
+
+<?= UI::js(Asset::assets(['jquery.nominatim.js', 'jquery.pwstrength.js', 'jquery.emailAutocomplete.js'], ['path' => 'plugins'])) ?>
+<?= UI::js(Asset::assets(['jquery.register.js', 'jquery.password-strength.js', 'jquery.emailAutocomplete.js'], ['path' => 'views'])) ?>

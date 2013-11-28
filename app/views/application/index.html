@@ -10,6 +10,14 @@
 <form id="location-form" class="form-horizontal" method="POST" action="<?= $app->url('Dishes::index') ?>">
     <fieldset>
         <div class="control-group">
+            <div id="js-user-not-located" class="alert alert-error hidden">
+                <?= I18nWrapper::translate('canNotLocateUser'); ?>
+            </div>
+            <div id="js-no-location" class="alert alert-error hidden">
+                <?= I18nWrapper::translate('noLocationGiven'); ?>
+            </div>
+        </div>
+        <div class="control-group">
             <label class="control-label" for="country"><?= I18nWrapper::translate('country'); ?></label>
             <div class="controls">
                 <input type="text" name="country" id="country" placeholder= <?= I18nWrapper::translate('country'); ?> />
@@ -54,7 +62,7 @@
     </fieldset>
 
     <div class="control-group">
-        <button class="btn btn-primary" type="submit" id="signup" name="signup"><?= I18nWrapper::translate('find'); ?> Patat!</button>
+        <button class="btn btn-primary" type="submit" id="findpatat" name="findpatat" disabled><?= I18nWrapper::translate('find'); ?> Patat!</button>
     </div>
 </form>
 

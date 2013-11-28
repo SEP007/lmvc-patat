@@ -1,3 +1,6 @@
+#snippets
+save: 'Sichern!'
+#
 #app/views/main.html
 home: 'Start'
 signUp: 'Registrieren'
@@ -7,12 +10,15 @@ myFavorites: 'Meine Favoriten'
 menu: 'Menu'
 logout: 'Abmelden'
 registerHunger: 'Hunger anmelden!'
+login: 'Anmelden'
 #
 #app/views/application/index.html
 weAreTryingToLocate: 'Wir versuchen Sie zu finden. Ruhe bewahren!'
 youCanAlsoSpecifyYourAddress: '... Sie können auch Ihre Adresse angeben!'
 findMe: 'Finde mich!'
 find: 'Suche'
+canNotLocateUser: "Wir können dich nicht finden, versuche es mit einer ungenaueren Adresse!"
+noLocationGiven: 'Bitte gib eine Addresse an, sonst können wir dich nicht finden!'
 #
 #app/views/dishes/index.html
 votes:'Stimmen'
@@ -22,11 +28,24 @@ ratingTwo: '2-Messe'
 ratingThree: '3-Gut'
 ratingFour: '4-Sehr gut'
 ratingFive: '5-Ausgezeichnet'
+openTimes: 'Opening times'
+weekday: 'Monday - Friday'
+weekend: 'Saturday & Sunday'
 #
 #app/views/dishes/map.html
 startWalking: 'Loslaufen, hier mussen Sie hin!'
 showMapIn: 'In Karte'
 orIn: 'oder'
+walking: 'Walking'
+driving: 'Driving'
+chooseTravelMode: 'Choose a travel mode:'
+#
+#app/views/favorites/index.html
+places: 'Places'
+food: 'Foooooood'
+#
+#app/views/favorites/index.html
+awayFromYou: 'away from you'
 #
 #app/views/imbiss/index.html
 currentOffers: 'Aktuelle Angebote'
@@ -34,12 +53,25 @@ sorry: 'Entschuldigung, '
 weDontHaveOffers: 'wir haben noch keine Angebote für Sie!'
 moreSnacks: 'Mehr Snacks!'
 weDontHaveSnacks: ' wir haben noch keine Snacks gelistet!'
+youCanReachThisPlaceIn: 'You can reach this place in '
+but: 'but'
+thisPlaceIsClosed: 'it is now closed'
+itClosesIn: 'it closes in'
+yourComment: 'Ihr Kommentar ...'
+commentDisabled: 'Nur eingeloggte Kunden können kommentieren.'
+navigateToLogin: 'Zur Anmeldung ...'
+noComments: 'Keine Kommentare'
+toggleComments: 'Kommentare ein-/ausblenden'
+commentCreatedAt: 'Erstellt am'
+commentCreatedBy: 'durch'
+charactersLeft: 'Zeichen übrig'
 #
 #app/views/menu/edit.html
 uploadImage: 'Bild hochladen!'
+only3Dishes: 'Es können nur drei Gerichte beworben werden!'
+advertise: 'Bewerben'
 #
 #app/views/menu/index.html
-#Haven't finished with this file yet
 category: 'Kategorie'
 name: 'Name'
 image: 'Bild'
@@ -58,6 +90,11 @@ userInformation: 'Benutzerinformationen'
 #app/views/registration/failure.html
 sorryRegistrationFailed: 'Sorry, Registrierung oder Bearbeitung des Kontos fehlgeschlagen!'
 resolveProblems: 'Wir sind sehr traurig aber die Registrierung oder Bearbeitung Ihres Kontos konnte aufgrund von technischen Problemen nicht abgeschlossen werden.'
+#
+#app/views/registration/finish.html
+emailChecksOut: 'Hooray, your email checks out! Sign in and get loose!'
+toDishes: 'To dishes...'
+toSingIn: 'To sign in...'
 #
 #app/views/registration/signup-restaurant.html
 youAreMissingMandatoryData: 'Es fehlen einige Pflichtfelder!'
@@ -94,12 +131,28 @@ toLogin: 'Zum login'
 needToSingIn: 'Yau! Sie müssen sich einloggen, um diese Informationen zu sehen'
 restricedPage: 'Diese Seite ist nur für angemeldete Benutzer nur sichtbar. Bitte anmelden oder registrieren!'
 #
+#app/views/registration/signup-customer.html
+somethingIsWrong: 'Something is wrong, please edit where needed!'
+allWorkedFine: 'All worked find, you are a registered hungry person now!'
+yourProfile: 'Your Profile'
+#
+#app/views/registration/success-customer.html
+youAreSignedUpUser: 'Yay! You're signed up. Sign in and be hungry!'
+#
+#app/views/registration/success-restaurant.html
+youAreSignedUpRestaurant: 'Yay! You're signed up. Sign in and set up your restaurant!'
+toMenu: 'To menu...'
+#
+#app/views/registration/success-customer.html
+successEdit: 'Yay! All is saved. Keep on using Patat!'
+#
 #app/views/security/login.html
 ohNo: 'Oh nein!'
 loginFailed: 'Fehler bei der Anmeldung. Tippfehler?'
 logIn: 'Anmelden!'
 toSignup: 'Zur Registrierung'
 goBack: 'Zurück'
+notVerified: 'Musst auf diesen Link klicken wir Ihnen geschickt haben!'
 #
 #app/forms/Signup.php
 nameCompulsory: 'Ein Name für Ihr Restaurant ist Pflicht!'

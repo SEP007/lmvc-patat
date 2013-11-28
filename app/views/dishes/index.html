@@ -3,7 +3,6 @@
     use Scandio\lmvc\modules\assetpipeline\view\Asset;
     use Scandio\lmvc\modules\security\Security;
     use Scandio\lmvc\modules\i18n\I18nWrapper;
-
 ?>
 
 <?= UI::js(Asset::assets(['jquery.favorites.js'], ['path' => 'views'])) ?>
@@ -28,10 +27,10 @@
             <?php foreach($dishesGrouped as $groupedDishes): ?>
             <dt id="<?= $groupedDishes['sortLetter']?>" name="<?= $groupedDishes['sortLetter']?>"><?= $groupedDishes['sortLetter'] ?></dt>
 
-            <?php foreach($groupedDishes['dishes'] as $dish): ?>
+            <?php foreach($groupedDishes['dishes'] as $dish): ?>	
             <dd class="">
-                <div class="span1">
-                    <?php if(Security::get()->isAuthenticated()): ?>
+                <div class="span1 component-favorite">
+                    <?php if(Security::get()->currentUser()->isInGroup("Customer")): ?>
                         <?php if(in_array($dish->dish_id,$dishesFavorite)): ?>
                             <a class="favorite-btn" href="#" data-dishid="<?= $dish->dish_id ?>">
                                 <img width=100 src="<?= Asset::image(['favorite.png']) ?>"
@@ -44,6 +43,10 @@
                             </a>
                         <?php endif ?>
                     <?php endif ?>
+
+                    <a class="up-btn" href="#"">
+                        <img width=100 src="<?= Asset::image(['arrow-up.png']) ?>" alt="" />
+                    </a>
                 </div>
                 <div class="span3 hidden-phone">
                     <a class="image" href="<?= $app->url('Dishes::map', $dish->user_id) ?>">
@@ -69,10 +72,38 @@
                         <div class="span8">
                             <h4><a href="<?= $app->url('Dishes::map', $dish->user_id) ?>"><?= $dish->street ?></a></h4>
                             <h5><a href="tel:<?= $dish->phone ?>"><?= $dish->phone ?></a></h5>
+                           <?php $opentimes = new \models\OpenTimes();                           
+                            	$resultopentimes = $opentimes->getOpeningTimeswd($dish->id); ?>
+                            	<?php if (count($resultopentimes)>0): ?>
+                            <h4><?= I18nWrapper::translate('openTimes'); ?></h4>
+                            <h5><?= I18nWrapper::translate('weekday'); ?> 
+                            	 <?php foreach($resultopentimes as $selectedoptim):
+                            	 	$result1 = mktime($selectedoptim->opening_time,00);
+                            	 	$result2 = mktime($selectedoptim->closing_time,00) ?>
+                            	<?= date("H:i", $result1) ?> - <?= date("H:i", $result2) ?>
+                            	<?php endforeach; ?>
+                            <?php endif; ?>
+                            	</h5>
+                            	<?php $opentimes = new \models\OpenTimes();
+                            	$resultopentimes = $opentimes->getOpeningTimeswe($dish->id); ?>
+                            	<?php if (count($resultopentimes)>0): ?>
+                            <h5><?= I18nWrapper::translate('weekend'); ?>
+                            	 <?php foreach($resultopentimes as $selectedoptim): 
+                            	 	$result1 = mktime($selectedoptim->opening_time,00);
+                            	 	$result2 = mktime($selectedoptim->closing_time,00) ?>
+                            	<?= date("H:i", $result1) ?> - <?= date("H:i", $result2) ?>
+                            	<?php endforeach; ?>
+                            </h5>
+                        <?php endif; ?>
                         </div>
 
                         <div class="clearfix row-fluid">
-                            <h2><?= $dish->name ?> <span class="price"><?= $dish->price ?> €</span></h2>
+                            <h2>
+                                <?= $dish->name ?>
+                                <span class="price">
+                                    <small>Price:</small> <?= $dish->price ?> €
+                                </span>
+                            </h2>
                             <?php if($dish->category_id != null): ?>
                                 <div class="span8">
                                     <h4>
@@ -80,7 +111,7 @@
                                     </h4>
                                 </div>
                             <?php endif ?>
-                            <p class="span8">
+                            <p class="span8 dish-description">
                                 <?= $dish->description ?>
                             </p>
                         </div>

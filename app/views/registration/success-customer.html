@@ -1,8 +1,12 @@
-<h3>All hot as chip fat!</h3>
+<?php
+    use Scandio\lmvc\modules\i18n\I18nWrapper;
+?>
+
+<h3><?= I18nWrapper::translate('chipFat'); ?></h3>
 
 <p>
-    Yay! You're signed up. Sign in and be hungry!
+	<?= I18nWrapper::translate('youAreSignedUpUser'); ?>
 </p>
 
-<h4><a href="<?= $app->url('Application::index') ?>">To dishes...</a></h4>
-<h4><a href="<?= $app->url('Menu::index') ?>">To sign in...</a></h4>
+<h4><a href="<?= $app->url('Application::index') ?>"><?= I18nWrapper::translate('toDishes'); ?></a></h4>
+<h4><a href="<?= $app->url('Menu::index') ?>"><?= I18nWrapper::translate('toSignIn'); ?></a></h4>
