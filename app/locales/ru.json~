@@ -88,10 +88,7 @@
 	"needDescription": "Описание необходимо",
 	"addPrice": "Вы могли бы добавить цену!",
 	"validPrice": "Мы полагаем, что это недопустимая цена!",
-    	"save": "экономить!",
-    	"advertise": "рекламировать",
-    	"only3Dishes": "Можно рекламировать только 3 блюда!",
-	"openTimes": "Opening times",
-	"weekday": "Monday - Friday",
-	"weekend" : "Saturday & Sunday"
+    "save": "экономить!",
+    "advertise": "рекламировать",
+    "only3Dishes": "Можно рекламировать только 3 блюда!"
 }

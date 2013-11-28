@@ -18,9 +18,9 @@ findMe: 'Βρες με'
 find: 'Βρες'
 #
 #app/views/dishes/index.html
-openTimes: 'Ώρες λειτουργίας'
-weekday: 'Δευτέρα - Παρασκευή'
-weekend: 'Σάββατο & Κυριακή'
+openTimes: 'Opening times'
+weekday: 'Monday - Friday'
+weekend: 'Saturday & Sunday'
 #
 #app/views/dishes/map.html
 startWalking: 'Ξεκινήστε να περπατάτε: εκεί είναι που πηγαίνετε!'

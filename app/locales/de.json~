@@ -88,10 +88,7 @@
 	"needDescription": "Eine Beschreibung ist erforderlich!",
 	"addPrice": "Vielleicht möchten sie einen Preis hinzügen?",
 	"validPrice": "Dies ist kein gültiger Preis!",
-  	"save": "Speichern!",
-    	"advertise": "Bewerben",
-    	"only3Dishes": "Es können nur drei Gerichte beworben werden!",
-	"openTimes": "Opening times",
-	"weekday": "Monday - Friday",
-	"weekend" : "Saturday & Sunday"
+    "save": "Speichern!",
+    "advertise": "Bewerben",
+    "only3Dishes": "Es können nur drei Gerichte beworben werden!"
 }

@@ -18,9 +18,6 @@ findMe: 'Hitta mig'
 find: 'Hitta'
 #
 #app/views/dishes/index.html
-openTimes: 'Opening times'
-weekday: 'Monday - Friday'
-weekend: 'Saturday & Sunday'
 #
 #app/views/dishes/map.html
 startWalking: 'Börja gå: det är där du är på väg!'

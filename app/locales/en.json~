@@ -108,6 +108,6 @@
 	"validPrice": "We figured that this is not a valid price!",
     "save": "Save!",
 	"openTimes": "Opening times",
-	"weekday": "Monday - Friday",
-	"weekend" : "Saturday & Sunday"
+	"weekday": "Δευτέρα - Παρασκευή",
+	"weekend" : "Σάββατο & Κυριακή"
 }

@@ -18,9 +18,6 @@ findMe: 'Найти меня'
 find: 'Найти'
 #
 #app/views/dishes/index.html
-openTimes: 'Opening times'
-weekday: 'Monday - Friday'
-weekend: 'Saturday & Sunday'
 #
 #app/views/dishes/map.html
 startWalking: 'Начать путь: это куда вы направляетесь!'
