@@ -38,7 +38,7 @@
         <h1><?= $restaurant->restaurant ?></h1>
 
         <h4><a href="<?= $app->url('Dishes::map', $restaurant->user_id) ?>"><?= $restaurant->street ?></a></h4>
-        
+
         <h5><a href="tel:<?= $restaurant->phone ?>"><?= $restaurant->phone ?></a></h5>
 
         <small><?= I18nWrapper::translate('youCanReachThisPlaceIn'); ?><span id="time-left" data-longitude="<?= $restaurant->longitude ?>" data-latitude="<?= $restaurant->latitude ?>"></span>
@@ -129,9 +129,12 @@
                     </div>
                     <div class="description span9">
                         <div class="row-fluid">
-                            <h1>
-                                <?= $advertisedDish->name ?> <span class="price"><?= $advertisedDish->price ?> €</span>
-                            </h1>
+                            <h2>
+                                <?= $advertisedDish->name ?>
+                                <span class="price">
+                                    <small>Price:</small> <?= $advertisedDish->price ?> €
+                                </span>
+                            </h2>
                             <?php if($advertisedDish->category_id != null): ?>
                             <div class="span8">
                                 <h4>
