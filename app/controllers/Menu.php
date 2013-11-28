@@ -60,7 +60,10 @@ class Menu extends SecureController
         $form = new \forms\Dish();
         $form->validate(static::request());
 
-        $disableAdvertise = (($advertisedDishes->count() >= static::$_advertiseLimit) && !$dish->getAdvertised());
+        $disableAdvertise = (
+            !$dishModel->getAdvertised() &&
+            count($advertisedDishes) >= static::$_advertiseLimit
+        );
 
         $dishModel->user_id = $userId;
         $dishModel->setName(static::request()->name);
