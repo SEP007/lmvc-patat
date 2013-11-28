@@ -43,7 +43,7 @@ a.symbol:before {
   content: attr(title);
   margin-right: 0.3em;
   font-size: 130%; }
-  
+
 ul {
   cursor : pointer;
 }
@@ -144,6 +144,9 @@ dl {
   dl dd .description .price {
     padding-top: 0;
   }
+  .favoriteloc-btn img {
+     width: 50px;
+  }
 }
 
 body {
@@ -213,16 +216,16 @@ footer {
     margin: 5px 0;
     background: #FFF5D2; }
 
-.languages ul { 
+.languages ul {
 	margin: 4px;
 	padding: 0;
 	list-style-type: none;
     text-align: center; }
 
-.languages ul li { 
+.languages ul li {
 	display: inline; }
-	
-.languages ul li a { 
+
+.languages ul li a {
 	text-decoration: none; }
 
 #map {
@@ -244,7 +247,7 @@ footer {
 
   h3 {
     font-size: 1em; } }
-    
+
 #pwindicator {
     margin-top: 4px;
     width: 200px;
