@@ -344,7 +344,14 @@
     </form>
 </div>
 
+<?= UI::css(Asset::assets(['jquery.ui.all.css'], [])) ?>
 
-<?= UI::js(Asset::assets(['jquery.nominatim.js', 'jquery.handle.js', 'jquery.pwstrength.js'], ['path' => 'plugins'])) ?>
-<?= UI::js(Asset::assets(['jquery.register.js', 'jquery.password-strength.js'], ['path' => 'views'])) ?>
+<!-- Library includes -->
+<?= UI::js(Asset::assets(['jquery.ui.core.js'])) ?>
+<?= UI::js(Asset::assets(['jquery.ui.widget.js'])) ?>
+<?= UI::js(Asset::assets(['jquery.ui.position.js'])) ?>
+<?= UI::js(Asset::assets(['jquery.ui.menu.js'])) ?>
+<?= UI::js(Asset::assets(['jquery.ui.autocomplete.js'])) ?>
 
+<?= UI::js(Asset::assets(['jquery.nominatim.js', 'jquery.handle.js', 'jquery.pwstrength.js', 'jquery.emailAutocomplete.js'], ['path' => 'plugins'])) ?>
+<?= UI::js(Asset::assets(['jquery.register.js', 'jquery.password-strength.js', 'jquery.emailAutocomplete.js'], ['path' => 'views'])) ?>
