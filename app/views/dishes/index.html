@@ -29,7 +29,7 @@
 
             <?php foreach($groupedDishes['dishes'] as $dish): ?>	
             <dd class="">
-                <div class="span1">
+                <div class="span1 component-favorite">
                     <?php if(Security::get()->currentUser()->isInGroup("Customer")): ?>
                         <?php if(in_array($dish->dish_id,$dishesFavorite)): ?>
                             <a class="favorite-btn" href="#" data-dishid="<?= $dish->dish_id ?>">
@@ -43,6 +43,10 @@
                             </a>
                         <?php endif ?>
                     <?php endif ?>
+
+                    <a class="up-btn" href="#"">
+                        <img width=100 src="<?= Asset::image(['arrow-up.png']) ?>" alt="" />
+                    </a>
                 </div>
                 <div class="span3 hidden-phone">
                     <a class="image" href="<?= $app->url('Dishes::map', $dish->user_id) ?>">
@@ -94,7 +98,12 @@
                         </div>
 
                         <div class="clearfix row-fluid">
-                            <h2><?= $dish->name ?> <span class="price"><?= $dish->price ?> €</span></h2>
+                            <h2>
+                                <?= $dish->name ?>
+                                <span class="price">
+                                    <small>Price:</small> <?= $dish->price ?> €
+                                </span>
+                            </h2>
                             <?php if($dish->category_id != null): ?>
                                 <div class="span8">
                                     <h4>
@@ -102,7 +111,7 @@
                                     </h4>
                                 </div>
                             <?php endif ?>
-                            <p class="span8">
+                            <p class="span8 dish-description">
                                 <?= $dish->description ?>
                             </p>
                         </div>

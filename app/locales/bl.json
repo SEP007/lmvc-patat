@@ -68,6 +68,7 @@
 	"logIn": "Вход!",
 	"toSignup": "Към регистрация",
 	"goBack": "Назад",
+    "notVerified": "Трябва да кликнете върху тази връзка ние ви изпрати!",
 	"nameCompulsory": "Името на ресторанта е задължително поле!",
 	"typeCity": "Въведете град, моля!",
 	"zipCodeNeeded": "Пощенският код е необходим!",
@@ -93,5 +94,15 @@
     	"only3Dishes": "Само три ястия могат да се рекламират!",
 	"openTimes": "Opening times",
 	"weekday": "Monday - Friday",
-	"weekend" : "Saturday & Sunday"
+	"weekend" : "Saturday & Sunday",
+   	"canNotLocateUser": "Ние не може да ви намери, може да бъде по-конкретен!",
+	"login": "Login",
+	"yourComment": "Your comment ...",
+	"commentDisabled": "Only logged in customers can leave comments.",
+	"navigateToLogin": "To log-in ...",
+	"noComments": "No comments",
+	"toggleComments": "Toggle comments",
+	"commentCreatedAt": "Created at",
+	"commentCreatedBy": "by",
+	"charactersLeft": "characters left"
 }

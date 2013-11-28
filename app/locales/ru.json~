@@ -3,7 +3,7 @@
 	"signUp": "Зарегистрироваться",
 	"myRestaurant": "Мой ресторан",
 	"myProfile": "Мой профиль",
-	"myFavorites": 'Избранные',
+	"myFavorites": "Избранные",
 	"menu": "Меню",
 	"logout": "Выход",
 	"registerHunger": "Регистрация голода",
@@ -68,6 +68,7 @@
 	"logIn": "Войти!",
 	"toSignup": "Зарегистрироваться",
 	"goBack": "Назад",
+    "notVerified": "Надо бы кликнуть по ссылочке что в почтовом ящике...",
 	"nameCompulsory": "Имя для вашего ресторана является обязательным!",
 	"typeCity": "Введите город, пожалуйста!",
 	"zipCodeNeeded": "Почтовый индекс необходим!",
@@ -88,7 +89,27 @@
 	"needDescription": "Описание необходимо",
 	"addPrice": "Вы могли бы добавить цену!",
 	"validPrice": "Мы полагаем, что это недопустимая цена!",
-    "save": "экономить!",
-    "advertise": "рекламировать",
-    "only3Dishes": "Можно рекламировать только 3 блюда!"
+<<<<<<< HEAD
+    	"save": "экономить!",
+    	"advertise": "рекламировать",
+    	"only3Dishes": "Можно рекламировать только 3 блюда!",
+	"openTimes": "Opening times",
+	"weekday": "Monday - Friday",
+	"weekend" : "Saturday & Sunday"
 }
+=======
+   "canNotLocateUser": "Мы не можем найти вас, может быть, менее конкретные!",
+   "save": "экономить!",
+   "advertise": "рекламировать",
+   "only3Dishes": "Можно рекламировать только 3 блюда!",
+	"login": "Login",
+	"yourComment": "Your comment ...",
+	"commentDisabled": "Only logged in customers can leave comments.",
+	"navigateToLogin": "To log-in ...",
+	"noComments": "No comments",
+	"toggleComments": "Toggle comments",
+	"commentCreatedAt": "Created at",
+	"commentCreatedBy": "by",
+	"charactersLeft": "characters left"
+}
+>>>>>>> master
