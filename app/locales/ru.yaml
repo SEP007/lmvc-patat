@@ -1,3 +1,6 @@
+#snippets
+save: 'экономить!'
+#
 #app/views/main.html
 home: 'Домой'
 signUp: 'Зарегистрироваться'
@@ -7,6 +10,7 @@ myFavorites: 'Избранные'
 menu: 'Меню'
 logout: 'Выход'
 registerHunger: 'Регистрация голода'
+login: 'Login'
 #
 #app/views/application/index.html
 weAreTryingToLocate: 'Мы пытаемся найти вас, оставайтесь на месте!'
@@ -39,11 +43,23 @@ sorry: 'Извините,'
 weDontHaveOffers: 'Мы не располагаем предложениями на данный момент!'
 moreSnacks: 'Больше закусок'
 weDontHaveSnacks: 'У нас нет закусок!'
+youCanReachThisPlaceIn: 'You can reach this place in '
+but: 'but'
+thisPlaceIsClosed: 'it is now closed'
+itClosesIn: 'it closes in'
+yourComment: 'Your comment ...'
+commentDisabled: 'Only logged in customers can leave comments.'
+navigateToLogin: 'To log-in ...'
+noComments: 'No comments'
+toggleComments: 'Toggle comments'
+commentCreatedAt: 'Created at'
+commentCreatedBy: 'by'
+charactersLeft: 'characters left'
 #
 #app/views/menu/edit.html
 uploadImage: 'Загрузить изображение!'
-only3Dishes: 'Only three dishes can be advertised!'
-advertise: 'Advertise'
+only3Dishes: 'Можно рекламировать только 3 блюда!'
+advertise: 'рекламировать'
 #
 #app/views/menu/index.html
 category: 'Категория'
@@ -126,6 +142,7 @@ loginFailed: 'Войти не удалось. Пропустили чего-ни
 logIn: 'Войти!'
 toSignup: 'Зарегистрироваться'
 goBack: 'Назад'
+notVerified: 'Надо бы кликнуть по ссылочке что в почтовом ящике...'
 #
 #app/forms/Signup.php
 nameCompulsory: 'Имя для вашего ресторана является обязательным!'

@@ -1,3 +1,6 @@
+#snippets
+save: 'Post!'
+#
 #app/views/main.html
 home: 'Hemma'
 signUp: 'Registrera dig'
@@ -7,6 +10,7 @@ myFavorites: 'Mina Favoriter'
 menu: 'Meny'
 logout: 'Logga ut'
 registerHunger: 'Registrera Hunger'
+login: 'Login'
 #
 #app/views/application/index.html
 weAreTryingToLocate: 'Vi försöker att hitta dig, stanna kvar!'
@@ -39,11 +43,23 @@ sorry: 'Ledsen,'
 weDontHaveOffers: 'vi har inga erbjudanden just nu!'
 moreSnacks: 'Fler mellanmål'
 weDontHaveSnacks: 'vi har inte några snacks listade!'
+youCanReachThisPlaceIn: 'You can reach this place in '
+but: 'but'
+thisPlaceIsClosed: 'it is now closed'
+itClosesIn: 'it closes in'
+yourComment: 'Your comment ...'
+commentDisabled: 'Only logged in customers can leave comments.'
+navigateToLogin: 'To log-in ...'
+noComments: 'No comments'
+toggleComments: 'Toggle comments'
+commentCreatedAt: 'Created at'
+commentCreatedBy: 'by'
+charactersLeft: 'characters left'
 #
 #app/views/menu/edit.html
 uploadImage: 'Ladda upp en bild!'
-only3Dishes: 'Only three dishes can be advertised!'
-advertise: 'Advertise'
+only3Dishes: 'Endast tre rätter kan annonseras!'
+advertise: 'Annonsörer'
 #
 #app/views/menu/index.html
 category: 'Kategori'
@@ -126,6 +142,7 @@ loginFailed: 'Inloggningen misslyckades. Stavfel något här?'
 logIn: 'Logga in!'
 toSignup: 'För att anmäla dig'
 goBack: 'Gå tillbaka'
+notVerified: 'Måste klicka på den länken vi skickat dig!'
 #
 #app/forms/Signup.php
 nameCompulsory: 'Ett namn för din restaurang är obligatoriskt!'

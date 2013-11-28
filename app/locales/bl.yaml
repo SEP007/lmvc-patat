@@ -1,3 +1,6 @@
+#snippets
+save: 'спасяване!'
+#
 #app/views/main.html
 home: 'Начало'
 signUp: 'Регистрирай се'
@@ -7,6 +10,7 @@ myFavorites: 'моите любими'
 menu: 'Меню'
 logout: 'Изход'
 registerHunger: 'Регистрирай глад'
+login: 'Login'
 #
 #app/views/application/index.html
 weAreTryingToLocate: 'Опитваме се да открием местонахождението ви, моля изчакайте!'
@@ -39,11 +43,23 @@ sorry: 'Съжаляваме,'
 weDontHaveOffers: 'нямаме оферти в момента!'
 moreSnacks: 'Още закуски'
 weDontHaveSnacks: 'не разполагаме с никакви закуски!'
+youCanReachThisPlaceIn: 'You can reach this place in '
+but: 'but'
+thisPlaceIsClosed: 'it is now closed'
+itClosesIn: 'it closes in'
+yourComment: 'Your comment ...'
+commentDisabled: 'Only logged in customers can leave comments.'
+navigateToLogin: 'To log-in ...'
+noComments: 'No comments'
+toggleComments: 'Toggle comments'
+commentCreatedAt: 'Created at'
+commentCreatedBy: 'by'
+charactersLeft: 'characters left'
 #
 #app/views/menu/edit.html
 uploadImage: 'Прикачи изображение!'
-only3Dishes: 'Only three dishes can be advertised!'
-advertise: 'Advertise'
+only3Dishes: 'Само три ястия могат да се рекламират!'
+advertise: 'рекламирам'
 #
 #app/views/menu/index.html
 category: 'категория'
@@ -126,6 +142,7 @@ loginFailed: 'Влизането в профила се провали. Нещо
 logIn: 'Вход!'
 toSignup: 'Към регистрация'
 goBack: 'Назад'
+notVerified: 'Трябва да кликнете върху тази връзка ние ви изпрати!'
 #
 #app/forms/Signup.php
 nameCompulsory: 'Името на ресторанта е задължително поле!'

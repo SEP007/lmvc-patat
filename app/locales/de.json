@@ -68,6 +68,7 @@
 	"logIn": "Anmelden!",
 	"toSignup": "Zur Registrierung",
 	"goBack": "Zurück",
+    "notVerified": "Musst auf diesen Link klicken wir Ihnen geschickt haben!",
 	"nameCompulsory": "Ein Name für Ihr Restaurant ist Pflicht!",
 	"typeCity": "Nennen sie eine Stadt, bitte!",
 	"zipCodeNeeded": "Die Postleitzahl ist erforderlich!",
@@ -88,5 +89,17 @@
 	"needDescription": "Eine Beschreibung ist erforderlich!",
 	"addPrice": "Vielleicht möchten sie einen Preis hinzügen?",
 	"validPrice": "Dies ist kein gültiger Preis!",
-    "canNotLocateUser": "Wir können dich nicht finden, versuche es mit einer ungenaueren Adresse!"
+   "canNotLocateUser": "Wir können dich nicht finden, versuche es mit einer ungenaueren Adresse!",
+   "save": "Speichern!",
+   "advertise": "Bewerben",
+   "only3Dishes": "Es können nur drei Gerichte beworben werden!",
+	"login": "Anmelden",
+	"yourComment": "Ihr Kommentar ...",
+	"commentDisabled": "Nur eingeloggte Kunden können kommentieren.",
+	"navigateToLogin": "Zur Anmeldung ...",
+	"noComments": "Keine Kommentare",
+	"toggleComments": "Kommentare ein-/ausblenden",
+	"commentCreatedAt": "Erstellt am",
+	"commentCreatedBy": "durch",
+	"charactersLeft": "Zeichen übrig"
 }

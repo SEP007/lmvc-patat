@@ -1,3 +1,6 @@
+#snippets
+save: 'Sichern!'
+#
 #app/views/main.html
 home: 'Start'
 signUp: 'Registrieren'
@@ -7,6 +10,7 @@ myFavorites: 'Meine Favoriten'
 menu: 'Menu'
 logout: 'Abmelden'
 registerHunger: 'Hunger anmelden!'
+login: 'Anmelden'
 #
 #app/views/application/index.html
 weAreTryingToLocate: 'Wir versuchen Sie zu finden. Ruhe bewahren!'
@@ -39,11 +43,23 @@ sorry: 'Entschuldigung, '
 weDontHaveOffers: 'wir haben noch keine Angebote für Sie!'
 moreSnacks: 'Mehr Snacks!'
 weDontHaveSnacks: ' wir haben noch keine Snacks gelistet!'
+youCanReachThisPlaceIn: 'You can reach this place in '
+but: 'but'
+thisPlaceIsClosed: 'it is now closed'
+itClosesIn: 'it closes in'
+yourComment: 'Ihr Kommentar ...'
+commentDisabled: 'Nur eingeloggte Kunden können kommentieren.'
+navigateToLogin: 'Zur Anmeldung ...'
+noComments: 'Keine Kommentare'
+toggleComments: 'Kommentare ein-/ausblenden'
+commentCreatedAt: 'Erstellt am'
+commentCreatedBy: 'durch'
+charactersLeft: 'Zeichen übrig'
 #
 #app/views/menu/edit.html
 uploadImage: 'Bild hochladen!'
-only3Dishes: 'Only three dishes can be advertised!'
-advertise: 'Advertise'
+only3Dishes: 'Es können nur drei Gerichte beworben werden!'
+advertise: 'Bewerben'
 #
 #app/views/menu/index.html
 category: 'Kategorie'
@@ -126,6 +142,7 @@ loginFailed: 'Fehler bei der Anmeldung. Tippfehler?'
 logIn: 'Anmelden!'
 toSignup: 'Zur Registrierung'
 goBack: 'Zurück'
+notVerified: 'Musst auf diesen Link klicken wir Ihnen geschickt haben!'
 #
 #app/forms/Signup.php
 nameCompulsory: 'Ein Name für Ihr Restaurant ist Pflicht!'
