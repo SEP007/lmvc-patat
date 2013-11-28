@@ -91,5 +91,14 @@
 	"validPrice": "Αυτή η τιμή δεν είναι έγκυρη!",
     "save": "εκτός!",
     "advertise": "Διαφημίστε",
-    "only3Dishes": "Μόνο 3 πιάτα μπορούν να διαφημιστούν!"
+    "only3Dishes": "Μόνο 3 πιάτα μπορούν να διαφημιστούν!",
+	"login": "Login"
+	"yourComment": "Your comment ...",
+	"commentDisabled": "Only logged in customers can leave comments.",
+	"navigateToLogin": "To log-in ...",
+	"noComments": "No comments",
+	"toggleComments": "Toggle comments",
+	"commentCreatedAt": "Created at",
+	"commentCreatedBy": "by",
+	"charactersLeft": "characters left"
 }

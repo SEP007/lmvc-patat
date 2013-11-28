@@ -107,5 +107,14 @@
 	"needDescription": "A description is needed'",
 	"addPrice": "You might want to add a price!",
 	"validPrice": "We figured that this is not a valid price!",
-    "save": "Save!"
+    "save": "Save!",
+	"login": "Login"
+	"yourComment": "Your comment ...",
+	"commentDisabled": "Only logged in customers can leave comments.",
+	"navigateToLogin": "To log-in ...",
+	"noComments": "No comments",
+	"toggleComments": "Toggle comments",
+	"commentCreatedAt": "Created at",
+	"commentCreatedBy": "by",
+	"charactersLeft": "characters left"
 }

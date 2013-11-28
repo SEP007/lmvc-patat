@@ -91,5 +91,14 @@
 	"validPrice": "Vi tänkte att detta är inte ett giltigt pris!",
     "save": "Post!",
     "advertise": "Annonsörer",
-    "only3Dishes": "Endast tre rätter kan annonseras!"
+    "only3Dishes": "Endast tre rätter kan annonseras!",
+	"login": "Login"
+	"yourComment": "Your comment ...",
+	"commentDisabled": "Only logged in customers can leave comments.",
+	"navigateToLogin": "To log-in ...",
+	"noComments": "No comments",
+	"toggleComments": "Toggle comments",
+	"commentCreatedAt": "Created at",
+	"commentCreatedBy": "by",
+	"charactersLeft": "characters left"
 }
