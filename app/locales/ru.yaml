@@ -1,5 +1,5 @@
 #snippets
-save: 'экономить!'
+save: 'Сохранить!'
 #
 #app/views/main.html
 home: 'Домой'
@@ -10,7 +10,7 @@ myFavorites: 'Избранные'
 menu: 'Меню'
 logout: 'Выход'
 registerHunger: 'Регистрация голода'
-login: 'Login'
+login: 'Вход'
 #
 #app/views/application/index.html
 weAreTryingToLocate: 'Мы пытаемся найти вас, оставайтесь на месте!'
@@ -18,7 +18,7 @@ youCanAlsoSpecifyYourAddress: '...Вы можете также указать в
 findMe: 'Найти меня'
 find: 'Найти'
 canNotLocateUser: 'Мы не можем найти вас, может быть, менее конкретные!'
-noLocationGiven: 'Please specify an address, otherwise we can‘t locate you!'
+noLocationGiven: 'Будьте добры, предоставьте адрес, иначе нам вас не найти!'
 #
 #app/views/dishes/index.html
 #
@@ -26,16 +26,16 @@ noLocationGiven: 'Please specify an address, otherwise we can‘t locate you!'
 startWalking: 'Начать путь: это куда вы направляетесь!'
 showMapIn: 'Показать карту в'
 orIn: 'или в'
-walking: 'Walking'
-driving: 'Driving'
-chooseTravelMode: 'Choose a travel mode:'
+walking: 'Идти'
+driving: 'Ехать'
+chooseTravelMode: 'Выберите метод перемещения:'
 #
 #app/views/favorites/index.html
-places: 'Places'
-food: 'Foooooood'
+places: 'Места'
+food: 'Ееееееееда'
 #
 #app/views/favorites/index.html
-awayFromYou: 'away from you'
+awayFromYou: 'вдалеке'
 #
 #app/views/imbiss/index.html
 currentOffers: 'Актуальные предложения'
@@ -43,18 +43,18 @@ sorry: 'Извините,'
 weDontHaveOffers: 'Мы не располагаем предложениями на данный момент!'
 moreSnacks: 'Больше закусок'
 weDontHaveSnacks: 'У нас нет закусок!'
-youCanReachThisPlaceIn: 'You can reach this place in '
-but: 'but'
-thisPlaceIsClosed: 'it is now closed'
-itClosesIn: 'it closes in'
-yourComment: 'Your comment ...'
-commentDisabled: 'Only logged in customers can leave comments.'
-navigateToLogin: 'To log-in ...'
-noComments: 'No comments'
-toggleComments: 'Toggle comments'
-commentCreatedAt: 'Created at'
-commentCreatedBy: 'by'
-charactersLeft: 'characters left'
+youCanReachThisPlaceIn: 'Это место досягаемо за '
+but: 'но'
+thisPlaceIsClosed: 'оно сейчас закрыто'
+itClosesIn: 'оно закрывается через'
+yourComment: 'Ваш комментарий ...'
+commentDisabled: 'Только залогиненные пользователи могут оставлять комментарии.'
+navigateToLogin: 'На вход ...'
+noComments: 'Без комментариев'
+toggleComments: 'Показать/cкрыть комментарии'
+commentCreatedAt: 'Оставлен'
+commentCreatedBy: 'пользователем'
+charactersLeft: 'символов осталось'
 #
 #app/views/menu/edit.html
 uploadImage: 'Загрузить изображение!'
@@ -82,9 +82,9 @@ sorryRegistrationFailed: 'К сожалению, регистрация или �
 resolveProblems: 'Нам очень жаль, но регистрация или редактирование вашей учетной записи не могут быть завершены из-за технических проблем. Повторное обращение может решить эту проблему.'
 #
 #app/views/registration/finish.html
-emailChecksOut: 'Hooray, your email checks out! Sign in and get loose!'
-toDishes: 'To dishes...'
-toSingIn: 'To sign in...'
+emailChecksOut: 'Ураааа, с вашим email все ок! Залогиньтесь и развлекайтесь!'
+toDishes: 'К еде...'
+toSingIn: 'К логину...'
 #
 #app/views/registration/signup-restaurant.html
 youAreMissingMandatoryData: 'Не хватает некоторых обязательных данных — пожалуйста, добавьте в случае необходимости!'
@@ -122,19 +122,19 @@ needToSingIn: 'Опс! Вы должны войти в систему, чтоб�
 restricedPage: 'Доступ к данной странице ограничен, сперва войдите или зарегистрируйтесь.'
 #
 #app/views/registration/signup-customer.html
-somethingIsWrong: 'Something is wrong, please edit where needed!'
-allWorkedFine: 'All worked find, you are a registered hungry person now!'
-yourProfile: 'Your Profile'
+somethingIsWrong: 'Что-то не так, поправьте, где нужно!'
+allWorkedFine: 'Все прошло на ура, ваш голод зарегистирован!'
+yourProfile: 'Ваш профиль'
 #
 #app/views/registration/success-customer.html
-youAreSignedUpUser: 'Yay! You're signed up. Sign in and be hungry!'
+youAreSignedUpUser: 'Юху! Вы зарегистрированы. Залогиньтесь и развлекайтесь!'
 #
 #app/views/registration/success-restaurant.html
-youAreSignedUpRestaurant: 'Yay! You're signed up. Sign in and set up your restaurant!'
-toMenu: 'To menu...'
+youAreSignedUpRestaurant: 'Юху! Вы зарегистрированы. Залогиньтесь и управляйте своим рестораном!'
+toMenu: 'К меню...'
 #
 #app/views/registration/success-customer.html
-successEdit: 'Yay! All is saved. Keep on using Patat!'
+successEdit: 'Юху! Все сохранено. Продолжайте пользоваться Patat!'
 #
 #app/views/security/login.html
 ohNo: 'О нет!'
