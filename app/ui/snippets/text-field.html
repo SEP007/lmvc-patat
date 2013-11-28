@@ -6,30 +6,35 @@
     $placeholder = (isset($params[4]) ? $params[4] : '');
     $disabled = (isset($params[5]) ? $params[5] : false);
     $addOn = (isset($params[6]) ? $params[6] : false);
+    $mandatory = (isset($params[7]) ? $params[7] : false);
 ?>
-<div class="control-group <?= $name ?>">
-    <?php if($label): ?>
-    <label class="control-label <?= $name ?>" for="<?= $name ?>"><?= $label ?></label>
-    <?php endif ?>
-    <div class="controls">
-        <?php if($addOn): ?>
-            <div class="input-append">
-        <?php endif ?>
-
-        <input <?= ($disabled) ? 'disabled' : '' ?>
-            class="<?= ($error) ? 'validation-error' : '' ?>"
-            type="text" id="<?= $name ?>"
-            name="<?= $name ?>"
-            placeholder="<?= $placeholder ?>"
-            value="<?= $value ?>">
-
-        <?php if($addOn): ?>
-                <span class="add-on"><?= $addOn ?></span>
-            </div>
-        <?php endif ?>
-
-        <?php foreach ($error as $validator => $message): ?>
-            <span class="help-inline <?= $validator ?>"><?= $message ?></span>
-        <?php endforeach ?>
-    </div>
+<?php if($mandatory): ?>
+	<div class="required_field <?= $name ?>">
+<?php else: ?>
+	<div class="control-group <?= $name ?>">
+<?php endif ?>
+	    <?php if($label): ?>
+	    <label class="control-label <?= $name ?>" for="<?= $name ?>"><?= $label ?></label>
+	    <?php endif ?>
+	    <div class="controls">
+	        <?php if($addOn): ?>
+	            <div class="input-append">
+	        <?php endif ?>
+	
+	        <input <?= ($disabled) ? 'disabled' : '' ?>
+	            class="<?= ($error) ? 'validation-error' : '' ?>"
+	            type="text" id="<?= $name ?>"
+	            name="<?= $name ?>"
+	            placeholder="<?= $placeholder ?>"
+	            value="<?= $value ?>">
+	
+	        <?php if($addOn): ?>
+	                <span class="add-on"><?= $addOn ?></span>
+	            </div>
+	        <?php endif ?>
+	
+	        <?php foreach ($error as $validator => $message): ?>
+	            <span class="help-inline <?= $validator ?>"><?= $message ?></span>
+	        <?php endforeach ?>
+	    </div>
 </div>

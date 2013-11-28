@@ -15,6 +15,10 @@
     $errors['zip'] = $errors['zip'] ?: [];
     $errors['place'] = $errors['place'] ?: [];
     $errors['handle'] = $errors['handle'] ?: [];
+    $errors['wd_open_h'] = $errors['wd_open_h'] ? : [];
+    $errors['wd_close_h'] = $errors['wd_close_h'] ? : [];
+    $errors['we_open_h'] = $errors['we_open_h'] ? : [];
+    $errors['we_close_h'] = $errors['we_close_h'] ? : [];
 
 ?>
 
@@ -32,7 +36,7 @@
     <form id="registration-form" class="form-horizontal" method="POST" action="<?= $app->url('Registration::signup-restaurant') ?>">
         <fieldset class="span6">
             <legend><?= I18nWrapper::translate('userData'); ?></legend>
-            <div class="control-group">
+            <div class="required_field">
                 <label class="control-label" for="username"><?= I18nWrapper::translate('username'); ?></label>
                 <div class="controls">
                     <input type="text" name="username" id="username" placeholder= <?= I18nWrapper::translate('username'); ?> value="<?= $user->username ?>" />
@@ -42,7 +46,7 @@
                     <?php endforeach ?>
                 </div>
             </div>
-            <div class="control-group">
+            <div class="required_field">
                 <label class="control-label" for="password"><?= I18nWrapper::translate('password'); ?></label>
                 <div class="controls">
 
@@ -60,7 +64,7 @@
 	                </div>
                 </div>
             </div>
-            <div class="control-group">
+            <div class="required_field">
                 <label class="control-label" for="password"><?= I18nWrapper::translate('repeatPassword'); ?></label>
                 <div class="controls">
 
@@ -78,7 +82,7 @@
                     <input type="text" name="fullname" id="fullname" placeholder= <?= I18nWrapper::translate('firstAndSurname'); ?> value="<?= $user->fullname ?>" />
                 </div>
             </div>
-            <div class="control-group">
+            <div class="required_field">
                 <label class="control-label" for="password"><?= I18nWrapper::translate('email'); ?></label>
                 <div class="controls">
 
@@ -110,7 +114,7 @@
 
         <fieldset class="span6">
             <legend><?= I18nWrapper::translate('yourRestaurant'); ?></legend>
-            <div class="control-group">
+            <div class="required_field">
                 <label class="control-label" for="restaurant"><?= I18nWrapper::translate('nameOfRestaurant'); ?></label>
                 <div class="controls">
                     <input type="text" name="restaurant" id="restaurant" placeholder= <?= I18nWrapper::translate('nameOfRestaurant'); ?> value="<?= $user->restaurant ?>" />
@@ -120,7 +124,7 @@
                     <?php endforeach ?>
                 </div>
             </div>
-            <div class="control-group">
+            <div class="required_field">
                 <label class="control-label" for="handle"><?= I18nWrapper::translate('domainForRestaurant'); ?></label>
                 <div class="controls">
                     <input type="text" name="handle" id="handle" placeholder= <?= I18nWrapper::translate('domainForRestaurant'); ?> value="<?= $user->handle ?>" />
@@ -143,7 +147,7 @@
                     <?php endforeach ?>
                 </div>
             </div>
-            <div class="control-group">
+            <div class="required_field">
                 <label class="control-label" for="city"><?= I18nWrapper::translate('city'); ?></label>
                 <div class="controls">
                     <input type="text" name="city" id="city" placeholder= <?= I18nWrapper::translate('city'); ?> value="<?= $user->city ?>"/>
@@ -153,7 +157,7 @@
                     <?php endforeach ?>
                 </div>
             </div>
-            <div class="control-group">
+            <div class="required_field">
                 <label class="control-label" for="zip"><?= I18nWrapper::translate('zip'); ?></label>
                 <div class="controls">
                     <input type="number" name="zip" id="zip" placeholder= <?= I18nWrapper::translate('zip'); ?> value="<?= $user->zip ?>"/>
@@ -306,7 +310,7 @@
                     <?php endforeach ?>
                 </div>
             </div>
-            <div class="control-group">
+            <div class="required_field">
                 <label class="control-label" for="place"><?= I18nWrapper::translate('streetAndHouseNumber'); ?></label>
 
                 <div class="controls">
@@ -344,7 +348,14 @@
     </form>
 </div>
 
+<?= UI::css(Asset::assets(['jquery.ui.all.css'], [])) ?>
 
-<?= UI::js(Asset::assets(['jquery.nominatim.js', 'jquery.handle.js', 'jquery.pwstrength.js'], ['path' => 'plugins'])) ?>
-<?= UI::js(Asset::assets(['jquery.register.js', 'jquery.password-strength.js'], ['path' => 'views'])) ?>
+<!-- Library includes -->
+<?= UI::js(Asset::assets(['jquery.ui.core.js'])) ?>
+<?= UI::js(Asset::assets(['jquery.ui.widget.js'])) ?>
+<?= UI::js(Asset::assets(['jquery.ui.position.js'])) ?>
+<?= UI::js(Asset::assets(['jquery.ui.menu.js'])) ?>
+<?= UI::js(Asset::assets(['jquery.ui.autocomplete.js'])) ?>
 
+<?= UI::js(Asset::assets(['jquery.nominatim.js', 'jquery.handle.js', 'jquery.pwstrength.js', 'jquery.emailAutocomplete.js'], ['path' => 'plugins'])) ?>
+<?= UI::js(Asset::assets(['jquery.register.js', 'jquery.password-strength.js', 'jquery.emailAutocomplete.js'], ['path' => 'views'])) ?>

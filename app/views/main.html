@@ -103,11 +103,11 @@
                                 <?php endif; ?>
                                 <?php if(Security::get()->currentUser()->isInGroup("Restaurant")): ?>
                                     <li><a href="<?= $app->url('Registration::edit-restaurant') ?>"> <?= I18nWrapper::translate('myRestaurant'); ?> </a></li>
+									<li><a href="<?= $app->url('Menu::index') ?>"> <?= I18nWrapper::translate('menu'); ?> </a></li>
                                 <?php endif; ?>
-                            <?php endif; ?>
-                            <li><a href="<?= $app->url('Menu::index') ?>"> <?= I18nWrapper::translate('menu'); ?> </a></li>
-                            <?php if(Security::get()->isAuthenticated()): ?>
-                                <li><a href="<?= $app->url('Security::logout') ?>"> <?= I18nWrapper::translate('logout'); ?> </a></li>
+								<li><a href="<?= $app->url('Security::logout') ?>"> <?= I18nWrapper::translate('logout'); ?> </a></li>
+							<?php else: ?>
+								<li><a href="<?= $app->url('Login::index') ?>"> <?= I18nWrapper::translate('login'); ?> </a></li>
                             <?php endif; ?>
                         </ul>
                     </nav>
