@@ -63,6 +63,7 @@
                             	<?= date("H:i", $result1) ?> - <?= date("H:i", $result2) ?>
                             	<?php endforeach; ?>
                             	</h5>
+                            	<?php endif; ?>
                             	
         <?php $opentimes = new \models\OpenTimes();
           $resultopentimes = $opentimes->getOpeningTimeswe($restaurant->id); ?>
@@ -74,6 +75,7 @@
                             	<?= date("H:i", $result1) ?> - <?= date("H:i", $result2) ?>
                             	<?php endforeach; ?>
                             	</h5>
+                            	<?php endif; ?>
     </div>
 
     <a href="<?= $app->url('Dishes::map', $restaurant->user_id) ?>">
