@@ -21,6 +21,13 @@ canNotLocateUser: "Wir können dich nicht finden, versuche es mit einer ungenaue
 noLocationGiven: 'Bitte gib eine Addresse an, sonst können wir dich nicht finden!'
 #
 #app/views/dishes/index.html
+votes:'Stimmen'
+rateMe:'Bewerten Sie mich!'
+ratingOne: '1-Arm'
+ratingTwo: '2-Messe'
+ratingThree: '3-Gut'
+ratingFour: '4-Sehr gut'
+ratingFive: '5-Ausgezeichnet'
 openTimes: 'Opening times'
 weekday: 'Monday - Friday'
 weekend: 'Saturday & Sunday'

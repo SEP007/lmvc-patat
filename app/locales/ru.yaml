@@ -21,6 +21,13 @@ canNotLocateUser: 'Мы не можем найти вас, может быть, 
 noLocationGiven: 'Будьте добры, предоставьте адрес, иначе нам вас не найти!'
 #
 #app/views/dishes/index.html
+votes: 'голосов'
+rateMe: 'Оценить меня!'
+ratingOne: '1-Бедный'
+ratingTwo: '2-Ярмарка'
+ratingThree: '3-Хорошо'
+ratingFour: '4-Очень хорошо'
+ratingFive: '5-Отлично'
 openTimes: 'Opening times'
 weekday: 'Monday - Friday'
 weekend: 'Saturday & Sunday'

@@ -21,6 +21,13 @@ canNotLocateUser: 'We can not locate you, maybe be less specific!'
 noLocationGiven: 'Please specify an address, otherwise we can‘t locate you!'
 #
 #app/views/dishes/index.html
+votes: 'votes'
+rateMe: 'Rate me!'
+ratingOne: '1-Poor'
+ratingTwo: '2-Fair'
+ratingThree: '3-Good'
+ratingFour: '4-Very Good'
+ratingFive: '5-Excellent'
 openTimes: 'Opening times'
 weekday: 'Monday - Friday'
 weekend: 'Saturday & Sunday'

@@ -21,6 +21,13 @@ canNotLocateUser: 'Ние не може да ви намери, може да б
 noLocationGiven: 'Please specify an address, otherwise we can‘t locate you!'
 #
 #app/views/dishes/index.html
+votes: 'гласували'
+rateMe: 'Оцени ме!'
+ratingOne: '1-Слаб'
+ratingTwo: '2-Среден'
+ratingThree: '3-Добър'
+ratingFour: '4-Мн. добър'
+ratingFive: '5-Отличен'
 openTimes: 'Opening times'
 weekday: 'Monday - Friday'
 weekend: 'Saturday & Sunday'
