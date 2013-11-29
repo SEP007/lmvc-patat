@@ -7,6 +7,7 @@
     use Scandio\lmvc\modules\session\Session;
     use util\Location;
     use \models\OpenTimes;
+    $openTime = new \models\OpenTimes();
 
     $commentsModel = new \models\Comments();
     $usersModel = new \models\Users();
@@ -52,28 +53,19 @@
             <?php endif ?>
         <?php endif ?>
         
-        <?php $opentimes = new \models\OpenTimes();
-          $resultopentimes = $opentimes->getOpeningTimeswd($restaurant->id); ?>
-       <?php if (count($resultopentimes)>0): ?>
+        <?php $resultOpenTime = $openTime->getOpeningTimeswd($restaurant->id); ?>
+       <?php if ($resultOpenTime!=null): ?>
                             <h4><?= I18nWrapper::translate('openTimes'); ?></h4>
                             <h5><?= I18nWrapper::translate('weekday'); ?> 
-                            	 <?php foreach($resultopentimes as $selectedoptim): 
-                            	 	$result1 = mktime($selectedoptim->opening_time,00);
-                            	 	$result2 = mktime($selectedoptim->closing_time,00) ?>
+                            <?php $result1 = mktime($resultOpenTime->opening_time,00);
+                            	  $result2 = mktime($resultOpenTime->closing_time,00); ?>
                             	<?= date("H:i", $result1) ?> - <?= date("H:i", $result2) ?>
-                            	<?php endforeach; ?>
-                            	</h5>
-                            	<?php endif; ?>
-                            	
-        <?php $opentimes = new \models\OpenTimes();
-          $resultopentimes = $opentimes->getOpeningTimeswe($restaurant->id); ?>
-       <?php if (count($resultopentimes)>0): ?>
+                            	</h5>                            	
+        <?php $resultOpenTime = $openTime->getOpeningTimeswe($restaurant->id); ?>
                             <h5><?= I18nWrapper::translate('weekend'); ?>
-                            	 <?php foreach($resultopentimes as $selectedoptim): 
-                            	 	$result1 = mktime($selectedoptim->opening_time,00);
-                            	 	$result2 = mktime($selectedoptim->closing_time,00) ?>
+                            	<?php $result1 = mktime($resultOpenTime->opening_time,00);
+                            	 	  $result2 = mktime($resultOpenTime->closing_time,00); ?>
                             	<?= date("H:i", $result1) ?> - <?= date("H:i", $result2) ?>
-                            	<?php endforeach; ?>
                             	</h5>
                             	<?php endif; ?>
     </div>

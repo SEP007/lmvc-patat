@@ -3,6 +3,7 @@
     use Scandio\lmvc\modules\assetpipeline\view\Asset;
     use Scandio\lmvc\modules\security\Security;
     use Scandio\lmvc\modules\i18n\I18nWrapper;
+    $openTime = new \models\OpenTimes();
 ?>
 
 <?= UI::js(Asset::assets(['jquery.favorites.js'], ['path' => 'views'])) ?>
@@ -72,27 +73,19 @@
                         <div class="span8">
                             <h4><a href="<?= $app->url('Dishes::map', $dish->user_id) ?>"><?= $dish->street ?></a></h4>
                             <h5><a href="tel:<?= $dish->phone ?>"><?= $dish->phone ?></a></h5>
-                           <?php $opentimes = new \models\OpenTimes();                           
-                            	$resultopentimes = $opentimes->getOpeningTimeswd($dish->id); ?>
-                            	<?php if (count($resultopentimes)>0): ?>
+                           <?php $resultOpenTime = $openTime->getOpeningTimeswd($dish->id); ?>  
+                            	<?php if ($resultOpenTime!=null): ?>
                             <h4><?= I18nWrapper::translate('openTimes'); ?></h4>
-                            <h5><?= I18nWrapper::translate('weekday'); ?> 
-                            	 <?php foreach($resultopentimes as $selectedoptim):
-                            	 	$result1 = mktime($selectedoptim->opening_time,00);
-                            	 	$result2 = mktime($selectedoptim->closing_time,00) ?>
-                            	<?= date("H:i", $result1) ?> - <?= date("H:i", $result2) ?>
-                            	<?php endforeach; ?>
-                            <?php endif; ?>
+                            <h5><?= I18nWrapper::translate('weekday'); ?>
+                            	 <?php	$result1 = mktime($resultOpenTime->opening_time,00);
+                            	 	$result2 = mktime($resultOpentime->closing_time,00); ?>
+                            	<?= date("H:i", $result1) ?> - <?= date("H:i", $result2) ?>	
                             	</h5>
-                            	<?php $opentimes = new \models\OpenTimes();
-                            	$resultopentimes = $opentimes->getOpeningTimeswe($dish->id); ?>
-                            	<?php if (count($resultopentimes)>0): ?>
-                            <h5><?= I18nWrapper::translate('weekend'); ?>
-                            	 <?php foreach($resultopentimes as $selectedoptim): 
-                            	 	$result1 = mktime($selectedoptim->opening_time,00);
-                            	 	$result2 = mktime($selectedoptim->closing_time,00) ?>
+                            	<?php $resultOpenTime = $openTime->getOpeningTimeswe($dish->id); ?>
+                            <h5><?= I18nWrapper::translate('weekend'); ?> 
+                              <?php $result1 = mktime($resultOpenTime->opening_time,00);
+                            	 	$result2 = mktime($resultOpenTime->closing_time,00); ?>
                             	<?= date("H:i", $result1) ?> - <?= date("H:i", $result2) ?>
-                            	<?php endforeach; ?>
                             </h5>
                         <?php endif; ?>
                         </div>
