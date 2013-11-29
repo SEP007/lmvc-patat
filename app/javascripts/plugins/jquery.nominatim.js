@@ -73,6 +73,7 @@
 
                 that.setLocation();
                 that.requestAddress();
+                that.processLongLat();
             });
         },
         setLocation: function() {
