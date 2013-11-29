@@ -19,10 +19,19 @@ class Imbiss extends AnonymousController
         $dishesModel = new \models\Dishes();
         $usersModel = new \models\Users();
 
+        if(Security::get()->isAuthenticated() AND Security::get()->currentUser()->isInGroup("Customer"))
+        {
+            $custid = $customersModel->getByUserId($sessionUser->id)->id;
+            $dishesRatingMap = \models\CustDishRating::getCustomerDishesRating($custid);
+
+        }
+
         return static::render([
             'advertisedDishes'          =>  $dishesModel->getDishesByRestaurant($handle, false, true),
             'unadvertisedDishes'        =>  $dishesModel->getDishesByRestaurant($handle, false),
-            'restaurant'                =>  $usersModel->getByHandle($handle)
+
+            'restaurant'                =>  $usersModel->getByHandle($handle),
+            'dishesRatingMap'           =>  $dishesRatingMap
         ]);
     }
 

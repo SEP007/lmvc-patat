@@ -7,6 +7,7 @@
     use Scandio\lmvc\modules\session\Session;
     use util\Location;
     use \models\OpenTimes;
+    $openTime = new \models\OpenTimes();
 
     $commentsModel = new \models\Comments();
     $usersModel = new \models\Users();
@@ -52,28 +53,21 @@
             <?php endif ?>
         <?php endif ?>
         
-        <?php $opentimes = new \models\OpenTimes();
-          $resultopentimes = $opentimes->getOpeningTimeswd($restaurant->id); ?>
-       <?php if (count($resultopentimes)>0): ?>
+        <?php $resultOpenTime = $openTime->getOpeningTimeswd($restaurant->id); ?>
+       <?php if ($resultOpenTime!=null): ?>
                             <h4><?= I18nWrapper::translate('openTimes'); ?></h4>
                             <h5><?= I18nWrapper::translate('weekday'); ?> 
-                            	 <?php foreach($resultopentimes as $selectedoptim): 
-                            	 	$result1 = mktime($selectedoptim->opening_time,00);
-                            	 	$result2 = mktime($selectedoptim->closing_time,00) ?>
+                            <?php $result1 = mktime($resultOpenTime->opening_time,00);
+                            	  $result2 = mktime($resultOpenTime->closing_time,00); ?>
                             	<?= date("H:i", $result1) ?> - <?= date("H:i", $result2) ?>
-                            	<?php endforeach; ?>
-                            	</h5>
-                            	
-        <?php $opentimes = new \models\OpenTimes();
-          $resultopentimes = $opentimes->getOpeningTimeswe($restaurant->id); ?>
-       <?php if (count($resultopentimes)>0): ?>
+                            	</h5>                            	
+        <?php $resultOpenTime = $openTime->getOpeningTimeswe($restaurant->id); ?>
                             <h5><?= I18nWrapper::translate('weekend'); ?>
-                            	 <?php foreach($resultopentimes as $selectedoptim): 
-                            	 	$result1 = mktime($selectedoptim->opening_time,00);
-                            	 	$result2 = mktime($selectedoptim->closing_time,00) ?>
+                            	<?php $result1 = mktime($resultOpenTime->opening_time,00);
+                            	 	  $result2 = mktime($resultOpenTime->closing_time,00); ?>
                             	<?= date("H:i", $result1) ?> - <?= date("H:i", $result2) ?>
-                            	<?php endforeach; ?>
                             	</h5>
+                            	<?php endif; ?>
     </div>
 
     <a href="<?= $app->url('Dishes::map', $restaurant->user_id) ?>">
@@ -154,6 +148,67 @@
                             <p class="span8">
                                 <?= $advertisedDish->description ?>
                             </p>
+
+                            <div class="span8">
+                            <div id="rating_<?= $advertisedDish->id ?>_<?= $restaurant->id ?>" class="rating_container">
+                                <?php
+                            $potatoes=5;
+
+                            $ratingLabel=array(I18nWrapper::translate('ratingOne'),I18nWrapper::translate('ratingTwo'),I18nWrapper::translate('ratingThree'),I18nWrapper::translate('ratingFour'),I18nWrapper::translate('ratingFive'));
+                            for ($rated=1; $rated<=($advertisedDish->avg_rating); $rated++ ){
+                                ?>
+                                <input id="inp_<?= $advertisedDish->id ?>_<?= $restaurant->id ?>_<?= $rated ?>" name="potato_<?= $advertisedDish->id ?>_<?= $restaurant->id ?>" type="radio"
+                                       class="potato required" style="display: none;" disabled="disabled" checked="checked" value="<?= $ratingLabel[$rated-1] ?>">
+                                <?php
+                                $potatoes--;
+                            }
+                            if($potatoes!=0):
+                                $nonRated = (is_null($advertisedDish->avg_rating)) ? 0 : intval($advertisedDish->avg_rating);
+                                for (; $nonRated<5; $nonRated++ ){
+                                ?>
+                                <input id="inp_<?= $advertisedDish->id ?>_<?= $restaurant->id ?>_<?= ($nonRated + 1) ?>" name="potato_<?= $advertisedDish->id ?>_<?= $restaurant->id ?>" type="radio"
+                                       class="potato required" style="display: none;" disabled="disabled" value="<?= $ratingLabel[$nonRated] ?>">
+                                <?php
+                                $potatoes--; }
+                            endif;
+                        ?>
+                            </div>
+                            <div id="avg_<?= $advertisedDish->id ?>_<?= $restaurant->id ?>" class="rating_container">
+                                &nbsp;
+                                <?= (is_null($advertisedDish->avg_rating)) ? '0.00' : $advertisedDish->avg_rating ?>
+                                (<?= (is_null($advertisedDish->num_votes)) ? '0' : $advertisedDish->num_votes ?> <?= I18nWrapper::translate('votes'); ?>)
+                            </div>
+
+                            <?php if(Security::get()->isAuthenticated() AND Security::get()->currentUser()->isInGroup("Customer") ): ?>
+                            <div class="rateUs">
+                                <a id="_<?= $advertisedDish->id ?>_<?= $restaurant->id ?>" class="exp"><?= I18nWrapper::translate('rateMe'); ?></a>
+                                <div id="user_rating_<?= $advertisedDish->id ?>_<?= $restaurant->id ?>" class="rate_me_conatainer">
+                                    <?php
+                                $potatoes=5;
+                                $dishCustomerRating = $dishesRatingMap[$advertisedDish->id];
+                                    for ($rated=1; $rated<=($dishCustomerRating); $rated++ ){
+                                    ?>
+                                    <input name="user_potato_<?= $advertisedDish->id ?>_<?= $restaurant->id ?>" type="radio"
+                                           class="potato required" style="display: none;" checked="checked" value="<?= $ratingLabel[$rated-1] ?>">
+                                    <?php
+                                    $potatoes--;
+                                }
+                                if($potatoes!=0):
+                                    $nonRated = (is_null($dishCustomerRating)) ? 0 : $dishCustomerRating;
+                                    for(; $nonRated<5; $nonRated++ ){
+                            ?>
+                                    <input name="user_potato_<?= $advertisedDish->id ?>_<?= $restaurant->id ?>" type="radio"
+                                           class="potato required" style="display: none;" value="<?= $ratingLabel[$nonRated] ?>">
+                                    <?php
+                                    $potatoes--;
+                                }
+                                endif;
+                            ?>
+                                </div>
+                            </div>
+                            <?php endif ?>
+                          </div>
+
                         </div>
                     </div>
                 </dd>
@@ -310,4 +365,8 @@
 
 <?= UI::js(Asset::assets(['gmaps.js'])) ?>
 <?= UI::js(Asset::assets(['jquery.patatmap.js'], ['path' => 'plugins'])) ?>
-<?= UI::js(Asset::assets(['jquery.imbiss-index.js', 'jquery.expand-collapse-list.js'], ['path' => 'views'])) ?>
+
+<?= UI::js(Asset::assets(['jquery.imbiss-index.js'], ['path' => 'views'])) ?>
+<?= UI::js(Asset::assets(['jquery.expand-collapse-list.js'], ['path' => 'views'])) ?>
+<?= UI::js(Asset::assets(['jquery.rating.js'], ['path' => 'plugins'])) ?>
+<?= UI::js(Asset::assets(['jquery.MetaData.js'], ['path' => 'plugins'])) ?>

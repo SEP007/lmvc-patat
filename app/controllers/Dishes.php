@@ -34,6 +34,7 @@ class Dishes extends AnonymousController
         {
             $custid = $customerModel->getByUserId($user->id)->id;
             self::setRenderArg('dishesFavorite', $dishesModel->getFavoriteDishesForCustomer($custid, true));
+            self::setRenderArg('dishesRatingMap', \models\CustDishRating::getCustomerDishesRating($custid));
         }
 
         return static::render();

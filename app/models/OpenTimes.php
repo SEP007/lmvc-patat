@@ -26,7 +26,7 @@ class OpenTimes
             		'weekday' => 'Monday'
             	]
 			)
-            ->all();
+            ->one();
            
         return $opentimes;
     }
@@ -47,7 +47,7 @@ class OpenTimes
             		'weekday' => 'Saturday'
             	]
 			)
-            ->all();
+            ->one();
 			
         return $opentimes;
     }
