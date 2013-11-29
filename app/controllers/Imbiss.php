@@ -18,10 +18,8 @@ class Imbiss extends AnonymousController
 
         $dishesModel = new \models\Dishes();
         $usersModel = new \models\Users();
-        $sessionUser = Security::get()->currentUser();
-        $customersModel = new \models\Customers();
 
-        if ($sessionUser->username != "anonymous")
+        if(Security::get()->isAuthenticated() AND Security::get()->currentUser()->isInGroup("Customer"))
         {
             $custid = $customersModel->getByUserId($sessionUser->id)->id;
             $dishesRatingMap = \models\CustDishRating::getCustomerDishesRating($custid);
@@ -31,8 +29,8 @@ class Imbiss extends AnonymousController
         return static::render([
             'advertisedDishes'          =>  $dishesModel->getDishesByRestaurant($handle, false, true),
             'unadvertisedDishes'        =>  $dishesModel->getDishesByRestaurant($handle, false),
+
             'restaurant'                =>  $usersModel->getByHandle($handle),
-            'loggedInCustomer'          =>  $customersModel->getCustomerByUsername($sessionUser->username),
             'dishesRatingMap'           =>  $dishesRatingMap
         ]);
     }
@@ -40,21 +38,19 @@ class Imbiss extends AnonymousController
 	/**
 	 * Saves or cancels restaurant comment
 	 * @param handle domain name of restaurant
-	 * @param customerId id of customer that creates comment
 	 * @param locationId id of location comment is created for
-	 * @param commentControl name of control comment description is stored in
 	 */
-	public static function saveRestaurantComment($handle, $customerId, $locationId, $commentControl)
+	public static function saveRestaurantComment($handle, $locationId)
 	{
-		$isPost = static::request()->save;
 		$comment = new \models\Comments();
+        $customersModel = new \models\Customers();
 
-        if ($isPost) {
-            $comment->setDescription(static::request()->$commentControl);
-            $comment->setCreation_date(date("Y-m-d"));
-            $comment->setCreated_by($customerId);
-            $comment->setLocation_id($locationId);
-        }
+		$commentControl = static::request()->textAreaId;
+		
+		$comment->setDescription(static::request()->$commentControl);
+		$comment->setCreation_date(date("Y-m-d"));
+		$comment->setCreated_by($customersModel->getCustomerByUsername(Security::get()->currentUser()->username)->id);
+		$comment->setLocation_id($locationId);
 
 		$comment->save();
 		return static::redirect('Imbiss::index', $handle);
@@ -63,21 +59,19 @@ class Imbiss extends AnonymousController
 		/**
 	 * Saves or cancels dish comment
 	 * @param handle domain name of restaurant
-	 * @param customerId id of customer that creates comment
 	 * @param locationId id of location comment is created for
-	 * @param commentControl name of control comment description is stored in
 	 */
-	public static function saveDishComment($handle, $customerId, $dishId, $commentControl)
+	public static function saveDishComment($handle, $dishId)
 	{
-		$isPost = static::request()->save;
 		$comment = new \models\Comments();
-
-        if ($isPost) {
-            $comment->setDescription(static::request()->$commentControl);
-            $comment->setCreation_date(date("Y-m-d"));
-            $comment->setCreated_by($customerId);
-            $comment->setDish_id($dishId);
-        }
+		$customersModel = new \models\Customers();
+		
+		$commentControl = static::request()->textAreaId;
+        
+		$comment->setDescription(static::request()->$commentControl);
+		$comment->setCreation_date(date("Y-m-d"));
+		$comment->setCreated_by($customersModel->getCustomerByUsername(Security::get()->currentUser()->username)->id);
+		$comment->setDish_id($dishId);
 
 		$comment->save();
 		return static::redirect('Imbiss::index', $handle);

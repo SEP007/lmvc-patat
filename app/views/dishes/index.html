@@ -3,7 +3,7 @@
     use Scandio\lmvc\modules\assetpipeline\view\Asset;
     use Scandio\lmvc\modules\security\Security;
     use Scandio\lmvc\modules\i18n\I18nWrapper;
-
+    $openTime = new \models\OpenTimes();
 ?>
 
 <?= UI::js(Asset::assets(['jquery.favorites.js'], ['path' => 'views'])) ?>
@@ -28,10 +28,10 @@
             <?php foreach($dishesGrouped as $groupedDishes): ?>
             <dt id="<?= $groupedDishes['sortLetter']?>" name="<?= $groupedDishes['sortLetter']?>"><?= $groupedDishes['sortLetter'] ?></dt>
 
-            <?php foreach($groupedDishes['dishes'] as $dish): ?>
+            <?php foreach($groupedDishes['dishes'] as $dish): ?>	
             <dd class="">
-                <div class="span1">
-                    <?php if(Security::get()->isAuthenticated()): ?>
+                <div class="span1 component-favorite">
+                    <?php if(Security::get()->currentUser()->isInGroup("Customer")): ?>
                         <?php if(in_array($dish->dish_id,$dishesFavorite)): ?>
                             <a class="favorite-btn" href="#" data-dishid="<?= $dish->dish_id ?>">
                                 <img width=100 src="<?= Asset::image(['favorite.png']) ?>"
@@ -44,6 +44,10 @@
                             </a>
                         <?php endif ?>
                     <?php endif ?>
+
+                    <a class="up-btn" href="#"">
+                        <img width=100 src="<?= Asset::image(['arrow-up.png']) ?>" alt="" />
+                    </a>
                 </div>
                 <div class="span3 hidden-phone">
                     <a class="image" href="<?= $app->url('Dishes::map', $dish->user_id) ?>">
@@ -69,23 +73,30 @@
                         <div class="span8">
                             <h4><a href="<?= $app->url('Dishes::map', $dish->user_id) ?>"><?= $dish->street ?></a></h4>
                             <h5><a href="tel:<?= $dish->phone ?>"><?= $dish->phone ?></a></h5>
-                            <h4>Opening times</h4>
-                            <h5>Monday - Friday: <?php $opentimes = new \models\OpenTimes();
-                            	$resultopentimes = $opentimes->getOpeningTimeswd($dish->id); ?>
-                            	 <?php foreach($resultopentimes as $selectedoptim):  ?>
-                            	<?= $selectedoptim->opening_time ?> - <?= $selectedoptim->closing_time ?>
-                            	<?php endforeach; ?>
+                           <?php $resultOpenTime = $openTime->getOpeningTimeswd($dish->id); ?>  
+                            	<?php if ($resultOpenTime!=null): ?>
+                            <h4><?= I18nWrapper::translate('openTimes'); ?></h4>
+                            <h5><?= I18nWrapper::translate('weekday'); ?>
+                            	 <?php	$result1 = mktime($resultOpenTime->opening_time,00);
+                            	 	$result2 = mktime($resultOpentime->closing_time,00); ?>
+                            	<?= date("H:i", $result1) ?> - <?= date("H:i", $result2) ?>	
                             	</h5>
-                            <h5>Saturday & Sunday: <?php $opentimes = new \models\OpenTimes();
-                            	$resultopentimes = $opentimes->getOpeningTimeswe($dish->id); ?>
-                            	 <?php foreach($resultopentimes as $selectedoptim):  ?>
-                            	<?= $selectedoptim->opening_time ?> - <?= $selectedoptim->closing_time ?>
-                            	<?php endforeach; ?>
-                            	</h5>
+                            	<?php $resultOpenTime = $openTime->getOpeningTimeswe($dish->id); ?>
+                            <h5><?= I18nWrapper::translate('weekend'); ?> 
+                              <?php $result1 = mktime($resultOpenTime->opening_time,00);
+                            	 	$result2 = mktime($resultOpenTime->closing_time,00); ?>
+                            	<?= date("H:i", $result1) ?> - <?= date("H:i", $result2) ?>
+                            </h5>
+                        <?php endif; ?>
                         </div>
 
                         <div class="clearfix row-fluid">
-                            <h2><?= $dish->name ?> <span class="price"><?= $dish->price ?> €</span></h2>
+                            <h2>
+                                <?= $dish->name ?>
+                                <span class="price">
+                                    <small>Price:</small> <?= $dish->price ?> €
+                                </span>
+                            </h2>
                             <?php if($dish->category_id != null): ?>
                                 <div class="span8">
                                     <h4>
@@ -93,7 +104,7 @@
                                     </h4>
                                 </div>
                             <?php endif ?>
-                            <p class="span8">
+                            <p class="span8 dish-description">
                                 <?= $dish->description ?>
                             </p>
                         </div>
@@ -101,7 +112,7 @@
                     <div id="rating_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" class="rating_container">
                         <?php
                             $potatoes=5;
-                            $ratingLabel=array("1-Poor","2-Fair","3-Good","4-Very Good","5-Excellent");
+                            $ratingLabel=array(I18nWrapper::translate('ratingOne'),I18nWrapper::translate('ratingTwo'),I18nWrapper::translate('ratingThree'),I18nWrapper::translate('ratingFour'),I18nWrapper::translate('ratingFive'));
                             for ($rated=1; $rated<=($dish->avg_rating); $rated++ ){
                         ?>
                         <input id="inp_<?= $dish->dish_id ?>_<?= $dish->location_id ?>_<?= $rated ?>" name="potato_<?= $dish->dish_id ?>_<?= $dish->location_id ?>" type="radio"

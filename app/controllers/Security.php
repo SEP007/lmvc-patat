@@ -29,17 +29,31 @@ class Security extends controllers\Security
             if ($user->verified == 1){
                 Session::set('security.current_user', static::request()->username);
                 Session::set('security.authenticated', true);
-
-                return $parentResponse;
+				
+				return $parentResponse;
             } else {
                 return [
                     'success' => false,
                     'controllerAction' => 'Security::login',
-                    'params' => ['failure']
+                    'params' => ['notverified']
                 ];
             }
         } else {
             return $parentResponse;
         }
+    }
+
+    /**
+     * Overrides lmvc's login to render an error message based on a reason for
+     * login failure
+     * @param null $params communicates the reason of login failure
+     * @return bool|void
+     */
+    public static function login($params = null)
+    {
+        return static::render([
+            'failure'   =>  $params == "failure" ? true : false,
+            'notVerified' => $params == "notverified" ? true : false
+        ]);
     }
 }

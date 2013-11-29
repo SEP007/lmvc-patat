@@ -10,16 +10,27 @@ myFavorites: 'Meine Favoriten'
 menu: 'Menu'
 logout: 'Abmelden'
 registerHunger: 'Hunger anmelden!'
+login: 'Anmelden'
 #
 #app/views/application/index.html
 weAreTryingToLocate: 'Wir versuchen Sie zu finden. Ruhe bewahren!'
 youCanAlsoSpecifyYourAddress: '... Sie können auch Ihre Adresse angeben!'
 findMe: 'Finde mich!'
 find: 'Suche'
+canNotLocateUser: "Wir können dich nicht finden, versuche es mit einer ungenaueren Adresse!"
+noLocationGiven: 'Bitte gib eine Addresse an, sonst können wir dich nicht finden!'
 #
 #app/views/dishes/index.html
 votes:'Stimmen'
 rateMe:'Bewerten Sie mich!'
+ratingOne: '1-Arm'
+ratingTwo: '2-Messe'
+ratingThree: '3-Gut'
+ratingFour: '4-Sehr gut'
+ratingFive: '5-Ausgezeichnet'
+openTimes: 'Opening times'
+weekday: 'Monday - Friday'
+weekend: 'Saturday & Sunday'
 #
 #app/views/dishes/map.html
 startWalking: 'Loslaufen, hier mussen Sie hin!'
@@ -42,6 +53,18 @@ sorry: 'Entschuldigung, '
 weDontHaveOffers: 'wir haben noch keine Angebote für Sie!'
 moreSnacks: 'Mehr Snacks!'
 weDontHaveSnacks: ' wir haben noch keine Snacks gelistet!'
+youCanReachThisPlaceIn: 'You can reach this place in '
+but: 'but'
+thisPlaceIsClosed: 'it is now closed'
+itClosesIn: 'it closes in'
+yourComment: 'Ihr Kommentar ...'
+commentDisabled: 'Nur eingeloggte Kunden können kommentieren.'
+navigateToLogin: 'Zur Anmeldung ...'
+noComments: 'Keine Kommentare'
+toggleComments: 'Kommentare ein-/ausblenden'
+commentCreatedAt: 'Erstellt am'
+commentCreatedBy: 'durch'
+charactersLeft: 'Zeichen übrig'
 #
 #app/views/menu/edit.html
 uploadImage: 'Bild hochladen!'
@@ -129,6 +152,7 @@ loginFailed: 'Fehler bei der Anmeldung. Tippfehler?'
 logIn: 'Anmelden!'
 toSignup: 'Zur Registrierung'
 goBack: 'Zurück'
+notVerified: 'Musst auf diesen Link klicken wir Ihnen geschickt haben!'
 #
 #app/forms/Signup.php
 nameCompulsory: 'Ein Name für Ihr Restaurant ist Pflicht!'
