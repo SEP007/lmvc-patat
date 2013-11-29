@@ -121,6 +121,10 @@ register: 'Зарегистрироваться'
 cancel: 'Отменить'
 edit: 'редактировать'
 reset: 'сброс'
+weekDayOpeningTime: 'Weekday opening time'
+weekDayClosingTime: 'Weekday closing time'
+weekendOpeningTime: 'Weekend opening time'
+weekendClosingTime: 'Weekend closing time'
 #
 #app/views/registration/success.html
 chipFat: 'Все отличненько!'

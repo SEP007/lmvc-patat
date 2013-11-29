@@ -59,7 +59,7 @@
                             <h2>
                                 <?= $dish->name ?>
                                 <span class="price">
-                                    <small>Price:</small> <?= $dish->price ?> €
+                                    <small> <?= I18nWrapper::translate('price'); ?> :</small> <?= $dish->price ?> €
                                 </span>
                             </h2>
                             <?php if($dish->category_id != null): ?>
