@@ -39,13 +39,10 @@ function toggleRating() {
 function toggleCommenting() {
     $('.commenting').find("a[class*='expCommenting']")
         .click( function(event) {
-            if (this == event.target) {
-                var $this = $(this);
-                var container = $('#commentingForm' + $this.get(0).id);
-                container.toggleClass('expanded');
-                container.toggle();
-            }
-            return false;
+			var $this = $(this);
+			var container = $('#commentingForm' + $this.get(0).id);
+			container.toggleClass('expanded');
+			container.toggle();
         });
     $('.commentingForm').addClass('collapsed');
     $('.commentingForm').hide();
