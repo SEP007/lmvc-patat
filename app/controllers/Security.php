@@ -29,7 +29,7 @@ class Security extends controllers\Security
             if ($user->verified == 1){
                 Session::set('security.current_user', static::request()->username);
                 Session::set('security.authenticated', true);
-				
+
 				return $parentResponse;
             } else {
                 return [

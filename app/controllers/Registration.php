@@ -81,16 +81,16 @@ class Registration extends controllers\Registration
                 $location->city         = static::request()->city;
                 $location->zip          = static::request()->zip;
                 $location->street       = static::request()->place;
-			
+
                 $userToGroup->user_id   = $location->user_id;
                 $userToGroup->group_id  = 2;
 
                 $newlocation=$location->insert();
                 $userToGroup->insert();
 
-				
+
 				#opening times data
-				
+
 				$opentimes->restaurant_id = $newlocation->id;
 				$opentimes->week_day = "Monday";
 				$opentimes->opening_time = static::request()->wd_open_h;
@@ -103,11 +103,11 @@ class Registration extends controllers\Registration
 				$opentimes->week_day = "Thursday";
 				$opentimes->insert();
 				$opentimes->week_day = "Friday";
-				$opentimes->insert();	
+				$opentimes->insert();
 				$opentimes->week_day = "Saturday";
-				$opentimes->insert();	
+				$opentimes->insert();
 				$opentimes->week_day = "Sunday";
-				$opentimes->insert();	
+				$opentimes->insert();
 
 
                 #Generate a random hash for email verification and send an email
@@ -117,7 +117,7 @@ class Registration extends controllers\Registration
                 \util\Mail::sendEmailVerification($username, $address, $randomkey);
 
 
-                static::redirect('Menu::index');
+                static::redirect('Security::login');
 
             } else {
                 # This does not imply a form-validation error, its the last resort...
@@ -162,7 +162,7 @@ class Registration extends controllers\Registration
                 $address = $parentResponse->email;
                 \util\Mail::sendEmailVerification($username, $address, $randomkey);
 
-                static::redirect('Menu::index');
+                static::redirect('Security::login');
 
             } else {
                 # This does not imply a form-validation error, its the last resort...
