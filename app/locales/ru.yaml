@@ -23,14 +23,14 @@ noLocationGiven: 'Будьте добры, предоставьте адрес, 
 #app/views/dishes/index.html
 votes: 'голосов'
 rateMe: 'Оценить меня!'
-ratingOne: '1-Бедный'
-ratingTwo: '2-Ярмарка'
+ratingOne: '1-Плохо'
+ratingTwo: '2-Не очень'
 ratingThree: '3-Хорошо'
 ratingFour: '4-Очень хорошо'
 ratingFive: '5-Отлично'
-openTimes: 'Opening times'
-weekday: 'Monday - Friday'
-weekend: 'Saturday & Sunday'
+openTimes: 'Рабочие часы'
+weekday: 'Понедельник - Пятница'
+weekend: 'Суббота и Воскресенье'
 #
 #app/views/dishes/map.html
 startWalking: 'Начать путь: это куда вы направляетесь!'
