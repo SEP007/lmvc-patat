@@ -1,6 +1,7 @@
 ;(function ( $, window, document, undefined ) {
     var pluginName = "nominatim",
         defaults = {
+            redirect: true,
             nominatimUrlInto: "http://nominatim.openstreetmap.org/",
             nominatimUrlOutro: "&format=json&polygon=0&addressdetails=0",
             dishesAction: "dishes/",
@@ -138,8 +139,10 @@
             } else {
                 this.cachedElems.findPatatBtn.removeAttr("disabled");
 
-                window.location = this.settings.dishesAction + this.cachedElems.longitude.val()
-                                  + "/" + this.cachedElems.latitude.val();
+                if (this.settings.redirect === true) {
+                    window.location = this.settings.dishesAction + this.cachedElems.longitude.val()
+                                      + "/" + this.cachedElems.latitude.val();
+                }
             }
         },
         requestAddress: function() {
