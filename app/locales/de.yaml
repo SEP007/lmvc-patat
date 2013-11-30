@@ -65,6 +65,7 @@ toggleComments: 'Kommentare ein-/ausblenden'
 commentCreatedAt: 'Erstellt am'
 commentCreatedBy: 'durch'
 charactersLeft: 'Zeichen übrig'
+addComment: 'Kommentieren!'
 #
 #app/views/menu/edit.html
 uploadImage: 'Bild hochladen!'

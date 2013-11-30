@@ -54,20 +54,37 @@
         <?php endif ?>
         
         <?php $resultOpenTime = $openTime->getOpeningTimeswd($restaurant->id); ?>
-       <?php if ($resultOpenTime!=null): ?>
-                            <h4><?= I18nWrapper::translate('openTimes'); ?></h4>
-                            <h5><?= I18nWrapper::translate('weekday'); ?> 
-                            <?php $result1 = mktime($resultOpenTime->opening_time,00);
-                            	  $result2 = mktime($resultOpenTime->closing_time,00); ?>
-                            	<?= date("H:i", $result1) ?> - <?= date("H:i", $result2) ?>
-                            	</h5>                            	
-        <?php $resultOpenTime = $openTime->getOpeningTimeswe($restaurant->id); ?>
-                            <h5><?= I18nWrapper::translate('weekend'); ?>
-                            	<?php $result1 = mktime($resultOpenTime->opening_time,00);
-                            	 	  $result2 = mktime($resultOpenTime->closing_time,00); ?>
-                            	<?= date("H:i", $result1) ?> - <?= date("H:i", $result2) ?>
-                            	</h5>
-                            	<?php endif; ?>
+			<?php if ($resultOpenTime!=null): ?>
+			<h4><?= I18nWrapper::translate('openTimes'); ?></h4>
+			<h5><?= I18nWrapper::translate('weekday'); ?> 
+			<?php 
+				$result1 = mktime($resultOpenTime->opening_time,00);
+				$result2 = mktime($resultOpenTime->closing_time,00); 
+			?>
+			<?= date("H:i", $result1) ?> - <?= date("H:i", $result2) ?>
+			</h5>                            	
+			<?php $resultOpenTime = $openTime->getOpeningTimeswe($restaurant->id); ?>
+			<h5><?= I18nWrapper::translate('weekend'); ?>
+			<?php 
+				$result1 = mktime($resultOpenTime->opening_time,00);
+				$result2 = mktime($resultOpenTime->closing_time,00); 
+			?>
+			<?= date("H:i", $result1) ?> - <?= date("H:i", $result2) ?>
+			</h5>
+        <?php endif; ?>
+		
+		<?php if($customerLoggedIn): ?>
+			<div class="commenting">
+				<a id="<?= $commentCount ?>" class="expCommenting"><?= I18nWrapper::translate('addComment'); ?></a>
+				<form id="commentingForm<?= $commentCount ?>" class="commentingForm" method="POST" action="<?= $app->url('Imbiss::saveRestaurantComment', ['handle'=>$restaurant->handle, 'locationId'=>$restaurant->id]) ?>">
+					<fieldset>
+					<?= UI::textAreaCounter($commentCount, null, null, I18nWrapper::translate('yourComment'), false, 1, 500) ?>
+					</fieldset>
+				</form>
+			</div>
+		<?php else :?>
+			<div><?= I18nWrapper::translate('commentDisabled'); ?> <a href="<?= $app->url('Security::login')?>"><?= I18nWrapper::translate('navigateToLogin'); ?></a></div>
+		<?php endif; ?>
     </div>
 
     <a href="<?= $app->url('Dishes::map', $restaurant->user_id) ?>">
@@ -79,17 +96,7 @@
     $restaurantComments = $commentsModel->getCommentsByRestaurant($restaurant->id);
 ?>
 <div>
-    <?php if($customerLoggedIn): ?>
-		<form id="<?= $commentCount ?>" method="POST" action="<?= $app->url('Imbiss::saveRestaurantComment', ['handle'=>$restaurant->handle, 'locationId'=>$restaurant->id]) ?>">
-			<fieldset>
-			<?= UI::textAreaCounter($commentCount, null, null, I18nWrapper::translate('yourComment'), false, 1, 500) ?>
-			</fieldset>
-        </form>
-    <?php else :?>
-        <p><?= I18nWrapper::translate('commentDisabled'); ?> <a href="<?= $app->url('Security::login')?>"><?= I18nWrapper::translate('navigateToLogin'); ?></a></p>
-    <?php endif; ?>
-
-    <ul class="expList">
+    <ul class="expComments">
         <li>
         <?php if($restaurantComments->count() == 0): ?>
 			<?= I18nWrapper::translate('noComments'); ?>
@@ -206,29 +213,32 @@
                             ?>
                                 </div>
                             </div>
-                            <?php endif ?>
+                            <?php endif; ?>
+							
+							<?php
+								$dishComments = $commentsModel->getCommentsByDish($advertisedDish->id);
+								$commentCount = $commentCount + 1;
+							?>
+							<?php if($customerLoggedIn):?>
+							<div class="commenting">
+								<a id="<?= $commentCount ?>" class="expCommenting"><?= I18nWrapper::translate('addComment'); ?></a>
+								<form id="commentingForm<?= $commentCount ?>" class="commentingForm" method="POST" action="<?= $app->url('Imbiss::saveDishComment', ['handle'=>$restaurant->handle, 'DishId'=>$advertisedDish->id]) ?>">
+									<fieldset>
+									<?= UI::textAreaCounter($commentCount, null, null, I18nWrapper::translate('yourComment'), false, 1, 500) ?>
+									</fieldset>
+								</form>
+							</div>
+							<?php else :?>
+								<div><?= I18nWrapper::translate('commentDisabled'); ?> <a href="<?= $app->url('Security::login')?>"><?= I18nWrapper::translate('navigateToLogin'); ?></a></div>
+							<?php endif; ?>
                           </div>
 
                         </div>
                     </div>
                 </dd>
 
-                <?php
-                    $dishComments = $commentsModel->getCommentsByDish($advertisedDish->id);
-					$commentCount = $commentCount + 1;
-                ?>
-                <div>
-                    <?php if($customerLoggedIn):?>
-						<form id="<?= $commentCount ?>" method="POST" action="<?= $app->url('Imbiss::saveDishComment', ['handle'=>$restaurant->handle, 'DishId'=>$advertisedDish->id]) ?>">
-							<fieldset>
-							<?= UI::textAreaCounter($commentCount, null, null, I18nWrapper::translate('yourComment'), false, 1, 500) ?>
-							</fieldset>
-						</form>
-                    <?php else :?>
-						<p><?= I18nWrapper::translate('commentDisabled'); ?> <a href="<?= $app->url('Security::login')?>"><?= I18nWrapper::translate('navigateToLogin'); ?></a></p>
-                    <?php endif; ?>
-
-                    <ul class="expList">
+				<div>
+                    <ul class="expComments">
                         <li>
                         <?php if($dishComments->count() == 0): ?>
 							<?= I18nWrapper::translate('noComments'); ?>
@@ -309,25 +319,28 @@
                                     <?= $dish->description ?>
                                 </p>
                             </div>
+							
+							<?php
+								$dishComments = $commentsModel->getCommentsByDish($dish->id);
+								$commentCount = $commentCount + 1;
+							?>
+							<?php if($customerLoggedIn):?>
+							<div class="commenting">
+								<a id="<?= $commentCount ?>" class="expCommenting"><?= I18nWrapper::translate('addComment'); ?></a>
+								<form id="commentingForm<?= $commentCount ?>" class="commentingForm" method="POST" action="<?= $app->url('Imbiss::saveDishComment', ['handle'=>$restaurant->handle, 'DishId'=>$dish->id]) ?>">
+									<fieldset>
+									<?= UI::textAreaCounter($commentCount, null, null, I18nWrapper::translate('yourComment'), false, 1, 500) ?>
+									</fieldset>
+								</form>
+							</div>
+							<?php else :?>
+								<div><?= I18nWrapper::translate('commentDisabled'); ?> <a href="<?= $app->url('Security::login')?>"><?= I18nWrapper::translate('navigateToLogin'); ?></a></div>
+							<?php endif; ?>
                         </div>
                     </dd>
 
-                    <?php
-                        $dishComments = $commentsModel->getCommentsByDish($dish->id);
-						$commentCount = $commentCount + 1;
-                    ?>
-                    <div>
-                        <?php if($customerLoggedIn):?>
-							<form id="<?= $commentCount ?>" method="POST" action="<?= $app->url('Imbiss::saveDishComment', ['handle'=>$restaurant->handle, 'DishId'=>$dish->id]) ?>">
-								<fieldset>
-								<?= UI::textAreaCounter($commentCount, null, null, I18nWrapper::translate('yourComment'), false, 1, 500) ?>
-								</fieldset>
-							</form>
-                        <?php else :?>
-							<p><?= I18nWrapper::translate('commentDisabled'); ?> <a href="<?= $app->url('Security::login')?>"><?= I18nWrapper::translate('navigateToLogin'); ?></a></p>
-                        <?php endif; ?>
-
-                        <ul class="expList">
+					<div>
+                        <ul class="expComments">
                             <li>
                                 <?php if($dishComments->count() == 0): ?>
 									<?= I18nWrapper::translate('noComments'); ?>

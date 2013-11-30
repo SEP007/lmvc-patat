@@ -65,6 +65,7 @@ toggleComments: 'Показать/cкрыть комментарии'
 commentCreatedAt: 'Оставлен'
 commentCreatedBy: 'пользователем'
 charactersLeft: 'символов осталось'
+addComment: 'Add comment!'
 #
 #app/views/menu/edit.html
 uploadImage: 'Загрузить изображение!'

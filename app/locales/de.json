@@ -97,8 +97,8 @@
 	"addPrice": "Vielleicht möchten sie einen Preis hinzügen?",
 	"validPrice": "Dies ist kein gültiger Preis!",
   	"save": "Speichern!",
-    	"advertise": "Bewerben",
-    	"only3Dishes": "Es können nur drei Gerichte beworben werden!",
+	"advertise": "Bewerben",
+	"only3Dishes": "Es können nur drei Gerichte beworben werden!",
 	"openTimes": "Opening times",
 	"weekday": "Monday - Friday",
 	"weekend" : "Saturday & Sunday",
@@ -111,5 +111,6 @@
 	"toggleComments": "Kommentare ein-/ausblenden",
 	"commentCreatedAt": "Erstellt am",
 	"commentCreatedBy": "durch",
-	"charactersLeft": "Zeichen übrig"
+	"charactersLeft": "Zeichen übrig",
+	"addComment": "Kommentieren!"
 }

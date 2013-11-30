@@ -1,8 +1,8 @@
 /**************************************************************/
-/* Prepares the cv to be dynamically expandable/collapsible   */
+/* Adds toggle functionality for list of comments             */
 /**************************************************************/
-function prepareList() {
-    $('.expList').find('li:has(ul)')
+function toggleComments() {
+    $('.expComments').find('li:has(ul)')
         .click( function(event) {
             if (this == event.target) {
                 var $this = $(this);
@@ -16,7 +16,7 @@ function prepareList() {
 };
 
 /**************************************************************/
-/* Adds toggle functionality for rating  */
+/* Adds toggle functionality for rating                       */
 /**************************************************************/
 function toggleRating() {
     $('.rateUs').find("a[class*='exp']")
@@ -34,9 +34,28 @@ function toggleRating() {
 };
 
 /**************************************************************/
+/* Adds toggle functionality for commenting                   */
+/**************************************************************/
+function toggleCommenting() {
+    $('.commenting').find("a[class*='expCommenting']")
+        .click( function(event) {
+            if (this == event.target) {
+                var $this = $(this);
+                var container = $('#commentingForm' + $this.get(0).id);
+                container.toggleClass('expanded');
+                container.toggle();
+            }
+            return false;
+        });
+    $('.commentingForm').addClass('collapsed');
+    $('.commentingForm').hide();
+};
+
+/**************************************************************/
 /* Functions to execute on loading the document               */
 /**************************************************************/
 $(document).ready( function() {
-    prepareList();
+    toggleComments();
     toggleRating();
+	toggleCommenting();
 });

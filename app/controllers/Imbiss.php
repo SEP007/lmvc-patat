@@ -18,10 +18,11 @@ class Imbiss extends AnonymousController
 
         $dishesModel = new \models\Dishes();
         $usersModel = new \models\Users();
+		$customersModel = new\models\Customers();
 
         if(Security::get()->isAuthenticated() AND Security::get()->currentUser()->isInGroup("Customer"))
         {
-            $custid = $customersModel->getByUserId($sessionUser->id)->id;
+			$custid = $customersModel->getByUserId($sessionUser->id)->id;
             $dishesRatingMap = \models\CustDishRating::getCustomerDishesRating($custid);
 
         }

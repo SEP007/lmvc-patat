@@ -111,5 +111,6 @@
 	"toggleComments": "Toggle comments",
 	"commentCreatedAt": "Created at",
 	"commentCreatedBy": "by",
-	"charactersLeft": "characters left"
+	"charactersLeft": "characters left",
+	"addComment": "Add comment!"
 }

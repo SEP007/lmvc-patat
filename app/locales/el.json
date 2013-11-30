@@ -96,9 +96,9 @@
 	"needDescription": "Χρειάζεται μία περιγραφή",
 	"addPrice": "Μπορεί να θέλετε να προσθέσετε μία τιμή!",
 	"validPrice": "Αυτή η τιμή δεν είναι έγκυρη!",
-    	"save": "εκτός!",
-    	"advertise": "Διαφημίστε",
-    	"only3Dishes": "Μόνο 3 πιάτα μπορούν να διαφημιστούν!",
+	"save": "εκτός!",
+	"advertise": "Διαφημίστε",
+	"only3Dishes": "Μόνο 3 πιάτα μπορούν να διαφημιστούν!",
 	"openTimes": "Ώρες λειτουργίας",
 	"weekday": "Δευτέρα - Παρασκευή",
 	"weekend" : "Σάββατο & Κυριακή",
@@ -111,5 +111,6 @@
 	"toggleComments": "Toggle comments",
 	"commentCreatedAt": "Created at",
 	"commentCreatedBy": "by",
-	"charactersLeft": "characters left"
+	"charactersLeft": "characters left",
+	"addComment": "Add comment!"
 }
