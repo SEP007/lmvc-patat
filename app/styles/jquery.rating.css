@@ -50,6 +50,7 @@ div.rating_container {
 }
 
 a.exp {
+    cursor: pointer;
 }
 
 /* END jQuery.Rating Plugin CSS */
