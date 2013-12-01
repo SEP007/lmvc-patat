@@ -117,7 +117,7 @@ class Registration extends controllers\Registration
                 \util\Mail::sendEmailVerification($username, $address, $randomkey);
 
 
-                static::redirect('Security::login');
+                static::redirect('Login::index');
 
             } else {
                 # This does not imply a form-validation error, its the last resort...
@@ -162,7 +162,7 @@ class Registration extends controllers\Registration
                 $address = $parentResponse->email;
                 \util\Mail::sendEmailVerification($username, $address, $randomkey);
 
-                static::redirect('Security::login');
+                static::redirect('Login::index');
 
             } else {
                 # This does not imply a form-validation error, its the last resort...
