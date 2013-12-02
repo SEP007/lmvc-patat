@@ -10,7 +10,7 @@ myFavorites: 'My Favorites'
 menu: 'Menu'
 logout: 'Logout'
 registerHunger: 'Register Hunger'
-login: 'Login'
+loginInPatat: 'Login'
 #
 #app/views/application/index.html
 weAreTryingToLocate: 'We are trying to locate you, stay put!'
@@ -122,6 +122,10 @@ register: 'Register'
 cancel: 'Cancel'
 edit: 'Edit'
 reset: 'Reset'
+weekDayOpeningTime: 'Weekday opening time'
+weekDayClosingTime: 'Weekday closing time'
+weekendOpeningTime: 'Weekend opening time'
+weekendClosingTime: 'Weekend closing time'
 #
 #app/views/registration/success.html
 chipFat: 'All hot as chip fat!'

@@ -10,7 +10,7 @@ myFavorites: 'Meine Favoriten'
 menu: 'Menu'
 logout: 'Abmelden'
 registerHunger: 'Hunger anmelden!'
-login: 'Anmelden'
+loginInPatat: 'Anmelden'
 #
 #app/views/application/index.html
 weAreTryingToLocate: 'Wir versuchen Sie zu finden. Ruhe bewahren!'
@@ -21,8 +21,8 @@ canNotLocateUser: "Wir können dich nicht finden, versuche es mit einer ungenaue
 noLocationGiven: 'Bitte gib eine Addresse an, sonst können wir dich nicht finden!'
 #
 #app/views/dishes/index.html
-votes:'Stimmen'
-rateMe:'Bewerten Sie mich!'
+votes: 'Stimmen'
+rateMe: 'Bewerten Sie mich!'
 ratingOne: '1-Arm'
 ratingTwo: '2-Messe'
 ratingThree: '3-Gut'
@@ -122,6 +122,10 @@ register: 'Registrieren'
 cancel: 'Abbrechen'
 edit: 'Bearbeiten'
 reset: 'Zurücksetzen'
+weekDayOpeningTime: 'Weekday opening time'
+weekDayClosingTime: 'Weekday closing time'
+weekendOpeningTime: 'Weekend opening time'
+weekendClosingTime: 'Weekend closing time'
 #
 #app/views/registration/success.html
 chipFat: 'All hot as chip fat!'
