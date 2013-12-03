@@ -105,6 +105,8 @@ class Registration extends controllers\Registration
 				$opentimes->week_day = "Friday";
 				$opentimes->insert();
 				$opentimes->week_day = "Saturday";
+				$opentimes->opening_time = static::request()->we_open_h;
+				$opentimes->closing_time = static::request()->we_close_h;
 				$opentimes->insert();
 				$opentimes->week_day = "Sunday";
 				$opentimes->insert();
