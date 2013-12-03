@@ -53,4 +53,9 @@ a.exp {
     cursor: pointer;
 }
 
+div.loc_rating {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 /* END jQuery.Rating Plugin CSS */

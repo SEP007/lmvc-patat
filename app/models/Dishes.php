@@ -132,7 +132,8 @@ class Dishes
                                 Radians(longitude) - Radians(' . $longitude . ')) + Sin
                                 (Radians(' . $latitude . ')) * Sin(Radians(latitude)))
                         ), 4 ) AS distance,
-                         Dishes.id as dish_id, Users.id as user_id, Locations.id as location_id
+                         Dishes.id as dish_id, Users.id as user_id, Locations.id as location_id,
+                         Dishes.avg_rating as dish_avg_rating, Dishes.num_votes as dish_num_votes
                     ')
             ->innerJoin(new Users(), 'Dishes.user_id = Users.id')
             ->innerJoin(new Locations(), 'Locations.user_id = Users.id')
