@@ -23,6 +23,11 @@ class Menu extends AnonymousController
         return static::render(['dishes' => $dishes]);
     }
 
+	/**
+     * Prepare for edit view
+     * @param null $id dish id
+     * @return bool true if edit view has been successfully prepared
+     */
     public static function edit($id = null)
     {
         $userId = Security::get()->currentUser()->id;
@@ -31,8 +36,9 @@ class Menu extends AnonymousController
         $advertisedDishes = $dishModel->getDishesByUserId($userId, true);
         $disableAdvertise = $advertisedDishes->count() >= static::$_advertiseLimit;
 
-        if ($id !== null) {
+        if ($id != null) {
             $dishModel = $dishModel->getDishByUser($id, $userId);
+			$disableAdvertise = (!$dishModel->getAdvertised() && $advertisedDishes->count() >= static::$_advertiseLimit);
         }
 
         return static::render([
@@ -44,27 +50,28 @@ class Menu extends AnonymousController
         ]);
     }
 
-    /**
-     * Prepare for edit view
-     * @param null $id dish id
-     * @return bool true if edit view has been successfully prepared
-     */
-    public static function postEdit()
+	/**
+	 * Save added/edit dish
+	 * @param null $id dish id
+	 * @return bool true if edit view has been successfully prepared
+	 */
+    public static function postEdit($id = null)
     {
         $categories = Categories::findAll();
         $userId = Security::get()->currentUser()->id;
         $dishModel = new \models\Dishes();
         $advertisedDishes = $dishModel->getDishesByUserId($userId, true);
+        $disableAdvertise = $advertisedDishes->count() >= static::$_advertiseLimit;
         $category_id = static::request()->category;
 
         $form = new \forms\Dish();
         $form->validate(static::request());
-
-        $disableAdvertise = (
-            !$dishModel->getAdvertised() &&
-            count($advertisedDishes) >= static::$_advertiseLimit
-        );
-
+		
+		if ($id != null) {
+            $dishModel = $dishModel->getDishByUser($id, $userId);
+			$disableAdvertise = (!$dishModel->getAdvertised() && $advertisedDishes->count() >= static::$_advertiseLimit);
+        }
+		
         $dishModel->user_id = $userId;
         $dishModel->setName(static::request()->name);
         $dishModel->setImg(static::request()->img);
