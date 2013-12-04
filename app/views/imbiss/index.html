@@ -142,7 +142,7 @@
                             <h2>
                                 <?= $advertisedDish->name ?>
                                 <span class="price">
-                                    <small>Price:</small> <?= $advertisedDish->price ?> €
+                                    <small> <?= I18nWrapper::translate('price'); ?> :</small> <?= $advertisedDish->price ?> €
                                 </span>
                             </h2>
                             <?php if($advertisedDish->category_id != null): ?>

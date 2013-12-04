@@ -105,6 +105,8 @@ class Registration extends controllers\Registration
 				$opentimes->week_day = "Friday";
 				$opentimes->insert();
 				$opentimes->week_day = "Saturday";
+				$opentimes->opening_time = static::request()->we_open_h;
+				$opentimes->closing_time = static::request()->we_close_h;
 				$opentimes->insert();
 				$opentimes->week_day = "Sunday";
 				$opentimes->insert();
@@ -117,7 +119,7 @@ class Registration extends controllers\Registration
                 \util\Mail::sendEmailVerification($username, $address, $randomkey);
 
 
-                static::redirect('Security::login');
+                static::redirect('Login::index');
 
             } else {
                 # This does not imply a form-validation error, its the last resort...
@@ -162,7 +164,7 @@ class Registration extends controllers\Registration
                 $address = $parentResponse->email;
                 \util\Mail::sendEmailVerification($username, $address, $randomkey);
 
-                static::redirect('Security::login');
+                static::redirect('Login::index');
 
             } else {
                 # This does not imply a form-validation error, its the last resort...
