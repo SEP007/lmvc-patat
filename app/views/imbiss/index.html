@@ -112,7 +112,7 @@
                                 $locCustomerRating = $locRatingMap[$restaurant->location_id];
                     for ($rated=1; $rated<=($locCustomerRating); $rated++ ){
                     ?>
-                    <input name="user_potato_<?= $restaurant->location_id ?>" type="radio"
+                    <input name="restaurant_potato_<?= $restaurant->location_id ?>" type="radio"
                            class="potato required" style="display: none;" checked="checked" value="<?= $ratingLabel[$rated-1] ?>">
                     <?php
                                     $potatoes--;
@@ -121,7 +121,7 @@
                                     $nonRated = (is_null($locCustomerRating)) ? 0 : $locCustomerRating;
                                     for(; $nonRated<5; $nonRated++ ){
                             ?>
-                    <input name="user_potato_<?= $restaurant->location_id ?>" type="radio"
+                    <input name="restaurant_potato_<?= $restaurant->location_id ?>" type="radio"
                            class="potato required" style="display: none;" value="<?= $ratingLabel[$nonRated] ?>">
                     <?php
                                     $potatoes--;

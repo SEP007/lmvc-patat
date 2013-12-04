@@ -26,9 +26,9 @@ class CustLocationRating
 
     public static function getLocRating($custId, $locId){
         $locationsRating = static::query()
-            ->select('*' )
-            ->where('cust_id = :custid', ['custid' => $custId])
-            ->andWhere('location_id = :locId', ['locid'=> $locId])
+            ->select('*')
+            ->where('cust_id = :custId', ['custId' => $custId])
+            ->andWhere('location_id = :locId', ['locId'=> $locId])
             ->all();
         return empty($locationsRating) ? null : $locationsRating[0];
     }
