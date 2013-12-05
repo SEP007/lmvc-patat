@@ -36,16 +36,16 @@ weekend: 'Saturday & Sunday'
 startWalking: 'Loslaufen, hier mussen Sie hin!'
 showMapIn: 'In Karte'
 orIn: 'oder'
-walking: 'Walking'
-driving: 'Driving'
-chooseTravelMode: 'Choose a travel mode:'
+walking: 'Zu Fuß'
+driving: 'Mit dem Auto'
+chooseTravelMode: 'Reiseart wählen:'
 #
 #app/views/favorites/index.html
-places: 'Places'
-food: 'Foooooood'
+places: 'Imbisse'
+food: 'Gerichte'
 #
 #app/views/favorites/index.html
-awayFromYou: 'away from you'
+awayFromYou: 'entfernt von dir'
 #
 #app/views/imbiss/index.html
 currentOffers: 'Aktuelle Angebote'
@@ -53,10 +53,10 @@ sorry: 'Entschuldigung, '
 weDontHaveOffers: 'wir haben noch keine Angebote für Sie!'
 moreSnacks: 'Mehr Snacks!'
 weDontHaveSnacks: ' wir haben noch keine Snacks gelistet!'
-youCanReachThisPlaceIn: 'You can reach this place in '
-but: 'but'
-thisPlaceIsClosed: 'it is now closed'
-itClosesIn: 'it closes in'
+youCanReachThisPlaceIn: 'Du kannst diesen Imbiss erreichen in '
+but: 'aber'
+thisPlaceIsClosed: 'ist jetzt geschlossen'
+itClosesIn: 'schließt in'
 yourComment: 'Ihr Kommentar ...'
 commentDisabled: 'Nur eingeloggte Kunden können kommentieren.'
 navigateToLogin: 'Zur Anmeldung ...'
@@ -93,9 +93,9 @@ sorryRegistrationFailed: 'Sorry, Registrierung oder Bearbeitung des Kontos fehlg
 resolveProblems: 'Wir sind sehr traurig aber die Registrierung oder Bearbeitung Ihres Kontos konnte aufgrund von technischen Problemen nicht abgeschlossen werden.'
 #
 #app/views/registration/finish.html
-emailChecksOut: 'Hooray, your email checks out! Sign in and get loose!'
-toDishes: 'To dishes...'
-toSingIn: 'To sign in...'
+emailChecksOut: 'Hooray, eMail ist validiert! Logge dich ein und los gehts!'
+toDishes: 'Zu den Gerichten...'
+toSingIn: 'Zum Login...'
 #
 #app/views/registration/signup-restaurant.html
 youAreMissingMandatoryData: 'Es fehlen einige Pflichtfelder!'
@@ -122,13 +122,13 @@ register: 'Registrieren'
 cancel: 'Abbrechen'
 edit: 'Bearbeiten'
 reset: 'Zurücksetzen'
-weekDayOpeningTime: 'Weekday opening time'
-weekDayClosingTime: 'Weekday closing time'
-weekendOpeningTime: 'Weekend opening time'
-weekendClosingTime: 'Weekend closing time'
+weekDayOpeningTime: 'Öffnet Wochentags um'
+weekDayClosingTime: 'Schließt Wochentags um'
+weekendOpeningTime: 'Öffnet am Wochenende um'
+weekendClosingTime: 'Schließt am Wochenende um'
 #
 #app/views/registration/success.html
-chipFat: 'All hot as chip fat!'
+chipFat: 'Heiß wie Frittenfett, ab gehts!'
 singedUp: 'Yay! sie sind angemeldet. Melden Sie sich an und starten Sie die Einrichtung ihres Restaurants!'
 toLogin: 'Zum login'
 #
@@ -137,19 +137,19 @@ needToSingIn: 'Yau! Sie müssen sich einloggen, um diese Informationen zu sehen'
 restricedPage: 'Diese Seite ist nur für angemeldete Benutzer nur sichtbar. Bitte anmelden oder registrieren!'
 #
 #app/views/registration/signup-customer.html
-somethingIsWrong: 'Something is wrong, please edit where needed!'
-allWorkedFine: 'All worked find, you are a registered hungry person now!'
-yourProfile: 'Your Profile'
+somethingIsWrong: 'Angaben sind inkorrekt, bitte korrigieren!'
+allWorkedFine: 'Alles hat geklappt, du bist als Futtersuchender angemeldet!'
+yourProfile: 'Dein Profil'
 #
 #app/views/registration/success-customer.html
-youAreSignedUpUser: 'Yay! You're signed up. Sign in and be hungry!'
+youAreSignedUpUser: 'Yay! Du bist angemeldet, logge dich ein und gehe auf Suche!'
 #
 #app/views/registration/success-restaurant.html
-youAreSignedUpRestaurant: 'Yay! You're signed up. Sign in and set up your restaurant!'
-toMenu: 'To menu...'
+youAreSignedUpRestaurant: 'Yay! Du bist angemeldet, logg dich ein und verwalte dein Menu!'
+toMenu: 'Zum Menu...'
 #
 #app/views/registration/success-customer.html
-successEdit: 'Yay! All is saved. Keep on using Patat!'
+successEdit: 'Yay! Alles gespeichert. Weitermachen!'
 #
 #app/views/security/login.html
 ohNo: 'Oh nein!'
