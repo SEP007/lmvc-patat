@@ -72,11 +72,72 @@
 			<?= date("H:i", $result1) ?> - <?= date("H:i", $result2) ?>
 			</h5>
         <?php endif; ?>
+
+        <div class="loc_rating">
+            <div id="rating_<?= $restaurant->location_id ?>" class="rating_container">
+                <?php
+                            $potatoes=5;
+
+                            $ratingLabel=array(I18nWrapper::translate('ratingOne'),I18nWrapper::translate('ratingTwo'),I18nWrapper::translate('ratingThree'),I18nWrapper::translate('ratingFour'),I18nWrapper::translate('ratingFive'));
+                            for ($rated=1; $rated<=($restaurant->avg_rating); $rated++ ){
+                ?>
+                <input id="inp_<?= $restaurant->location_id ?>_<?= $rated ?>" name="potato_<?= $restaurant->location_id ?>" type="radio"
+                       class="potato required" style="display: none;" disabled="disabled" checked="checked" value="<?= $ratingLabel[$rated-1] ?>">
+                <?php
+                                $potatoes--;
+                            }
+                            if($potatoes!=0):
+                                $nonRated = (is_null($restaurant->avg_rating)) ? 0 : intval($restaurant->avg_rating);
+                for (; $nonRated<5; $nonRated++ ){
+                ?>
+                <input id="inp_<?= $restaurant->location_id ?>_<?= ($nonRated + 1) ?>" name="potato_<?= $restaurant->location_id ?>" type="radio"
+                       class="potato required" style="display: none;" disabled="disabled" value="<?= $ratingLabel[$nonRated] ?>">
+                <?php
+                                $potatoes--; }
+                            endif;
+                        ?>
+            </div>
+            <div id="avg_<?= $restaurant->location_id ?>" class="rating_container">
+                &nbsp;
+                <?= (is_null($restaurant->avg_rating)) ? '0.00' : $restaurant->avg_rating ?>
+                (<?= (is_null($restaurant->num_votes)) ? '0' : $restaurant->num_votes ?> <?= I18nWrapper::translate('votes'); ?>)
+            </div>
+
+            <?php if($customerLoggedIn): ?>
+            <div class="rateUs">
+                <a id="_<?= $restaurant->location_id ?>" class="exp"><?= I18nWrapper::translate('rateMe'); ?></a>
+                <div id="user_rating_<?= $restaurant->location_id ?>" class="rate_me_conatainer">
+                    <?php
+                                $potatoes=5;
+                                $locCustomerRating = $locRatingMap[$restaurant->location_id];
+                    for ($rated=1; $rated<=($locCustomerRating); $rated++ ){
+                    ?>
+                    <input name="restaurant_potato_<?= $restaurant->location_id ?>" type="radio"
+                           class="potato required" style="display: none;" checked="checked" value="<?= $ratingLabel[$rated-1] ?>">
+                    <?php
+                                    $potatoes--;
+                                }
+                                if($potatoes!=0):
+                                    $nonRated = (is_null($locCustomerRating)) ? 0 : $locCustomerRating;
+                                    for(; $nonRated<5; $nonRated++ ){
+                            ?>
+                    <input name="restaurant_potato_<?= $restaurant->location_id ?>" type="radio"
+                           class="potato required" style="display: none;" value="<?= $ratingLabel[$nonRated] ?>">
+                    <?php
+                                    $potatoes--;
+                                }
+                                endif;
+                            ?>
+                    <p>&nbsp;</p>
+                </div>
+            </div>
+            <?php endif; ?>
+        </div>
 		
 		<?php if($customerLoggedIn): ?>
 			<div class="commenting">
 				<a id="<?= $commentCount ?>" class="expCommenting"><?= I18nWrapper::translate('addComment'); ?></a>
-				<form id="commentingForm<?= $commentCount ?>" class="commentingForm" method="POST" action="<?= $app->url('Imbiss::saveRestaurantComment', ['handle'=>$restaurant->handle, 'locationId'=>$restaurant->id]) ?>">
+				<form id="commentingForm<?= $commentCount ?>" class="commentingForm" method="POST" action="<?= $app->url('Imbiss::saveRestaurantComment', ['handle'=>$restaurant->handle, 'locationId'=>$restaurant->location_id]) ?>">
 					<fieldset>
 					<?= UI::textAreaCounter($commentCount, null, null, I18nWrapper::translate('yourComment'), false, 1, 500) ?>
 					</fieldset>
@@ -93,7 +154,7 @@
 </div>
 
 <?php
-    $restaurantComments = $commentsModel->getCommentsByRestaurant($restaurant->id);
+    $restaurantComments = $commentsModel->getCommentsByRestaurant($restaurant->location_id);
 ?>
 <div>
     <ul class="expComments">
@@ -157,14 +218,15 @@
                             </p>
 
                             <div class="span8">
-                            <div id="rating_<?= $advertisedDish->id ?>_<?= $restaurant->id ?>" class="rating_container">
+                            <div class="loc_rating">
+                            <div id="rating_<?= $advertisedDish->id ?>_<?= $restaurant->location_id ?>" class="rating_container">
                                 <?php
                             $potatoes=5;
 
                             $ratingLabel=array(I18nWrapper::translate('ratingOne'),I18nWrapper::translate('ratingTwo'),I18nWrapper::translate('ratingThree'),I18nWrapper::translate('ratingFour'),I18nWrapper::translate('ratingFive'));
                             for ($rated=1; $rated<=($advertisedDish->avg_rating); $rated++ ){
                                 ?>
-                                <input id="inp_<?= $advertisedDish->id ?>_<?= $restaurant->id ?>_<?= $rated ?>" name="potato_<?= $advertisedDish->id ?>_<?= $restaurant->id ?>" type="radio"
+                                <input id="inp_<?= $advertisedDish->id ?>_<?= $restaurant->location_id ?>_<?= $rated ?>" name="potato_<?= $advertisedDish->id ?>_<?= $restaurant->location_id ?>" type="radio"
                                        class="potato required" style="display: none;" disabled="disabled" checked="checked" value="<?= $ratingLabel[$rated-1] ?>">
                                 <?php
                                 $potatoes--;
@@ -173,29 +235,29 @@
                                 $nonRated = (is_null($advertisedDish->avg_rating)) ? 0 : intval($advertisedDish->avg_rating);
                                 for (; $nonRated<5; $nonRated++ ){
                                 ?>
-                                <input id="inp_<?= $advertisedDish->id ?>_<?= $restaurant->id ?>_<?= ($nonRated + 1) ?>" name="potato_<?= $advertisedDish->id ?>_<?= $restaurant->id ?>" type="radio"
+                                <input id="inp_<?= $advertisedDish->id ?>_<?= $restaurant->location_id ?>_<?= ($nonRated + 1) ?>" name="potato_<?= $advertisedDish->id ?>_<?= $restaurant->location_id ?>" type="radio"
                                        class="potato required" style="display: none;" disabled="disabled" value="<?= $ratingLabel[$nonRated] ?>">
                                 <?php
                                 $potatoes--; }
                             endif;
                         ?>
                             </div>
-                            <div id="avg_<?= $advertisedDish->id ?>_<?= $restaurant->id ?>" class="rating_container">
+                            <div id="avg_<?= $advertisedDish->id ?>_<?= $restaurant->location_id ?>" class="rating_container">
                                 &nbsp;
                                 <?= (is_null($advertisedDish->avg_rating)) ? '0.00' : $advertisedDish->avg_rating ?>
                                 (<?= (is_null($advertisedDish->num_votes)) ? '0' : $advertisedDish->num_votes ?> <?= I18nWrapper::translate('votes'); ?>)
                             </div>
 
                             <?php if(Security::get()->isAuthenticated() AND Security::get()->currentUser()->isInGroup("Customer") ): ?>
-                            <div class="rateUs">
-                                <a id="_<?= $advertisedDish->id ?>_<?= $restaurant->id ?>" class="exp"><?= I18nWrapper::translate('rateMe'); ?></a>
-                                <div id="user_rating_<?= $advertisedDish->id ?>_<?= $restaurant->id ?>" class="rate_me_conatainer">
+                            <div class="rateUs" >
+                                <a id="_<?= $advertisedDish->id ?>_<?= $restaurant->location_id ?>" class="exp"><?= I18nWrapper::translate('rateMe'); ?></a>
+                                <div id="user_rating_<?= $advertisedDish->id ?>_<?= $restaurant->location_id ?>" class="rate_me_conatainer">
                                     <?php
                                 $potatoes=5;
                                 $dishCustomerRating = $dishesRatingMap[$advertisedDish->id];
                                     for ($rated=1; $rated<=($dishCustomerRating); $rated++ ){
                                     ?>
-                                    <input name="user_potato_<?= $advertisedDish->id ?>_<?= $restaurant->id ?>" type="radio"
+                                    <input name="user_potato_<?= $advertisedDish->id ?>_<?= $restaurant->location_id ?>" type="radio"
                                            class="potato required" style="display: none;" checked="checked" value="<?= $ratingLabel[$rated-1] ?>">
                                     <?php
                                     $potatoes--;
@@ -204,16 +266,18 @@
                                     $nonRated = (is_null($dishCustomerRating)) ? 0 : $dishCustomerRating;
                                     for(; $nonRated<5; $nonRated++ ){
                             ?>
-                                    <input name="user_potato_<?= $advertisedDish->id ?>_<?= $restaurant->id ?>" type="radio"
+                                    <input name="user_potato_<?= $advertisedDish->id ?>_<?= $restaurant->location_id ?>" type="radio"
                                            class="potato required" style="display: none;" value="<?= $ratingLabel[$nonRated] ?>">
                                     <?php
                                     $potatoes--;
                                 }
                                 endif;
                             ?>
+                            <p>&nbsp;</p>
                                 </div>
                             </div>
                             <?php endif; ?>
+                            </div>
 							
 							<?php
 								$dishComments = $commentsModel->getCommentsByDish($advertisedDish->id);

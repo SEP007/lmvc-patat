@@ -32,4 +32,13 @@ class Locations
             ->andWhere('loc_id = :locationid', ['locationid' => $locationid])->all();
         return count($CustFavLocations) === 0 ? false : true;
     }
+
+    public static function getLocation($locId) {
+        $locations = static::query()
+            ->select('*')
+            ->where('id = :locId', ['locId' => $locId])
+            ->all();
+
+        return empty($locations) ? null : $locations[0];
+    }
 }

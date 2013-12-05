@@ -20,7 +20,7 @@ class Users
 
     public static function getByHandle($handle) {
         $user = static::query()
-            ->select('*')
+            ->select('*, Locations.id as location_id')
             ->innerJoin(new Locations(), 'Locations.user_id = Users.id')
             ->where('Locations.handle= :handle', ['handle' => $handle])
             ->one();
