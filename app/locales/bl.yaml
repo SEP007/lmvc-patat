@@ -10,7 +10,7 @@ myFavorites: 'моите любими'
 menu: 'Меню'
 logout: 'Изход'
 registerHunger: 'Регистрирай глад'
-login: 'Login'
+loginInPatat: 'Login'
 #
 #app/views/application/index.html
 weAreTryingToLocate: 'Опитваме се да открием местонахождението ви, моля изчакайте!'
@@ -122,6 +122,10 @@ register: 'Регистрирай'
 cancel: 'Отказ'
 edit: 'Редактирай'
 reset: 'Изчисти'
+weekDayOpeningTime: 'Weekday opening time'
+weekDayClosingTime: 'Weekday closing time'
+weekendOpeningTime: 'Weekend opening time'
+weekendClosingTime: 'Weekend closing time'
 #
 #app/views/registration/success.html
 chipFat: 'Всичко е яко като мазен чипс!'

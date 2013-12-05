@@ -10,7 +10,7 @@ myFavorites: 'Mina Favoriter'
 menu: 'Meny'
 logout: 'Logga ut'
 registerHunger: 'Registrera Hunger'
-login: 'Login'
+loginInPatat: 'Login'
 #
 #app/views/application/index.html
 weAreTryingToLocate: 'Vi försöker att hitta dig, stanna kvar!'
@@ -21,8 +21,8 @@ canNotLocateUser: 'Vi kan inte hitta dig, kanske vara mindre specifik!'
 noLocationGiven: 'Vänligen ange en adress, annars kan vi inte hitta dig!'
 #
 #app/views/dishes/index.html
-votes:'röster'
-rateMe:'Gradera mig!'
+votes: 'röster'
+rateMe: 'Gradera mig!'
 ratingOne: '1-Dålig'
 ratingTwo: '2-Verkligt'
 ratingThree: '3-Bra'
@@ -122,6 +122,10 @@ register: 'Registrera'
 cancel: 'Avbryta'
 edit: 'Redigera'
 reset: 'Återställ'
+weekDayOpeningTime: 'Weekday opening time'
+weekDayClosingTime: 'Weekday closing time'
+weekendOpeningTime: 'Weekend opening time'
+weekendClosingTime: 'Weekend closing time'
 #
 #app/views/registration/success.html
 chipFat: 'All hot as chip fat!'
