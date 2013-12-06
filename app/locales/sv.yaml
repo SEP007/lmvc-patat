@@ -10,7 +10,7 @@ myFavorites: 'Mina Favoriter'
 menu: 'Meny'
 logout: 'Logga ut'
 registerHunger: 'Registrera Hunger'
-loginInPatat: 'Login'
+loginInPatat: 'Logga in'
 #
 #app/views/application/index.html
 weAreTryingToLocate: 'Vi försöker att hitta dig, stanna kvar!'
@@ -28,24 +28,24 @@ ratingTwo: '2-Verkligt'
 ratingThree: '3-Bra'
 ratingFour: '4-Mycket bra'
 ratingFive: '5-Utmärkt'
-openTimes: 'Opening times'
-weekday: 'Monday - Friday'
-weekend: 'Saturday & Sunday'
+openTimes: 'öppettider'
+weekday: 'Måndag - Fredag'
+weekend: 'Lördag & Söndag'
 #
 #app/views/dishes/map.html
 startWalking: 'Börja gå: det är där du är på väg!'
 showMapIn: 'Visa kartan i'
 orIn: 'eller i'
-walking: 'Walking'
-driving: 'Driving'
-chooseTravelMode: 'Choose a travel mode:'
+walking: 'Gång'
+driving: 'Körning'
+chooseTravelMode: 'Välj reseläge:'
 #
 #app/views/favorites/index.html
-places: 'Places'
-food: 'Foooooood'
+places: 'Platser'
+food: 'Maaaaaaaat'
 #
 #app/views/favorites/index.html
-awayFromYou: 'away from you'
+awayFromYou: 'bort från dig'
 #
 #app/views/imbiss/index.html
 currentOffers: 'Aktuella erbjudanden'
@@ -53,19 +53,19 @@ sorry: 'Ledsen,'
 weDontHaveOffers: 'vi har inga erbjudanden just nu!'
 moreSnacks: 'Fler mellanmål'
 weDontHaveSnacks: 'vi har inte några snacks listade!'
-youCanReachThisPlaceIn: 'You can reach this place in '
-but: 'but'
-thisPlaceIsClosed: 'it is now closed'
-itClosesIn: 'it closes in'
-yourComment: 'Your comment ...'
-commentDisabled: 'Only logged in customers can leave comments.'
-navigateToLogin: 'To log-in ...'
-noComments: 'No comments'
-toggleComments: 'Toggle comments'
-commentCreatedAt: 'Created at'
-commentCreatedBy: 'by'
-charactersLeft: 'characters left'
-addComment: 'Add comment!'
+youCanReachThisPlaceIn: 'Du kan nå denna plats i '
+but: 'eller'
+thisPlaceIsClosed: 'det är nu stängd'
+itClosesIn: 'den stänger in'
+yourComment: 'Din kommentar ...'
+commentDisabled: 'Endast inloggade kunder kan lämna kommentarer.'
+navigateToLogin: 'För att logga in ...'
+noComments: 'Inga kommentarer'
+toggleComments: 'Växla kommentarer'
+commentCreatedAt: 'Skapad på'
+commentCreatedBy: 'av'
+charactersLeft: 'tecken kvar'
+addComment: 'Lägg till kommentar!'
 #
 #app/views/menu/edit.html
 uploadImage: 'Ladda upp en bild!'
@@ -93,8 +93,8 @@ sorryRegistrationFailed: 'Tyvärr misslyckades registreringen eller konto redige
 resolveProblems: 'Vi är mycket ledsna, men din registrering eller redigering av ditt konto kunde inte slutföras på grund av tekniska problem. Försöker igen kan lösa problemet.'
 #
 #app/views/registration/finish.html
-emailChecksOut: 'Hooray, your email checks out! Sign in and get loose!'
-toDishes: 'To dishes...'
+emailChecksOut: 'Hooray, din e-checkar ut! Logga in och få loss!'
+toDishes: 'Till rätter...'
 toSingIn: 'To sign in...'
 #
 #app/views/registration/signup-restaurant.html
@@ -122,10 +122,10 @@ register: 'Registrera'
 cancel: 'Avbryta'
 edit: 'Redigera'
 reset: 'Återställ'
-weekDayOpeningTime: 'Weekday opening time'
-weekDayClosingTime: 'Weekday closing time'
-weekendOpeningTime: 'Weekend opening time'
-weekendClosingTime: 'Weekend closing time'
+weekDayOpeningTime: 'Vecko öppningstid'
+weekDayClosingTime: 'Veckodag stängningstid'
+weekendOpeningTime: 'Helg öppningstid'
+weekendClosingTime: 'Helg stängningstid'
 #
 #app/views/registration/success.html
 chipFat: 'All hot as chip fat!'
@@ -137,19 +137,19 @@ needToSingIn: 'Yau! Du måste logga in för att se denna information'
 restricedPage: 'Denna sida är begränsad till inloggade användare, logga in eller registrera dig först.'
 #
 #app/views/registration/signup-customer.html
-somethingIsWrong: 'Something is wrong, please edit where needed!'
-allWorkedFine: 'All worked find, you are a registered hungry person now!'
-yourProfile: 'Your Profile'
+somethingIsWrong: 'Något är fel, vänligen redigera där det behövs!'
+allWorkedFine: 'Allt funge hitta, du är en registrerad hungrig människa nu!'
+yourProfile: 'Din profil'
 #
 #app/views/registration/success-customer.html
-youAreSignedUpUser: 'Yay! You're signed up. Sign in and be hungry!'
+youAreSignedUpUser: 'Yay! Du är inloggad upp. Logga in och vara hungrig!'
 #
 #app/views/registration/success-restaurant.html
-youAreSignedUpRestaurant: 'Yay! You're signed up. Sign in and set up your restaurant!'
-toMenu: 'To menu...'
+youAreSignedUpRestaurant: 'Yay! Du är inloggad upp. Logga in och konfigurera din restaurang!'
+toMenu: 'Till menu...'
 #
 #app/views/registration/success-customer.html
-successEdit: 'Yay! All is saved. Keep on using Patat!'
+successEdit: 'Yay! Allt sparas. Fortsätt att använda Patat!'
 #
 #app/views/security/login.html
 ohNo: 'Oh Nej!'

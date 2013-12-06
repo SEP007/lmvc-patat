@@ -18,7 +18,7 @@ youCanAlsoSpecifyYourAddress: '...μπορείτε επίσης να μας δώ
 findMe: 'Βρες με'
 find: 'Βρες'
 canNotLocateUser: 'Δεν μπορείτε να εντοπίσετε, ίσως να είναι λιγότερο ειδικό!'
-noLocationGiven: 'Please specify an address, otherwise we can‘t locate you!'
+noLocationGiven: 'Παρακαλώ δώστε μία διεύθυνση, αλλιώς δεν μπορούμε να σας βρούμε!'
 #
 #app/views/dishes/index.html
 votes: 'ψήφοι'
@@ -53,19 +53,19 @@ sorry: 'Συγγνώμη,'
 weDontHaveOffers: 'δεν έχουμε προσφορές αυτή την στιγμή!'
 moreSnacks: 'Περισσότερα snacks'
 weDontHaveSnacks: 'δεν έχουμε καθόλου snacks!'
-youCanReachThisPlaceIn: 'You can reach this place in '
-but: 'but'
-thisPlaceIsClosed: 'it is now closed'
-itClosesIn: 'it closes in'
-yourComment: 'Your comment ...'
-commentDisabled: 'Only logged in customers can leave comments.'
-navigateToLogin: 'To log-in ...'
-noComments: 'No comments'
-toggleComments: 'Toggle comments'
-commentCreatedAt: 'Created at'
-commentCreatedBy: 'by'
-charactersLeft: 'characters left'
-addComment: 'Add comment!'
+youCanReachThisPlaceIn: 'Μπορείτε να φτάσετε σε αυτό το μέρος σε '
+but: 'αλλά'
+thisPlaceIsClosed: 'είναι τώρα κλειστό'
+itClosesIn: 'κλείνει σε'
+yourComment: 'Το σχόλιό σας ...'
+commentDisabled: 'Μόνο συνδεδεμένοι χρήστες μπορούν να αφήσουν σχόλια'
+navigateToLogin: 'Για να συνδεθείτε ...'
+noComments: 'Κανένα σχόλιο'
+toggleComments: 'Δείτε τα σχόλια'
+commentCreatedAt: 'Δημιουργήθηκε στις'
+commentCreatedBy: 'από'
+charactersLeft: 'χαρακτήρες έμειναν'
+addComment: 'Προσθέστε σχόλιο!'
 #
 #app/views/menu/edit.html
 uploadImage: 'Ανέβασε φωτογραφία!'
@@ -137,19 +137,19 @@ needToSingIn: 'Yau! Πρέπει να συνδεθείτε για να δείτ�
 restricedPage: 'Αυτή η σελίδα είναι προσβάσιμη σε συνδεδεμένους χρήστες μόνο, παρακαλώ συνδεθείτε ή εγγραφείτε πρώτα.'
 #
 #app/views/registration/signup-customer.html
-somethingIsWrong: 'Something is wrong, please edit where needed!'
-allWorkedFine: 'All worked find, you are a registered hungry person now!'
-yourProfile: 'Your Profile'
+somethingIsWrong: 'Κάτι είναι λάθος, παρακαλώ αλλάξτε όπου χρειάζεται!'
+allWorkedFine: 'Όλα δούλεψαν μία χαρά, είστε ένας εγγεγραμένος πεινασμένος πλέον!'
+yourProfile: 'Το προφίλ σας'
 #
 #app/views/registration/success-customer.html
-youAreSignedUpUser: 'Yay! You're signed up. Sign in and be hungry!'
+youAreSignedUpUser: 'Ναιιι! Έχετε εγγραφεί. Συνδεθετείτε και πεινάστε!'
 #
 #app/views/registration/success-customer.html
-youAreSignedUpRestaurant: 'Yay! You're signed up. Sign in and set up your restaurant!'
-toMenu: 'To menu...'
+youAreSignedUpRestaurant: 'Ναιιι! Έχετε γραφεί. Συνδεθετείτε και ετοιμάστε το εστιατόριό σας!'
+toMenu: 'Στο μενού...'
 #
 #app/views/registration/success-customer.html
-successEdit: 'Yay! All is saved. Keep on using Patat!'
+successEdit: 'Ναιιι! Όλα έχουν σωθεί, συνεχίστε να χρησιμοποιείτε το Patat!'
 #
 #app/views/security/login.html
 ohNo: 'Ωχ όχι!'

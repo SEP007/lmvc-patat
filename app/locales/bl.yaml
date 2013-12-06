@@ -10,7 +10,7 @@ myFavorites: 'моите любими'
 menu: 'Меню'
 logout: 'Изход'
 registerHunger: 'Регистрирай глад'
-loginInPatat: 'Login'
+loginInPatat: 'логин'
 #
 #app/views/application/index.html
 weAreTryingToLocate: 'Опитваме се да открием местонахождението ви, моля изчакайте!'
@@ -18,7 +18,7 @@ youCanAlsoSpecifyYourAddress: 'Можете също да посочите ад�
 findMe: 'Намери ме'
 find: 'Намери'
 canNotLocateUser: 'Ние не може да ви намери, може да бъде по-конкретен!'
-noLocationGiven: 'Please specify an address, otherwise we can‘t locate you!'
+noLocationGiven: 'Моля, посочете един адрес, в противен случай ние не можем да ви локализира!'
 #
 #app/views/dishes/index.html
 votes: 'гласували'
@@ -28,24 +28,24 @@ ratingTwo: '2-Среден'
 ratingThree: '3-Добър'
 ratingFour: '4-Мн. добър'
 ratingFive: '5-Отличен'
-openTimes: 'Opening times'
-weekday: 'Monday - Friday'
-weekend: 'Saturday & Sunday'
+openTimes: 'Работно време'
+weekday: 'понеделник - петък'
+weekend: 'събота & неделя'
 #
 #app/views/dishes/map.html
 startWalking: 'Пеша: това е мястото, за където сте се запътили!'
 showMapIn: 'Покажи на картата в'
 orIn: 'или'
-walking: 'Walking'
-driving: 'Driving'
-chooseTravelMode: 'Choose a travel mode:'
+walking: 'ходене'
+driving: 'Шофиране'
+chooseTravelMode: 'Изберете режим на пътуване:'
 #
 #app/views/favorites/index.html
-places: 'Places'
-food: 'Foooooood'
+places: 'Населени места'
+food: 'храааааааана'
 #
 #app/views/favorites/index.html
-awayFromYou: 'away from you'
+awayFromYou: 'далеч от вас'
 #
 #app/views/imbiss/index.html
 currentOffers: 'Актуални оферти'
@@ -53,19 +53,19 @@ sorry: 'Съжаляваме,'
 weDontHaveOffers: 'нямаме оферти в момента!'
 moreSnacks: 'Още закуски'
 weDontHaveSnacks: 'не разполагаме с никакви закуски!'
-youCanReachThisPlaceIn: 'You can reach this place in '
-but: 'but'
-thisPlaceIsClosed: 'it is now closed'
-itClosesIn: 'it closes in'
-yourComment: 'Your comment ...'
-commentDisabled: 'Only logged in customers can leave comments.'
-navigateToLogin: 'To log-in ...'
-noComments: 'No comments'
-toggleComments: 'Toggle comments'
-commentCreatedAt: 'Created at'
-commentCreatedBy: 'by'
-charactersLeft: 'characters left'
-addComment: 'Add comment!'
+youCanReachThisPlaceIn: 'Можете да стигнете до това място в '
+but: 'но'
+thisPlaceIsClosed: 'сега той е затворен'
+itClosesIn: 'тя се затваря в'
+yourComment: 'Вашият коментар ...'
+commentDisabled: 'Само от регистрирани потребители могат да оставят коментари.'
+navigateToLogin: 'За да влезете в ...'
+noComments: 'Няма коментари'
+toggleComments: 'Превключване на коментари'
+commentCreatedAt: 'Създадено по'
+commentCreatedBy: 'от'
+charactersLeft: 'оставащи символи'
+addComment: 'Добави коментар!'
 #
 #app/views/menu/edit.html
 uploadImage: 'Прикачи изображение!'
@@ -93,9 +93,9 @@ sorryRegistrationFailed: 'Съжаляваме, регистрацията ил�
 resolveProblems: 'Съжаляваме, но регистрацията или редакция на профила ви не може да бъде завършена поради технически проблеми. Моля опитайте отново.'
 #
 #app/views/registration/finish.html
-emailChecksOut: 'Hooray, your email checks out! Sign in and get loose!'
-toDishes: 'To dishes...'
-toSingIn: 'To sign in...'
+emailChecksOut: 'Hooray, yнашия имейл проверките! Влезте в профила си и да получите в насипно състояние!'
+toDishes: 'За ястия...'
+toSingIn: 'За да влезете в...'
 #
 #app/views/registration/signup-restaurant.html
 youAreMissingMandatoryData: 'Липсват данни в задължителни полета, моля добавете, където е необходимо!'
@@ -122,10 +122,10 @@ register: 'Регистрирай'
 cancel: 'Отказ'
 edit: 'Редактирай'
 reset: 'Изчисти'
-weekDayOpeningTime: 'Weekday opening time'
-weekDayClosingTime: 'Weekday closing time'
-weekendOpeningTime: 'Weekend opening time'
-weekendClosingTime: 'Weekend closing time'
+weekDayOpeningTime: 'Избор на ден време на отваряне'
+weekDayClosingTime: 'Избор на ден края на работното време'
+weekendOpeningTime: 'Уикенд време отваряне'
+weekendClosingTime: 'Уикенд края на работното време'
 #
 #app/views/registration/success.html
 chipFat: 'Всичко е яко като мазен чипс!'
@@ -137,19 +137,19 @@ needToSingIn: 'Опа! Трябва да влезете в профила си, 
 restricedPage: 'Тази страница може да се достъпва само от регистрирани потребители, моля влезте в профила си или се регистрирайте сега.'
 #
 #app/views/registration/signup-customer.html
-somethingIsWrong: 'Something is wrong, please edit where needed!'
-allWorkedFine: 'All worked find, you are a registered hungry person now!'
-yourProfile: 'Your Profile'
+somethingIsWrong: 'Нещо не е наред, моля, редактирайте, където е необходимо!'
+allWorkedFine: 'Всички работеха находка, сте регистриран гладен човек сега!'
+yourProfile: 'Вашият профил'
 #
 #app/views/registration/success-customer.html
-youAreSignedUpUser: 'Yay! You're signed up. Sign in and be hungry!'
+youAreSignedUpUser: 'Yay! Вие сте се регистрирали. Влезте в профила си и да си гладен!'
 #
 #app/views/registration/success-restaurant.html
-youAreSignedUpRestaurant: 'Yay! You're signed up. Sign in and set up your restaurant!'
-toMenu: 'To menu...'
+youAreSignedUpRestaurant: 'Yay! Вие сте се регистрирали. Влезте в профила си и да създаде своя ресторант!'
+toMenu: 'За меню...'
 #
 #app/views/registration/success-customer.html
-successEdit: 'Yay! All is saved. Keep on using Patat!'
+successEdit: 'Yay! Всичко се записва. Продължавай с помощта Patat!'
 #
 #app/views/security/login.html
 ohNo: 'O не!'
